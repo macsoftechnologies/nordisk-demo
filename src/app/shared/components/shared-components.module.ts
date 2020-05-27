@@ -35,6 +35,7 @@ import { EgretSidebarComponent, EgretSidebarTogglerDirective } from './egret-sid
 import { BottomSheetShareComponent } from './bottom-sheet-share/bottom-sheet-share.component';
 import { EgretExampleViewerComponent } from './example-viewer/example-viewer.component';
 import { EgretExampleViewerTemplateComponent } from './example-viewer-template/example-viewer-template.component';
+import { UserLayoutComponent } from './layouts/user-layout/user-layout.component';
 
 
 const components = [
@@ -45,6 +46,7 @@ const components = [
   SidebarSideComponent,
   HeaderSideComponent,
   AdminLayoutComponent,
+  UserLayoutComponent,
   AuthLayoutComponent,
   BreadcrumbComponent,
   AppComfirmComponent,

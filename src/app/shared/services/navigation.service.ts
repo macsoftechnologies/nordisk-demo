@@ -1,3 +1,68 @@
+// import { Injectable } from "@angular/core";
+// import { BehaviorSubject } from "rxjs";
+
+// interface IMenuItem {
+//   type: string; // Possible values: link/dropDown/icon/separator/extLink
+//   name?: string; // Used as display text for item and title for separator type
+//   state?: string; // Router state
+//   icon?: string; // Material icon name
+//   tooltip?: string; // Tooltip text
+//   disabled?: boolean; // If true, item will not be appeared in sidenav.
+//   sub?: IChildItem[]; // Dropdown items
+//   badges?: IBadge[];
+// }
+// interface IChildItem {
+//   type?: string;
+//   name: string; // Display text
+//   state?: string; // Router state
+//   icon?: string;
+//   sub?: IChildItem[];
+// }
+
+// interface IBadge {
+//   color: string; // primary/accent/warn/hex color codes(#fff000)
+//   value: string; // Display text
+// }
+
+// @Injectable()
+// export class NavigationService {
+//   constructor() {}
+  
+
+//   plainMenu: IMenuItem[] = [
+//     {
+//       name: "OTHERS",
+//       type: "link",
+//       tooltip: "Others",
+//       icon: "blur_on",
+//       state: "others/blank",
+//     },
+//     {
+//       name: "DOC",
+//       type: "extLink",
+//       tooltip: "Documentation",
+//       icon: "library_books",
+//       state: "http://demos.ui-lib.com/egret-doc/"
+//     }
+//   ];
+
+//   // Icon menu TITLE at the very top of navigation.
+//   // This title will appear if any icon type item is present in menu.
+//   iconTypeMenuTitle: string = "Frequently Accessed";
+//   // sets iconMenu as default;
+//   menuItems = new BehaviorSubject<IMenuItem[]>(this.plainMenu);
+//   // navigation component has subscribed to this Observable
+//   menuItems$ = this.menuItems.asObservable();
+
+  
+//   // you can customize this method to supply different menu for
+//   // different user type.
+//   publishNavigationChange(menuType: string) {
+//     this.menuItems.next(this.plainMenu);
+//   }
+// }
+
+
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
@@ -27,37 +92,96 @@ interface IBadge {
 @Injectable()
 export class NavigationService {
   constructor() {}
-  
-
-  plainMenu: IMenuItem[] = [
+  iconMenu: IMenuItem[] = [
+    // {
+    //   name: "HOME",
+    //   type: "icon",
+    //   tooltip: "Home",
+    //   icon: "home",
+    //   state: "home"
+    // },
+    // {
+    //   name: "PROFILE",
+    //   type: "icon",
+    //   tooltip: "Profile",
+    //   icon: "person",
+    //   state: "profile/overview"
+    // },
+    // {
+    //   name: "TOUR",
+    //   type: "icon",
+    //   tooltip: "Tour",
+    //   icon: "flight_takeoff",
+    //   state: "tour"
+    // },
+    // {
+    //   type: "separator",
+    //   name: "Main Items"
+    // },
     {
-      name: "OTHERS",
+      name: "DASHBOARD",
       type: "link",
-      tooltip: "Others",
-      icon: "blur_on",
-      state: "others/blank",
+      tooltip: "Dashboard",
+      icon: "dashboard", 
+      state: "user/dashboard",
+      // sub: [
+      //   { name: "Default", state: "default" },
+      //   { name: "Analytics", state: "analytics" },
+      //   { name: "Cryptocurrency", state: "crypto" },
+      //   { name: "Dark Cards", state: "dark" }
+      // ]
     },
     {
-      name: "DOC",
-      type: "extLink",
-      tooltip: "Documentation",
-      icon: "library_books",
-      state: "http://demos.ui-lib.com/egret-doc/"
-    }
+      name: "Request",
+      type: "dropDown",
+      tooltip: "Request",
+      icon: "person", 
+      state: "",
+      sub: [
+        { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
+        { name: "List Request", state: "user/list-request", icon: "fa fa-list-ol" }
+      ]
+    },
+    {
+      name: "Plans",
+      type: "link",
+      tooltip: "Plans",
+      icon: "assessment", 
+      state: "user/plans"
+    },
+    {
+      name: "Notifications",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "add-alert", 
+      state: "user/notifications"
+    },
   ];
+
 
   // Icon menu TITLE at the very top of navigation.
   // This title will appear if any icon type item is present in menu.
   iconTypeMenuTitle: string = "Frequently Accessed";
   // sets iconMenu as default;
-  menuItems = new BehaviorSubject<IMenuItem[]>(this.plainMenu);
+  menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
   // navigation component has subscribed to this Observable
   menuItems$ = this.menuItems.asObservable();
 
-  
-  // you can customize this method to supply different menu for
+  // Customizer component uses this method to change menu.
+  // You can remove this method and customizer component.
+  // Or you can customize this method to supply different menu for
   // different user type.
   publishNavigationChange(menuType: string) {
-    this.menuItems.next(this.plainMenu);
+    switch (menuType) {
+      case "separator-menu":
+       // this.menuItems.next(this.separatorMenu);
+        break;
+      case "icon-menu":
+        this.menuItems.next(this.iconMenu);
+        break;
+      default:
+       // this.menuItems.next(this.plainMenu);
+    }
   }
 }
+

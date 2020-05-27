@@ -1,0 +1,22 @@
+.content-sty
+{
+    border: 1px solid #6a709d;
+    /* background-color: #293064; */
+    /* color: white; */
+    font-size: 16px;
+    font-weight: 400;
+    /* background-color: #6a709d; */
+    background-color: #acb3ce;
+}
+.mat-grid-list
+{
+    margin-bottom: 10px;
+}
+.label-key-sty
+{
+    font-weight: 700;
+}
+.card-content
+{
+    margin-top: 10px;
+}

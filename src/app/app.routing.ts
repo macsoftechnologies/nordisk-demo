@@ -2,14 +2,16 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './shared/components/layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './shared/components/layouts/auth-layout/auth-layout.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { AppUsersComponent } from './views/others/app-users/app-users.component';
+import { UserLayoutComponent } from './shared/components/layouts/user-layout/user-layout.component';
 
 export const rootRouterConfig: Routes = [
   { 
     path: '', 
-    redirectTo: 'others/blank', 
+    redirectTo: 'user/dashboard', 
     pathMatch: 'full' 
   },
-  {
+    {
     path: '', 
     component: AuthLayoutComponent,
     children: [
@@ -20,6 +22,28 @@ export const rootRouterConfig: Routes = [
       }
     ]
   },
+  {
+    path:'',
+    component:UserLayoutComponent,
+    canActivate: [AuthGuard],
+    children:[
+      {
+        path:'user',
+        loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule), 
+      }
+    ]
+      },
+  // {
+  //   path: '', 
+  //   component: AuthLayoutComponent,
+  //   children: [
+  //     { 
+  //       path: 'sessions', 
+  //       loadChildren: () => import('./views/sessions/sessions.module').then(m => m.SessionsModule),
+  //       data: { title: 'Session'} 
+  //     }
+  //   ]
+  // },
   {
     path: '', 
     component: AdminLayoutComponent,
@@ -36,9 +60,10 @@ export const rootRouterConfig: Routes = [
       }
     ]
   },
-  { 
-    path: '**', 
-    redirectTo: 'sessions/404'
-  }
+
+  // { 
+  //   path: '**', 
+  //   redirectTo: 'sessions/404'
+  // }
 ];
 
