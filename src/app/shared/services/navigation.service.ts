@@ -153,7 +153,7 @@ export class NavigationService {
       name: "Notifications",
       type: "link",
       tooltip: "Notifications",
-      icon: "add-alert", 
+      icon: "alert", 
       state: "user/notifications"
     },
   ];

@@ -2,13 +2,16 @@
     <mat-card-header>
         <mat-card-title>
             <img src="assets/images/logo-beam.png" alt="" class="app-logo">
-            <h1 matDialogTitle>WORK PERMIT N: S 09876 2020 </h1>
+           
         </mat-card-title>
+        <div style="text-align: center;">
+            <h1 matDialogTitle>WORK PERMIT N: S 09876 2020 </h1>
+        </div>
     </mat-card-header>
     <mat-divider></mat-divider>
 
     <mat-card-content class="card-content">
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Company Name :</label> 
             </mat-grid-tile>
@@ -16,13 +19,13 @@
                 <label>{{this.Requestdata.Companyname}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Sub Contractor Name</label>
+                <label>Sub Contractor Name :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.SubContractorname}}</label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Foreman :</label> 
             </mat-grid-tile>
@@ -30,36 +33,36 @@
                 <label>{{this.Requestdata.Foreman}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Foreman Phone</label>
+                <label>Foreman Phone :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.ForemanPhone}}</label>
             </mat-grid-tile>
         </mat-grid-list>
        
-        <mat-grid-list cols="2" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Request Date :</label> 
             </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
+            <mat-grid-tile colspan='3' class="content-sty">
                 <label>{{this.Requestdata.Requestdate}}</label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
-                <label>Start Datetime</label>
+                <label>Start Datetime :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.Startdate | date}} {{this.Requestdata.StartTime }}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>End Datetime</label>
+                <label>End Datetime :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.Enddate | date}} {{this.Requestdata.EndTime}}</label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="6" rowHeight="60px">
+        <mat-grid-list cols="6" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Activity :</label> 
             </mat-grid-tile>
@@ -67,19 +70,19 @@
                 <label>{{this.Requestdata.Activity}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Type of Activity</label>
+                <label>Type of Activity :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.TypeofActivity}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Team</label>
+                <label>Team :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.Team}}</label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="6" rowHeight="60px">
+        <mat-grid-list cols="6" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Location :</label> 
             </mat-grid-tile>
@@ -87,20 +90,20 @@
                 <label>{{this.Requestdata.Location}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Site</label>
+                <label>Site :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.Site}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Building</label>
+                <label>Building :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.Building}} </label>
             </mat-grid-tile>
         </mat-grid-list>
 
-        <mat-grid-list cols="6" rowHeight="60px">
+        <mat-grid-list cols="6" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Floor :</label> 
             </mat-grid-tile>
@@ -108,19 +111,19 @@
                 <label>{{this.Requestdata.FloorName}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Room No</label>
+                <label>Room No :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.RoomNo}}</label>
             </mat-grid-tile>
-            <mat-grid-tile>
-                <label>Room Type</label>
+            <mat-grid-tile class="label-key-sty">
+                <label>Room Type :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.RoomType}} </label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Crane Requested :</label> 
             </mat-grid-tile>
@@ -128,14 +131,14 @@
                 <label>{{this.Requestdata.CMT}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Crane Number</label>
+                <label>Crane Number :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.CmtValue}}</label>
             </mat-grid-tile>
             
         </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Hotwork Requested :</label> 
             </mat-grid-tile>
@@ -143,13 +146,13 @@
                 <label>{{this.Requestdata.Hotwork}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Certified Person</label>
+                <label>Certified Person :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.CertifiedPerson}}</label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Loto Procedure :</label> 
             </mat-grid-tile>
@@ -157,72 +160,72 @@
                 <label>{{this.Requestdata.LOTOPROCEDURE}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label >LOTO Number</label>
+                <label >LOTO Number :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.LOTONumber}}</label>
             </mat-grid-tile>
         </mat-grid-list>
 
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
-                <label>Applicant</label>
+                <label>Applicant :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.Applicant}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>Phone No</label>
+                <label>Phone No :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.PhoneNumber}}</label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
-                <label>Power Off</label>
+                <label>Power Off :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.Poweroff}}</label>
             </mat-grid-tile>
             <mat-grid-tile class="label-key-sty">
-                <label>No Persons Involved</label>
+                <label>No Persons Involved :</label>
             </mat-grid-tile>
             <mat-grid-tile class="content-sty">
                 <label>{{this.Requestdata.InvalidPersonnel}}</label>
             </mat-grid-tile>
         </mat-grid-list>
-        <mat-grid-list cols="2" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
-                <label>People Involved Count</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
+                <label>People Involved Count :</label>
+            </mat-grid-tile >
+            <mat-grid-tile colspan='3' class="content-sty">
                 <label>{{this.Requestdata.peopleinvalidcount}}</label>
             </mat-grid-tile>
         </mat-grid-list>
 
-        <mat-grid-list cols="2" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
                 <label>Tools :</label> 
             </mat-grid-tile> 
-            <mat-grid-tile class="content-sty">
+            <mat-grid-tile colspan='3' class="content-sty">
                 <label>{{this.Requestdata.Tools}}</label>
             </mat-grid-tile>         
         </mat-grid-list>
-        <mat-grid-list cols="2" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
-                <label>Machinery</label>
+                <label>Machinery :</label>
             </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
+            <mat-grid-tile colspan='3' class="content-sty">
                 <label>{{this.Requestdata.Machinery}}</label>
             </mat-grid-tile>
         </mat-grid-list>
         
-        <mat-grid-list cols="2" rowHeight="60px">
+        <mat-grid-list cols="4" rowHeight="40px">
             <mat-grid-tile class="label-key-sty">
-                <label>Note</label>
+                <label>Note :</label>
             </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
+            <mat-grid-tile colspan='3' class="content-sty">
                 <label>{{this.Requestdata.Note}}</label>
             </mat-grid-tile>
           
