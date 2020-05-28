@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TranslateModule } from '@ngx-translate/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent],
@@ -66,6 +67,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatSnackBarModule,
     MatSlideToggleModule,
     TranslateModule,
+    FlexLayoutModule,
     RouterModule.forChild(usersRoutes)
   ],
   
