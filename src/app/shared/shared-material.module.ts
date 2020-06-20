@@ -35,10 +35,22 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatSliderModule } from "@angular/material/slider";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
+import { ChartsModule } from "ng2-charts";
+import { NgxEchartsModule } from "ngx-echarts";
 
 
 @NgModule({
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
+    NgxDatatableModule,
+    NgxMaterialTimepickerModule,
+     ChartsModule,
+    NgxEchartsModule,
+
     MatCheckboxModule,
     MatButtonModule,
     MatInputModule,

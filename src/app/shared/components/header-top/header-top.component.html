@@ -102,7 +102,7 @@
         <img src="assets/images/face-7.jpg" alt="">
       </button>
       <mat-menu #accountMenu="matMenu">
-        <button mat-menu-item [routerLink]="['/profile/overview']">
+        <!-- <button mat-menu-item [routerLink]="['/profile/overview']">
           <mat-icon>account_box</mat-icon>
           <span>Profile</span>
         </button>
@@ -113,6 +113,10 @@
         <button mat-menu-item>
           <mat-icon>notifications_off</mat-icon>
           <span>Disable alerts</span>
+        </button> -->
+        <button mat-menu-item [routerLink]="['/admin/changepassword']">
+          <mat-icon>settings</mat-icon>
+          <span>Change Password</span>
         </button>
         <button mat-menu-item (click)="jwtAuth.signout()">
           <mat-icon>exit_to_app</mat-icon>

@@ -14,6 +14,7 @@ import { SharedComponentsModule } from './components/shared-components.module';
 import { SharedPipesModule } from './pipes/shared-pipes.module';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
 import { UserService } from './services/user.service';
+import { DepartmentService } from './services/department.service';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { UserService } from './services/user.service';
     UserRoleGuard,
     AppConfirmService,
     AppLoaderService,
-    UserService
+    UserService,
+    
   ],
   exports: [
     SharedComponentsModule,

@@ -10,6 +10,9 @@ export class UserService {
 
 
 RequestLists:any[]=[];
+Planslist:any[]=[];
+Departments:any[]=[];
+Employees:any[]=[];
 
   constructor(
     private router: Router,

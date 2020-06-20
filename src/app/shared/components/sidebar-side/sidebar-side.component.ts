@@ -16,7 +16,9 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
   private menuItemsSub: Subscription;
   public layoutConf: ILayoutConf;
 
+  user:any={};
   constructor(
+    
     private navService: NavigationService,
     public themeService: ThemeService,
     private layout: LayoutService,
@@ -24,9 +26,22 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit() {
+    this.user=this.jwtAuth.getUser();
     this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
     this.menuItemsSub = this.navService.menuItems$.subscribe(menuItem => {
-      this.menuItems = menuItem;
+      if(this.user["role"]=="Subcontractor")
+      {
+        this.menuItems = this.navService.UsericonMenu;
+      }
+      else  if(this.user["role"]=="Admin")
+      {
+        this.menuItems = this.navService.AdminiconMenu;
+      }
+      else  if(this.user["role"]=="Department")
+      {
+        this.menuItems = this.navService.OperatoriconMenu;
+      }
+      
       //Checks item list has any icon type.
       this.hasIconTypeMenuItem = !!this.menuItems.filter(
         item => item.type === "icon"

@@ -1,0 +1,48 @@
+<!-- <mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+
+    <mat-card-content class="p-0">
+      <div *ngIf='items.length>0'>
+        <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
+      </div>
+      <ngx-datatable id="content" #content class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'"
+        [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50">
+        <ngx-datatable-column name="Permit number " [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.Permitnumber }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Activity" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.Activity }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Sub-contractor" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.SubContractor }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Working Date" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.Startdate | date:'mediumDate' }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Time" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.StartTime }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Status" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <mat-chip mat-sm-chip [color]="'primary'">{{row?.Status}}</mat-chip>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Operations" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="Editrow(row)">Edit</button>
+            <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="openPopUp(row)">View</button>
+  
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </mat-card-content>
+  </mat-card> -->

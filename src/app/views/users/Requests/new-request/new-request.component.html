@@ -1,77 +1,148 @@
 <div [hidden]="isnewrequestcreated">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title>{{name}}</mat-card-title>
-      </mat-card-header>
-      <mat-divider></mat-divider>
-  
-      <mat-card-content class="card-content">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{name}}</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+
+    <mat-card-content class="card-content">
+      <div>
+        <!-- <div>
+          <mat-form-field class="matrequest">
+            <mat-label>Select Site</mat-label>
+            <mat-select (selectionChange)="Getselectedsiteitem($event.value)">
+              <mat-option *ngFor="let site of siteslist" [value]="site.site_id">
+                {{site.site_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div> -->
         <div>
-          <div>
+          <mat-label> Name: </mat-label>
+          <strong>{{selected_site_name}}</strong>  
+        </div>
+
+        <div [hidden]="nositemselect">
+          <mat-form-field class="matrequest">
+            <mat-label>Select Building</mat-label>
+            <mat-select (selectionChange)="GetselectedBuildingitem($event.value)">
+              <mat-option *ngFor="let building of buildings" [value]="building.build_id">
+                {{building.building_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div [hidden]="nobuildingmselect">
             <mat-form-field class="matrequest">
-              <mat-label>Select Site</mat-label>
-              <mat-select (selectionChange)="Getselectedsiteitem($event.value)">
-                <mat-option *ngFor="let site of siteslist" [value]="site.siteId">
-                  {{site.siteName}}
+              <mat-label>Select Floor</mat-label>
+              <mat-select (selectionChange)="Getselectedflooritem($event.value)">
+                <mat-option *ngFor="let floor of floors" [value]="floor.fl_id">
+                  {{floor.floor_status}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-          </div>
-  
-          <div [hidden]="nositemselect" *ngFor="let site of siteslist">
-            <mat-form-field class="matrequest" *ngIf="site.siteId==selectedsite">
-              <mat-label>Select Building</mat-label>
-              <mat-select (selectionChange)="GetselectedBuildingitem($event.value)">
-                <mat-option *ngFor="let building of site.buildings" [value]="building.bid">
-                  {{building.name}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </div>
-          <div [hidden]="nobuildingmselect" *ngFor="let site of siteslist">
-            <div *ngFor="let building of site.buildings">
-              <mat-form-field class="matrequest" *ngIf="building.bid===selectedbuilding">
-                <mat-label>Select Floor</mat-label>
-                <mat-select (selectionChange)="Getselectedflooritem($event.value)">
-                  <mat-option *ngFor="let floor of building.floors" [value]="floor.fid">
-                    {{floor.name}}
+        </div>
+        <div [hidden]="nofloorselected">
+              <mat-form-field class="matrequest">
+                <mat-label>Select Room</mat-label>
+                <mat-select (selectionChange)="Getselectedroomitem($event.value)">
+                  <mat-option *ngFor="let room of RoomsList" [value]="room.room_id">
+                    {{room.room_name}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-            </div>
-          </div>
-          <div [hidden]="nofloorselected" *ngFor="let site of siteslist">
-            <div *ngFor="let building of site.buildings">
-              <div *ngFor="let floor of building.floors">
-                <mat-form-field class="matrequest" *ngIf="floor.fid===selectedfloor">
-                  <mat-label>Select Room</mat-label>
-                  <mat-select (selectionChange)="Getselectedroomitem($event.value)">
-                    <mat-option *ngFor="let room of floor.rooms" [value]="room">
-                      {{room}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
-            </div>
-          </div>
-  
         </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  
-  <div [hidden]="!isnewrequestcreated">
-    <div class="fields">
-      <p>The fields "*" are required</p>
-  
-    </div>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title> </mat-card-title>
-      </mat-card-header>
-      <mat-card-content class="card-content">
-        <form [formGroup]="RequestForm" class="example-form">
-          <mat-grid-list cols="3" rowHeight="60px">
+
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div [hidden]="!isnewrequestcreated">
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title> </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+      <div *ngIf="editform" class="butns-grp-back">
+        <button class="" mat-raised-button color="primary" (click)="BacktoList()">Back</button>
+      </div>
+      <form [formGroup]="RequestForm" class="example-form">
+        <div class="firstdiv">
+          <mat-grid-list cols="2" rowHeight="60px">
+            <mat-grid-tile>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Request date</mat-label>
+                <input matInput readonly formControlName="Requestdate" placeholder="12/12/2020">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="80px">
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Company</mat-label>
+                <input matInput readonly formControlName="Companyname" placeholder="Company Name">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline" *ngIf="!issubcontr">
+                <mat-label>SubContractor</mat-label>
+                <mat-select formControlName="SubContractor" name="CMT" (selectionChange)="GetEmployees($event.value)">
+                  <mat-option *ngFor="let tech of SubContractors" [value]="tech.id">
+                    {{tech.subContractorName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="full-width" appearance="outline" *ngIf="issubcontr"> 
+                <mat-label>SubContractor</mat-label>
+                <input matInput readonly formControlName="SubContractorname" placeholder="SubContractor Name">
+
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Foreman</mat-label>
+                <input matInput formControlName="Foreman" placeholder="Foreman">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Foreman Phone</mat-label>
+                <input matInput formControlName="ForemanPhone" placeholder="Foreman Phone">
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Activity</mat-label>
+                <input matInput formControlName="Activity" placeholder="Activity">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Type of Activity</mat-label>
+                <mat-select formControlName="TypeActivity" name="TypeActivity">
+                  <mat-option *ngFor="let tech of TypeofActivites" [value]="tech.Actid">
+                    {{tech.Actname}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Team</mat-label>
+                <input matInput formControlName="Team" placeholder="Team">
+              </mat-form-field>
+            </mat-grid-tile> -->
+          </mat-grid-list>
+        </div>
+        <!-- <mat-grid-list cols="3" rowHeight="60px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
   
@@ -91,8 +162,8 @@
                 <input matInput formControlName="SubContractorname" placeholder="SubContractor Name">
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
-          <mat-divider></mat-divider>
+          </mat-grid-list> -->
+        <!-- <mat-divider></mat-divider>
           <mat-grid-list cols="3" rowHeight="60px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
@@ -108,8 +179,8 @@
             </mat-grid-tile>
             <mat-grid-tile>
             </mat-grid-tile>
-          </mat-grid-list>
-          <mat-grid-list cols="3" rowHeight="60px">
+          </mat-grid-list> -->
+        <!-- <mat-grid-list cols="3" rowHeight="60px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>Activity</mat-label>
@@ -128,8 +199,126 @@
                 <input matInput formControlName="Team" placeholder="Team">
               </mat-form-field>
             </mat-grid-tile>
+          </mat-grid-list> -->
+        <div class="secndfiv">
+          <mat-grid-list cols="3" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="datepikr full-width" appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput [min]="minDate" formControlName="Startdate" [max]="maxDate" [matDatepicker]="spicker">
+                <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
+                <mat-datepicker #spicker></mat-datepicker>
+              </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Start Time</mat-label>
+                <input matInput [ngxTimepicker]="startTime" [format]="24" placeholder="Start Time"
+                  formControlName="StartTime" />
+                <ngx-material-timepicker #startTime [minutesGap]="5"></ngx-material-timepicker>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>End Time</mat-label>
+                <input matInput [ngxTimepicker]="endTime" [format]="24" placeholder="End Time"
+                  formControlName="EndTime" />
+              </mat-form-field>
+              <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
+            </mat-grid-tile>
           </mat-grid-list>
-          <mat-grid-list cols="2" rowHeight="60px">
+          <mat-grid-list cols="3" rowHeight="80px" *ngIf="editform">
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Assign Start Time</mat-label>
+                <input matInput [ngxTimepicker]="AstartTime" [format]="24" placeholder="Start Time"
+                  formControlName="AssignStartTime" />
+                <ngx-material-timepicker #AstartTime [minutesGap]="5"></ngx-material-timepicker>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Assign End Time</mat-label>
+                <input matInput [ngxTimepicker]="AendTime" [format]="24" placeholder="End Time"
+                  formControlName="AssignEndTime" />
+              </mat-form-field>
+              <ngx-material-timepicker #AendTime [minutesGap]="5"></ngx-material-timepicker>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="3" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Site</mat-label>
+                <input matInput readonly formControlName="Site" placeholder="Site Name">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Building</mat-label>
+                <input matInput formControlName="Building" placeholder="Building Name">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Floor</mat-label>
+                <input matInput readonly formControlName="FloorName" placeholder="Floor Name">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <!-- <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Room </mat-label>
+                <input matInput readonly formControlName="RoomNo" placeholder="Room No">
+              </mat-form-field> -->
+              <mat-form-field class="full-width chipsbox-height" appearance="outline">
+                <mat-chip-list #rchipList aria-label="Room selection">
+                  <mat-chip *ngFor="let badg of Rooms" [selectable]="rselectable" [removable]="rmremovable"
+                    (removed)="removeroom(badg)">
+                    {{badg.room_name}}
+                    <mat-icon matChipRemove *ngIf="rmremovable">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="Rooms" #roomInput formControlName="Room"  [matAutocomplete]="roomauto"
+                    [matChipInputFor]="rchipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="addroom($event)">
+                </mat-chip-list>
+                <mat-autocomplete #roomauto="matAutocomplete" (optionSelected)="selectedroomno($event)">
+                  <mat-option *ngFor="let room of filteredRooms | async" [value]="room.room_id">
+                    {{room.room_name}}
+                  </mat-option>
+                 
+                </mat-autocomplete>
+              </mat-form-field>
+
+            </mat-grid-tile>
+         
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>ACCESS TO OTHER ROOMS</mat-label>
+                <mat-select [formControl]="AccesstoroomControl" name="CMT">
+                  <mat-option *ngFor="let tech of AccesstootherRooms" [value]="tech.accsval">
+                    {{tech.accsval}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile> -->
+
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width chipsbox-height" appearance="outline">
+                <mat-label>Room Type</mat-label>
+                <input matInput formControlName="RoomType" placeholder="Room Type">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+
+        <!-- <mat-grid-list cols="2" rowHeight="60px">
             <mat-grid-tile>
               <mat-form-field  class="datepikr full-width">
                 <mat-label>Start Date</mat-label>
@@ -159,16 +348,9 @@
               <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
   
             </mat-grid-tile>
-            <!-- <mat-grid-tile>
-          <mat-form-field>      
-              <input matInput [ngxTimepicker]="endTime" [format]="24"  placeholder="End Time" formControlName="EndTimeonly" />
-            </mat-form-field>
-            <ngx-material-timepicker #endTime [minutesGap]="1"></ngx-material-timepicker>
-          
-          </mat-grid-tile> -->
   
-          </mat-grid-list>
-          <mat-grid-list cols="3" rowHeight="70px">
+          </mat-grid-list> -->
+        <!-- <mat-grid-list cols="3" rowHeight="70px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>Location</mat-label>
@@ -192,9 +374,9 @@
                 <input matInput formControlName="Building" placeholder="Building Name">
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
-          
-          <!-- <mat-grid-list cols="3" rowHeight="70px">
+          </mat-grid-list> -->
+
+        <!-- <mat-grid-list cols="3" rowHeight="70px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>Feeding Point</mat-label>
@@ -218,7 +400,7 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list> -->
-          <mat-grid-list cols="3" rowHeight="70px">
+        <!-- <mat-grid-list cols="3" rowHeight="70px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>Floor</mat-label>
@@ -237,9 +419,9 @@
                 <input matInput formControlName="RoomType" placeholder="Room Type">
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
-          <!-- <mat-grid-list cols="4" rowHeight="70px"> -->
-            <!-- <mat-grid-tile>
+          </mat-grid-list> -->
+        <!-- <mat-grid-list cols="4" rowHeight="70px"> -->
+        <!-- <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Track</mat-label>
                 <mat-select [formControl]="TrackControl" name="Track">
@@ -250,7 +432,7 @@
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile> -->
-            <!-- <mat-grid-tile>
+        <!-- <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Walkway </mat-label>
                 <mat-select [formControl]="WalkwayControl" name="Walkway">
@@ -261,7 +443,7 @@
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile> -->
-            <!-- <mat-grid-tile>
+        <!-- <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Platform</mat-label>
                 <mat-select [formControl]="PlatformControl" name="Platform">
@@ -272,7 +454,7 @@
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile> -->
-            <!-- <mat-grid-tile>
+        <!-- <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Track blocked</mat-label>
                 <mat-select [formControl]="TrackblockedControl" name="Trackblocked">
@@ -283,8 +465,8 @@
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile> -->
-          <!-- </mat-grid-list> -->
-          <!-- <mat-grid-list cols="4" rowHeight="70px">
+        <!-- </mat-grid-list> -->
+        <!-- <mat-grid-list cols="4" rowHeight="70px">
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Motorbogie - Number</mat-label>
@@ -316,8 +498,116 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list> -->
-          <mat-grid-list cols="2" rowHeight="70px">
-            <!-- <mat-grid-tile>
+
+        <div class="thirddiv">
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Crane Requested</mat-label>
+                <mat-select (selectionChange)="Getselectedcmtitem($event.value)" formControlName="CMTdata" name="CMT">
+                  <mat-option *ngFor="let tech of CMTs" [value]="tech.id">
+                    {{tech.CMTval}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="cmsnum full-width" [hidden]='!iscmsyes'>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Crane Number</mat-label>
+                  <input matInput formControlName="CmtValue" placeholder="">
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Tools</mat-label>
+                <textarea class="textarea" matInput formControlName="Tools" placeholder="Tools...."></textarea>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Machinery</mat-label>
+                <textarea class="textarea" matInput formControlName="Machinery" placeholder="machinery...."></textarea>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Hotwork</mat-label>
+                <mat-select (selectionChange)="GetselectedHOTWORKitem($event.value)" formControlName="HOTWORK"
+                  name="HOTWORK">
+                  <mat-option *ngFor="let tech of HOTWORKs" [value]="tech.id">
+                    {{tech.HOTWORKval}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="cmsnum full-width" [hidden]='!ishotworkyes'>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Certified Person</mat-label>
+                  <input matInput formControlName="CertifiedPerson" placeholder="">
+                </mat-form-field>
+              </div>
+
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Loto Procedure</mat-label>
+                <mat-select (selectionChange)="GetselectedLOTOPROCEDUREitem($event.value)"
+                formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{tech.LOTOPROCEDUREval}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="cmsnum full-width" [hidden]='!isLOTOPROCEDUREyes'>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>LOTO Number</mat-label>
+                  <input matInput formControlName="LOTONumber" placeholder="LOTO Number">
+                </mat-form-field>
+              </div>
+
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Power off</mat-label>
+                <mat-select formControlName="Poweroff" name="Poweroff">
+                  <mat-option *ngFor="let tech of Poweroffs" [value]="tech.Poweroffid">
+                    {{tech.Poweroffname}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline" *ngIf="seditform">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="Status" name="Status">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let loc of Status" [value]="loc.Statusid">
+                    {{loc.Statusname}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <!-- <mat-grid-list cols="2" rowHeight="70px"> -->
+        <!-- <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Vehicles testing in the test area with third rail power on</mat-label>
                 <mat-select [formControl]="VehiclestestingControl" name="Vehiclestesting">
@@ -343,7 +633,7 @@
                 <input matInput formControlName="Alarm" placeholder="">
               </mat-form-field>
             </mat-grid-tile> -->
-            <mat-grid-tile>
+        <!-- <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>Crane Requested</mat-label>
                 <mat-select (selectionChange)="Getselectedcmtitem($event.value)" [formControl]="CMTControl" name="CMT">
@@ -362,33 +652,33 @@
               </div>
              
             </mat-grid-tile>
-          </mat-grid-list>
-  
-          <mat-grid-list cols="1" rowHeight="100px">
-            <!-- <label class="mdc-text-field mdc-text-field--textarea mdc-text-field--no-label">Tools
+          </mat-grid-list> -->
+
+        <!-- <mat-grid-list cols="1" rowHeight="100px"> -->
+        <!-- <label class="mdc-text-field mdc-text-field--textarea mdc-text-field--no-label">Tools
               <textarea class="mdc-text-field__input outlineTextarea" rows="5" cols="40" aria-label="Label" placeholder="Tools"></textarea>
               <span class="mdc-notched-outline">
                 <span class="mdc-notched-outline__leading"></span>
                 <span class="mdc-notched-outline__trailing"></span>
               </span>
             </label> -->
-            <mat-grid-tile> 
+        <!-- <mat-grid-tile> 
                <mat-form-field class="full-width" appearance="outline"> 
                 <mat-label>Tools</mat-label>
                 <textarea class="textarea" matInput formControlName="Tools" placeholder="Tools...."></textarea>
                </mat-form-field>
              </mat-grid-tile>
   
-          </mat-grid-list>
-          <mat-grid-list cols="1" rowHeight="100px">
-            <!-- <label class="mdc-text-field mdc-text-field--textarea mdc-text-field--no-label">Machinery
+          </mat-grid-list> -->
+        <!-- <mat-grid-list cols="1" rowHeight="100px"> -->
+        <!-- <label class="mdc-text-field mdc-text-field--textarea mdc-text-field--no-label">Machinery
               <textarea class="mdc-text-field__input outlineTextarea" rows="5" cols="40" aria-label="Label" placeholder="Machinery"></textarea>
               <span class="mdc-notched-outline">
                 <span class="mdc-notched-outline__leading"></span>
                 <span class="mdc-notched-outline__trailing"></span>
               </span>
             </label> -->
-             <mat-grid-tile>
+        <!-- <mat-grid-tile>
                  
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Machinery</mat-label>
@@ -396,8 +686,8 @@
               </mat-form-field>
             </mat-grid-tile> 
   
-          </mat-grid-list>
-          <mat-grid-list cols="2" rowHeight="70px">
+          </mat-grid-list> -->
+        <!-- <mat-grid-list cols="2" rowHeight="70px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>HOTWORK</mat-label>
@@ -454,10 +744,144 @@
             <mat-grid-tile>
   
             </mat-grid-tile>
+          </mat-grid-list> -->
+        <div class="fourthdiv">
+          <!-- <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Applicant</mat-label>
+                <mat-select [formControl]="ApplicantControl" name="Applicant">
+                  <mat-option *ngFor="let tech of Applicants" [value]="tech.Applicantid">
+                    {{tech.Applicantname}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Phone No</mat-label>
+                <input type="number" formControlName="PhoneNumber" matInput placeholder="555-555-1234">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list> -->
+          <!-- <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>ARE ALL THE REQUIRED
+                  DOCUMENTS SUBMITTED:</mat-label>
+                <mat-select [formControl]="RequiredDocumentControl" name="RequiredDocument">
+                  <mat-option *ngFor="let tech of RequiredDocuments" [value]="tech.Reqdocval">
+                    {{tech.Reqdocval}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>DEPARTMENT CONFIRMATION</mat-label>
+                <mat-select [formControl]="departconfControl" name="depart">
+                  <mat-option *ngFor="let tech of Departmentconfirmations" [value]="tech.Departmentval">
+                    {{tech.Departmentval}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list> -->
+          <mat-grid-list cols="1" rowHeight="100px" *ngIf="editform">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Special Instructions</mat-label>
+                <textarea class="textarea" matInput formControlName="SpecialInstruction" placeholder=""></textarea>
+              </mat-form-field>
+            </mat-grid-tile>
           </mat-grid-list>
-          <mat-divider></mat-divider>
-  
-          <mat-grid-list cols="2" rowHeight="60px">
+          <mat-grid-list cols="1" rowHeight="100px" *ngIf="editform">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Safety Precautions </mat-label>
+                <textarea class="textarea" matInput formControlName="Safetyprecaustion" placeholder=""></textarea>
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Number of workers involved</mat-label>
+                <input matInput formControlName="peopleinvalidcount" placeholder="">
+              </mat-form-field>
+            </mat-grid-tile>
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Keys Needed</mat-label>
+                <mat-select [formControl]="KeysneedControl" name="Applicant">
+                  <mat-option *ngFor="let tech of Keysneeds" [value]="tech.keysval">
+                    {{tech.keysval}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile> -->
+
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <!-- <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Badge No.s Of Workers</mat-label>
+      <input type="text" matInput [formControl]="BADGENUMBERControl" [matAutocomplete]="auto">
+      <mat-select [formControl]="BADGENUMBERControl" multiple>
+        <mat-option *ngFor="let badg of BADGENUMBERS" [value]="badg.badgeno">{{badg.badgeno}}</mat-option>
+      </mat-select>
+    </mat-form-field> -->
+
+              <mat-form-field class="full-width" appearance="outline">
+                <!-- <mat-chip-list #chipList aria-label="Fruit selection">
+                  <mat-chip *ngFor="let badg of Badges" [selectable]="selectable" [removable]="removable"
+                    (removed)="remove(badg)">
+                    {{badg}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="Badge No.s Of Workers" #badgeInput [formControl]="BADGENUMBERControl"
+                    [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                  <mat-option *ngFor="let badge of filteredBadges | async" [value]="badge.badgeno">
+                    {{badge.badgeno}}
+                  </mat-option>
+                </mat-autocomplete> -->
+
+                <mat-chip-list #chipList aria-label="Badg selection">
+                  <mat-chip *ngFor="let badg of Badges" [selectable]="selectable" [removable]="removable"
+                    (removed)="remove(badg)">
+                    {{badg.badgeId}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="Badge No.s Of Workers" #badgeInput formControlName="BADGENUMBER"
+                    [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                  <mat-option *ngFor="let badge of filteredBadges | async" [value]="badge.badgeId">
+                    {{badge.badgeId}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Note</mat-label>
+                <textarea class="textarea" matInput formControlName="Note" placeholder="Notes...."></textarea>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+        </div>
+        <!-- <mat-divider></mat-divider> -->
+
+        <!-- <mat-grid-list cols="2" rowHeight="60px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>Applicant</mat-label>
@@ -476,25 +900,25 @@
                 <mat-icon matSuffix>mode_edit</mat-icon>
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
-  
-          <mat-grid-list cols="2" rowHeight="60px">
+          </mat-grid-list> -->
+
+        <!-- <mat-grid-list cols="2" rowHeight="60px">
             <mat-grid-tile>
               <mat-form-field class="full-width">
                 <mat-label>No of peoples are involved</mat-label>
                 <input matInput formControlName="peopleinvalidcount" placeholder="">
               </mat-form-field>
             </mat-grid-tile>
-            <mat-grid-tile>
-              <!-- <mat-form-field class="full-width">
+            <mat-grid-tile> -->
+        <!-- <mat-form-field class="full-width">
                 <mat-label>Invalid Personnel</mat-label>
                 <input matInput formControlName="InvalidPersonnel" placeholder="">
               </mat-form-field> -->
-            </mat-grid-tile>
+        <!-- </mat-grid-tile>
           
-          </mat-grid-list>
-  
-          <!-- <mat-grid-list cols="2" rowHeight="60px">
+          </mat-grid-list> -->
+
+        <!-- <mat-grid-list cols="2" rowHeight="60px">
             <mat-grid-tile>
              
             </mat-grid-tile>
@@ -516,8 +940,8 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list> -->
-  
-          <mat-grid-list cols="1" rowHeight="100px">
+
+        <!-- <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Note</mat-label>
@@ -525,14 +949,37 @@
               </mat-form-field>
             </mat-grid-tile>
   
-          </mat-grid-list>
-        </form>
-  
-      </mat-card-content>
-    </mat-card>
-  <div class="butns">
-    <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft()" >Save as Draft</button>
-    <button class="butns-grp" mat-raised-button color="primary">Save & Hold</button>
-    
+          </mat-grid-list> -->
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+  <div class="butns" [hidden]="editform">
+    <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">Save</button>
+    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUp()">Change to Hold</button>
   </div>
+</div>
+
+<div [hidden]="isnewrequestcreated" class="img-div-sty">
+  <div>
+    <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
+    <pdf-viewer src='../assets/images/complete-plan/SitePlan_withBuldings_new_1.pdf' [render-text]="true" style="display: block;"></pdf-viewer>
   </div>
+</div>
+
+<div class="butns" [hidden]="!editform">
+  <button class="butns-grp" mat-raised-button color="primary" (click)="UpdateRequest()">Update</button>
+</div>
+
+
+<script>
+  function testfunc() {
+    alert("Hello! I am an alert box!!");
+  }
+  </script>
+
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>
+
+

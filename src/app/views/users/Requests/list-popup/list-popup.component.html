@@ -1,3 +1,4 @@
+<!-- <div id="content" #content>
 <mat-card class="example-card">
     <mat-card-header>
         <mat-card-title>
@@ -8,7 +9,8 @@
             <h1 matDialogTitle>WORK PERMIT N: S 09876 2020 </h1>
         </div>
     </mat-card-header>
-    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>            
+
 
     <mat-card-content class="card-content">
         <mat-grid-list cols="4" rowHeight="40px">
@@ -232,4 +234,466 @@
         </mat-grid-list>
 
     </mat-card-content>
-</mat-card>
+</mat-card> 
+</div> -->
+<!-- <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">   -->
+
+<!-- <div class="container" id="content" #content>  
+       <br/><br/>  
+    <div class="container-firstdiv">  
+        <table class="table table-dark"> 
+            <tr>
+                <td></td> <td class="header">WORK PERMIT No.: S 11671 2018</td ><td colspan="2"></td>
+            </tr>
+            <tr class="tr-content">
+                <td class="tr-content-sty">COMPANY NAME :</td> <td >{{this.Requestdata.Companyname}}</td><td class="tr-content-sty">SUB CONTRACTOR:</td><td>{{this.Requestdata.SubContractorname}}</td>
+            </tr>
+            <tr class="tr-content">
+                <td class="tr-content-sty">DATE OF REQUEST :</td> <td >{{this.Requestdata.Requestdate}}</td><td class="tr-content-sty">FOREMAN and PHONE Nr:</td><td>{{this.Requestdata.Foreman}} {{this.Requestdata.ForemanPhone}}</td>
+            </tr>
+            <tr class="tr-content">
+                <td class="tr-content-sty">DATE OF WORK :</td> <td >{{this.Requestdata.Startdate}}</td><td class="tr-content-sty">TIME OF WORK:</td><td>
+                    <table class="innertable">
+                        <tr><td>FROM</td><td>TO</td></tr>
+                        <tr><td></td><td></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="tr-content">
+                <td class="tr-content-sty">ACTIVITY DETAILS:</td> <td colspan="3" >{{this.Requestdata.Activity}}</td>
+            </tr>
+            <tr class="tr-content">
+                <td class="tr-content-sty">TYPE OF ACTIVITY:</td> <td >{{this.Requestdata.TypeofActivity}}</td><td class="tr-content-sty">TEAM:</td><td>{{this.Requestdata.Team}} </td>
+            </tr>
+        </table>  
+    </div>  
+    <div class="container-firstdiv">  
+        <table class="table table-dark"> 
+   
+            <tr class="tr-content">
+                <td class="tr-content-sty">LOCATION OF WORK:</td> <td >{{this.Requestdata.Site}}</td><td class="tr-content-sty">ROOM:</td><td>{{this.Requestdata.RoomNo}}</td>
+            </tr>
+            <tr class="tr-content">
+                <td class="tr-content-sty">ROOM TYPE::</td> <td colspan="3" >{{this.Requestdata.RoomType}}</td>
+            </tr>
+           
+            <tr class="tr-content">
+                <td class="tr-content-sty">NUMBER OF WORKERS:</td> <td >{{this.Requestdata.TypeofActivity}}</td><td class="tr-content-sty">TEAM:</td><td>{{this.Requestdata.Team}} </td>
+            </tr>
+        </table>  
+    </div>  
+</div>   -->
+
+<!-- <div id="content" #content>  
+    <mat-card>  
+      <div class="alert alert-info">  
+          <strong>WORK PERMIT N: S 09876 2020</strong>  
+      </div>  
+      <div>  
+        <input type="button" value="CPTURE" (click)="SavePDF()"/>  
+      </div>  
+    </mat-card> 
+    <div >  
+        <mat-card>  
+
+          <table id="contentToConvert">  
+
+            <tr class="tr-content">
+                <td class="tr-content-sty">Company Name :</td> <td >{{this.Requestdata.Companyname}}</td><td class="tr-content-sty">SUB CONTRACTOR:</td><td>{{this.Requestdata.SubContractorname}}</td>
+            </tr> 
+              <tr>  
+                <td>Row 1</td>  
+                <td>Row 1</td>  
+                <td colspan="2">Row 1</td>  
+              </tr>  
+              <tr>  
+                <td>Row 2</td>  
+                <td>Row 2</td>  
+                <td>Row 2</td>  
+              </tr>  
+              <tr>  
+                <td>Row 3</td>  
+                <td>Row 3</td>  
+                <td>Row 3</td>  
+              </tr>  
+              <tr>  
+                <td>Row 4</td>  
+                <td>Row 4</td>  
+                <td>Row 4</td>  
+              </tr>  
+              <tr>  
+                <td>Row 5</td>  
+                <td>Row 5</td>  
+                <td>Row 5</td>  
+              </tr>  
+              <tr>  
+                <td>Row 6</td>  
+                <td>Row 6</td>  
+                <td>Row 6</td>  
+              </tr>  
+            </table> 
+            <div class="tables-div">
+                <label class="clms-div">Company Name :</label>  <label>{{this.Requestdata.Companyname}}</label> <label>Sub Contractor Name :</label> <label>{{this.Requestdata.SubContractorname}}</label>
+            </div> 
+             <mat-grid-list cols="4" rowHeight="40px">
+            <mat-grid-tile class="label-key-sty">
+                <label>Company Name :</label> 
+            </mat-grid-tile>
+            <mat-grid-tile class="content-sty">
+                <label>{{this.Requestdata.Companyname}}</label>
+            </mat-grid-tile>
+            <mat-grid-tile class="label-key-sty">
+                <label>Sub Contractor Name :</label>
+            </mat-grid-tile>
+            <mat-grid-tile class="content-sty">
+                <label>{{this.Requestdata.SubContractorname}}</label>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="4" rowHeight="40px">
+            <mat-grid-tile class="label-key-sty">
+                <label>Foreman :</label> 
+            </mat-grid-tile>
+            <mat-grid-tile class="content-sty">
+                <label>{{this.Requestdata.Foreman}}</label>
+            </mat-grid-tile>
+            <mat-grid-tile class="label-key-sty">
+                <label>Foreman Phone :</label>
+            </mat-grid-tile>
+            <mat-grid-tile class="content-sty">
+                <label>{{this.Requestdata.ForemanPhone}}</label>
+            </mat-grid-tile>
+        </mat-grid-list> 
+        </mat-card>  
+      </div>   
+  </div>   -->
+ 
+
+  <!-- <div #content class="content" #content style="background-color:pink">
+
+	<h1>{{ name }}</h1>
+	<p style="color:red">
+		Start editing to see some magic happen :)
+	</p>
+</div>
+
+<button (click)="makePdf()">make pdf</button> -->
+
+
+<div class="download-sty">
+    <button mat-raised-button color="primary" (click)="generatePdf()">Download</button>
+</div>
+<mat-card class="example-card" id="content" #content >
+    <mat-card-header>
+      <mat-card-title>   
+      
+ </mat-card-title>
+    </mat-card-header>
+    <div style="text-align: center;">
+        <h1 matDialogTitle>WORK PERMIT N:{{Requestdata.PermitNo}} </h1>
+    </div>
+    <mat-card-content class="card-content" >
+      
+      <form class="example-form">
+        <div class="firstdiv">
+          <mat-grid-list cols="2" rowHeight="60px">
+            <mat-grid-tile>
+              <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Request date</mat-label>
+                <input matInput readonly [value]="Requestdata.Request_Date">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="80px">
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Company</mat-label>
+                <input matInput readonly [value]="Requestdata.Company_Name">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>SubContractor</mat-label>
+                <input matInput readonly [value]="Requestdata.subContractorName">
+               
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Foreman</mat-label>
+                <input matInput readonly [value]="Requestdata.Foreman">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Foreman Phone</mat-label>
+                <input matInput readonly [value]="Requestdata.Foreman_Phone_Number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Activity</mat-label>
+                <input matInput readonly [value]="Requestdata.Activity">
+              </mat-form-field>
+            </mat-grid-tile>
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Type of Activity</mat-label>
+                <input matInput readonly [value]="Requestdata.Request_Date">
+
+              </mat-form-field>
+            </mat-grid-tile> -->
+          </mat-grid-list>
+        </div>
+              <div class="secndfiv">
+          <mat-grid-list cols="3" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="datepikr full-width" appearance="outline">
+                <mat-label>Date</mat-label>
+
+                <input matInput readonly [value]="Requestdata.Request_Date">
+
+              </mat-form-field>
+
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Start Time</mat-label>
+                <input matInput readonly [value]="Requestdata.Start_Time">
+
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>End Time</mat-label>
+                <input matInput readonly [value]="Requestdata.End_Time">
+            </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="3" rowHeight="80px" >
+            <mat-grid-tile></mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Assign Start Time</mat-label>
+                <input matInput readonly [value]="Requestdata.Assign_Start_Time">
+
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Assign End Time</mat-label>
+                <input matInput readonly [value]="Requestdata.Assign_End_Time">
+            </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="3" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Site</mat-label>
+                <input matInput readonly [value]="Requestdata.site_name">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Building</mat-label>
+                <input matInput readonly [value]="Requestdata.building_name">
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Floor</mat-label>
+                <input matInput readonly [value]="Requestdata.floor_name">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+           
+              <mat-form-field class="full-width chipsbox-height" appearance="outline">
+                <mat-label>Room Type</mat-label>
+
+                <input matInput readonly [value]="Requestdata.Room_Nos">
+
+              </mat-form-field>
+
+            </mat-grid-tile>
+         
+        
+
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width chipsbox-height" appearance="outline">
+                <mat-label>Room Type</mat-label>
+                <input matInput readonly [value]="Requestdata.Room_Type">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+
+
+
+
+        <div class="thirddiv">
+            <mat-grid-list cols="2" rowHeight="100px">
+              <!-- <mat-grid-tile>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Crane Requested</mat-label>
+                  <input matInput readonly *ngIf="Requestdata.Crane_Requested=='1'" [value]="Yes">
+                  <input matInput readonly *ngIf="Requestdata.Crane_Requested=='0'" [value]="No">
+  
+                </mat-form-field>
+              </mat-grid-tile> -->
+              <mat-grid-tile>
+                <div class="cmsnum full-width">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Crane Number</mat-label>
+                    <input matInput readonly [value]="Requestdata.Crane_Number">
+                  </mat-form-field>
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="1" rowHeight="100px">
+              <mat-grid-tile>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Tools</mat-label>
+                  <input matInput readonly [value]="Requestdata.Tools">
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="1" rowHeight="100px">
+              <mat-grid-tile>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Machinery</mat-label>
+                  <input matInput readonly [value]="Requestdata.Machinery">
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+  
+            <mat-grid-list cols="2" rowHeight="100px">
+              <!-- <mat-grid-tile>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Hotwork</mat-label>
+                  <input matInput readonly *ngIf="Requestdata.Hot_work=='1'" [value]="Requestdata.Hot_work">
+                  <input matInput readonly *ngIf="Requestdata.Hot_work=='0'" [value]="Requestdata.Hot_work">
+  
+                </mat-form-field>
+              </mat-grid-tile> -->
+              <mat-grid-tile>
+                <div class="cmsnum full-width">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Certified Person</mat-label>
+                    <input matInput readonly [value]="Requestdata.Certified_Person">
+                  </mat-form-field>
+                </div>
+  
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="2" rowHeight="100px">
+              <mat-grid-tile>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Loto Procedure</mat-label>
+                  <input matInput readonly [value]="Requestdata.Request_Date">
+  
+                </mat-form-field>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <div class="cmsnum full-width">
+                  <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>LOTO Number</mat-label>
+                    <input matInput readonly [value]="Requestdata.LOTO_Number">
+                  </mat-form-field>
+                </div>
+  
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-grid-list cols="2" rowHeight="100px">
+              <mat-grid-tile>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Power off</mat-label>
+                  <input matInput readonly *ngIf="Requestdata.Power_Off_Required=='0'" value="No">
+                  <input matInput readonly *ngIf="Requestdata.Power_Off_Required=='1'" value="Yes">
+
+                </mat-form-field>
+              </mat-grid-tile>
+  
+              <mat-grid-tile>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Status</mat-label>
+                  <input matInput readonly [value]="Requestdata.Request_Date">
+  
+                </mat-form-field>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+          
+          <div class="fourthdiv">
+            
+           
+                   <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Special Instructions</mat-label>
+                <input matInput readonly [value]="Requestdata.Special_Instructions">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px" >
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Safety Precautions </mat-label>
+                <input matInput readonly [value]="Requestdata.Safety_Precautions">
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Number of workers involved</mat-label>
+                <input matInput readonly [value]="Requestdata.Number_Of_Workers">
+              </mat-form-field>
+            </mat-grid-tile>
+        
+
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Badge Numbers</mat-label>
+
+                <input matInput readonly [value]="Requestdata.Badge_Numbers">
+
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Note</mat-label>
+                <input matInput readonly [value]="Requestdata.Notes">
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+        </div>
+
+       
+<div>
+  <img [src]="'http://macsof.in/beamapi/services/subcontractor/images/'+Requestdata.logo" >
+
+</div>
+      
+  
+      </form>
+
+    </mat-card-content>
+  </mat-card>

@@ -8,7 +8,6 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { PlansComponent } from './plans/plans.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -34,40 +33,57 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedPipesModule } from 'app/shared/pipes/shared-pipes.module';
+import { ListPlansComponent } from './plans/list-plans/list-plans.component';
+import { RequestSaveOptionsDialogComponent } from './Requests/request-save-options-dialog/request-save-options-dialog.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { EditRequestComponent } from './Requests/edit-request/edit-request.component';
+import { CopyRequestComponent } from './Requests/copy-request/copy-request.component';
+import { SharedMaterialModule } from 'app/shared/shared-material.module';
+import { StatusChangeDialogComponent } from './Requests/status-change-dialog/status-change-dialog.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent],
+  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCardModule,
-    MatSelectModule,
-    MatNativeDateModule,
-    MatDatepickerModule,
-    MatDividerModule,
-    MatGridListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatTableModule,
-    MatMenuModule,
-    MatProgressBarModule,
-    ChartsModule,
-    NgxEchartsModule,
-    NgxMaterialTimepickerModule,
-    NgxDatatableModule,
-    MatChipsModule,
-    MatListModule,
-    MatTooltipModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    MatSlideToggleModule,
-    TranslateModule,
-    FlexLayoutModule,
+    SharedMaterialModule,
+  //  MatCardModule,
+    // MatSelectModule,
+    // MatNativeDateModule,
+    // MatDatepickerModule,
+    // MatAutocompleteModule,
+    // MatDividerModule,
+    // MatGridListModule,
+    // MatInputModule,
+    // MatFormFieldModule,
+    // MatIconModule,
+    // MatButtonModule,
+    // FlexLayoutModule,
+    // MatTabsModule,
+     PdfViewerModule,
+    // MatTableModule,
+    // MatMenuModule,
+    // MatProgressBarModule,
+    // ChartsModule,
+    // NgxEchartsModule,
+    // NgxMaterialTimepickerModule,
+    // NgxDatatableModule,
+    // MatChipsModule,
+    // MatListModule,
+    // MatTooltipModule,
+    // MatDialogModule,
+    // MatSnackBarModule,
+    // MatSlideToggleModule,
+    // TranslateModule,
+    // FlexLayoutModule,
+  
+    // MatExpansionModule,
+    // SharedPipesModule,
     RouterModule.forChild(usersRoutes)
   ],
   

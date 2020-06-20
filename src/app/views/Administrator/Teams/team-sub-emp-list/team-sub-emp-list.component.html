@@ -1,0 +1,29 @@
+<mat-card class="p-0">
+
+    <mat-card-content class="p-0">
+      <ngx-datatable id="content" #content class="material ml-0 mr-0" [rows]="emps" [columnMode]="'force'"
+        [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50" >
+        <ngx-datatable-column name="Team Id" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.id }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Badge Id" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.badgeId }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Employee Name" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              {{ row?.employeeName }}
+            </ng-template>
+          </ngx-datatable-column>
+      </ngx-datatable>
+      <button style="float: right;" mat-raised-button color="primary"  class="mr-1" mat-dialog-close>Close</button>
+
+    </mat-card-content>
+  </mat-card>
+
+  <div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>

@@ -1,0 +1,24 @@
+<div mat-dialog-content>
+    <h3> {{title}}  </h3>
+</div>
+<!-- <div>
+    <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Select activity</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="food">
+            <mat-option *ngFor="let food of activityvalues" [value]="food">
+              {{food}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+</div> -->
+<div mat-dialog-actions *ngIf="!Listitemsstatus">
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="SaveHold('Hold')">Yes</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="SaveHold('Draft')">No</button>
+
+    <!-- <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('RA Hold')">RA</button> -->
+</div>
+
+<div mat-dialog-actions *ngIf="Listitemsstatus">
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="ChangeListStaus('Yes')">Yes</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close >No</button>
+</div>

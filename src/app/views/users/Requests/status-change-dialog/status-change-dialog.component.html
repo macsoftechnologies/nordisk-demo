@@ -1,0 +1,27 @@
+<div mat-dialog-content>
+    <h3> Change the Status </h3>
+</div>
+
+<div mat-dialog-actions *ngIf="type=='operartor'">
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Approved')">Approved</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Rejected')">Rejected</button>
+</div>
+
+<div mat-dialog-actions *ngIf="type=='Opened' && !isclose" >
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Opened')">Yes</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close >No</button>
+</div>
+
+<div class="upload-div-sty" *ngIf="type=='Closed'">
+    <img [src]="croppedImage" class="uploadimgsty" />
+    <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".jpg"/>
+    <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Upload Image</button>
+    <div>
+        <button mat-flat-button class="submit-btn-sty" *ngIf="isimguploaded" mat-dialog-close (click)="Changestatusbysubcontractor('Closed')" color="primary" >Update Status</button>
+    </div>
+
+</div>
+<div class="loading-indicator" *ngIf="spinner">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>
+  

@@ -1,1 +1,124 @@
-<p>plans works!</p>
+<div class="top-header-sty">
+    <mat-grid-list cols="2" rowHeight="60px" class="top-bar-sty">
+        <mat-grid-tile>
+            <span>
+                <mat-icon>event</mat-icon>
+            </span>
+        </mat-grid-tile>
+        <mat-grid-tile class="top-bar-title">
+            <span>Show Plans</span>
+
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
+<mat-divider></mat-divider>
+<mat-card class="example-card">
+    <!-- <mat-card-header>
+        <mat-card-title>
+        </mat-card-title>
+    </mat-card-header> -->
+ 
+
+    <mat-card-content class="card-content">
+        <div>
+            <form [formGroup]="PlanForm" class="example-form">
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Plan Type </mat-label>
+                            <mat-select formControlName="Plantype" name="plan" (selectionChange)="GetselectedPlantype($event.value)">
+                                <mat-option *ngFor="let site of PlanTypes" [value]="site.PlanId">
+                                    {{site.PlanName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Date </mat-label>
+                            <input matInput [min]="minDate" formControlName="Date" [max]="maxDate"
+                                [matDatepicker]="spicker" [disabled]="datefield">
+                            <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
+                            <mat-datepicker #spicker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+             
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                       
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Month </mat-label>
+                            <mat-select formControlName="Month" name="monthName" [disabled]="monthfield">
+                                <mat-option *ngFor="let site of monthNames" [value]="site">
+                                    {{site}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                   
+
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Year</mat-label>
+                            <mat-select formControlName="Year" name="week" [disabled]="yearfield" (selectionChange)="Getselectedyear($event.value)">
+                                <mat-option *ngFor="let wk of Years" [value]="wk">
+                                    {{wk}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Week</mat-label>
+                            <mat-select formControlName="Weekno" [disabled]="weekfield" name="weekno">
+                                <mat-option *ngFor="let wk of WeekNumbers" [value]="wk">
+                                    {{wk}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <mat-grid-list cols="3" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Sub-Contractor </mat-label>
+                            <mat-select formControlName="subContractor" name="SubContractor">
+                                <mat-option *ngFor="let subc of SubContractors" [value]="subc.id">
+                                    {{subc.subContractorName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Site </mat-label>
+                            <mat-select formControlName="Site" name="Site" (selectionChange)="GetBuilding($event.value)">
+                                <mat-option *ngFor="let site of Sites" [value]="site.site_id">
+                                    {{site.site_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Building </mat-label>
+                            <mat-select formControlName="Building" name="Building">
+                                <mat-option *ngFor="let site of Buildings" [value]="site.build_id">
+                                    {{site.building_name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </form>
+            <button class="butns-grp" mat-raised-button color="primary" (click)="Createplan()">Show</button>
+
+        </div>
+    </mat-card-content>
+</mat-card>
+<!-- <div>
+    <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
+
+</div> -->

@@ -23,6 +23,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 
+import { MatCardModule } from '@angular/material/card';
+import { ChangepasswordComponent } from './views/AccountManagement/changepassword/changepassword.component';
+import { SharedMaterialModule } from './shared/shared-material.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -35,10 +38,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 @NgModule({
   imports: [
+    MatCardModule,
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    SharedMaterialModule,
     PerfectScrollbarModule,
     TranslateModule.forRoot({
       loader: {
@@ -48,9 +53,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       }
     }),
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
-    RouterModule.forRoot(rootRouterConfig, { useHash: false })
+    RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
-  declarations: [AppComponent],
+  declarations: [AppComponent, ChangepasswordComponent],
   providers: [
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },

@@ -67,7 +67,7 @@
   </head>
   <body class="egret-navy">
     <app-root>
-      <div class="app-loader">
+      <!-- <div class="app-loader">
         <div class="spinner">
           <div
             class="double-bounce1 mat-bg-primary"
@@ -78,11 +78,21 @@
             style="background: #03a9f4;"
           ></div>
         </div>
-      </div>
+      </div> -->
     </app-root>
 
     <!-- <script>
     __Zone_enable_cross_context_check = true;
   </script> -->
-  </body>
+ 
+<script>
+  function testfunc(val) {
+    if(val!=undefined)
+    {
+localStorage.setItem("builid",val);
+    }
+  }
+
+</script>
+</body>
 </html>

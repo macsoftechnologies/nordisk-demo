@@ -4,6 +4,7 @@ import { AuthLayoutComponent } from './shared/components/layouts/auth-layout/aut
 import { AuthGuard } from './shared/guards/auth.guard';
 import { AppUsersComponent } from './views/others/app-users/app-users.component';
 import { UserLayoutComponent } from './shared/components/layouts/user-layout/user-layout.component';
+import { config } from 'config';
 
 export const rootRouterConfig: Routes = [
   { 
@@ -30,9 +31,16 @@ export const rootRouterConfig: Routes = [
       {
         path:'user',
         loadChildren: () => import('./views/users/users.module').then(m => m.UsersModule), 
-      }
+       // data: { roles: [config.authRoles.user] }
+      },
+      {
+        path:'admin',
+        loadChildren: () => import('./views/Administrator/administrator.module').then(m => m.AdministratorModule), 
+       // data: { roles: [config.authRoles.admin] }
+      },
     ]
       },
+      
   // {
   //   path: '', 
   //   component: AuthLayoutComponent,

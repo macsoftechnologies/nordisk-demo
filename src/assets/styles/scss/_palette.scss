@@ -3,7 +3,7 @@
   $foreground500: map-get(map-get($matColor, contrast), 500);
   .#{''+$colorName+''} {
     background-color: $color500 !important;
-
+    background-repeat: no-repeat;
     // Material CDK Table
     .mat-table {
       background: transparent !important;

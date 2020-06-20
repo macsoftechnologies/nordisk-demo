@@ -1,0 +1,21 @@
+.mat-dialog-actions
+{
+    text-align: center;
+}
+.upload-div-sty
+  {
+    /* width: 50%;
+    height: 50px;
+    padding-right: 30px; */
+    margin: 30px;
+
+  }
+  .logo-btn-sty
+  {
+    float: right;
+    margin: 10px;
+  }
+  .submit-btn-sty
+  {
+      margin-left: 30px;
+  }

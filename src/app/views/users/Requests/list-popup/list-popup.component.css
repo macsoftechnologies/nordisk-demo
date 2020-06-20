@@ -1,22 +1,56 @@
-.content-sty
-{
-    border: 1px solid #6a709d;
-    /* background-color: #293064; */
-    /* color: white; */
-    font-size: 16px;
-    font-weight: 400;
-    /* background-color: #6a709d; */
-    background-color: #acb3ce;
-}
-.mat-grid-list
-{
+.mat-form-field
+  {
+    width: 100%;
+    padding-right: 10px; 
+  }
+
+  .matrequest{
+    width: 35% !important;
+    padding: 0px !important; 
+    
+  }
+  .card-content{
+    padding: 30px;
+  }
+
+  .cmsnum{
+    width: 100%;
+    padding-right: 70px; 
+  }
+  .butns
+  {
+    margin: 50px;
+    float: right;
+  }
+  .butns-grp
+  {
+    margin-right: 20px;
+  }
+  .butns-grp-back
+  {
+padding: 10px;
+  }
+  .img-sty{
+    width: 500px;
+  }
+  .img-div-sty
+  {
+    text-align: center;
+  }
+  .firstdiv, .secndfiv, .thirddiv, .fourthdiv
+  {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.02);
     margin-bottom: 10px;
-}
-.label-key-sty
-{
-    font-weight: 700;
-}
-.card-content
-{
-    margin-top: 10px;
-}
+  }
+  .chipsbox-height
+  {
+    /* height: 60px !important; */
+  }
+  .download-sty
+  {
+      float: right;
+      margin: 10px;
+  }

@@ -65,6 +65,7 @@
 
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { JwtAuthService } from "./auth/jwt-auth.service";
 
 interface IMenuItem {
   type: string; // Possible values: link/dropDown/icon/separator/extLink
@@ -91,7 +92,7 @@ interface IBadge {
 
 @Injectable()
 export class NavigationService {
-  constructor() {}
+  menuItems:any={};
   iconMenu: IMenuItem[] = [
     // {
     //   name: "HOME",
@@ -131,6 +132,52 @@ export class NavigationService {
       //   { name: "Dark Cards", state: "dark" }
       // ]
     },
+    
+    {
+      name: "Departments",
+      type: "dropDown",
+      tooltip: "Departments",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Department", state: "admin/department" ,icon: "fa fa-plus-square"},
+        { name: "List Departments", state: "admin/listdepartment", icon: "list" }
+      ]
+    },
+    {
+      name: "subcontractors",
+      type: "dropDown",
+      tooltip: "subcontractors",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "Sub Contractors", state: "admin/sub-contractors", icon: "fa fa-plus-square"},
+        { name: "Sub Contractors List", state: "admin/subcontractors-list", icon: "fa fa-plus-square"},
+      ]
+    },
+    {
+      name: "Employees",
+      type: "dropDown",
+      tooltip: "Employees",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Employee", state: "admin/employee" ,icon: "fa fa-plus-square"},
+        { name: "List Employees", state: "admin/listemployee", icon: "list" }
+      ]
+    },
+    {
+      name: "Teams",
+      type: "dropDown",
+      tooltip: "Team",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "Team", state: "admin/Team", icon: "fa fa-plus-square"},
+        { name: "List Teams", state: "admin/list-team", icon: "list" }
+       
+      ]
+    },
     {
       name: "Request",
       type: "dropDown",
@@ -139,33 +186,255 @@ export class NavigationService {
       state: "",
       sub: [
         { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
-        { name: "List Request", state: "user/list-request", icon: "fa fa-list-ol" }
+        { name: "List Request", state: "user/list-request", icon: "list" }
+      ]
+    },
+
+        {
+      name: "Plans",
+      type: "link",
+      tooltip: "Plans",
+      icon: "event", 
+      state: "user/plans"
+    },
+
+    // {
+    //   name: "Plans",
+    //   type: "dropDown",
+    //   tooltip: "Plans",
+    //   icon: "event", 
+    //   state: "",
+    //   sub: [
+    //     { name: "New Plan", state: "user/plans" ,icon: "fa fa-plus-square"},
+    //     { name: "List Plan", state: "user/list-plans", icon: "list" }
+    //   ]
+    // },
+
+   
+    {
+      name: "Notifications",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "notifications", 
+      state: "user/notifications"
+    },
+  ];
+
+  AdminiconMenu: IMenuItem[] = [
+  
+    {
+      name: "DASHBOARD",
+      type: "link",
+      tooltip: "Dashboard",
+      icon: "dashboard", 
+      state: "user/dashboard",
+    },
+    
+    {
+      name: "Departments",
+      type: "dropDown",
+      tooltip: "Departments",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Department", state: "admin/department" ,icon: "fa fa-plus-square"},
+        { name: "List Departments", state: "admin/listdepartment", icon: "list" }
+      ]
+    },
+    {
+      name: "subcontractors",
+      type: "dropDown",
+      tooltip: "subcontractors",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "Sub Contractors", state: "admin/sub-contractors", icon: "fa fa-plus-square"},
+        { name: "Sub Contractors List", state: "admin/subcontractors-list", icon: "fa fa-plus-square"},
+      ]
+    },
+    {
+      name: "Employees",
+      type: "dropDown",
+      tooltip: "Employees",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "New Employee", state: "admin/employee" ,icon: "fa fa-plus-square"},
+        { name: "List Employees", state: "admin/listemployee", icon: "list" }
+      ]
+    },
+    {
+      name: "Teams",
+      type: "dropDown",
+      tooltip: "Team",
+      icon: "event", 
+      state: "",
+      sub: [
+        { name: "Team", state: "admin/Team", icon: "fa fa-plus-square"},
+        { name: "List Teams", state: "admin/list-team", icon: "list" }
+       
+      ]
+    },
+    {
+      name: "Request",
+      type: "dropDown",
+      tooltip: "Request",
+      icon: "person", 
+      state: "",
+      sub: [
+        { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
+        { name: "List Request", state: "user/list-request", icon: "list" }
+      ]
+    },
+
+        {
+      name: "Plans",
+      type: "link",
+      tooltip: "Plans",
+      icon: "event", 
+      state: "user/plans"
+    },
+   
+
+    {
+      name: "Settings",
+      type: "dropDown",
+      tooltip: "Settings",
+      icon: "person", 
+      state: "",
+      sub: [
+
+        {
+          name: "Activity",
+          type: "dropDown",
+          icon: "person", 
+          state: "",
+          sub:[
+            { name: "New Activity", state: "admin/activity" ,icon: "fa fa-plus-square"},
+            { name: "List Activity", state: "admin/activity-list", icon: "list" }
+          ]
+        },
+
+        {
+          name: "Safety Precaution",
+          type: "dropDown",
+          icon: "person", 
+          state: "",
+          sub:[
+            { name: "New Precaution", state: "admin/safety-precaution" ,icon: "fa fa-plus-square"},
+            { name: "List Precaution", state: "admin/safety-precautions-list", icon: "list" }
+          ]
+        },
+      ]
+    },
+    {
+      name: "Notifications",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "notifications", 
+      state: "user/notifications"
+    },
+  ];
+  UsericonMenu: IMenuItem[] = [
+    {
+      name: "DASHBOARD",
+      type: "link",
+      tooltip: "Dashboard",
+      icon: "dashboard", 
+      state: "user/dashboard",
+      
+    },
+  
+    {
+      name: "Request",
+      type: "dropDown",
+      tooltip: "Request",
+      icon: "person", 
+      state: "",
+      sub: [
+        { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
+        { name: "List Request", state: "user/list-request", icon: "list" }
+      ]
+    },
+ 
+    {
+      name: "Notifications",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "notifications", 
+      state: "user/notifications"
+    },
+  ];
+
+  OperatoriconMenu: IMenuItem[] = [
+
+    {
+      name: "DASHBOARD",
+      type: "link",
+      tooltip: "Dashboard",
+      icon: "dashboard", 
+      state: "user/dashboard",
+    },
+    
+    {
+      name: "Request",
+      type: "dropDown",
+      tooltip: "Request",
+      icon: "person", 
+      state: "",
+      sub: [
+        { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
+        { name: "List Request", state: "user/list-request", icon: "list" }
       ]
     },
     {
       name: "Plans",
       type: "link",
       tooltip: "Plans",
-      icon: "assessment", 
+      icon: "event", 
       state: "user/plans"
     },
     {
       name: "Notifications",
       type: "link",
       tooltip: "Notifications",
-      icon: "alert", 
+      icon: "notifications", 
       state: "user/notifications"
     },
   ];
+user:any={};
+menuItems$:any={};
+  constructor( public jwtAuth: JwtAuthService) {
+    this.user=this.jwtAuth.getUser();
+    
+    if(this.user["role"]=="Subcontractor")
+    {
+      this.menuItems = new BehaviorSubject<IMenuItem[]>(this.UsericonMenu);
+      this.menuItems$ = this.menuItems.asObservable();
+    }
+    else  if(this.user["role"]=="Admin")
+    {
+      this.menuItems = new BehaviorSubject<IMenuItem[]>(this.AdminiconMenu);
+      this.menuItems$ = this.menuItems.asObservable();
+
+    }
+    else  if(this.user["role"]=="Department")
+    {
+      this.menuItems = new BehaviorSubject<IMenuItem[]>(this.OperatoriconMenu);
+      this.menuItems$ = this.menuItems.asObservable();
+
+    }
+    
+
+  }
 
 
   // Icon menu TITLE at the very top of navigation.
   // This title will appear if any icon type item is present in menu.
   iconTypeMenuTitle: string = "Frequently Accessed";
   // sets iconMenu as default;
-  menuItems = new BehaviorSubject<IMenuItem[]>(this.iconMenu);
   // navigation component has subscribed to this Observable
-  menuItems$ = this.menuItems.asObservable();
+  
 
   // Customizer component uses this method to change menu.
   // You can remove this method and customizer component.
