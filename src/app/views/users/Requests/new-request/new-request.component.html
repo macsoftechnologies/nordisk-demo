@@ -804,14 +804,14 @@
                 <mat-chip-list #chipList aria-label="Safety Precautions">
                   <mat-chip *ngFor="let badg of safetyprecdata" [selectable]="Safetypreselectable" [removable]="removable"
                     (removed)="removesafety(badg)">
-                    {{badg.id}}
+                    {{badg.precaution}}
                     <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                   </mat-chip>
                   <input placeholder="" #badgeInput formControlName="Safetyprecaustion"
                     [matAutocomplete]="auto" [matChipInputFor]="chipList"
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addsafety($event)">
                 </mat-chip-list>
-                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedsafety($event)">
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedsafety($event)" >
                   <mat-option *ngFor="let badge of filteredsafety | async" [value]="badge.id">
                     {{badge.precaution}}
                   </mat-option>
