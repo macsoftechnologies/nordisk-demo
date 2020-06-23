@@ -211,12 +211,12 @@
       </ngx-datatable-column>
       <ngx-datatable-column name="Status" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-chip mat-sm-chip [color]="'primary'"
-            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approved' && row.Request_status!='Opened'">
+          <mat-chip mat-sm-chip [color]="'primary'" (click)="EditDraft(row)"
+            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approve' && row.Request_status!='Opened'">
             {{row?.Request_status}}
           </mat-chip>
           <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Opened')"
-            *ngIf="row.Request_status=='Approved'">{{row?.Request_status}}
+            *ngIf="row.Request_status=='Approve'">{{row?.Request_status}}
           </mat-chip>
           <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Closed')"
             *ngIf="row.Request_status=='Opened'">{{row?.Request_status}}
@@ -231,7 +231,8 @@
 
       <ngx-datatable-column name="Operations" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-icon (click)="Editrow(row)" class="icons-sty">edit</mat-icon>
+          <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator"
+          (click)="Editrow(row)">edit</mat-icon>
 
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1" *ngIf="isoperator"
             (click)="Editrow(row)">Edit</button> -->
@@ -240,7 +241,7 @@
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" (click)="openPopUp(row)">View</button> -->
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" *ngIf="row.Request_status=='Hold'"
             (click)="CopyRequest(row)">Copy</button> -->
-            <mat-icon (click)="CopyRequest(row)" class="icons-sty">content_copy</mat-icon>
+            <mat-icon (click)="CopyRequest(row)" class="icons-sty" *ngIf="row.Request_status=='Hold'">content_copy</mat-icon>
 
             <mat-icon (click)="Deleterequest(row)" class="icons-sty">delete</mat-icon>
 

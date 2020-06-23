@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
-import { RequestDto, EditRequestDto, DeleteRequestDto, UpdateRequestStatusListDto, CopyRequestDto, UpdateClose_Status } from 'app/views/Models/RequestDto';
+import { RequestDto, EditRequestDto, DeleteRequestDto, UpdateRequestStatusListDto, CopyRequestDto, UpdateClose_Status, RequestsbyId } from 'app/views/Models/RequestDto';
 import { PlansComponent } from 'app/views/users/plans/plans.component';
 import { PlansDto } from 'app/views/Models/PlansDto';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
@@ -30,6 +30,10 @@ export class RequestService {
   public GetAllRequests(): Observable<any[]> {
     return this.http.get<any[]>(environment.API_URL + 'request/read.php');
   }
+  public GetAllRequestsByid(res:RequestsbyId): Observable<any[]> {
+    return this.http.post<any[]>(environment.API_URL + 'request/readrequestid.php',res);
+  }
+
   public CreateNewRequest(req:RequestDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'request/create.php', req);
   }

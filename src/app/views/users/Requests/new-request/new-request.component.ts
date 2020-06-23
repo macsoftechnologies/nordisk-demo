@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Inject, Optional } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
@@ -18,7 +18,10 @@ import { EmployeeService } from 'app/shared/services/employee.service';
 import { RequestDto, EditRequestDto } from 'app/views/Models/RequestDto';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-
+import { PDFDocumentProxy } from 'ng2-pdf-viewer';
+import { Inputdata, PDFAnnotationData } from 'app/views/Models/input';
+import { ActivityService } from 'app/shared/services/activity.service';
+import { SafetyprecautionService } from 'app/shared/services/safetyprecautionservice';
 
 @Component({
   selector: 'app-new-request',
@@ -29,10 +32,14 @@ export class NewRequestComponent implements OnInit {
   // pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
   //pdfSrc ="https://macsof.com/safesite/1complete_plan.pdf";
 
-  spinner=false;
-
-  pdfSrc = "../assets/images/complete-plan/1complete_plan.pdf";
-
+  spinner = false;
+  Assigneditform: boolean = false;
+  pdfSrc = "../assets/images/complete-plan/1complete_plan_invisible.pdf";
+  public myForm: FormGroup;
+  public inputList: Inputdata[] = [];
+  type: string = "button";
+  btnsty: string = "btn-sty";
+  value = "test";
   NewRequestData: any = {};
   selectedbuildimg: string = "";
   selectedholdbtnoption: string = "";
@@ -42,7 +49,7 @@ export class NewRequestComponent implements OnInit {
   name: string;
   dropdownname: string;
   selectedsite: number;
-  selected_site_name:string="";
+  selected_site_name: string = "";
   selectedbuilding: string;
   selectedfloor: string;
   selectedroom: string;
@@ -59,20 +66,27 @@ export class NewRequestComponent implements OnInit {
   visible = true;
   selectable = true;
   rselectable = true;
+  Safetypreselectable = true;
   removable = true;
   rmremovable = true;
   editform: boolean = false;
-  seditform:boolean=false;
-  issubcontr:boolean=false;
+  seditform: boolean = false;
+  subeditform: boolean = false;
+  issubcontr: boolean = false;
   separatorKeysCodes: number[] = [ENTER, COMMA];
   filteredBadges: Observable<string[]>;
   filteredRooms: Observable<string[]>;
+  filteredsafety: Observable<string[]>;
   data: any = {};
   Rooms: any[] = [];
   RoomsList: any[] = [];
   Badges: string[] = [];
-  EditbadgeArray:string[]=[];
+  EditbadgeArray: string[] = [];
   BADGENUMBERS: any[] = [];
+
+  safetyprecdata: any[] = [];
+  safetyList: any[] = [];
+
   @ViewChild('badgeInput') badgeInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
   @ViewChild('roomInput') roomInput: ElementRef<HTMLInputElement>;
@@ -82,24 +96,7 @@ export class NewRequestComponent implements OnInit {
   floors: any[] = [];
 
   SubContractors: any[] = [];
-  TypeofActivites: any[] = [
-    {
-      "Actid": "1",
-      "Actname": "Actname1"
-    },
-    {
-      "Actid": "2",
-      "Actname": "Actname2"
-    },
-    {
-      "Actid": "3",
-      "Actname": "Actname3"
-    },
-    {
-      "Actid": "4",
-      "Actname": "Actname4"
-    }
-  ];
+  TypeofActivites: any[] = [];
 
   CMTs: any[] = [
     {
@@ -191,7 +188,7 @@ export class NewRequestComponent implements OnInit {
       "Statusname": "Closed"
     }
   ]
-  subStatus:any[] = [
+  subStatus: any[] = [
     {
       "Statusid": "Hold",
       "Statusname": "Hold"
@@ -211,7 +208,7 @@ export class NewRequestComponent implements OnInit {
   ]
   Requestdata: RequestDto =
     {
-      userId:null,
+      userId: null,
       Request_Date: null,
       Company_Name: null,
       Sub_Contractor_Id: null,
@@ -245,7 +242,7 @@ export class NewRequestComponent implements OnInit {
 
   updaterequestdata: EditRequestDto =
     {
-      userId:null,
+      userId: null,
       Request_Date: null,
       Company_Name: null,
       Sub_Contractor_Id: null,
@@ -282,21 +279,18 @@ export class NewRequestComponent implements OnInit {
       Safety_Precautions: null
     }
 
-    userdata:any={};
+  userdata: any = {};
   constructor(private fb: FormBuilder, private route: Router, private datePipe: DatePipe,
     private userservices: UserService, private dialog: MatDialog, private loader: AppLoaderService,
     private requestsserivies: RequestService, private subcntrservice: SubcontractorService,
     private empservice: EmployeeService, private _snackBar: MatSnackBar,
-    private jwtauth:JwtAuthService
+    private jwtauth: JwtAuthService, private typeactservice: ActivityService,
+    private safetyservice: SafetyprecautionService
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
     this.maxDate = new Date(currentYear + 1, 11, 31);
-    this.spinner=true;
-
-    this.requestsserivies.GetAllSites().subscribe(res => {
-      
-    });
+    this.spinner = true;
 
 
   }
@@ -352,81 +346,93 @@ export class NewRequestComponent implements OnInit {
       //Keysneeded:this.KeysneedControl,
 
       Room: ['', Validators.required],
-      SubContractorname:['', Validators.required],
+      SubContractorname: ['', Validators.required],
       //Departconfs:this.departconfControl,
       //RequiredDocument:this.RequiredDocumentControl
     });
-    this.userdata=this.jwtauth.getUser();
-    forkJoin(this.requestsserivies.GetAllSites(),this.subcntrservice.GetAllSubContractors()).subscribe(res=>{
-      this.spinner=false;
-      this.selectedsite=res[0]["data"][1]["site_id"];
-      this.selected_site_name=res[0]["data"][1]["site_name"];
-      this.siteslist = res[0]["data"];
-      this.Getselectedsiteitem(this.selectedsite);
-      this.SubContractors = res[1]["data"];
-      console.log(this.SubContractors)
-      if(this.userdata["role"]=="Subcontractor")
-      {
-        this.issubcontr=true;
-        this.RequestForm.controls["SubContractor"].setValue(this.userdata["typeId"]);
-        console.log(this.SubContractors);
-        this.SubContractors.forEach(x=>{
-          if(x["id"]==this.userdata["typeId"])
-          {
-            this.RequestForm.controls["SubContractorname"].setValue(x["subContractorName"]);
-          }
-        });
-      }
-      else  if(this.userdata["role"]=="Admin")
-        {
-          this.issubcontr=false;
+
+    this.myForm = this.fb.group({});
+
+    this.userdata = this.jwtauth.getUser();
+    this.Requestdata.userId = this.userdata["id"];
+
+    forkJoin(this.requestsserivies.GetAllSites(), this.subcntrservice.GetAllSubContractors(),
+      this.typeactservice.GetAllActivites(), this.safetyservice.GetSafetyprecautions()).subscribe(res => {
+        this.spinner = false;
+        this.selectedsite = res[0]["data"][1]["site_id"];
+        this.selected_site_name = res[0]["data"][1]["site_name"];
+        this.siteslist = res[0]["data"];
+        this.Getselectedsiteitem(this.selectedsite);
+        this.SubContractors = res[1]["data"];
+        if (this.userdata["role"] == "Subcontractor") {
+          this.issubcontr = true;
+          this.RequestForm.controls["SubContractor"].setValue(this.userdata["typeId"]);
+          this.SubContractors.forEach(x => {
+            if (x["id"] == this.userdata["typeId"]) {
+              this.GetEmployees(x["id"]);
+              this.RequestForm.controls["SubContractorname"].setValue(x["subContractorName"]);
+            }
+          });
         }
-        else  if(this.userdata["role"]=="Operator")
-        {
-          this.issubcontr=false;
+        else if (this.userdata["role"] == "Admin") {
+          this.issubcontr = false;
         }
-    });
+        else if (this.userdata["role"] == "Department") {
+          this.issubcontr = false;
+        }
+        this.TypeofActivites = res[2]["data"];
+        this.safetyList = res[3]["data"];
+        console.log(this.safetyList);
+        this.filteredsafety = this.RequestForm.controls["Safetyprecaustion"].valueChanges.pipe(
+          startWith(null),
+          map((fruit: string | null) => fruit ? this._safetyfilter(fruit) : this.safetyList.slice()));
+
+
+      });
 
     this.data = this.requestsserivies.SelectedRequestData;
-    if (this.data["editform"] == true) { 
-      this.updaterequestdata.userId=this.userdata["typeId"];     
-      if(this.userdata["role"]=="Subcontractor")
-      {
-        this.editform = false;
-        this.seditform=false;
-        this.Status=this.subStatus;
-        
-        this.SubContractors.forEach(x=>{
-          if(x["id"]==this.userdata["typeId"])
-          {
+    if (this.data["editform"] == true) {
+    
+      this.updaterequestdata.userId = this.userdata["id"];
+      if (this.userdata["role"] == "Subcontractor") {
+        this.editform = true;
+        this.seditform = false;
+        this.Assigneditform = false;
+        this.Status = this.subStatus;
+        this.subeditform = true;
+        this.SubContractors.forEach(x => {
+          if (x["id"] == this.userdata["typeId"]) {
             this.RequestForm.controls["SubContractorname"].setValue(x["subContractorName"]);
           }
         });
       }
 
-      else  if(this.userdata["role"]=="Admin")
-      {
+      else if (this.userdata["role"] == "Admin") {
         this.editform = true;
+        this.Assigneditform = true;
+        this.subeditform = false;
+
       }
-      else  if(this.userdata["role"]=="Operator")
-      {
+      else if (this.userdata["role"] == "Department") {
         this.editform = true;
-        this.Status=this.OperatorStatus;
-        this.seditform=true;
+        this.Assigneditform = true;
+        this.Status = this.OperatorStatus;
+        this.seditform = true;
+        this.subeditform = false;
       }
 
 
       this.isnewrequestcreated = true;
-     
+
       this.NewRequestData = this.data["payload"];
       this.EditFormDataBinding(this.data["payload"]);
     }
     this.name = "site";
   }
   GetAllSubContractorsData() {
-    this.spinner=true;
+    this.spinner = true;
     this.subcntrservice.GetAllSubContractors().subscribe(res => {
-      this.spinner=false;
+      this.spinner = false;
       this.SubContractors = res["data"];
     });
   }
@@ -441,9 +447,9 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.controls['Site'].setValue(x['site_name']);
       }
     });
-    this.spinner=true;
+    this.spinner = true;
     this.requestsserivies.GetAllBuildingsbyid(this.selectedsite).subscribe(res => {
-      this.spinner=false;
+      this.spinner = false;
       this.buildings = res["data"];
     });
   }
@@ -455,16 +461,16 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.controls['Building'].setValue(x['building_name']);
       }
     });
-    this.spinner=true;
+    this.spinner = true;
     this.requestsserivies.GetAllFloorsbyid(event).subscribe(res => {
-      this.spinner=false;
+      this.spinner = false;
       this.floors = res["data"];
     })
     this.nobuildingmselect = false;
     this.name = "Floor";
   }
   Getselectedflooritem(event) {
-    this.spinner=true;
+    this.spinner = true;
     this.selectedfloor = event;
     this.Requestdata.Floor_Id = event;
     this.nofloorselected = false;
@@ -474,7 +480,7 @@ export class NewRequestComponent implements OnInit {
       }
     })
     this.requestsserivies.GetAllRoomsbyid(event).subscribe(res => {
-      this.spinner=false;
+      this.spinner = false;
       this.RoomsList = res["data"];
     });
 
@@ -497,7 +503,9 @@ export class NewRequestComponent implements OnInit {
       startWith(null),
       map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice()));
 
-   // this.GetAllSubContractorsData();
+
+
+    // this.GetAllSubContractorsData();
 
   }
 
@@ -529,14 +537,13 @@ export class NewRequestComponent implements OnInit {
   SaveasDraft(statusdata) {
 
     this.Requestdata.Request_status = "Draft";
-    console.log(this.Requestdata);
     this.CreateRequest();
     //this.requestsserivies.CreateNewRequest()
 
   }
 
   CreateRequest() {
-    this.spinner=true;
+    this.spinner = true;
     var badarray = [];
     var roomoarr = [];
     this.Badges.forEach(x => {
@@ -557,7 +564,7 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.Foreman = this.RequestForm.controls["Foreman"].value;
     this.Requestdata.Foreman_Phone_Number = this.RequestForm.controls["ForemanPhone"].value;
     // this.Requestdata.Type_Of_Activity_Id=this.RequestForm.controls["TypeActivity"].value;
-    this.Requestdata.Type_Of_Activity_Id = "4";
+    this.Requestdata.Type_Of_Activity_Id = this.RequestForm.controls["TypeActivity"].value;;
     let workdate = this.datePipe.transform(this.RequestForm.controls["Startdate"].value, 'yyyy-MM-dd');
 
     this.Requestdata.Working_Date = workdate;
@@ -580,9 +587,9 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.Power_Off_Required = this.RequestForm.controls["Poweroff"].value;
     this.Requestdata.Number_Of_Workers = this.RequestForm.controls["peopleinvalidcount"].value;
     this.Requestdata.Notes = this.RequestForm.controls["Note"].value;
-   
+
     this.requestsserivies.CreateNewRequest(this.Requestdata).subscribe(res => {
-      this.spinner=false;
+      this.spinner = false;
       this.openSnackBar("Request Created Successfully");
     },
       error => {
@@ -592,13 +599,13 @@ export class NewRequestComponent implements OnInit {
 
   UpdateRequest() {
 
-    this.spinner=true;
+    this.spinner = true;
 
-    this.updaterequestdata.Assign_Start_Time=this.RequestForm.controls["AssignStartTime"].value;
-    this.updaterequestdata.Assign_End_Time=this.RequestForm.controls["AssignEndTime"].value;
-    this.updaterequestdata.Special_Instructions=this.RequestForm.controls["SpecialInstruction"].value;
-    this.updaterequestdata.Safety_Precautions=this.RequestForm.controls["Safetyprecaustion"].value;
-   this.updaterequestdata.Request_status=this.RequestForm.controls['Status'].value;
+    this.updaterequestdata.Assign_Start_Time = this.RequestForm.controls["AssignStartTime"].value;
+    this.updaterequestdata.Assign_End_Time = this.RequestForm.controls["AssignEndTime"].value;
+    this.updaterequestdata.Special_Instructions = this.RequestForm.controls["SpecialInstruction"].value;
+    this.updaterequestdata.Safety_Precautions = this.RequestForm.controls["Safetyprecaustion"].value;
+    this.updaterequestdata.Request_status = this.RequestForm.controls['Status'].value;
     var badarray = [];
     var roomoarr = [];
     this.Badges.forEach(x => {
@@ -611,16 +618,16 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Activity = this.RequestForm.controls["Activity"].value;
     this.updaterequestdata.Badge_Numbers = this.RequestForm.controls["BADGENUMBER"].value;
     this.updaterequestdata.Badge_Numbers = badarray.toString();
-    this.updaterequestdata.Site_Id=this.RequestForm.controls["Site"].value;
-    this.updaterequestdata.Building_Id=this.RequestForm.controls["Building"].value;
-    this.updaterequestdata.Floor_Id=this.RequestForm.controls["FloorName"].value;
-   // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
+    this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
+    this.updaterequestdata.Building_Id = this.RequestForm.controls["Building"].value;
+    this.updaterequestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
+    // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
     this.updaterequestdata.Company_Name = this.RequestForm.controls["Companyname"].value;
     this.updaterequestdata.Sub_Contractor_Id = this.RequestForm.controls["SubContractor"].value;
     this.updaterequestdata.Foreman = this.RequestForm.controls["Foreman"].value;
     this.updaterequestdata.Foreman_Phone_Number = this.RequestForm.controls["ForemanPhone"].value;
     // this.Requestdata.Type_Of_Activity_Id=this.RequestForm.controls["TypeActivity"].value;
-    this.updaterequestdata.Type_Of_Activity_Id = "4";
+    this.updaterequestdata.Type_Of_Activity_Id = this.RequestForm.controls["TypeActivity"].value;;
     let workdate = this.datePipe.transform(this.RequestForm.controls["Startdate"].value, 'yyyy-MM-dd');
 
     this.updaterequestdata.Working_Date = workdate;
@@ -643,13 +650,11 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Power_Off_Required = this.RequestForm.controls["Poweroff"].value;
     this.updaterequestdata.Number_Of_Workers = this.RequestForm.controls["peopleinvalidcount"].value;
     this.updaterequestdata.Notes = this.RequestForm.controls["Note"].value;
-   console.log(this.updaterequestdata)
 
-   this.requestsserivies.UpdateRequest(this.updaterequestdata).subscribe(res=>
-    {
-      this.spinner=false;
+    this.requestsserivies.UpdateRequest(this.updaterequestdata).subscribe(res => {
+      this.spinner = false;
       this.openSnackBar("Request Updated Successfully");
-      this.requestsserivies.SelectedRequestData={};
+      this.requestsserivies.SelectedRequestData = {};
     },
       error => {
         this.openSnackBar("Something went wrong. Plz try again later...");
@@ -664,7 +669,7 @@ export class NewRequestComponent implements OnInit {
       width: '500px',
       height: '200px',
       disableClose: false,
-      data: { title: title, listitemsstatus:false }
+      data: { title: title, listitemsstatus: false }
     })
     dialogRef.afterClosed().subscribe(result => {
       this.RequestForm.controls['Status'].setValue(result.data);
@@ -763,50 +768,85 @@ export class NewRequestComponent implements OnInit {
     return this.RoomsList.filter(room => room === filterValue);
   }
 
+  selectedsafety(event: MatAutocompleteSelectedEvent): void {
+    this.safetyList.forEach(x => {
+      if (x["id"] == event.option.value) {
+        this.safetyprecdata.push(x);
+      }
+    })
+    //this.Rooms.push(event.option.viewValue);
+    this.roomInput.nativeElement.value = '';
+    this.RequestForm.controls["Room"].setValue(null);
+  }
+  private _safetyfilter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.safetyList.filter(room => room === filterValue);
+  }
+
+  addsafety(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.safetyprecdata.push(value.trim());
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+
+    this.RequestForm.controls["Safetyprecaustion"].setValue(null);
+  }
+
+  removesafety(fruit: string): void {
+    const index = this.safetyprecdata.indexOf(fruit);
+
+    if (index >= 0) {
+      this.safetyprecdata.splice(index, 1);
+    }
+  }
 
   EditFormDataBinding(data) {
     var roomarrstr = [];
-    this.spinner=true;
+    this.spinner = true;
     roomarrstr = data["Room_Nos"].split(",");
     this.requestsserivies.GetAllRoomsbyid(data["Floor_Id"]).subscribe(res => {
-      this.spinner=false;
-      if(res["message"]=="No Floors Found")
-      {
-        this.RoomsList=[];
+      this.spinner = false;
+      if (res["message"] == "No Floors Found") {
+        this.RoomsList = [];
       }
-      else
-      {
+      else {
         this.RoomsList = res["data"];
       }
-      if(this.RoomsList.length>0)
-      {
+      if (this.RoomsList.length > 0) {
         this.RoomsList.forEach(x => {
-          roomarrstr.forEach(y=>
-            {
-              if (x["room_id"] == y) {
-                this.Rooms.push(x);
-              }
-            });
+          roomarrstr.forEach(y => {
+            if (x["room_id"] == y) {
+              this.Rooms.push(x);
+            }
+          });
         });
-      
+
       }
       this.filteredRooms = this.RequestForm.controls["Room"].valueChanges.pipe(
         startWith(null),
-        map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice())); 
-      
-      });
+        map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice()));
 
+    });
 
     var badarrstr = [];
- //   this.Badges=data["Badge_Numbers"];
+    //   this.Badges=data["Badge_Numbers"];
     badarrstr = data["Badge_Numbers"].split(",");
-    this.EditbadgeArray=badarrstr;
-     this.GetEmployees(data["Sub_Contractor_Id"]);
-    
-     this.updaterequestdata.id = data["id"];
-     this.updaterequestdata.PermitNo=data["PermitNo"];
+    this.EditbadgeArray = badarrstr;
+    this.GetEmployees(data["Sub_Contractor_Id"]);
+
+    this.updaterequestdata.id = data["id"];
+    this.updaterequestdata.PermitNo = data["PermitNo"];
     // this.updaterequestdata.Request_status=data["Request_status"];
-     this.updaterequestdata.Request_Date=data["Request_Date"];
+    this.updaterequestdata.Request_Date = data["Request_Date"];
     //this.RequestForm.controls['Requestdate'].setValue(data["Request_Date"]);
     this.RequestForm.controls['Companyname'].setValue(data["Company_Name"]);
     this.RequestForm.controls['Requestdate'].setValue(data['Request_Date']);
@@ -818,6 +858,7 @@ export class NewRequestComponent implements OnInit {
     this.RequestForm.controls['Site'].setValue(data["Site_Id"]);
     this.RequestForm.controls['Activity'].setValue(data["Activity"]);
     this.RequestForm.controls['TypeActivity'].setValue(data["Type_Of_Activity_Id"]);
+    console.log( this.RequestForm.controls['TypeActivity'].value)
     this.RequestForm.controls['Building'].setValue(data["Building_Id"]);
     this.RequestForm.controls['CMTdata'].setValue(data["Crane_Requested"]);
     this.RequestForm.controls['CmtValue'].setValue(data["Crane_Number"]);
@@ -833,12 +874,12 @@ export class NewRequestComponent implements OnInit {
 
     var assstarttimestr = data["Assign_Start_Time"].split(':');
     this.RequestForm.controls['AssignStartTime'].setValue(assstarttimestr[0] + ":" + assstarttimestr[1]);
-    
-   
-  //  this.RequestForm.controls['AssignStartTime'].setValue(data["Assign_Start_Time"]);
-  var assendtimestr = data["Assign_End_Time"].split(':');
-  this.RequestForm.controls['AssignEndTime'].setValue(assendtimestr[0] + ":" + assendtimestr[1]);
- 
+
+
+    //  this.RequestForm.controls['AssignStartTime'].setValue(data["Assign_Start_Time"]);
+    var assendtimestr = data["Assign_End_Time"].split(':');
+    this.RequestForm.controls['AssignEndTime'].setValue(assendtimestr[0] + ":" + assendtimestr[1]);
+
     this.RequestForm.controls['Safetyprecaustion'].setValue(data["Safety_Precautions"]);
     this.RequestForm.controls['SpecialInstruction'].setValue(data["Special_Instructions"]);
 
@@ -852,7 +893,6 @@ export class NewRequestComponent implements OnInit {
     // roomarrstr = data["Room_Nos"].split(",");
     // this.RequestForm.controls['Room'].setValue(roomarrstr);
     this.RequestForm.controls['RoomType'].setValue(data["Room_Type"]);
-    console.log(data["Start_Time"]);
     var starttimestr = data["Start_Time"].split(':');
 
     this.RequestForm.controls['StartTime'].setValue(starttimestr[0] + ":" + starttimestr[1]);
@@ -886,30 +926,28 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetEmployees(event) {
-    this.spinner=true;
+    this.spinner = true;
     this.empservice.GetAllEmployeesBySubContrId(event).subscribe(res => {
-      this.spinner=false;
-      if(res["data"]!=undefined)
-      {
+      this.spinner = false;
+      if (res["data"] != undefined) {
         this.BADGENUMBERS = res["data"];
       }
 
-      if(this.editform==true && this.BADGENUMBERS.length>0)
-      {
-        
+      if (this.editform == true && this.BADGENUMBERS.length > 0) {
+
         this.BADGENUMBERS.forEach(x => {
-          this.EditbadgeArray.forEach(y=>
-            {
-              if (x["badgeId"] == y) {
-                this.Badges.push(x);
-              }
-            });
+          this.EditbadgeArray.forEach(y => {
+            if (x["badgeId"] == y) {
+              this.Badges.push(x);
+            }
           });
+        });
       }
       this.filteredBadges = this.RequestForm.controls["BADGENUMBER"].valueChanges.pipe(
         startWith(null),
         map((fruit: string | null) => fruit ? this._filter(fruit) : this.BADGENUMBERS.slice()));
     });
+
   }
 
 
@@ -919,11 +957,146 @@ export class NewRequestComponent implements OnInit {
 
     });
   }
-  BacktoList()
-  {
+  BacktoList() {
     this.route.navigateByUrl("/user/list-request")
   }
+
+
+  public loadComplete(pdf: PDFDocumentProxy): void {
+    for (let i = 1; i <= pdf.numPages; i++) {
+
+      // track the current page
+      let currentPage = null;
+      pdf.getPage(i).then(p => {
+        currentPage = p;
+        // get the annotations of the current page
+        return p.getAnnotations();
+      }).then(ann => {
+        // ugly cast due to missing typescript definitions
+        // please contribute to complete @types/pdfjs-dist
+        const annotations = (<any>ann) as PDFAnnotationData[];
+
+        annotations
+          .filter(a => a.subtype === 'Widget') // get the form field annotation only
+          .forEach(a => {
+            var pdfRect = [0, 0, 140, 150];
+
+            // a.rect[0]=236;
+            // a.rect[1]=700;
+            // a.rect[2]=523;
+            // a.rect[3]=721;
+            // get the rectangle that represent the single field
+            // and resize it according to the current DPI
+            var scale = 1;
+            var rotation = 1;
+
+
+            // a.rect[0]=a.rect[0];
+            // a.rect[1]=a.rect[1];
+            // a.rect[2]=a.rect[2]-a.rect[0];
+            // a.rect[3]=a.rect[3]-a.rect[1];
+            // const fieldRect = currentPage.getViewport({ scale: scale, rotation: rotation })
+            //     .convertToViewportRectangle(a.rect);
+            // add the corresponding input
+            this.addInput(a, a.rect);
+          });
+      });
+    }
+  }
+  private createInput(annotation: PDFAnnotationData, rect: number[] = null) {
+    let formControl = new FormControl(annotation.buttonValue || '');
+
+    const input = new Inputdata();
+    input.name = annotation.fieldName;
+
+    if (annotation.subtype === 'Link') {
+      input.type = 'button';
+      input.value = annotation.buttonValue || '';
+    }
+    if (annotation.fieldType === 'Btn') {
+      input.type = 'button';
+
+      input.name = annotation.fieldName || '';
+      input.value = annotation.fieldName || '';
+    }
+
+    // Calculate all the positions and si zes
+    if (rect) {
+      input.top = rect[1];
+      input.left = rect[0];
+      //input.height = (rect[3] - rect[1]);
+      //input.width = (rect[2] - rect[0]);
+      // input.top = rect[1];
+      //input.left = rect[0];
+
+      // input.height = rect[0] + rect[2];
+      //input.width = rect[1] - rect[3];
+
+
+      // input.top =  rect[0];
+      // yMin = y
+      // xMax = x + width
+      // yMax = y + height
+
+    }
+    this.inputList.push(input);
+    return formControl;
+  }
+
+  private addInput(annotation: PDFAnnotationData, rect: number[] = null): void {
+    // add input to page
+
+
+    // var topPos = annotation.rect[0]+ window.scrollY;
+    // var leftPos = annotation.rect[1] + window.scrollX;
+    //         rect[0]=topPos;
+    //         rect[1]=leftPos;
+    this.myForm.addControl(annotation.fieldName, this.createInput(annotation, rect));
+
+    //this.myForm.addControl('new', new FormControl(''));
+  }
+
+  public getInputPosition(input: Inputdata): any {
+
+    if (input.value === "R1") {
+      return {
+
+        // top: `${input.top-130}px`,
+        // left: `${input.left+142}px`,
+        // height: `${input.height+42}px`,
+        // width: `${input.width+53}px`,
+        top: `208.4px`,
+        left: `260.8px`,
+        height: `200px`,
+        width: `157px`,
+
+      };
+    }
+    else if (input.value === "R2") {
+      return {
+
+        top: `13px`,
+        left: `566.32px`,
+        height: `200px`,
+        width: `195px`,
+
+      };
+
+    }
+    else if (input.value === "R3") {
+      return {
+
+        top: `-185.32px`,
+        left: `870.84px`,
+        height: `200px`,
+        width: `200px`,
+
+      };
+
+    }
+  }
+
+  eventCheck(event) {
+    console.log(event)
+  }
 }
-
-
-

@@ -111,12 +111,15 @@ export class SubContractorComponent implements OnInit {
     this.updatesubcontr.subContractorName=this.SubcontractorForm.controls["subname"].value;
     //this.updatesubcontr.username=this.SubcontractorForm.controls["username"].value;
     //this.updatesubcontr.password=this.SubcontractorForm.controls["password"].value;
-    this.updatesubcontr.logo=this.SubcontractorForm.controls["sublogo"].value;
+    this.updatesubcontr.logo=this.croppedImage;
 
     this.subcservice.UpdateSubContractor(this.updatesubcontr).subscribe(res=>
       {
-        this.spinner = false;
-        this.openSnackBar("Subcontractor Updated Successfully");
+        if(res["status"]=="200")
+     {
+      this.openSnackBar("Subcontractor Updated Successfully");
+      this.spinner = false;
+     }
       //  this.SubcontractorForm.reset();
       },
       error=>

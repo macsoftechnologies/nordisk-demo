@@ -24,6 +24,8 @@ import { ActivityService } from 'app/shared/services/activity.service';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
 import { DatePipe } from '@angular/common';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
+import { RequestsbyId } from 'app/views/Models/RequestDto';
+import * as xlsx from 'xlsx';
 
 @Component({
   selector: 'app-list-request',
@@ -45,10 +47,13 @@ export class ListRequestComponent implements OnInit {
   items: any[] = [];
   getItemSub: Subscription;
   Cols = [
-    { field: 'Companyname', header: 'Company Name' },
-    { field: 'SubContractor', header: 'Sub Contractor' },
-    { field: 'Site', header: 'Site' },
-    { field: 'Building', header: 'Building' }
+    { field: 'PermitNo', header: 'Permit number' },
+    { field: 'Activity', header: 'Activity' },
+    { field: 'subContractorName', header: 'Sub Contractor' },
+    { field: 'Working_Date', header: 'Working Date' },
+    { field: 'Start_Time', header: 'Start Time' },
+    { field: 'End_Time', header: 'End Time' },
+    { field: 'Request_status', header: 'Status' },
   ];
 
   Typeofactivitys: any[] = []
@@ -106,11 +111,15 @@ export class ListRequestComponent implements OnInit {
 
     }
 
+    RequestsbyidDto:RequestsbyId=
+    {
+      userId:null
+    }
   Contractors: any[] = []
   Sites: any[] = []
   Buildings: any[] = [];
-  userdata:any={};
-  isoperator:boolean=false;
+  userdata: any = {};
+  isoperator: boolean = false;
   constructor(
     private dialog: MatDialog,
     private snack: MatSnackBar,
@@ -123,7 +132,7 @@ export class ListRequestComponent implements OnInit {
     private requestservice: RequestService,
     private activityservice: ActivityService,
     private datePipe: DatePipe,
-    private jwtauth:JwtAuthService
+    private jwtauth: JwtAuthService
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
@@ -160,36 +169,49 @@ export class ListRequestComponent implements OnInit {
 
         if (res[0]["message"] == "No Requests Found") {
           this.items = [];
-          this.Filtertab=false;
+          this.Filtertab = false;
         }
         else {
-          this.items = res[0]["data"];
+        
           this.Filtertab = true;
-          this.userdata=this.jwtauth.getUser();
-      
-          if(this.userdata["role"]=="subcontractor")
-          {
-            this.isoperator=false;
-          }
-          else  if(this.userdata["role"]=="Admin")
-          {
-            this.isoperator=true;
-          }
-          else  if(this.userdata["role"]=="Operator")
-          {
-      
-            this.isoperator=true;
-            var filteritems=[];
-            this.items.forEach(x=>
+          this.userdata = this.jwtauth.getUser();
+
+          if (this.userdata["role"] == "Subcontractor") {
+            this.isoperator = false;
+            this.RequestsbyidDto.userId=this.userdata["id"];
+            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
               {
-                if(x["Request_status"]!="Draft")
-                {
-      filteritems.push(x);
-                }
+                console.log(res);
+                this.items=res["data"];
               });
-      this.items=[];
-      this.items.length=0;
-      this.items=filteritems;
+          }
+          else if (this.userdata["role"] == "Admin") {
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
+
+          }
+          else if (this.userdata["role"] == "Department") {
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
           }
         }
 
@@ -212,7 +234,7 @@ export class ListRequestComponent implements OnInit {
     //       this.Sites=x["data"];
     //     });
 
-  
+
 
   }
   Getbuilding(event) {
@@ -321,7 +343,7 @@ export class ListRequestComponent implements OnInit {
 
     };
 
-    this.ModalOptions.tableData = this.userservices.RequestLists;
+    this.ModalOptions.tableData = this.items;
 
     this.ModalOptions.fileName = "test" + "_" + moment(new Date()).format('YYYY/MM/DD').toString();
 
@@ -386,7 +408,7 @@ export class ListRequestComponent implements OnInit {
       'download',
       this.ModalOptions.fileName + this.ModalOptions.key + '.csv'
     );
-    document.body.appendChild(link); // Required for FF
+    document.body.appendChild(link); 
     link.click();
   }
 
@@ -396,8 +418,7 @@ export class ListRequestComponent implements OnInit {
     {
       "payload": row,
       "editform": true
-    }
-      ;
+    };
     this.route.navigateByUrl("/user/new-request");
 
     // let title = 'Request';
@@ -428,34 +449,31 @@ export class ListRequestComponent implements OnInit {
 
   ChangeStaus(row) {
     let title = 'Request Status Change ';
-    let type="operartor";
+    let type = "operartor";
     let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
       width: '300px',
       height: '150px',
       disableClose: false,
-      data: { title: title, payload: row,type:type }
+      data: { title: title, payload: row, type: type }
     })
     dialogRef.afterClosed()
       .subscribe(res => {
         this.getItems();
       });
   }
-  ChangeStausbysubcontractor(row,status)
-  {
+  ChangeStausbysubcontractor(row, status) {
     let title = 'Request Status Change ';
-    let type=status;
-    if(status=="Opened")
-    {
-      debugger
-       var currentdate=this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    let type = status;
+    if (status == "Opened") {
+      
+      var currentdate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
       var mydate = this.datePipe.transform(row["Working_Date"], 'yyyy-MM-dd');
-      if(currentdate===mydate)
-      {
+      if (currentdate === mydate) {
         let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
-      
-      
+
+
           disableClose: false,
-          data: { title: title, payload: row, type:type }
+          data: { title: title, payload: row, type: type }
         })
         dialogRef.afterClosed()
           .subscribe(res => {
@@ -463,22 +481,20 @@ export class ListRequestComponent implements OnInit {
           });
       }
     }
-    else if(status=="Closed")
-    {
-     
-        let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
-          disableClose: false,
-          data: { title: title, payload: row, type:type }
-        })
-        dialogRef.afterClosed()
-          .subscribe(res => {
-            this.getItems();
-          }); 
+    else if (status == "Closed") {
+
+      let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
+        disableClose: false,
+        data: { title: title, payload: row, type: type }
+      })
+      dialogRef.afterClosed()
+        .subscribe(res => {
+          this.getItems();
+        });
     }
   }
 
-  Deleterequest(row)
-  {
+  Deleterequest(row) {
     let title = 'Delete Request';
     let dialogRef: MatDialogRef<any> = this.dialog.open(DeleteOptionComponent, {
       width: '300px',
@@ -490,7 +506,7 @@ export class ListRequestComponent implements OnInit {
       .subscribe(res => {
         this.getItems();
       });
-    }
+  }
   statuschange(statusdata) {
 
     this.selectedRequestIds.length = 0;
@@ -512,6 +528,8 @@ export class ListRequestComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
+        this.selected.length=0;
+        this.selected=[];
         this.ngOnInit();
       });
   }
@@ -543,5 +561,13 @@ export class ListRequestComponent implements OnInit {
       });
   }
 
-
+  EditDraft(row)
+  {
+    this.requestservice.SelectedRequestData =
+    {
+      "payload": row,
+      "editform": true
+    };
+    this.route.navigateByUrl("/user/new-request");
+  }
 }

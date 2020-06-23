@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { EmployeesDto, DeleteEmployeeDto, EmployeeSubDto, UpdateEmployeeSubDto, UpdateEmployeeDeptDto, EmployeeDeptDto } from 'app/views/Models/EmployeesDto';
+import { DeptWiseEmps } from 'app/views/Models/DepartmentDto';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,11 @@ export class EmployeeService {
     // var reqHeader = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods':' GET, PUT, POST, DELETE, HEAD, OPTIONS '});
 
     return this.http.get<any[]>(environment.API_URL + 'employee/readlist.php?subcont='+id);
+  }
+  public GetAllEmployeesByDeptId(id:DeptWiseEmps): Observable<any[]> {
+    // var reqHeader = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods':' GET, PUT, POST, DELETE, HEAD, OPTIONS '});
+
+    return this.http.post<any[]>(environment.API_URL + 'employee/emplistdepId.php',id);
   }
 
   public CreateEmployees(emp:EmployeesDto): Observable<any> {

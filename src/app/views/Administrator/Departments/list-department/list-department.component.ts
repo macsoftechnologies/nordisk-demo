@@ -4,6 +4,7 @@ import { DepartmentService } from 'app/shared/services/department.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { DepartmentComponent } from '../department/department.component';
 import { DeleteOptionComponent } from '../../delete-option/delete-option.component';
+import { DeptEmpsComponent } from '../dept-emps/dept-emps.component';
 
 @Component({
   selector: 'app-list-department',
@@ -60,5 +61,19 @@ export class ListDepartmentComponent implements OnInit {
       });
     }
  
-
+    onActivate(event) {
+      if (event.type == 'click') {
+        console.log(event.row);
+        let title = 'Employees List By Departments';
+        let dialogRef: MatDialogRef<any> = this.dialog.open(DeptEmpsComponent, {
+          width: '1000px',
+          
+          disableClose: false,
+          data: { title: title, payload: event.row }
+        })
+        dialogRef.afterClosed()
+          .subscribe(res => {
+          });
+      }
+    }
 }

@@ -35,7 +35,8 @@ padding: 10px;
   }
   .img-div-sty
   {
-    text-align: center;
+    /* text-align: center; */
+    /* background-color: red; */
   }
   .firstdiv, .secndfiv, .thirddiv, .fourthdiv
   {
@@ -49,3 +50,48 @@ padding: 10px;
   {
     /* height: 60px !important; */
   }
+
+  .form-value{
+    position: absolute;
+    left: 1rem;
+    font-size: 1.5rem;
+}
+
+#input-form {
+    position: absolute;
+    z-index: 1;
+   
+}
+input {
+  position: relative !important;
+  background: transparent;
+  border: none;
+ /* background-color: red; */
+}
+button
+{
+  width: 200px;
+  height: 50px;
+}
+.btn-sty
+{
+  /* background-color: red; 
+  left: 118px;
+  top:338.4px;
+  width: 100px;
+  height: 50px; */
+
+  /* background-color: red; */
+    /* left: 260px;
+    top: 208.4px;
+    width: 204px;
+    height: 159px; */
+    cursor: pointer;
+    color: black;
+    text-align: center;
+font-weight: bold;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    overflow: hidden;
+    outline:none;
+}

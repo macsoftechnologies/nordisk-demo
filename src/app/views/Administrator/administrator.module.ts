@@ -19,10 +19,11 @@ import { ListActivityComponent } from './Activities/list-activity/list-activity.
 import { SafetyprecautionComponent } from './SafetyPrecautions/safetyprecaution/safetyprecaution.component';
 import { ListSafetyprecautionComponent } from './SafetyPrecautions/list-safetyprecaution/list-safetyprecaution.component';
 import { DeleteOptionComponent } from './delete-option/delete-option.component';
+import { DeptEmpsComponent } from './Departments/dept-emps/dept-emps.component';
 
 
 @NgModule({
-  declarations: [DepartmentComponent, ListDepartmentComponent, EmployeeComponent, ListEmployeeComponent, TeamComponent, SubContractorComponent, ListSubcontractorsComponent, ListTeamsComponent, ListSubEmpComponent, TeamSubEmpListComponent, ActivityComponent, ListActivityComponent, SafetyprecautionComponent, ListSafetyprecautionComponent, DeleteOptionComponent],
+  declarations: [DepartmentComponent, ListDepartmentComponent, EmployeeComponent, ListEmployeeComponent, TeamComponent, SubContractorComponent, ListSubcontractorsComponent, ListTeamsComponent, ListSubEmpComponent, TeamSubEmpListComponent, ActivityComponent, ListActivityComponent, SafetyprecautionComponent, ListSafetyprecautionComponent, DeleteOptionComponent, DeptEmpsComponent],
   imports: [
     CommonModule,
     

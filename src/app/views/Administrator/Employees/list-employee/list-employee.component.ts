@@ -29,11 +29,13 @@ export class ListEmployeeComponent implements OnInit {
       {
         this.spinner = false;
         this.items=res["data"];
+        console
       });
   }
 
   Editemp(row)
   {
+    console.log(row)
     let title = 'Edit Employee';
     let dialogRef: MatDialogRef<any> = this.dialog.open(EmployeeComponent, {
       width: '1200px',

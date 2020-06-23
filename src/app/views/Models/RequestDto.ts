@@ -132,3 +132,8 @@ export class UpdateClose_Status
     Image:string;
     id:string;
 }
+
+export class RequestsbyId
+{
+    userId:string;
+}

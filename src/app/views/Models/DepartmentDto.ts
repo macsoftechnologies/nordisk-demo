@@ -13,3 +13,8 @@ export class DeleteDepartmentDto
 {
     id:string;
 }
+
+export class DeptWiseEmps
+{
+    departId:string;
+}

@@ -128,8 +128,8 @@
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Type of Activity</mat-label>
                 <mat-select formControlName="TypeActivity" name="TypeActivity">
-                  <mat-option *ngFor="let tech of TypeofActivites" [value]="tech.Actid">
-                    {{tech.Actname}}
+                  <mat-option *ngFor="let tech of TypeofActivites" [value]="tech.id">
+                    {{tech.activityName}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -229,7 +229,7 @@
               <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
             </mat-grid-tile>
           </mat-grid-list>
-          <mat-grid-list cols="3" rowHeight="80px" *ngIf="editform">
+          <mat-grid-list cols="3" rowHeight="80px" *ngIf="Assigneditform">
             <mat-grid-tile></mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -800,7 +800,22 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Safety Precautions </mat-label>
-                <textarea class="textarea" matInput formControlName="Safetyprecaustion" placeholder=""></textarea>
+                <!-- <textarea class="textarea" matInput formControlName="Safetyprecaustion" placeholder=""></textarea> -->
+                <mat-chip-list #chipList aria-label="Safety Precautions">
+                  <mat-chip *ngFor="let badg of safetyprecdata" [selectable]="Safetypreselectable" [removable]="removable"
+                    (removed)="removesafety(badg)">
+                    {{badg.id}}
+                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                  </mat-chip>
+                  <input placeholder="" #badgeInput formControlName="Safetyprecaustion"
+                    [matAutocomplete]="auto" [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addsafety($event)">
+                </mat-chip-list>
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedsafety($event)">
+                  <mat-option *ngFor="let badge of filteredsafety | async" [value]="badge.id">
+                    {{badge.precaution}}
+                  </mat-option>
+                </mat-autocomplete>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -958,16 +973,39 @@
     <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">Save</button>
     <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUp()">Change to Hold</button>
   </div>
+  <div class="butns" *ngIf="subeditform">
+    <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">Save</button>
+    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUp()">Change to Hold</button>
+  </div>
 </div>
+    <div class="form-container" [hidden]="isnewrequestcreated">
+        <form id="input-form" [formGroup]="myForm" novalidate>
 
-<div [hidden]="isnewrequestcreated" class="img-div-sty">
+            <div *ngFor="let input of inputList; let i=index" [ngSwitch]="input.type">
+                <!-- <input *ngSwitchCase="'button'" [name]="input.name" type="button" [formControlName]="input.name"
+                        [value]="input.value" (change)="eventCheck($event)" 
+                        [ngStyle]="getInputPosition(input)">
+                        <input *ngSwitchCase="'radio'" [name]="input.name" type="radio" [formControlName]="input.name"
+                        [value]="input.value" (change)="eventCheck($event)" 
+                        [ngStyle]="getInputPosition(input)"> -->
+                        <input type="button" [name]="input.name" [value]="input.value" [ngStyle]="getInputPosition(input)" (click)="eventCheck(input.value)"  class="btn-sty">
+
+            </div>
+        </form>
+        <form id="input-form">
+            
+          
+        </form>
+      
+    </div>
+<div class="img-div-sty" [hidden]="isnewrequestcreated">
   <div>
     <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
-    <pdf-viewer src='../assets/images/complete-plan/SitePlan_withBuldings_new_1.pdf' [render-text]="true" style="display: block;"></pdf-viewer>
+    <pdf-viewer [src]='pdfSrc' (after-load-complete)="loadComplete($event)" [render-text]="true" style="display: block;"></pdf-viewer>
   </div>
 </div>
 
-<div class="butns" [hidden]="!editform">
+<div class="butns" [hidden]="!editform" *ngIf="!subeditform">
   <button class="butns-grp" mat-raised-button color="primary" (click)="UpdateRequest()">Update</button>
 </div>
 

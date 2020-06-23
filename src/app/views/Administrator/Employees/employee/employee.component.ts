@@ -50,7 +50,7 @@ export class EmployeeComponent implements OnInit {
     subContId: null,
     username: null,
     password: null,
-    access: "1"
+    access: "0"
   }
   empwithsub: EmployeeSubDto =
     {
@@ -88,7 +88,7 @@ export class EmployeeComponent implements OnInit {
     subContId: null,
     username: null,
     password: null,
-    access: "1"
+    access: "0"
   }
 
   UpdateEmpdeptdata: UpdateEmployeeDeptDto = {
@@ -101,7 +101,7 @@ export class EmployeeComponent implements OnInit {
     designation: null,
     username: null,
     password: null,
-    access: "1"
+    access: "0"
   }
 
   //Departmentcontrol = new FormControl(this.Departments[1].value);
@@ -159,6 +159,7 @@ export class EmployeeComponent implements OnInit {
       this.EmployeeForm.controls["Role"].setValue(this.data["payload"]["roleId"]);
       this.EmployeeForm.controls["subcontrid"].setValue(this.data["payload"]["subContId"]);
       this.UpdateEmpdata.id = this.data["payload"]["id"];
+     debugger
       if (this.data["payload"]["access"] == "1") {
         this.useraccess = true;
       }
@@ -191,6 +192,7 @@ export class EmployeeComponent implements OnInit {
 
     if (this.useraccess == true) {
       this.Empdata.access = "1";
+      
     }
     else if (this.useraccess == false) {
       this.Empdata.access = "0";
@@ -209,8 +211,7 @@ export class EmployeeComponent implements OnInit {
     this.Empdata.username = this.EmployeeForm.controls["username"].value;
     this.Empdata.password = this.EmployeeForm.controls["password"].value;
     this.spinner = true;
-    if (this.Empdata.access == "1" && this.Empdata.subContId != "") {
-      this.empwithsub.access = this.Empdata.access;
+    if ( this.Empdata.subContId != "") {
       this.empwithsub.badgeId = this.Empdata.badgeId;
       this.empwithsub.designation = this.Empdata.designation;
       this.empwithsub.employeeName = this.Empdata.employeeName;
@@ -231,7 +232,7 @@ export class EmployeeComponent implements OnInit {
         }
       )
     }
-    else if (this.Empdata.access == "1" && this.Empdata.departId != "") {
+    else if (this.Empdata.departId != "") {
       this.empwithdept.access = this.Empdata.access;
       this.empwithdept.badgeId = this.Empdata.badgeId;
       this.empwithdept.designation = this.Empdata.designation;
@@ -253,22 +254,32 @@ export class EmployeeComponent implements OnInit {
         }
       )
     }
-    // this.empservice.CreateEmployees(this.Empdata).subscribe(res => {
-    //   this.spinner = false;
+    // else if(this.Empdata.access=="0" && this.Empdata.subContId != "")
+    // {
+    //   this.empwithsub.access = this.Empdata.access;
+    //   this.empwithsub.badgeId = this.Empdata.badgeId;
+    //   this.empwithsub.designation = this.Empdata.designation;
+    //   this.empwithsub.employeeName = this.Empdata.employeeName;
+    //   this.empwithsub.password ="";
+    //   this.empwithsub.phonenumber = this.Empdata.phonenumber;
+    //   this.empwithsub.roleId = this.Empdata.roleId;
+    //   this.empwithsub.subContId = this.Empdata.subContId;
+    //   this.empwithsub.username ="";
 
-    //   this.openSnackBar("Employee Created Successfully");
-    //   this.EmployeeForm.reset();
-    // },
-    //   error => {
-    //     this.openSnackBar("Something went wrong. Plz try again later...");
-    //   }
-    // )
+    //   this.empservice.CreateEmployeeswithSub(this.empwithsub).subscribe(res => {
+    //     this.spinner = false;
+
+    //     this.openSnackBar("Employee Created Successfully");
+    //     this.EmployeeForm.reset();
+    //   })
+    // }
+  
 
   }
 
   UpdateEmp() {
     this.spinner = true;
-
+console.log(this.UpdateEmpdata);
     this.UpdateEmpdata.subContId = this.EmployeeForm.controls["subcontrid"].value;;
     this.UpdateEmpdata.roleId = this.EmployeeForm.controls["Role"].value;
     this.UpdateEmpdata.departId = this.EmployeeForm.controls["EmpDept"].value;
@@ -278,8 +289,9 @@ export class EmployeeComponent implements OnInit {
     this.UpdateEmpdata.badgeId = this.EmployeeForm.controls["badge"].value;
     this.UpdateEmpdata.username = this.EmployeeForm.controls["username"].value;
     this.UpdateEmpdata.password = this.EmployeeForm.controls["password"].value;
-
-    if (this.Empdata.access == "1" && this.Empdata.subContId != "") {
+    console.log(this.UpdateEmpdata)
+debugger
+    if (this.UpdateEmpdata.subContId != "" && this.UpdateEmpdata.subContId !="0") {
       this.UpdateEmpsubdata.id = this.UpdateEmpdata.id;
       this.UpdateEmpsubdata.badgeId = this.UpdateEmpdata.badgeId;
       this.UpdateEmpsubdata.designation = this.UpdateEmpdata.designation;
@@ -289,19 +301,20 @@ export class EmployeeComponent implements OnInit {
       this.UpdateEmpsubdata.roleId = this.UpdateEmpdata.roleId;
       this.UpdateEmpsubdata.subContId = this.UpdateEmpdata.subContId;
       this.UpdateEmpsubdata.username = this.UpdateEmpdata.username;
-      this.UpdateEmpsubdata.access = this.UpdateEmpdata.access;
+      this.UpdateEmpsubdata.access =this.Empdata.access;
 
-      this.empservice.UpdateEmployeeswithSub(this.UpdateEmpsubdata).subscribe(res => {
-        this.spinner = false;
-        this.openSnackBar("Employee updated Successfully");
-        //this.EmployeeForm.reset();
-      },
-        error => {
-          this.openSnackBar("Something went wrong. Plz try again later...");
-        }
-      );
+      console.log(this.UpdateEmpsubdata)
+      // this.empservice.UpdateEmployeeswithSub(this.UpdateEmpsubdata).subscribe(res => {
+      //   this.spinner = false;
+      //   this.openSnackBar("Employee updated Successfully");
+      //   //this.EmployeeForm.reset();
+      // },
+      //   error => {
+      //     this.openSnackBar("Something went wrong. Plz try again later...");
+      //   }
+      // );
     }
-    else if (this.Empdata.access == "1" && this.Empdata.departId != "") 
+    else if (this.UpdateEmpdata.departId != "" && this.UpdateEmpdata.departId != "0") 
     {
       this.UpdateEmpdeptdata.id = this.UpdateEmpdata.id;
       this.UpdateEmpdeptdata.badgeId = this.UpdateEmpdata.badgeId;
@@ -312,7 +325,7 @@ export class EmployeeComponent implements OnInit {
       this.UpdateEmpdeptdata.roleId = this.UpdateEmpdata.roleId;
       this.UpdateEmpdeptdata.departId = this.UpdateEmpdata.departId;
       this.UpdateEmpdeptdata.username = this.UpdateEmpdata.username;
-      this.UpdateEmpdeptdata.access = this.UpdateEmpdata.access;
+      this.UpdateEmpdeptdata.access = this.Empdata.access;
 
       this.empservice.UpdateEmployeeswithDept(this.UpdateEmpdeptdata).subscribe(res => {
         this.spinner = false;
