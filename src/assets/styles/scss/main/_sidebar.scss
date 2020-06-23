@@ -60,12 +60,16 @@
   width: 100%;
   padding: 1rem 0;
   .app-user-photo {
-    width: 72px;
+    max-width: 72px;
     margin: 0 auto 8px;
     height: 72px;
     box-sizing: border-box;
     padding: 4px;
     border-radius: 50%;
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
   }
   .app-user-controls {
     .mat-icon-button {
@@ -99,11 +103,11 @@
     }
   }
   .app-user {
-      padding: .5rem 0;
+    padding: 0.5rem 0;
     .app-user-photo {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 0;
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0;
     }
   }
   .app-user-name,
