@@ -17,7 +17,14 @@
                         <mat-grid-tile>
                             <mat-form-field class="full-width" appearance="outline">
                                 <mat-label>Safety Precaution</mat-label>
-                                <input matInput formControlName="precaution" placeholder="Precaution">
+                                <!-- <input matInput formControlName="precaution" placeholder="Precaution"> -->
+                                <textarea matInput
+                                cdkTextareaAutosize
+                                #autosize="cdkTextareaAutosize"
+                                cdkAutosizeMinRows="1"
+                                cdkAutosizeMaxRows="5"
+                                formControlName="precaution" placeholder="Precaution"
+                                ></textarea>
                             </mat-form-field>
                         </mat-grid-tile>
                     </mat-grid-list>

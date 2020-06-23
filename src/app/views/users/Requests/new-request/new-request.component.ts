@@ -22,6 +22,7 @@ import { PDFDocumentProxy } from 'ng2-pdf-viewer';
 import { Inputdata, PDFAnnotationData } from 'app/views/Models/input';
 import { ActivityService } from 'app/shared/services/activity.service';
 import { SafetyprecautionService } from 'app/shared/services/safetyprecautionservice';
+import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/template';
 
 @Component({
   selector: 'app-new-request',
@@ -76,7 +77,7 @@ export class NewRequestComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   filteredBadges: Observable<string[]>;
   filteredRooms: Observable<string[]>;
-  filteredsafety: Observable<string[]>;
+  filteredsafety: Observable<any[]>;
   data: any = {};
   Rooms: any[] = [];
   RoomsList: any[] = [];
@@ -383,16 +384,39 @@ export class NewRequestComponent implements OnInit {
         this.TypeofActivites = res[2]["data"];
         this.safetyList = res[3]["data"];
         console.log(this.safetyList);
-        this.filteredsafety = this.RequestForm.controls["Safetyprecaustion"].valueChanges.pipe(
-          startWith(null),
-          map((fruit: string | null) => fruit ? this._safetyfilter(fruit) : this.safetyList.slice()));
+
+        console.log(this.safetyList);
+        console.log(this.RequestForm.value.Safetyprecaustion);
+        let temp = [];
+        this.safetyList.map(obj => {
+          console.log(this.RequestForm.value.Safetyprecaustion.includes(obj.id))
+          if (this.RequestForm.value.Safetyprecaustion.includes(obj.id))
+            temp.push(obj);
+          return obj;
+        })
+        this.safetyprecdata = temp;
+        console.log(this.safetyprecdata);
+
+        /*  this.filteredsafety = this.RequestForm.controls["Safetyprecaustion"].valueChanges.pipe(
+           startWith(''),
+           // map((fruit: string | null) => fruit ? this._safetyfilter(fruit) : this.safetyList.slice()));
+           map(fruit => fruit.length>=1 ? this._safetyfilter(fruit) : [])); */
+
+
+        this.filteredsafety = this.RequestForm.controls["Safetyprecaustion"].valueChanges
+          .pipe(
+            startWith(''),
+            map(val => val.length >= 1 ? this.filter(val) : [])
+          );
 
 
       });
 
+
+
     this.data = this.requestsserivies.SelectedRequestData;
     if (this.data["editform"] == true) {
-    
+
       this.updaterequestdata.userId = this.userdata["id"];
       if (this.userdata["role"] == "Subcontractor") {
         this.editform = true;
@@ -428,6 +452,13 @@ export class NewRequestComponent implements OnInit {
       this.EditFormDataBinding(this.data["payload"]);
     }
     this.name = "site";
+  }
+
+  filter(val: string) {
+    console.log("filter value", val);
+    console.log(this.safetyList);
+    return this.safetyList.filter(option =>
+      option.precaution.toLowerCase().indexOf(val.toLowerCase()) === 0);
   }
   GetAllSubContractorsData() {
     this.spinner = true;
@@ -598,13 +629,14 @@ export class NewRequestComponent implements OnInit {
   }
 
   UpdateRequest() {
-
+    console.log(this.RequestForm.value);
+    console.log(this.safetyprecdata)
     this.spinner = true;
 
     this.updaterequestdata.Assign_Start_Time = this.RequestForm.controls["AssignStartTime"].value;
     this.updaterequestdata.Assign_End_Time = this.RequestForm.controls["AssignEndTime"].value;
     this.updaterequestdata.Special_Instructions = this.RequestForm.controls["SpecialInstruction"].value;
-    this.updaterequestdata.Safety_Precautions = this.RequestForm.controls["Safetyprecaustion"].value;
+    this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
     this.updaterequestdata.Request_status = this.RequestForm.controls['Status'].value;
     var badarray = [];
     var roomoarr = [];
@@ -774,6 +806,7 @@ export class NewRequestComponent implements OnInit {
         this.safetyprecdata.push(x);
       }
     })
+    console.log(this.safetyprecdata);
     //this.Rooms.push(event.option.viewValue);
     this.roomInput.nativeElement.value = '';
     this.RequestForm.controls["Room"].setValue(null);
@@ -798,7 +831,9 @@ export class NewRequestComponent implements OnInit {
       input.value = '';
     }
 
-    this.RequestForm.controls["Safetyprecaustion"].setValue(null);
+    // this.RequestForm.controls["Safetyprecaustion"].setValue(null);
+    this.RequestForm.controls["Safetyprecaustion"].setValue(this.safetyprecdata);
+    console.log(this.safetyprecdata);
   }
 
   removesafety(fruit: string): void {
@@ -810,6 +845,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   EditFormDataBinding(data) {
+    
     var roomarrstr = [];
     this.spinner = true;
     roomarrstr = data["Room_Nos"].split(",");
@@ -858,7 +894,7 @@ export class NewRequestComponent implements OnInit {
     this.RequestForm.controls['Site'].setValue(data["Site_Id"]);
     this.RequestForm.controls['Activity'].setValue(data["Activity"]);
     this.RequestForm.controls['TypeActivity'].setValue(data["Type_Of_Activity_Id"]);
-    console.log( this.RequestForm.controls['TypeActivity'].value)
+    console.log(this.RequestForm.controls['TypeActivity'].value)
     this.RequestForm.controls['Building'].setValue(data["Building_Id"]);
     this.RequestForm.controls['CMTdata'].setValue(data["Crane_Requested"]);
     this.RequestForm.controls['CmtValue'].setValue(data["Crane_Number"]);
@@ -880,7 +916,16 @@ export class NewRequestComponent implements OnInit {
     var assendtimestr = data["Assign_End_Time"].split(':');
     this.RequestForm.controls['AssignEndTime'].setValue(assendtimestr[0] + ":" + assendtimestr[1]);
 
+    // this.RequestForm.controls['Safetyprecaustion'].setValue(data["Safety_Precautions"]);
     this.RequestForm.controls['Safetyprecaustion'].setValue(data["Safety_Precautions"]);
+    console.log(this.safetyList);
+    console.log(data["Safety_Precautions"].split(","));
+    console.log(this.safetyList.map(obj => {
+      console.log(data["Safety_Precautions"].includes(obj.id))
+      if (data["Safety_Precautions"].includes(obj.id))
+        return obj;
+    }))
+
     this.RequestForm.controls['SpecialInstruction'].setValue(data["Special_Instructions"]);
 
 
