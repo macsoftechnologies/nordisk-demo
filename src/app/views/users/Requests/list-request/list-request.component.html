@@ -72,7 +72,7 @@
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>SubContractor</mat-label>
-            <mat-select formControlName="Contractor" name="CompanyControl">
+            <mat-select formControlName="Contractor" name="Company">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
                 {{loc.subContractorName}}
@@ -126,7 +126,7 @@
       <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Keyword</mat-label>
+            <mat-label>Activity</mat-label>
             <input matInput formControlName="Keyword" placeholder="Keyword">
           </mat-form-field>
         </mat-grid-tile>
@@ -243,7 +243,7 @@
             (click)="CopyRequest(row)">Copy</button> -->
             <mat-icon (click)="CopyRequest(row)" class="icons-sty" *ngIf="row.Request_status=='Hold'">content_copy</mat-icon>
 
-            <mat-icon (click)="Deleterequest(row)" class="icons-sty">delete</mat-icon>
+            <mat-icon (click)="Deleterequest(row)" class="icons-sty" *ngIf="IsNotSubCntr">delete</mat-icon>
 
           <!-- <button mat-icon-button mat-sm-button color="primary" (click)="Deleterequest(row)"
           class="mr-1 icons-sty">Delete</button> -->

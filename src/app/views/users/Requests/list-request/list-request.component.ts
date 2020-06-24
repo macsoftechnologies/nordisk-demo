@@ -36,6 +36,7 @@ import * as xlsx from 'xlsx';
 export class ListRequestComponent implements OnInit {
   ModalOptions: PrintDownloadOptions;
   spinner = false;
+  IsNotSubCntr:boolean=false;
   selected = [];
   selectedRequestIds = [];
   Filtertab: boolean = false;
@@ -67,19 +68,19 @@ export class ListRequestComponent implements OnInit {
       "Statusname": "Draft"
     },
     {
-      "Statusid": "Approved",
+      "Statusid": "Approve",
       "Statusname": "Approved"
     },
     {
-      "Statusid": "Rejected",
+      "Statusid": "Reject",
       "Statusname": "Rejected"
     },
     {
-      "Statusid": "Open",
+      "Statusid": "Opened",
       "Statusname": "Opened"
     },
     {
-      "Statusid": "Close",
+      "Statusid": "Closed",
       "Statusname": "Closed"
     }
   ]
@@ -101,12 +102,14 @@ export class ListRequestComponent implements OnInit {
 
   SearchRequest: SearchRequestDto =
     {
-      Company_Name: null,
+      Activity: null,
       Site_Id: null,
       Sub_Contractor_Id: null,
       Request_status: null,
       PermitNo: null,
-      Working_Date: null,
+      fromDate: "",
+      toDate:"",
+      Type_Of_Activity_Id:null,
       Building_Id: null,
 
     }
@@ -178,6 +181,7 @@ export class ListRequestComponent implements OnInit {
 
           if (this.userdata["role"] == "Subcontractor") {
             this.isoperator = false;
+            this.IsNotSubCntr=false;
             this.RequestsbyidDto.userId=this.userdata["id"];
             this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
               {
@@ -186,6 +190,7 @@ export class ListRequestComponent implements OnInit {
               });
           }
           else if (this.userdata["role"] == "Admin") {
+            this.IsNotSubCntr=true;
             this.items = res[0]["data"];
             this.isoperator = true;
             this.isoperator = true;
@@ -201,6 +206,7 @@ export class ListRequestComponent implements OnInit {
 
           }
           else if (this.userdata["role"] == "Department") {
+            this.IsNotSubCntr=true;
             this.items = res[0]["data"];
             this.isoperator = true;
             var filteritems = [];
@@ -296,29 +302,40 @@ export class ListRequestComponent implements OnInit {
   }
 
   search() {
-
     this.spinner = true;
     this.SearchRequest.Building_Id = this.RequestlistForm.controls["Building"].value;
-    this.SearchRequest.Company_Name = "Beam";
+    this.SearchRequest.Activity =this.RequestlistForm.controls["Keyword"].value;
     this.SearchRequest.PermitNo = this.RequestlistForm.controls["Permitnumber"].value;
     this.SearchRequest.Request_status = this.RequestlistForm.controls["Status"].value;
     this.SearchRequest.Site_Id = this.RequestlistForm.controls["Site"].value;
     this.SearchRequest.Sub_Contractor_Id = this.RequestlistForm.controls["Contractor"].value;
+    this.SearchRequest.Type_Of_Activity_Id=this.RequestlistForm.controls["TypeOfActivity"].value;
+debugger
     var mydate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateFrom"].value, 'yyyy-MM-dd');
-    this.SearchRequest.Working_Date = mydate;
+    var todate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateTo"].value, 'yyyy-MM-dd');
 
+    if(mydate!=null)
+    {
+      this.SearchRequest.fromDate = mydate;
+    }
+    if(todate!=null)
+    {
+      this.SearchRequest.toDate=todate;
+    }
+    console.log(this.SearchRequest)
+
+ 
     this.requestservice.SearchRequest(this.SearchRequest).subscribe(res => {
       if (res["message"] == "No Requests Found") {
         this.items = [];
         this.Filtertab = true;
-
+        this.spinner = false;
       }
       else {
         this.items = res["data"];
         this.Filtertab = true;
-
+        this.spinner = false;
       }
-      this.spinner = false;
     });
 
   }
