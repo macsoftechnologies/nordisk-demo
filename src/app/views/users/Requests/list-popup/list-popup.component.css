@@ -35,13 +35,20 @@
 .secndfiv,
 .thirddiv,
 .fourthdiv {
-  /* border: 1px solid black; */
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   border-radius: 10px;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.02);
+  /* background-color: rgba(0, 0, 0, 0.02); */
   margin-bottom: 10px;
+}
+.request-data-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+.request-data-wrapper .child {
+  width: 33%;
 }
 .chipsbox-height {
   /* height: 60px !important; */
