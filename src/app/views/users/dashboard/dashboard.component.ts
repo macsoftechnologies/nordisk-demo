@@ -35,16 +35,7 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
 
 
   // 
-  sampleData: any[] = [
-    { Day: 'Sunday 21/6/20', Approved: 60, Rejected: 45, Open: 90  , Close : 20 },
-    { Day: 'Monday 22/6/20', Approved: 30, Rejected: 15, Open: 25 , Close : 20},
-    { Day: 'Tuesday 23/6/20', Approved: 25, Rejected: 25, Open: 30 , Close : 20},
-    { Day: 'Wednesday 24/6/20', Approved: 30, Rejected: 20, Open: 25  , Close : 20},
-    { Day: 'Thursday 25/6/20', Approved: 35, Rejected: 25, Open: 45 , Close : 20 },
-    { Day: 'Friday 26/6/20', Approved: 20, Rejected: 20, Open: 25 , Close : 20 },
-    { Day: 'Saturday 27/6/20', Approved: 30, Rejected: 20, Open: 30  , Close : 20},
-    
-  ];
+  weeklyResults: any[] = [];
   getWidth(): any {
     if (document.body.offsetWidth < 850) {
       return '85%';
@@ -58,7 +49,7 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
 
   xAxis: any =
     {
-        dataField: 'Day',
+        dataField: 'date',
         showGridLines: true
     };
     seriesGroups: any[] =
@@ -78,10 +69,10 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
                 tickMarksColor: '#888888'
             },
             series: [
-                { dataField: 'Approved', displayText: 'Approved' },
-                { dataField: 'Rejected', displayText: 'Rejected' },
-                { dataField: 'Open', displayText: 'Open' },
-                { dataField: 'Close', displayText: 'Close' }
+                { dataField: 'approveCount', displayText: 'Approved' },
+                { dataField: 'rejectCount', displayText: 'Rejected' },
+                { dataField: 'openCount', displayText: 'Open' },
+                { dataField: 'closeCount', displayText: 'Close' }
 
             ]
         }
@@ -827,7 +818,10 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
     }
   // Get Graph Counts From API 
     this.teamService.getGraphCounts(requestObj).subscribe(response => {
-      console.log('response', response)
+      // console.log('response', response)
+
+       this.weeklyResults =  response.data != undefined ?   response.data : []
+
     })
   }
 
