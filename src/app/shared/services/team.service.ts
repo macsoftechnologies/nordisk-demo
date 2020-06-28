@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { TeamsDto, UpdateTeamsDto, DeleteTeamsDto } from 'app/views/Models/TeamsDto';
+import { graphDto } from 'app/views/Models/dashboardDto';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,18 @@ export class TeamService {
   }
   public DeleteTeams(req:DeleteTeamsDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'team/delete.php', req);
+  }
+
+
+  /**                                   Dashboard API                                  */ 
+
+  public GetDasboardCounts(): Observable<any[]> {
+
+    return this.http.get<any[]>(environment.API_URL + 'request/readCounts.php');
+  }
+
+  public getGraphCounts(req : any) : Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/readGraph.php'  , req)
   }
 
 }

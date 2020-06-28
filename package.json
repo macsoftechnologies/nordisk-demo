@@ -46,6 +46,8 @@
     "hopscotch": "0.3.1",
     "html2canvas": "^1.0.0-rc.5",
     "install": "0.12.2",
+    "jqwidgets-ng": "^9.1.6",
+    "jqwidgets-scripts": "^9.1.6",
     "jspdf": "^1.4.1",
     "moment": "^2.24.0",
     "ng2-charts": "2.2.2",

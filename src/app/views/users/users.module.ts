@@ -44,11 +44,12 @@ import { EditRequestComponent } from './Requests/edit-request/edit-request.compo
 import { CopyRequestComponent } from './Requests/copy-request/copy-request.component';
 import { SharedMaterialModule } from 'app/shared/shared-material.module';
 import { StatusChangeDialogComponent } from './Requests/status-change-dialog/status-change-dialog.component';
-
+import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
 @NgModule({
   declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent],
   imports: [
     CommonModule,
+    jqxChartModule,
     FormsModule,
     ReactiveFormsModule,
     SharedMaterialModule,
