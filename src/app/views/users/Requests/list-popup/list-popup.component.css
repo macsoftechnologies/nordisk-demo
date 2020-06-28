@@ -1,3 +1,29 @@
+#content {
+  padding: 30px;
+  /* text-align: center; */
+}
+.pdf-img-heading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.pdf-logo img {
+  width: 200px !important;
+  max-width: 200px !important;
+}
+.pdf-heading {
+  /* padding-top: 30px; */
+  padding-left: 20px;
+}
+.pdf-heading h1 {
+  margin-bottom: 0px !important;
+  font-size: 30px !important;
+}
+.pdf-field-sections {
+  border: solid 1px #cccccc;
+  background: #f8f8f8;
+}
 .mat-form-field {
   width: 100%;
   padding-right: 10px;
@@ -34,10 +60,11 @@
 .firstdiv,
 .secndfiv,
 .thirddiv,
-.fourthdiv {
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 10px;
+.fourthdiv,
+.fifthdiv {
+  /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), */
+    /* 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); */
+  /* border-radius: 10px; */
   padding: 20px;
   /* background-color: rgba(0, 0, 0, 0.02); */
   margin-bottom: 10px;

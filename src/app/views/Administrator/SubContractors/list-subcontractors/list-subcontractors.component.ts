@@ -16,10 +16,10 @@ export class ListSubcontractorsComponent implements OnInit {
   public items: any[];
   spinner = false;
   constructor(private subcontr: SubcontractorService, private dialog: MatDialog) {
-    this.GetAllSubContractors();
   }
 
   ngOnInit(): void {
+    this.GetAllSubContractors();
   }
 
   EditSubcrt(row) {
@@ -32,7 +32,7 @@ export class ListSubcontractorsComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
-        this.GetAllSubContractors();
+        this.ngOnInit();
         if (!res) {
 
           // If user press cancel
@@ -44,8 +44,8 @@ export class ListSubcontractorsComponent implements OnInit {
   GetAllSubContractors() {
     this.spinner = true;
     this.subcontr.GetAllSubContractors().subscribe(res => {
-      this.spinner = false;
       this.items = res["data"];
+      this.spinner = false;
     });
   }
 

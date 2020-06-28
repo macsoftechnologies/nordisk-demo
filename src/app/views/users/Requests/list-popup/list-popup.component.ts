@@ -86,8 +86,9 @@ export class ListPopupComponent implements OnInit {
   // }  
 
   generatePdf() {
-    const filename  = 'WORK_PERMIT.pdf';
-		html2canvas(document.querySelector('#content'), {scale: 4}).then(canvas => {
+    // 123.pdf
+    const filename  = `ACTIVITY_PERMIT_${ this.Requestdata.PermitNo }.pdf`;
+		html2canvas(document.querySelector('#content'), {scale: 2}).then(canvas => {
 			let pdf = new jsPDF('p', 'mm', 'a4');
 			pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 200);
 			pdf.save(filename);

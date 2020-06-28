@@ -23,6 +23,7 @@ import { Inputdata, PDFAnnotationData } from 'app/views/Models/input';
 import { ActivityService } from 'app/shared/services/activity.service';
 import { SafetyprecautionService } from 'app/shared/services/safetyprecautionservice';
 import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/template';
+import { TeamService } from 'app/shared/services/team.service';
 
 @Component({
   selector: 'app-new-request',
@@ -83,8 +84,9 @@ export class NewRequestComponent implements OnInit {
   RoomsList: any[] = [];
   Badges: string[] = [];
   EditbadgeArray: string[] = [];
+  EditSafetyArray: string[] = [];
   BADGENUMBERS: any[] = [];
-
+  Teams:any[]=[];
   safetyprecdata: any[] = [];
   safetyList: any[] = [];
 
@@ -151,11 +153,11 @@ export class NewRequestComponent implements OnInit {
       "Statusname": "Draft"
     },
     {
-      "Statusid": "Approved",
+      "Statusid": "Approve",
       "Statusname": "Approved"
     },
     {
-      "Statusid": "Rejected",
+      "Statusid": "Reject",
       "Statusname": "Rejected"
     },
     {
@@ -286,7 +288,7 @@ export class NewRequestComponent implements OnInit {
     private requestsserivies: RequestService, private subcntrservice: SubcontractorService,
     private empservice: EmployeeService, private _snackBar: MatSnackBar,
     private jwtauth: JwtAuthService, private typeactservice: ActivityService,
-    private safetyservice: SafetyprecautionService
+    private safetyservice: SafetyprecautionService,private teamservices:TeamService
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
@@ -329,6 +331,7 @@ export class NewRequestComponent implements OnInit {
       Safetyprecaustion: ['', Validators.required],
       SpecialInstruction: ['', Validators.required],
       TypeActivity: ['', Validators.required],
+      Team:['', Validators.required],
       //Fedding: this.feedingControl,
       //TechRoom: this.TechRoomControl,
       //Trackname: this.TrackControl,
@@ -358,7 +361,8 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.userId = this.userdata["id"];
 
     forkJoin(this.requestsserivies.GetAllSites(), this.subcntrservice.GetAllSubContractors(),
-      this.typeactservice.GetAllActivites(), this.safetyservice.GetSafetyprecautions()).subscribe(res => {
+      this.typeactservice.GetAllActivites(), this.safetyservice.GetSafetyprecautions(),
+      this.teamservices.GetAllTeams()).subscribe(res => {
         this.spinner = false;
         this.selectedsite = res[0]["data"][1]["site_id"];
         this.selected_site_name = res[0]["data"][1]["site_name"];
@@ -383,6 +387,7 @@ export class NewRequestComponent implements OnInit {
         }
         this.TypeofActivites = res[2]["data"];
         this.safetyList = res[3]["data"];
+        this.Teams=res[4]["data"];
         console.log(this.safetyList);
 
         console.log(this.safetyList);
@@ -631,12 +636,18 @@ export class NewRequestComponent implements OnInit {
   UpdateRequest() {
     console.log(this.RequestForm.value);
     console.log(this.safetyprecdata)
+    var badarray = [];
     this.spinner = true;
+
+    this.safetyprecdata.forEach(x => {
+      badarray.push(x["id"]);
+    });
 
     this.updaterequestdata.Assign_Start_Time = this.RequestForm.controls["AssignStartTime"].value;
     this.updaterequestdata.Assign_End_Time = this.RequestForm.controls["AssignEndTime"].value;
     this.updaterequestdata.Special_Instructions = this.RequestForm.controls["SpecialInstruction"].value;
     this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
+   // this.updaterequestdata.Safety_Precautions =  badarray.toString();
     this.updaterequestdata.Request_status = this.RequestForm.controls['Status'].value;
     var badarray = [];
     var roomoarr = [];
@@ -846,6 +857,7 @@ export class NewRequestComponent implements OnInit {
 
   EditFormDataBinding(data) {
     
+
     var roomarrstr = [];
     this.spinner = true;
     roomarrstr = data["Room_Nos"].split(",");
@@ -874,11 +886,35 @@ export class NewRequestComponent implements OnInit {
     });
 
     var badarrstr = [];
+    var safetystr=[];
+    this.EditSafetyArray.length=0;
+    this.EditSafetyArray=[];
+    console.log(data);
     //   this.Badges=data["Badge_Numbers"];
     badarrstr = data["Badge_Numbers"].split(",");
-    this.EditbadgeArray = badarrstr;
-    this.GetEmployees(data["Sub_Contractor_Id"]);
+    safetystr= data["Safety_Precautions"].split(",");
 
+    this.EditbadgeArray = badarrstr;
+    //this.EditSafetyArray=safetystr;
+    debugger
+   // this.safetyprecdata.length=0;
+    //this.safetyprecdata=[];
+  
+
+    // this.safetyservice.GetSafetyprecautions().subscribe(res=>
+    //   {
+    //     this.safetyList=res["data"];
+    //       this.safetyList.forEach(x => {
+    //   this.EditSafetyArray.forEach(y => {
+    //     if (x["id"] == y) {
+    //       this.safetyprecdata.push(x);
+    //     }
+    //   });
+    // });
+    //   });
+
+    this.GetEmployees(data["Sub_Contractor_Id"]);
+this.EditSafetyArray=safetystr;
     this.updaterequestdata.id = data["id"];
     this.updaterequestdata.PermitNo = data["PermitNo"];
     // this.updaterequestdata.Request_status=data["Request_status"];
@@ -987,6 +1023,8 @@ export class NewRequestComponent implements OnInit {
             }
           });
         });
+
+
       }
       this.filteredBadges = this.RequestForm.controls["BADGENUMBER"].valueChanges.pipe(
         startWith(null),

@@ -78,7 +78,7 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
-          <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-list cols="3" rowHeight="80px">
 
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -99,6 +99,16 @@
                 <mat-label>SubContractor</mat-label>
                 <input matInput readonly formControlName="SubContractorname" placeholder="SubContractor Name">
 
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Teams</mat-label>
+                <mat-select formControlName="Team" name="Team" >
+                  <mat-option *ngFor="let tech of Teams" [value]="tech.id">
+                    {{tech.teamName}}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -229,7 +239,7 @@
               <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
             </mat-grid-tile>
           </mat-grid-list>
-          <mat-grid-list cols="3" rowHeight="80px" *ngIf="Assigneditform">
+          <!-- <mat-grid-list cols="3" rowHeight="80px" *ngIf="Assigneditform">
             <mat-grid-tile></mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -248,7 +258,7 @@
               </mat-form-field>
               <ngx-material-timepicker #AendTime [minutesGap]="5"></ngx-material-timepicker>
             </mat-grid-tile>
-          </mat-grid-list>
+          </mat-grid-list> -->
           <mat-grid-list cols="3" rowHeight="80px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
