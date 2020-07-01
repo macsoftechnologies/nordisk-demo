@@ -3,8 +3,8 @@
 </div>
 
 <div mat-dialog-actions *ngIf="type=='operartor'">
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Approved')">Approved</button>
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Rejected')">Rejected</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Approve')">Approved</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Reject')">Rejected</button>
 </div>
 
 <div mat-dialog-actions *ngIf="type=='Opened' && !isclose" >
@@ -14,7 +14,7 @@
 
 <div class="upload-div-sty" *ngIf="type=='Closed'">
     <img [src]="croppedImage" class="uploadimgsty" />
-    <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".jpg"/>
+    <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)" accept=".jpg"/>
     <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Upload Image</button>
     <div>
         <button mat-flat-button class="submit-btn-sty" *ngIf="isimguploaded" mat-dialog-close (click)="Changestatusbysubcontractor('Closed')" color="primary" >Update Status</button>

@@ -6,6 +6,7 @@ import { RequestDto, EditRequestDto, DeleteRequestDto, UpdateRequestStatusListDt
 import { PlansComponent } from 'app/views/users/plans/plans.component';
 import { PlansDto } from 'app/views/Models/PlansDto';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
+import { UpdateNotes, UpdateSafety, UpdateTime } from 'app/views/Models/MultiRequestUpdateDto';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,10 @@ export class RequestService {
     return this.http.post<any[]>(environment.API_URL + 'request/readrequestid.php',res);
   }
 
+  public GetRequestsImagesByid(id): Observable<any[]> {
+    return this.http.get<any>(environment.API_URL + 'request/readImageslist.php?requestId='+id);
+  }
+
   public CreateNewRequest(req:RequestDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'request/create.php', req);
   }
@@ -59,6 +64,16 @@ export class RequestService {
 
   public CloseRequest(req:UpdateClose_Status): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'request/update_close_status.php', req);
+  }
+
+  public UpdateListReqstNote(req:UpdateNotes): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/updateNotes.php', req);
+  }
+  public UpdateListReqstSafety(req:UpdateSafety): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/updateSafety.php', req);
+  }
+  public UpdateListReqstTime(req:UpdateTime): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/updateStartTime.php', req);
   }
   // public SetselectedRequest(row)
   // {

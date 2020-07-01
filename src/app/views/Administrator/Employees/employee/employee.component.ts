@@ -159,9 +159,11 @@ export class EmployeeComponent implements OnInit {
       this.EmployeeForm.controls["Role"].setValue(this.data["payload"]["roleId"]);
       this.EmployeeForm.controls["subcontrid"].setValue(this.data["payload"]["subContId"]);
       this.UpdateEmpdata.id = this.data["payload"]["id"];
-     debugger
+      this.UpdateEmpsubdata.access =this.data["payload"]["access"];
+
       if (this.data["payload"]["access"] == "1") {
         this.useraccess = true;
+        
       }
       else {
         this.useraccess = false;
@@ -192,10 +194,13 @@ export class EmployeeComponent implements OnInit {
 
     if (this.useraccess == true) {
       this.Empdata.access = "1";
-      
+      this.UpdateEmpsubdata.access =this.Empdata.access;
+
     }
     else if (this.useraccess == false) {
       this.Empdata.access = "0";
+      this.UpdateEmpsubdata.access =this.Empdata.access;
+
     }
   }
 
@@ -290,8 +295,10 @@ console.log(this.UpdateEmpdata);
     this.UpdateEmpdata.username = this.EmployeeForm.controls["username"].value;
     this.UpdateEmpdata.password = this.EmployeeForm.controls["password"].value;
     console.log(this.UpdateEmpdata)
-debugger
-    if (this.UpdateEmpdata.subContId != "" && this.UpdateEmpdata.subContId !="0") {
+   
+   // if (this.UpdateEmpdata.subContId != "" && this.UpdateEmpdata.subContId !="0") {
+    if (this.selectedradioval=="Subcontractor") {
+
       this.UpdateEmpsubdata.id = this.UpdateEmpdata.id;
       this.UpdateEmpsubdata.badgeId = this.UpdateEmpdata.badgeId;
       this.UpdateEmpsubdata.designation = this.UpdateEmpdata.designation;
@@ -301,9 +308,28 @@ debugger
       this.UpdateEmpsubdata.roleId = this.UpdateEmpdata.roleId;
       this.UpdateEmpsubdata.subContId = this.UpdateEmpdata.subContId;
       this.UpdateEmpsubdata.username = this.UpdateEmpdata.username;
-      this.UpdateEmpsubdata.access =this.Empdata.access;
 
-      console.log(this.UpdateEmpsubdata)
+
+      this.UpdateEmpdeptdata.id = this.UpdateEmpdata.id;
+      this.UpdateEmpdeptdata.badgeId = this.UpdateEmpdata.badgeId;
+      this.UpdateEmpdeptdata.designation = this.UpdateEmpdata.designation;
+      this.UpdateEmpdeptdata.employeeName = this.UpdateEmpdata.employeeName;
+      this.UpdateEmpdeptdata.password = btoa(this.UpdateEmpdata.password);
+      this.UpdateEmpdeptdata.phonenumber = this.UpdateEmpdata.phonenumber;
+      this.UpdateEmpdeptdata.roleId = this.UpdateEmpdata.roleId;
+      this.UpdateEmpdeptdata.departId = "";
+      this.UpdateEmpdeptdata.username = this.UpdateEmpdata.username;
+
+      forkJoin(this.empservice.UpdateEmployeeswithDept(this.UpdateEmpdeptdata), this.empservice.UpdateEmployeeswithSub(this.UpdateEmpsubdata)).subscribe(res => {
+      
+        this.openSnackBar("Employee updated Successfully");
+        this.spinner = false;
+        //this.EmployeeForm.reset();
+      },
+        error => {
+          this.openSnackBar("Something went wrong. Plz try again later...");
+        } 
+        );
       // this.empservice.UpdateEmployeeswithSub(this.UpdateEmpsubdata).subscribe(res => {
       //   this.spinner = false;
       //   this.openSnackBar("Employee updated Successfully");
@@ -313,9 +339,25 @@ debugger
       //     this.openSnackBar("Something went wrong. Plz try again later...");
       //   }
       // );
+
+            //this.UpdateEmpdeptdata.access = this.Empdata.access;
+    
+      
     }
-    else if (this.UpdateEmpdata.departId != "" && this.UpdateEmpdata.departId != "0") 
+   // else if (this.UpdateEmpdata.departId != "" && this.UpdateEmpdata.departId != "0") 
+    else if (this.selectedradioval == "Departments") 
     {
+      this.UpdateEmpsubdata.id = this.UpdateEmpdata.id;
+      this.UpdateEmpsubdata.badgeId = this.UpdateEmpdata.badgeId;
+      this.UpdateEmpsubdata.designation = this.UpdateEmpdata.designation;
+      this.UpdateEmpsubdata.employeeName = this.UpdateEmpdata.employeeName;
+      this.UpdateEmpsubdata.password = btoa(this.UpdateEmpdata.password);
+      this.UpdateEmpsubdata.phonenumber = this.UpdateEmpdata.phonenumber;
+      this.UpdateEmpsubdata.roleId = this.UpdateEmpdata.roleId;
+      this.UpdateEmpsubdata.subContId = "";
+      this.UpdateEmpsubdata.username = this.UpdateEmpdata.username;
+
+
       this.UpdateEmpdeptdata.id = this.UpdateEmpdata.id;
       this.UpdateEmpdeptdata.badgeId = this.UpdateEmpdata.badgeId;
       this.UpdateEmpdeptdata.designation = this.UpdateEmpdata.designation;
@@ -325,12 +367,15 @@ debugger
       this.UpdateEmpdeptdata.roleId = this.UpdateEmpdata.roleId;
       this.UpdateEmpdeptdata.departId = this.UpdateEmpdata.departId;
       this.UpdateEmpdeptdata.username = this.UpdateEmpdata.username;
-      this.UpdateEmpdeptdata.access = this.Empdata.access;
-
+      //this.UpdateEmpdeptdata.access = this.Empdata.access;
       this.empservice.UpdateEmployeeswithDept(this.UpdateEmpdeptdata).subscribe(res => {
-        this.spinner = false;
-        this.openSnackBar("Employee updated Successfully");
-        //this.EmployeeForm.reset();
+        this.empservice.UpdateEmployeeswithSub(this.UpdateEmpsubdata).subscribe(x=>
+          {
+            this.spinner = false;
+            this.openSnackBar("Employee updated Successfully");
+          
+          });
+         //this.EmployeeForm.reset();
       },
         error => {
           this.openSnackBar("Something went wrong. Plz try again later...");

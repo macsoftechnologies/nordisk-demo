@@ -45,7 +45,11 @@ export class ListEmployeeComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
-        this.GetAllEmployees();
+        this.spinner=true;
+        setTimeout(() => {
+          this.GetAllEmployees();
+      }, 1000);
+       
       });
   }
 

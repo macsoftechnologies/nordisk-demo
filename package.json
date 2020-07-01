@@ -50,6 +50,7 @@
     "jqwidgets-scripts": "^9.1.6",
     "jspdf": "^1.4.1",
     "moment": "^2.24.0",
+    "ng-pick-datetime": "^7.0.0",
     "ng2-charts": "2.2.2",
     "ng2-dragula": "2.1.1",
     "ng2-file-upload": "1.4.0",

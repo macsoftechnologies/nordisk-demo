@@ -68,7 +68,7 @@
           </mat-grid-tile>
         </mat-grid-list> -->
 
-      <mat-grid-list cols="3" rowHeight="80px">
+      <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>SubContractor</mat-label>
@@ -80,7 +80,7 @@
             </mat-select>
           </mat-form-field>
         </mat-grid-tile>
-        <mat-grid-tile>
+        <!-- <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Site</mat-label>
             <mat-select formControlName="Site" name="Nightlys" (selectionChange)="Getbuilding($event.value)">
@@ -90,7 +90,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-        </mat-grid-tile>
+        </mat-grid-tile> -->
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Building</mat-label>
@@ -161,7 +161,21 @@
     <div *ngIf="isoperator">
       <button mat-raised-button class="span-apprv" (click)="statuschange('Approve')">Approve</button>
       <button mat-raised-button class="span-rejc" (click)="statuschange('Reject')">Reject</button>
-
+      <mat-form-field appearance="outline" *ngIf="selected.length>0">
+        <mat-label>Edit</mat-label>
+        <mat-select name="editmult" (selectionChange)="Getselected($event.value)">
+          <mat-option value="none">None</mat-option>
+          <mat-option value="Time">
+            Time
+          </mat-option>
+          <mat-option value="safetyPrecaution">
+            Safety Precaution
+          </mat-option>
+          <mat-option value="notes">
+            Notes
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
@@ -231,7 +245,7 @@
 
       <ngx-datatable-column name="Operations" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator"
+          <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator && row.Request_status!='Closed'"
           (click)="Editrow(row)">edit</mat-icon>
 
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1" *ngIf="isoperator"
@@ -241,7 +255,8 @@
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" (click)="openPopUp(row)">View</button> -->
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" *ngIf="row.Request_status=='Hold'"
             (click)="CopyRequest(row)">Copy</button> -->
-            <mat-icon (click)="CopyRequest(row)" class="icons-sty" *ngIf="row.Request_status=='Hold'">content_copy</mat-icon>
+            <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold'">content_copy</mat-icon>
+            <mat-icon (click)="CopyRequest(row,'Closed')" class="icons-sty" *ngIf="row.Request_status=='Closed' && isoperator">content_copy</mat-icon>
 
             <mat-icon (click)="Deleterequest(row)" class="icons-sty" *ngIf="IsNotSubCntr">delete</mat-icon>
 

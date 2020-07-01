@@ -27,6 +27,13 @@ import { MatCardModule } from '@angular/material/card';
 import { ChangepasswordComponent } from './views/AccountManagement/changepassword/changepassword.component';
 import { SharedMaterialModule } from './shared/shared-material.module';
 
+import { 
+  OwlDateTimeModule, 
+  OwlNativeDateTimeModule 
+} from 'ng-pick-datetime';
+
+
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -45,6 +52,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     SharedMaterialModule,
     PerfectScrollbarModule,
+ 
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -58,7 +58,6 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
   openSnackBar(msg) {
     this._snackBar.open(msg, "Close", {
       duration: 2000,
-
     });
   }
 }

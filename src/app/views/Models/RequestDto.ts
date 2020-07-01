@@ -31,7 +31,7 @@ export class RequestDto
     Notes:string; 
     Request_status:string;
     PermitNo:string;
-
+    teamId:string;
 }
 
 
@@ -72,6 +72,7 @@ export class EditRequestDto
     Assign_End_Time:string;
     Safety_Precautions:string;
     Special_Instructions:string;
+    teamId:string;
 }
 
 export class DeleteRequestDto
@@ -123,13 +124,14 @@ export class CopyRequestDto
     Special_Instructions:string;
     Assign_End_Date:string;
     Assign_Start_Date:string;
-    count:number
+    teamId:string;
+    count:number;
 }
 
 export class UpdateClose_Status
 {
     Request_status:string;
-    Image:string;
+    Image:FormData;
     id:string;
 }
 

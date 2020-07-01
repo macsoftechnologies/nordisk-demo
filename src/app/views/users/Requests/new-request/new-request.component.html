@@ -89,7 +89,7 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline" *ngIf="!issubcontr">
                 <mat-label>SubContractor</mat-label>
-                <mat-select formControlName="SubContractor" name="CMT" (selectionChange)="GetEmployees($event.value)">
+                <mat-select formControlName="SubContractor" name="CMT" (selectionChange)="Getselectedsubcntrsteams($event.value)">
                   <mat-option *ngFor="let tech of SubContractors" [value]="tech.id">
                     {{tech.subContractorName}}
                   </mat-option>
@@ -101,16 +101,19 @@
 
               </mat-form-field>
             </mat-grid-tile>
+
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Teams</mat-label>
-                <mat-select formControlName="Team" name="Team" >
+                <mat-select formControlName="Team" name="Team" (selectionChange)="GetEmployees($event.value)">
+                  <mat-option>None</mat-option>
                   <mat-option *ngFor="let tech of Teams" [value]="tech.id">
                     {{tech.teamName}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
+           
           </mat-grid-list>
           <mat-grid-list cols="2" rowHeight="80px">
             <mat-grid-tile>
@@ -285,7 +288,7 @@
                 <mat-label>Room </mat-label>
                 <input matInput readonly formControlName="RoomNo" placeholder="Room No">
               </mat-form-field> -->
-              <mat-form-field class="full-width chipsbox-height" appearance="outline">
+              <!-- <mat-form-field class="full-width chipsbox-height" appearance="outline">
                 <mat-chip-list #rchipList aria-label="Room selection">
                   <mat-chip *ngFor="let badg of Rooms" [selectable]="rselectable" [removable]="rmremovable"
                     (removed)="removeroom(badg)">
@@ -302,7 +305,7 @@
                   </mat-option>
                  
                 </mat-autocomplete>
-              </mat-form-field>
+              </mat-form-field> -->
 
             </mat-grid-tile>
          
@@ -806,11 +809,22 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
+
+
           <mat-grid-list cols="1" rowHeight="100px" *ngIf="editform">
+
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Safety Precautions </mat-label>
+                  <mat-label>Safety Precautions</mat-label>
+                  <mat-select formControlName="Safetyprecaustion" multiple>
+                      <mat-option *ngFor="let e of safetyList" [value]="e.id">{{e.precaution}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </mat-grid-tile>
                 <!-- <textarea class="textarea" matInput formControlName="Safetyprecaustion" placeholder=""></textarea> -->
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Safety Precautions </mat-label>
                 <mat-chip-list #chipList aria-label="Safety Precautions">
                   <mat-chip *ngFor="let badg of safetyprecdata" [selectable]="Safetypreselectable" [removable]="removable"
                     (removed)="removesafety(badg)">
@@ -835,46 +849,22 @@
                 <mat-label>Number of workers involved</mat-label>
                 <input matInput formControlName="peopleinvalidcount" placeholder="">
               </mat-form-field>
-            </mat-grid-tile>
-            <!-- <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Keys Needed</mat-label>
-                <mat-select [formControl]="KeysneedControl" name="Applicant">
-                  <mat-option *ngFor="let tech of Keysneeds" [value]="tech.keysval">
-                    {{tech.keysval}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
             </mat-grid-tile> -->
 
+
+            
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
-              <!-- <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Badge No.s Of Workers</mat-label>
-      <input type="text" matInput [formControl]="BADGENUMBERControl" [matAutocomplete]="auto">
-      <mat-select [formControl]="BADGENUMBERControl" multiple>
-        <mat-option *ngFor="let badg of BADGENUMBERS" [value]="badg.badgeno">{{badg.badgeno}}</mat-option>
-      </mat-select>
-    </mat-form-field> -->
-
               <mat-form-field class="full-width" appearance="outline">
-                <!-- <mat-chip-list #chipList aria-label="Fruit selection">
-                  <mat-chip *ngFor="let badg of Badges" [selectable]="selectable" [removable]="removable"
-                    (removed)="remove(badg)">
-                    {{badg}}
-                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                  </mat-chip>
-                  <input placeholder="Badge No.s Of Workers" #badgeInput [formControl]="BADGENUMBERControl"
-                    [matAutocomplete]="auto" [matChipInputFor]="chipList"
-                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
-                </mat-chip-list>
-                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                  <mat-option *ngFor="let badge of filteredBadges | async" [value]="badge.badgeno">
-                    {{badge.badgeno}}
-                  </mat-option>
-                </mat-autocomplete> -->
-
+                  <mat-label>Badge No.s Of Workers</mat-label>
+                  <mat-select formControlName="BADGENUMBER" multiple>
+                      <mat-option *ngFor="let e of BADGENUMBERS" [value]="e.badgeId">{{e.badgeId}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </mat-grid-tile>
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
                 <mat-chip-list #chipList aria-label="Badg selection">
                   <mat-chip *ngFor="let badg of Badges" [selectable]="selectable" [removable]="removable"
                     (removed)="remove(badg)">
@@ -891,7 +881,7 @@
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
-            </mat-grid-tile>
+            </mat-grid-tile> -->
 
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">

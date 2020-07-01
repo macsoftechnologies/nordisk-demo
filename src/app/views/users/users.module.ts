@@ -45,6 +45,8 @@ import { CopyRequestComponent } from './Requests/copy-request/copy-request.compo
 import { SharedMaterialModule } from 'app/shared/shared-material.module';
 import { StatusChangeDialogComponent } from './Requests/status-change-dialog/status-change-dialog.component';
 import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
 @NgModule({
   declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent],
   imports: [
@@ -85,6 +87,8 @@ import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
   
     // MatExpansionModule,
     // SharedPipesModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
     RouterModule.forChild(usersRoutes)
   ],
   

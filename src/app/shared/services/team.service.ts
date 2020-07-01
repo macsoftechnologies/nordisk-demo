@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
-import { TeamsDto, UpdateTeamsDto, DeleteTeamsDto } from 'app/views/Models/TeamsDto';
 import { graphDto } from 'app/views/Models/dashboardDto';
+import { TeamsDto, UpdateTeamsDto, DeleteTeamsDto, TeamsBySubId } from 'app/views/Models/TeamsDto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,16 @@ export class TeamService {
     // var reqHeader = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods':' GET, PUT, POST, DELETE, HEAD, OPTIONS '});
 
     return this.http.get<any[]>(environment.API_URL + 'team/read.php');
+  }
+
+  public GetAllTeamsById(id): Observable<any[]> {
+    // var reqHeader = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods':' GET, PUT, POST, DELETE, HEAD, OPTIONS '});
+
+    return this.http.get<any[]>(environment.API_URL + 'team/read_single.php?id='+id);
+  }
+
+  public GetAllTeamsBySubId(subid:TeamsBySubId): Observable<any[]> {
+    return this.http.post<any[]>(environment.API_URL + 'team/teamlistsubId.php',subid);
   }
 
   public CreateTeams(subcont:TeamsDto): Observable<any> {

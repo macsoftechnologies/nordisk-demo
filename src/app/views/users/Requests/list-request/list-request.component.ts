@@ -26,6 +26,7 @@ import { DatePipe } from '@angular/common';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { RequestsbyId } from 'app/views/Models/RequestDto';
 import * as xlsx from 'xlsx';
+import { EditRequestComponent } from '../edit-request/edit-request.component';
 
 @Component({
   selector: 'app-list-request',
@@ -223,6 +224,8 @@ export class ListRequestComponent implements OnInit {
 
         this.Contractors = res[1]["data"];
         this.Sites = res[2]["data"];
+        console.log(this.Sites)
+        this.Getbuilding(this.Sites[1]["site_id"]);
         this.Typeofactivitys = res[3]["data"];
       });
     // this.requestservice.GetAllRequests().subscribe(x=>
@@ -450,7 +453,13 @@ debugger
 
     //   })
   }
-  CopyRequest(row) {
+  CopyRequest(row,status) {
+    if(status=="Closed")
+    {
+      row["Request_status"]="Hold";
+      let currentdate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+      row["Request_Date"]=currentdate;
+    }
     let title = 'Copy Request';
     let dialogRef: MatDialogRef<any> = this.dialog.open(CopyRequestComponent, {
       width: '1200px',
@@ -552,9 +561,8 @@ debugger
   }
 
   onSelect({ selected }) {
-    console.log(selected);
+
     this.selected = selected;
-    console.log(this.selected);
 
     //this.selected.splice(0, this.selected.length);
     //this.selected.push(...selected);
@@ -587,4 +595,32 @@ debugger
     };
     this.route.navigateByUrl("/user/new-request");
   }
+
+  Getselected(event)
+  {
+    console.log(event);
+    this.selected.forEach(x => {
+      if (x["Request_status"] == "Hold") {
+        this.selectedRequestIds.push(x["id"]);
+      }
+    });
+
+    if(event!="none")
+    {
+      let title=event;
+      let dialogRef: MatDialogRef<any> = this.dialog.open(EditRequestComponent, {
+        width: '800px',
+        height: '200px',
+        disableClose: false,
+        data: { title: title,payload: this.selectedRequestIds.toString()}
+      })
+      dialogRef.afterClosed()
+        .subscribe(res => {
+          this.selectedRequestIds.length=0;
+          this.selectedRequestIds=[];
+          this.getItems();
+        });
+    }
+    }
+   
 }

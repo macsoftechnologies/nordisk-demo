@@ -2,6 +2,9 @@ import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core'
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';  
+import { SafetyprecautionComponent } from 'app/views/Administrator/SafetyPrecautions/safetyprecaution/safetyprecaution.component';
+import { SafetyprecautionService } from 'app/shared/services/safetyprecautionservice';
+import { RequestService } from 'app/shared/services/request.service';
 
 @Component({
   selector: 'app-list-popup',
@@ -11,8 +14,10 @@ import html2canvas from 'html2canvas';
 export class ListPopupComponent implements OnInit {
 
   name:string="abc";
-
+images:any[]=[];
   constructor( @Inject(MAT_DIALOG_DATA) public data: any,
+  private safetyprec:SafetyprecautionService,
+  private reqservice:RequestService,
   public dialogRef: MatDialogRef<ListPopupComponent>,) { }
   Data = [  
     { Id: 101, Name: 'Nitin', Salary: 1234 },  
@@ -25,12 +30,39 @@ export class ListPopupComponent implements OnInit {
   @ViewChild('content') content: ElementRef; 
   Requestdata:any;
   ngOnInit() {
-    this.buildItemForm(this.data.payload)
+    this.buildItemForm(this.data.payload);
+    debugger
+    let id=Number.parseInt(this.data.payload["id"]);
+    this.reqservice.GetRequestsImagesByid(id).subscribe(res=>
+      {
+this.images=res["data"];
+console.log(this.images);
+      });
   }
   buildItemForm(item)
   {
-    console.log(item)
+    console.log(item);
     this.Requestdata=item;
+    let safetydata=[];
+    let safetyids=[];
+    debugger
+    safetyids=this.Requestdata["Safety_Precautions"].split(",");
+    this.safetyprec.GetSafetyprecautions().subscribe(res=>
+      {
+let safetylist=[];
+safetylist=res["data"];
+safetylist.forEach(x=>
+  {
+    safetyids.forEach(y=>
+      {
+        if(x["id"]==y)
+        {
+     safetydata.push(x["precaution"])    
+        }
+      });
+  });
+this.Requestdata["Safety_Precautions"]=safetydata;
+      });
   }
 
   

@@ -142,14 +142,12 @@ export class SubContractorComponent implements OnInit {
      {
       this.openSnackBar("Subcontractor Updated Successfully");
      }
-      //  this.SubcontractorForm.reset();
       },
       error=>
       {
         this.openSnackBar("Something went wrong. Plz try again later...");
       }
       )
-   // this.subcservice.UpdateSubContractor()
   }
 
   openSnackBar(msg) {
