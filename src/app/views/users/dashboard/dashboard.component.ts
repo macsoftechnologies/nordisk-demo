@@ -34,8 +34,9 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
   count: any;
 
 
-  // 
+  //  weekly Graph configaration
   weeklyResults: any[] = [];
+  weekNumber = 0
   getWidth(): any {
     if (document.body.offsetWidth < 850) {
       return '85%';
@@ -77,7 +78,7 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
             ]
         }
     ];
-
+    //  weekly Graph configaration //
   constructor(
     private themeService: ThemeService,
     private teamService: TeamService
@@ -85,6 +86,13 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
 
   ngAfterViewInit() { }
   ngOnInit() {
+     // Get DashBoard Counts From Api
+     this.getCounts()
+
+     // Get GraphCounts From API
+     this.getGraphCounts()
+
+
     this.themeService.onThemeChange.subscribe(activeTheme => {
       this.initTrafficVsSaleChart(activeTheme);
       this.initSessionsChart(activeTheme);
@@ -95,7 +103,7 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
     });
     this.initTrafficVsSaleChart(this.themeService.activatedTheme);
     this.initSessionsChart(this.themeService.activatedTheme);
-    this.initTrafficSourcesChart(this.themeService.activatedTheme)
+    
     this.initDailyTrafficChartBar(this.themeService.activatedTheme)
     this.initTrafficGrowthChart(this.themeService.activatedTheme)
 
@@ -250,11 +258,7 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
       ]
     };
 
-    // Get DashBoard Counts From Api
-    this.getCounts()
-
-    // Get GraphCounts From API
-    this.getGraphCounts()
+   
   }
 
   initTrafficVsSaleChart(theme) {
@@ -602,15 +606,16 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
           },
           data: [
             {
-              value: 335,
+              value: this.count == undefined ? 0 : this.count.approveCount,
               name: "Approved"
             },
             {
-              value: 310,
-              name: "Open"
+              value: this.count == undefined ? 0 : this.count.rejectCount,
+              name: "Rejected"
             },
-            { value: 148, name: "Close" }
-            // { value: 100, name: "total" }
+            { value: this.count == undefined ? 0 : this.count.holdCount,
+              name: "Hold" 
+            }
 
           ],
           itemStyle: {
@@ -798,6 +803,7 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
 
     this.teamService.GetDasboardCounts().subscribe((resp: any) => {
       this.count = resp.data[0]
+      this.initTrafficSourcesChart(this.themeService.activatedTheme)
 
     })
 
@@ -805,9 +811,11 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
 
   getGraphCounts() {
 
+    
+    console.log('this.weekNumber' , this.weekNumber)
     // Get Current week first and last days
     var curr = new Date();
-    const day = curr.getDay() + 0;
+    const day = curr.getDay() + this.weekNumber;
     const WeekFirstday = new Date(curr.getTime() - 60 * 60 * 24 * day * 1000); // will return firstday (i.e. Sunday) of the week
     const WeekLastday = new Date(WeekFirstday.getTime() + 60 * 60 * 24 * 6 * 1000); // adding (60*60*6*24*1000) means adding six days to the firstday which results in lastday (Saturday) of the week
     console.log({ WeekFirstday, WeekLastday })
@@ -818,12 +826,17 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
     }
   // Get Graph Counts From API 
     this.teamService.getGraphCounts(requestObj).subscribe(response => {
-      // console.log('response', response)
+      console.log('response', response)
 
        this.weeklyResults =  response.data != undefined ?   response.data : []
 
     })
   }
 
+  weekReports(weekType){
+    // weekType 1 (beforeWeek ) , 2 (afterweek)
+    weekType == 1 ?  this.weekNumber += 7 : this.weekNumber -= 7
+     this.getGraphCounts()
+  }
 
 }

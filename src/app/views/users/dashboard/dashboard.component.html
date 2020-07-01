@@ -80,6 +80,9 @@
     [seriesGroups]="seriesGroups" [colorScheme]="'scheme01'">
 </jqxChart>
 
+ <button (click) = "weekReports('1')">beforeWeek</button>
+ <button (click) = "weekReports('2')">nextWeek</button>
+
 
   </div>
   <!--/ End tab -->
@@ -92,7 +95,7 @@
     [@animate]="{ value: '*', params: { y: '50px', delay: '400ms' } }"
   >
     <mat-card class="p-0 ">
-      <p class=" ml-1 mt-1">TRAFFIC SOURCES</p>
+      <p class=" ml-1 mt-1">Reports</p>
       <div
         echarts
         [options]="trafficSourcesChart"
