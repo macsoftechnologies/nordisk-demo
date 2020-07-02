@@ -73,6 +73,9 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
+
     this.updaterequestdata.userId = this.userdata["id"];
     this.type = this.data["type"];
     this.updaterequestdata.Activity = this.data["payload"]["Activity"];
@@ -116,7 +119,6 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.Working_Date = this.data["payload"]["Working_Date"];
     this.updaterequestdata.id = this.data["payload"]["id"];
 
-    console.log(this.updaterequestdata)
   }
 
   Changestatus(statusdata) {
@@ -126,7 +128,6 @@ export class StatusChangeDialogComponent implements OnInit {
     else {
       this.isclose = false;
       this.updaterequestdata.Request_status = statusdata;
-      console.log(this.updaterequestdata);
       this.requestdataservice.UpdateRequest(this.updaterequestdata).subscribe(x => {
         this.openSnackBar("Request Status Updated Successfully");
 
@@ -144,29 +145,28 @@ export class StatusChangeDialogComponent implements OnInit {
     debugger
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
-    console.log(this.images);
   
-    this.images.forEach(f=>{
-      console.log(f);
-  formData.append("filename",f);  
-    });
+  for  (var i =  0; i <  this.images.length; i++)  {  
+      formData.append("file[]",  this.images[i]);
+  } 
     console.log(formData);
 
-     this.Close_Request.Image =  formData;
-     console.log(this.Close_Request);
 
+     this.Close_Request.Image =  formData;
+    //  const formData = new FormData();
+    //  formData.append('file', this.uploadForm.get('profile').value);
     //  formData.append('file', this.Close_Request.Image);
 
 
-    // this.requestdataservice.CloseRequest(this.Close_Request).subscribe(res => {
-    //   this.openSnackBar("Request Status Updated Successfully");
-    //   this.spinner = false;
-    // },
-    //   error => {
-    //     this.spinner = false;
-    //     this.openSnackBar("Something went wrong. Plz try again later...");
-    //   }
-    // )
+    this.requestdataservice.CloseRequest(this.Close_Request).subscribe(res => {
+      this.openSnackBar("Request Status Updated Successfully");
+      this.spinner = false;
+    },
+      error => {
+        this.spinner = false;
+        this.openSnackBar("Something went wrong. Plz try again later...");
+      }
+    )
 
   }
   openSnackBar(msg) {
@@ -187,11 +187,16 @@ export class StatusChangeDialogComponent implements OnInit {
     // formData.append('avatar', this.form.get('avatar').value);
 
 
-    console.log(e.target.files);
     for (var i = 0; i < e.target.files.length; i++) {
-      const file = e.target.files[i];
-      this.images.push(file);
+      this.images.push(e.target.files[i]);
     }
+
+    // onFileSelect(event) {
+    //   if (event.target.files.length > 0) {
+    //     const file = event.target.files[0];
+    //     this.uploadForm.get('profile').setValue(file);
+    //   }
+    // }
     
     // const frmData = new FormData();  
     // for (var i = 0; i < this.Close_Request.Image.length; i++) {  

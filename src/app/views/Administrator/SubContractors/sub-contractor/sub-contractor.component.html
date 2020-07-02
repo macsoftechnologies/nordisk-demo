@@ -39,7 +39,7 @@
                       
                     </mat-grid-list> -->
                     <div class="upload-div-sty">
-                        <img *ngIf="Editform" [src]="editcroppedImage" class="uploadimgsty" />
+                        <img *ngIf="Editform" [src]="editcroppedImage" [ngClass]="upload_imgsty" />
                         <img [src]="croppedImage" *ngIf="!Editform" [ngClass]="upload_imgsty" />
                         <input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".jpg"/>
                         <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Upload Logo</button>

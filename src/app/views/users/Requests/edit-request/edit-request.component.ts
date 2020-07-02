@@ -91,9 +91,9 @@ updatetimes:UpdateTime=
       //   map(val => val.length >= 1 ? this.filter(val) : [])
       // );
 
-      this.filteredsafety = this.RequestForm.controls["Safetyprecaustion"].valueChanges.pipe(
-        startWith(null),
-        map((fruit: string | null) => fruit ? this._filter(fruit) : this.safetyList.slice()));
+      // this.filteredsafety = this.RequestForm.controls["Safetyprecaustion"].valueChanges.pipe(
+      //   startWith(null),
+      //   map((fruit: string | null) => fruit ? this._filter(fruit) : this.safetyList.slice()));
       
        this.IsSafety=true; 
     }
@@ -129,15 +129,17 @@ updatetimes:UpdateTime=
   }
   CreateSafety()
   {
-    let safty=[];
-    this.safetyprecdata.forEach(res=>
-      {
-        safty.push(res["id"]);
-      });
-    this.spinner=true;
-    this.updatesafety.safety=safty.toString();
-    this.updatesafety.id=this.data["payload"];
-    console.log(this.updatesafety);
+    // let safty=[];
+    // this.safetyprecdata.forEach(res=>
+    //   {
+    //     safty.push(res["id"]);
+    //   });
+    // this.spinner=true;
+    // this.updatesafety.safety=safty.toString();
+     this.updatesafety.id=this.data["payload"];
+    // console.log(this.updatesafety);
+    this.updatesafety.safety=(this.RequestForm.controls["Safetyprecaustion"].value).toString();
+
 
     this.reqservice.UpdateListReqstSafety(this.updatesafety).subscribe(res=>
       {
@@ -207,3 +209,4 @@ updatetimes:UpdateTime=
 
 
 }
+

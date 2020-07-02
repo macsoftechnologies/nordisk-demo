@@ -131,7 +131,7 @@ export class CopyRequestDto
 export class UpdateClose_Status
 {
     Request_status:string;
-    Image:FormData;
+    Image:any;
     id:string;
 }
 

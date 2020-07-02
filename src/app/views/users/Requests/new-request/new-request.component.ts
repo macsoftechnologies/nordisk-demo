@@ -660,7 +660,7 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Assign_Start_Time = this.RequestForm.controls["AssignStartTime"].value;
     this.updaterequestdata.Assign_End_Time = this.RequestForm.controls["AssignEndTime"].value;
     this.updaterequestdata.Special_Instructions = this.RequestForm.controls["SpecialInstruction"].value;
-    this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
+   // this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
     // this.updaterequestdata.Safety_Precautions =  badarray.toString();
     this.updaterequestdata.Request_status = this.RequestForm.controls['Status'].value;
     var badarray = [];
@@ -671,6 +671,7 @@ export class NewRequestComponent implements OnInit {
     this.Rooms.forEach(x => {
       roomoarr.push(x["room_id"]);
     });
+    this.updaterequestdata.Room_Nos=(this.RequestForm.controls["Room"].value).toString();
 
     this.updaterequestdata.Activity = this.RequestForm.controls["Activity"].value;
    // this.updaterequestdata.Badge_Numbers = this.RequestForm.controls["BADGENUMBER"].value;
@@ -694,7 +695,7 @@ export class NewRequestComponent implements OnInit {
     //this.Requestdata.Site_Id = this.RequestForm.controls["Site"].value;
     // this.Requestdata.Building_Id = this.RequestForm.controls["Building"].value;
     // this.Requestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
-    this.updaterequestdata.Room_Nos = roomoarr.toString();
+   // this.updaterequestdata.Room_Nos = roomoarr.toString();
     this.updaterequestdata.Room_Type = this.RequestForm.controls["RoomType"].value;
     this.updaterequestdata.Crane_Requested = this.RequestForm.controls["CMTdata"].value;
     this.updaterequestdata.Crane_Number = this.RequestForm.controls["CmtValue"].value;
@@ -870,11 +871,10 @@ export class NewRequestComponent implements OnInit {
   }
 
   EditFormDataBinding(data) {
-
+this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
 
     var roomarrstr = [];
     this.spinner = true;
-    roomarrstr = data["Room_Nos"].split(",");
     this.requestsserivies.GetAllRoomsbyid(data["Floor_Id"]).subscribe(res => {
       this.spinner = false;
       if (res["message"] == "No Floors Found") {
@@ -883,22 +883,23 @@ export class NewRequestComponent implements OnInit {
       else {
         this.RoomsList = res["data"];
       }
-      if (this.RoomsList.length > 0) {
-        this.RoomsList.forEach(x => {
-          roomarrstr.forEach(y => {
-            if (x["room_id"] == y) {
-              this.Rooms.push(x);
-            }
-          });
-        });
+      // if (this.RoomsList.length > 0) {
+      //   this.RoomsList.forEach(x => {
+      //     roomarrstr.forEach(y => {
+      //       if (x["room_id"] == y) {
+      //         this.Rooms.push(x);
+      //       }
+      //     });
+      //   });
 
-      }
-      this.filteredRooms = this.RequestForm.controls["Room"].valueChanges.pipe(
-        startWith(null),
-        map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice()));
+      // }
+      // this.filteredRooms = this.RequestForm.controls["Room"].valueChanges.pipe(
+      //   startWith(null),
+      //   map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice()));
 
     });
 
+    console.log(data);
     var badarrstr = [];
     var safetystr = [];
     this.EditSafetyArray.length = 0;
@@ -908,6 +909,8 @@ export class NewRequestComponent implements OnInit {
     safetystr = data["Safety_Precautions"].split(",");
 
    // this.EditbadgeArray = badarrstr;
+   this.RequestForm.controls["Room"].setValue(data["room_id"].split(","));
+
     this.RequestForm.controls["Safetyprecaustion"].setValue(data["Safety_Precautions"].split(","));
     this.RequestForm.controls["BADGENUMBER"].setValue(data["Badge_Numbers"].split(","));
     //this.EditSafetyArray=safetystr;

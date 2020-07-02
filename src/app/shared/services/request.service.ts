@@ -63,7 +63,7 @@ export class RequestService {
   }
 
   public CloseRequest(req:UpdateClose_Status): Observable<any> {
-    return this.http.post<any>(environment.API_URL + 'request/update_close_status.php', req);
+    return this.http.post<any>(environment.API_URL + 'request/upload.php', req);
   }
 
   public UpdateListReqstNote(req:UpdateNotes): Observable<any> {

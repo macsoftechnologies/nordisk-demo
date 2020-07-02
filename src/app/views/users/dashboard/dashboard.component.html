@@ -80,10 +80,15 @@
     [seriesGroups]="seriesGroups" [colorScheme]="'scheme01'">
 </jqxChart>
 
- <button (click) = "weekReports('1')">beforeWeek</button>
- <button (click) = "weekReports('2')">nextWeek</button>
+ <!-- <button (click) = "weekReports('1')">beforeWeek</button>
+ <button (click) = "weekReports('2')">nextWeek</button> -->
 
-
+ 
+  </div>
+  <div class="btns-sty">
+    <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('1')">Before Week</button>
+    <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('2')">Next Week</button>
+   
   </div>
   <!--/ End tab -->
 

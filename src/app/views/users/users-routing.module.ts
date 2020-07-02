@@ -8,6 +8,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { ListPlansComponent } from './plans/list-plans/list-plans.component';
 import { UserRoleGuard } from 'app/shared/guards/user-role.guard';
 import { config } from 'config';
+import { DocsComponent } from './docs/docs.component';
 
 export const usersRoutes: Routes = [
   {
@@ -49,6 +50,11 @@ export const usersRoutes: Routes = [
         path: "notifications",
         component:NotificationsComponent,
         data: { title: "", breadcrumb: "notifications",roles: config.authRoles.subcontractor }
+      },
+      {
+        path: "mydocs",
+        component:DocsComponent,
+        data: { title: "", breadcrumb: "docs",roles: config.authRoles.subcontractor }
       }
     ]
   }

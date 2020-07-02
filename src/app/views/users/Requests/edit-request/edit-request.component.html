@@ -23,7 +23,7 @@
     </textarea>
   </mat-form-field> -->
   <form [formGroup]="RequestForm" class="example-form">
-    <mat-form-field class="full-width" appearance="outline">
+    <!-- <mat-form-field class="full-width" appearance="outline">
       <mat-label>Safety Precautions </mat-label>
       <mat-chip-list #chipList aria-label="Safety Precautions">
         <mat-chip *ngFor="let badg of safetyprecdata" [selectable]="Safetypreselectable" [removable]="removable"
@@ -40,7 +40,15 @@
           {{badge.precaution}}
         </mat-option>
       </mat-autocomplete>
-    </mat-form-field>
+    </mat-form-field> -->
+ 
+
+  <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Safety Precautions</mat-label>
+                  <mat-select formControlName="Safetyprecaustion" multiple>
+                      <mat-option *ngFor="let e of safetyList" [value]="e.id">{{e.precaution}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
   </form>
   <div class="btns-sty">
     <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="CreateSafety()">Save</button>

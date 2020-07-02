@@ -358,6 +358,14 @@ export class NavigationService {
     },
  
     {
+      name: "Docs",
+      type: "link",
+      tooltip: "Mydocs",
+      icon: "notifications", 
+      state: "user/mydocs"
+    },
+
+    {
       name: "Notifications",
       type: "link",
       tooltip: "Notifications",

@@ -69,7 +69,8 @@ export class SubContractorComponent implements OnInit {
      // this.SubcontractorForm.controls["password"].setValue(this.data["payload"]["password"]);
        this.SubcontractorForm.controls["sublogo"].setValue(this.data["payload"]["logo"]);
       this.SubcontractorForm.controls["department"].setValue(deptarr.split(','));
-      this.updatesubcontr.logo=this.data["payload"]["logo"];
+    this.croppedImage=this.data["payload"]["logo"];
+      this.updatesubcontr.logo="";
 
       this.editcroppedImage="http://macsof.in/beamapi/services/subcontractor/images/"+this.data["payload"]["logo"];
     }
@@ -88,19 +89,30 @@ export class SubContractorComponent implements OnInit {
     if (reader.result.length  >=100000) 
     {
       alert('File exceeds the 100kb size');
-      this.upload_imgsty="";
+      this.upload_imgsty="uploadimgsty-no-img";
+      if(this.Editform==true)
+      {
+        this.upload_imgsty="uploadimgsty";
+        this.editcroppedImage="http://macsof.in/beamapi/services/subcontractor/images/"+this.data["payload"]["logo"];
+        this.croppedImage="";
+      }
+      else
+      {
+        this.croppedImage="";
+      }
     }
     else
     {
       this.croppedImage = reader.result;
+      if(this.Editform==true)
+      {
+        this.editcroppedImage=reader.result;
+        this.croppedImage=this.editcroppedImage;
+        this.updatesubcontr.logo=this.croppedImage;
+      }
     }
 
-    if(this.Editform==true)
-    {
-      this.editcroppedImage=reader.result;
-      this.croppedImage=this.editcroppedImage;
-      this.updatesubcontr.logo=this.croppedImage;
-    }
+   
   }
   Createsubcontractors()
   {
