@@ -84,6 +84,7 @@ export class UpdateRequestStatusListDto
 {
     Request_status : string;
     id :string;
+    userId:string;
 }
 
 export class CopyRequestDto
@@ -131,8 +132,10 @@ export class CopyRequestDto
 export class UpdateClose_Status
 {
     Request_status:string;
-    Image:any;
+    Image:any[];
     id:string;
+    userId:string;
+    //files:string  []  =  [];
 }
 
 export class RequestsbyId

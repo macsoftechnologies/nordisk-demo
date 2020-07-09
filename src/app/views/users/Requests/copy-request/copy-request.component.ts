@@ -78,7 +78,6 @@ this.userdata=this.jwtauthservice.getUser();
   }
 
   ngOnInit(): void {
-    console.log(this.data.payload);
     this.CopyRequest.userId=this.userdata["id"];
     this.CopyRequest.Request_Date=this.data["payload"]["Request_Date"];
     this.CopyRequest.Request_status = this.data["payload"]["Request_status"];
@@ -133,7 +132,6 @@ this.userdata=this.jwtauthservice.getUser();
     const diffDays = Math.round(Math.abs((this.workingdateFrom - this.workingdateTo) / oneDay))+1;
    
     this.CopyRequest.count=diffDays;
-    console.log(this.CopyRequest.count);
     this.reqservice.CopyRequest(this.CopyRequest).subscribe(res=>
       {
 this.openSnackBar();

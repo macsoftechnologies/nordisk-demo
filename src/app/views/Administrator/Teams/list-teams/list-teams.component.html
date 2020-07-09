@@ -1,3 +1,24 @@
+
+<div class="container">
+  <mat-grid-list cols="3" rowHeight="80px">
+      <mat-grid-tile>
+      </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+              <mat-label>SubContractor</mat-label>
+              <mat-select (selectionChange)="Getselectedsubcntrsteams($event.value)" name="Company">
+                  <mat-option *ngFor="let loc of SubContractorList" [value]="loc.id">
+                      {{loc.subContractorName}}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+      </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+
 <mat-card class="p-0">
 
     <mat-card-content class="p-0">
@@ -6,11 +27,11 @@
       </div> -->
       <ngx-datatable id="content" #content class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'"
         [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50" (activate)="onActivate($event)">
-        <ngx-datatable-column name="Team Id" [flexGrow]="1">
+        <!-- <ngx-datatable-column name="Team Id" [flexGrow]="1">
           <ng-template let-row="row" ngx-datatable-cell-template>
             {{ row?.id }}
           </ng-template>
-        </ngx-datatable-column>
+        </ngx-datatable-column> -->
         <ngx-datatable-column name="Team Name" [flexGrow]="1">
           <ng-template let-row="row" ngx-datatable-cell-template>
             {{ row?.teamName }}

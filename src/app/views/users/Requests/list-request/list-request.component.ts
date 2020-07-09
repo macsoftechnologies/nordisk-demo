@@ -186,7 +186,6 @@ export class ListRequestComponent implements OnInit {
             this.RequestsbyidDto.userId=this.userdata["id"];
             this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
               {
-                console.log(res);
                 this.items=res["data"];
               });
           }
@@ -224,7 +223,6 @@ export class ListRequestComponent implements OnInit {
 
         this.Contractors = res[1]["data"];
         this.Sites = res[2]["data"];
-        console.log(this.Sites)
         this.Getbuilding(this.Sites[1]["site_id"]);
         this.Typeofactivitys = res[3]["data"];
       });
@@ -264,40 +262,16 @@ export class ListRequestComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
+        this.getItems();
         if (!res) {
           // If user press cancel
           return;
         }
-        this.loader.open();
-        // if (isNew) {
-        //   // this.crudService.addItem(res)
-        //   //   .subscribe(data => {
-        //   //     this.items = data;
-        //   //     this.loader.close();
-        //   //     this.snack.open('Member Added!', 'OK', { duration: 4000 })
-        //   //   })
-        // } else {
-        //   // this.crudService.updateItem(data._id, res)
-        //   //   .subscribe(data => {
-        //   //     this.items = data;
-        //   //     this.loader.close();
-        //   //     this.snack.open('Member Updated!', 'OK', { duration: 4000 })
-        //   //   })
-        // }
-      })
+      });
   }
   deleteItem(row) {
     this.confirmService.confirm({ message: `Delete ${row.name}?` })
       .subscribe(res => {
-        if (res) {
-          this.loader.open();
-          // this.crudService.removeItem(row)
-          //   .subscribe(data => {
-          //     this.items = data;
-          //     this.loader.close();
-          //     this.snack.open('Member deleted!', 'OK', { duration: 4000 })
-          //   })
-        }
       })
   }
   addrequest() {
@@ -313,7 +287,6 @@ export class ListRequestComponent implements OnInit {
     this.SearchRequest.Site_Id = this.RequestlistForm.controls["Site"].value;
     this.SearchRequest.Sub_Contractor_Id = this.RequestlistForm.controls["Contractor"].value;
     this.SearchRequest.Type_Of_Activity_Id=this.RequestlistForm.controls["TypeOfActivity"].value;
-debugger
     var mydate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateFrom"].value, 'yyyy-MM-dd');
     var todate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateTo"].value, 'yyyy-MM-dd');
 
@@ -325,8 +298,6 @@ debugger
     {
       this.SearchRequest.toDate=todate;
     }
-    console.log(this.SearchRequest)
-
  
     this.requestservice.SearchRequest(this.SearchRequest).subscribe(res => {
       if (res["message"] == "No Requests Found") {
@@ -476,6 +447,7 @@ debugger
   ChangeStaus(row) {
     let title = 'Request Status Change ';
     let type = "operartor";
+    console.log(row);
     let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
       width: '300px',
       height: '150px',
@@ -511,6 +483,7 @@ debugger
 
       let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
         disableClose: false,
+        width:'600px',
         data: { title: title, payload: row, type: type }
       })
       dialogRef.afterClosed()
@@ -542,7 +515,6 @@ debugger
         this.selectedRequestIds.push(x["id"]);
       }
     });
-    console.log(this.selectedRequestIds.toString());
 
 
     let title = 'Do you want ' + statusdata + " Items";
@@ -588,6 +560,7 @@ debugger
 
   EditDraft(row)
   {
+    console.log(row);
     this.requestservice.SelectedRequestData =
     {
       "payload": row,

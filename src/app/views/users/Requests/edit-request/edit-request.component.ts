@@ -119,10 +119,8 @@ updatetimes:UpdateTime=
     this.spinner=true;
     this.updatenotes.Notes=this.Notes;
     this.updatenotes.id=this.data["payload"];
-    console.log(this.updatenotes);
     this.reqservice.UpdateListReqstNote(this.updatenotes).subscribe(res=>
       {
-        console.log(res);
         this.openSnackBar("Notes updated Successfully");
       this.spinner=false;
       });
@@ -154,12 +152,10 @@ updatetimes:UpdateTime=
     this.updatetimes.Start_Time=this.datePipe.transform(this.StartTime,'HH:mm');
     this.updatetimes.End_Time=this.datePipe.transform(this.EndTime,'HH:mm');
     this.updatetimes.id=this.data["payload"];
-    console.log(this.updatetimes);
 
     this.reqservice.UpdateListReqstTime(this.updatetimes).subscribe(res=>
       {
         this.openSnackBar("Time updated Successfully");
-        console.log(res);
         this.spinner=false;
       })
   }

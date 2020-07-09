@@ -20,7 +20,6 @@ export class ListSubEmpComponent implements OnInit {
       {
         this.spinner = false;
         this.EmpList = res["data"];
-        console.log(this.EmpList);
       });
   }
 

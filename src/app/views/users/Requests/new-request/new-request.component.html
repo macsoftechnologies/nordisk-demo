@@ -857,8 +857,16 @@
               </mat-form-field>
             </mat-grid-tile> -->
 
-
             
+          </mat-grid-list>
+
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Number of workers involved</mat-label>
+                <input matInput formControlName="peopleinvalidcount" placeholder="">
+              </mat-form-field>
+            </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
@@ -981,29 +989,19 @@
   </div>
   <div class="butns" *ngIf="subeditform">
     <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">Save</button>
-    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUp()">Change to Hold</button>
+    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUpForDrafToHold()">Change to Hold</button>
   </div>
 </div>
-    <div class="form-container" [hidden]="isnewrequestcreated">
+    <!-- <div class="form-container" [hidden]="isnewrequestcreated">
         <form id="input-form" [formGroup]="myForm" novalidate>
 
             <div *ngFor="let input of inputList; let i=index" [ngSwitch]="input.type">
-                <!-- <input *ngSwitchCase="'button'" [name]="input.name" type="button" [formControlName]="input.name"
-                        [value]="input.value" (change)="eventCheck($event)" 
-                        [ngStyle]="getInputPosition(input)">
-                        <input *ngSwitchCase="'radio'" [name]="input.name" type="radio" [formControlName]="input.name"
-                        [value]="input.value" (change)="eventCheck($event)" 
-                        [ngStyle]="getInputPosition(input)"> -->
                         <input type="button" [name]="input.name" [value]="input.value" [ngStyle]="getInputPosition(input)" (click)="eventCheck(input.value)"  class="btn-sty">
 
             </div>
         </form>
-        <form id="input-form">
-            
-          
-        </form>
       
-    </div>
+    </div> -->
 <div class="img-div-sty" [hidden]="isnewrequestcreated">
   <div>
     <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
@@ -1015,12 +1013,6 @@
   <button class="butns-grp" mat-raised-button color="primary" (click)="UpdateRequest()">Update</button>
 </div>
 
-
-<script>
-  function testfunc() {
-    alert("Hello! I am an alert box!!");
-  }
-  </script>
 
 <div class="loading-indicator" *ngIf="spinner">
   <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>

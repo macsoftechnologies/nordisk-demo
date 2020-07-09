@@ -226,9 +226,13 @@
       <ngx-datatable-column name="Status" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <mat-chip mat-sm-chip [color]="'primary'" (click)="EditDraft(row)"
-            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approve' && row.Request_status!='Opened'">
+            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approve' && row.Request_status!='Opened' && row.Request_status!='Closed'">
             {{row?.Request_status}}
           </mat-chip>
+          <mat-chip mat-sm-chip [color]="'primary'"
+          *ngIf="row.Request_status=='Closed'">
+          {{row?.Request_status}}
+        </mat-chip>
           <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Opened')"
             *ngIf="row.Request_status=='Approve'">{{row?.Request_status}}
           </mat-chip>
@@ -246,19 +250,21 @@
       <ngx-datatable-column name="Operations" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator && row.Request_status!='Closed'"
-          (click)="Editrow(row)">edit</mat-icon>
+            (click)="Editrow(row)">edit</mat-icon>
 
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1" *ngIf="isoperator"
             (click)="Editrow(row)">Edit</button> -->
           <!-- <i class="material-icons">edit</i> -->
-<mat-icon (click)="openPopUp(row)" class="icons-sty">visibility</mat-icon>
+          <mat-icon (click)="openPopUp(row)" class="icons-sty">visibility</mat-icon>
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" (click)="openPopUp(row)">View</button> -->
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" *ngIf="row.Request_status=='Hold'"
             (click)="CopyRequest(row)">Copy</button> -->
-            <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold'">content_copy</mat-icon>
-            <mat-icon (click)="CopyRequest(row,'Closed')" class="icons-sty" *ngIf="row.Request_status=='Closed' && isoperator">content_copy</mat-icon>
+          <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold' || row.Request_status=='Approve' || row.Request_status=='Reject'">content_copy
+          </mat-icon>
+          <mat-icon (click)="CopyRequest(row,'Closed')" class="icons-sty"
+            *ngIf="row.Request_status=='Closed' && isoperator">content_copy</mat-icon>
 
-            <mat-icon (click)="Deleterequest(row)" class="icons-sty" *ngIf="IsNotSubCntr">delete</mat-icon>
+          <mat-icon (click)="Deleterequest(row)" class="icons-sty" *ngIf="IsNotSubCntr">delete</mat-icon>
 
           <!-- <button mat-icon-button mat-sm-button color="primary" (click)="Deleterequest(row)"
           class="mr-1 icons-sty">Delete</button> -->

@@ -295,7 +295,13 @@ export class NavigationService {
       state: "user/plans"
     },
    
-
+    {
+      name: "Docs",
+      type: "link",
+      tooltip: "Mydocs",
+      icon: "notifications", 
+      state: "user/mydocs"
+    },
     {
       name: "Settings",
       type: "dropDown",
@@ -327,6 +333,7 @@ export class NavigationService {
         },
       ]
     },
+
     {
       name: "Notifications",
       type: "link",
@@ -355,14 +362,6 @@ export class NavigationService {
         { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
         { name: "List Request", state: "user/list-request", icon: "list" }
       ]
-    },
- 
-    {
-      name: "Docs",
-      type: "link",
-      tooltip: "Mydocs",
-      icon: "notifications", 
-      state: "user/mydocs"
     },
 
     {
@@ -394,6 +393,13 @@ export class NavigationService {
         { name: "New Request", state: "user/new-request" ,icon: "fa fa-plus-square"},
         { name: "List Request", state: "user/list-request", icon: "list" }
       ]
+    },
+    {
+      name: "Docs",
+      type: "link",
+      tooltip: "Mydocs",
+      icon: "notifications", 
+      state: "user/mydocs"
     },
     {
       name: "Plans",

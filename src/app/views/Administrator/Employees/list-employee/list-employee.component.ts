@@ -4,6 +4,8 @@ import { EmployeeService } from 'app/shared/services/employee.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { EmployeeComponent } from '../employee/employee.component';
 import { DeleteOptionComponent } from '../../delete-option/delete-option.component';
+import { Mydocs } from 'app/views/Models/DocsDto';
+import { DocsComponent } from 'app/views/users/docs/docs.component';
 
 @Component({
   selector: 'app-list-employee',
@@ -29,13 +31,12 @@ export class ListEmployeeComponent implements OnInit {
       {
         this.spinner = false;
         this.items=res["data"];
-        console
+        
       });
   }
 
   Editemp(row)
   {
-    console.log(row)
     let title = 'Edit Employee';
     let dialogRef: MatDialogRef<any> = this.dialog.open(EmployeeComponent, {
       width: '1200px',
@@ -66,5 +67,19 @@ export class ListEmployeeComponent implements OnInit {
       .subscribe(res => {
         this.GetAllEmployees();
       });
+    }
+
+    onActivate(event) {
+      if (event.type == 'click') {
+        let title = 'Employees Docs';
+        let dialogRef: MatDialogRef<any> = this.dialog.open(DocsComponent, {
+          width: '1100px',
+          disableClose: false,
+          data: { title: title, payload: event.row }
+        })
+        dialogRef.afterClosed()
+          .subscribe(res => {
+          });
+      }
     }
 }

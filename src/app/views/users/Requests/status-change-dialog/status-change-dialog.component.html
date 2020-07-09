@@ -13,11 +13,24 @@
 </div>
 
 <div class="upload-div-sty" *ngIf="type=='Closed'">
-    <img [src]="croppedImage" class="uploadimgsty" />
+
+    <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->
     <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)" accept=".jpg"/>
-    <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Upload Image</button>
-    <div>
+    <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add Image</button>
+
+   <div class="mat-card" *ngIf="isimguploaded">
+    <div class="card-body">
+      <mat-grid-list cols="3" rowHeight="110px">
+        <mat-grid-tile *ngFor="let img of base64Images" class="img-div-dty">
+          <img [src]="img">
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+
+    <div style="text-align: center; margin-top: 20px;">
         <button mat-flat-button class="submit-btn-sty" *ngIf="isimguploaded" mat-dialog-close (click)="Changestatusbysubcontractor('Closed')" color="primary" >Update Status</button>
+        <button mat-flat-button class="submit-btn-sty" *ngIf="isimguploaded" mat-dialog-close color="primary">Close</button>
     </div>
 
 </div>

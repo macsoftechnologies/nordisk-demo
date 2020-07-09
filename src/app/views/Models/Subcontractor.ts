@@ -21,3 +21,7 @@ export class DeleteSubcontractorDto
 {
     id:string;
 }
+export class MydocsDto
+{
+    subcontractorId:number;
+}

@@ -55,7 +55,6 @@ export class JwtAuthService {
       .pipe(
         map((res: any) => {
           debugger
-          console.log(res);
           if(res["status"]==false)
           {
             this.signingIn = false;

@@ -51,7 +51,6 @@ export class ListSubcontractorsComponent implements OnInit {
 
   onActivate(event) {
     if (event.type == 'click') {
-      console.log(event.row);
       let title = 'Employees List By SubContractor';
       let dialogRef: MatDialogRef<any> = this.dialog.open(ListSubEmpComponent, {
         width: '1000px',

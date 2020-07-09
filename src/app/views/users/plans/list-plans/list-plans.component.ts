@@ -28,7 +28,6 @@ export class ListPlansComponent implements OnInit {
 
   ngOnInit() {
     this.getItems();
-    console.log(this.userservices.Planslist);
   }
   ngOnDestroy() {
     if (this.getItemSub) {

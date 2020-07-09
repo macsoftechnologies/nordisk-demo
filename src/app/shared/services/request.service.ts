@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { RequestDto, EditRequestDto, DeleteRequestDto, UpdateRequestStatusListDto, CopyRequestDto, UpdateClose_Status, RequestsbyId } from 'app/views/Models/RequestDto';
-import { PlansComponent } from 'app/views/users/plans/plans.component';
 import { PlansDto } from 'app/views/Models/PlansDto';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
 import { UpdateNotes, UpdateSafety, UpdateTime } from 'app/views/Models/MultiRequestUpdateDto';
@@ -39,6 +38,10 @@ export class RequestService {
     return this.http.get<any>(environment.API_URL + 'request/readImageslist.php?requestId='+id);
   }
 
+  public GetRequestsLogs(id:RequestsbyId): Observable<any[]> {
+    return this.http.post<any>(environment.API_URL + 'request/readLogs.php',id);
+  }
+
   public CreateNewRequest(req:RequestDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'request/create.php', req);
   }
@@ -62,9 +65,10 @@ export class RequestService {
     return this.http.post<any>(environment.API_URL + 'request/searchlist.php', req);
   }
 
-  public CloseRequest(req:UpdateClose_Status): Observable<any> {
-    return this.http.post<any>(environment.API_URL + 'request/upload.php', req);
+  public CloseRequest(formData): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/upload.php', formData);
   }
+
 
   public UpdateListReqstNote(req:UpdateNotes): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'request/updateNotes.php', req);

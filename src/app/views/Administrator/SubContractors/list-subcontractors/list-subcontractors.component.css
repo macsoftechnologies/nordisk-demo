@@ -8,3 +8,7 @@
 { 
     cursor: pointer;
 }
+
+img:not(.mat-card-image) {
+    width: 35px !important;
+  }

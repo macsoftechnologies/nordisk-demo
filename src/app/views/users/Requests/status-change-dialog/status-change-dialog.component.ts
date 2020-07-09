@@ -5,6 +5,7 @@ import { RequestService } from 'app/shared/services/request.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 
+
 @Component({
   selector: 'app-status-change-dialog',
   templateUrl: './status-change-dialog.component.html',
@@ -51,12 +52,15 @@ export class StatusChangeDialogComponent implements OnInit {
       Safety_Precautions: null,
       teamId: null
     }
-   images:any[]=[];
+  images: any[] = [];
+  base64Images: any[] = [];
+
   Close_Request: UpdateClose_Status =
     {
       id: null,
-      Image: null,
-      Request_status: null
+      Image: [],
+      Request_status: null,
+      userId: null
     }
   userdata: any = {};
 
@@ -74,10 +78,9 @@ export class StatusChangeDialogComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-
-    this.updaterequestdata.userId = this.userdata["id"];
+    this.updaterequestdata.userId = this.data["payload"]["userId"];
     this.type = this.data["type"];
+    this.updaterequestdata.teamId=this.data["payload"]["teamId"];
     this.updaterequestdata.Activity = this.data["payload"]["Activity"];
     this.updaterequestdata.Assign_Start_Time = this.data["payload"]["Assign_Start_Time"];
     this.updaterequestdata.Badge_Numbers = this.data["payload"]["Badge_Numbers"];
@@ -128,6 +131,7 @@ export class StatusChangeDialogComponent implements OnInit {
     else {
       this.isclose = false;
       this.updaterequestdata.Request_status = statusdata;
+      console.log(this.updaterequestdata)
       this.requestdataservice.UpdateRequest(this.updaterequestdata).subscribe(x => {
         this.openSnackBar("Request Status Updated Successfully");
 
@@ -142,23 +146,21 @@ export class StatusChangeDialogComponent implements OnInit {
   Changestatusbysubcontractor(status) {
     const formData = new FormData();
     this.spinner = true;
-    debugger
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
-  
-  for  (var i =  0; i <  this.images.length; i++)  {  
-      formData.append("file[]",  this.images[i]);
-  } 
-    console.log(formData);
+
+    for (var i = 0; i < this.images.length; i++) {
+      formData.append("Image[]", this.images[i]);
+    }
 
 
-     this.Close_Request.Image =  formData;
+    // this.Close_Request.Image =  formData;
     //  const formData = new FormData();
-    //  formData.append('file', this.uploadForm.get('profile').value);
-    //  formData.append('file', this.Close_Request.Image);
+    formData.append('id', this.Close_Request.id);
+    formData.append('Request_status', this.Close_Request.Request_status);
+    formData.append('userId', this.userdata["id"]);
 
-
-    this.requestdataservice.CloseRequest(this.Close_Request).subscribe(res => {
+    this.requestdataservice.CloseRequest(formData).subscribe(res => {
       this.openSnackBar("Request Status Updated Successfully");
       this.spinner = false;
     },
@@ -167,7 +169,6 @@ export class StatusChangeDialogComponent implements OnInit {
         this.openSnackBar("Something went wrong. Plz try again later...");
       }
     )
-
   }
   openSnackBar(msg) {
     this._snackBar.open(msg, "Close", {
@@ -177,44 +178,19 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   csvInputChange(e) {
-   
-    // if (event.target.files.length > 0) {
-    //   const file = event.target.files[0];
-    //   this.form.get('avatar').setValue(file);
-
-    // }
-    // 
-    // formData.append('avatar', this.form.get('avatar').value);
-
 
     for (var i = 0; i < e.target.files.length; i++) {
       this.images.push(e.target.files[i]);
+      var reader = new FileReader();
+
+      reader.onload = this._handleReaderLoaded.bind(this);
+      reader.readAsDataURL(e.target.files[i]);
+      this.isimguploaded = true;
     }
-
-    // onFileSelect(event) {
-    //   if (event.target.files.length > 0) {
-    //     const file = event.target.files[0];
-    //     this.uploadForm.get('profile').setValue(file);
-    //   }
-    // }
-    
-    // const frmData = new FormData();  
-    // for (var i = 0; i < this.Close_Request.Image.length; i++) {  
-    //   frmData.append("fileUpload", this.Close_Request.Image[i]);  
-    // }  
-
-    this.isimguploaded = true;
-
-    // var file = fileInputEvent.target.files[0];
-    // this.Close_Request.Image=file;
-    // var reader = new FileReader();
-    // this.isimguploaded = true;
-    // reader.onload = this._handleReaderLoaded.bind(this);
-    // reader.readAsDataURL(file);
   }
   _handleReaderLoaded(e) {
     let reader = e.target;
-    this.croppedImage = reader.result;
+   this.base64Images.push(reader.result);
   }
 
 }

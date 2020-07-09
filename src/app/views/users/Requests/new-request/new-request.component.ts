@@ -415,9 +415,8 @@ export class NewRequestComponent implements OnInit {
       });
 
 
-
     this.data = this.requestsserivies.SelectedRequestData;
-    
+    console.log(this.data);
     if (this.data["editform"] == true) {
 
       this.updaterequestdata.userId = this.userdata["id"];
@@ -478,7 +477,7 @@ export class NewRequestComponent implements OnInit {
     this.siteslist.forEach(x => {
       if (x["site_id"] == event) {
         this.Requestdata.Site_Id = x["site_id"];
-        this.updaterequestdata.Site_Id=x["site_id"];
+        this.updaterequestdata.Site_Id = x["site_id"];
         this.RequestForm.controls['Site'].setValue(x['site_name']);
       }
     });
@@ -523,28 +522,29 @@ export class NewRequestComponent implements OnInit {
     this.name = "Room";
   }
   Getselectedroomitem(event) {
+    console.log(event);
     this.RoomsList.forEach(x => {
       if (x["room_id"] == event) {
         this.Rooms.push(x);
       }
     });
-    this.selectedroom = event;
+    this.selectedroom = event.toString();
     let currentdate = this.datePipe.transform(this.Reqdate, 'yyyy-MM-dd');
     this.RequestForm.controls['Requestdate'].setValue(currentdate);
     this.RequestForm.controls['Companyname'].setValue('Beam');
     //this.RequestForm.controls['Status'].setValue('Active');
     this.isnewrequestcreated = true;
-    this.filteredRooms = this.RequestForm.controls["Room"].valueChanges.pipe(
-      startWith(null),
-      map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice()));
+
+    this.RequestForm.controls["Room"].setValue(this.selectedroom.split(','));
+    // this.filteredRooms = this.RequestForm.controls["Room"].valueChanges.pipe(
+    //   startWith(null),
+    //   map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice()));
     // this.GetAllSubContractorsData();
   }
 
   Getselectedsubcntrsteams(event) {
-    debugger
     this.TeamsSubDto.subcontId = event;
     this.teamservices.GetAllTeamsBySubId(this.TeamsSubDto).subscribe(res => {
-      console.log(res);
       this.Teams = res["data"];
       if (this.editform == true) {
         this.Teams.forEach(x => {
@@ -553,8 +553,16 @@ export class NewRequestComponent implements OnInit {
             this.GetEmployees(Number.parseInt(x["id"]));
           }
         })
-
       }
+    });
+
+    this.empservice.GetAllEmployeesBySubContrId(this.TeamsSubDto.subcontId).subscribe(res => {
+      let emps = [];
+     
+      res["data"].forEach(x => {
+        emps.push(x);
+      });
+      this.BADGENUMBERS=emps;
     });
   }
 
@@ -593,7 +601,7 @@ export class NewRequestComponent implements OnInit {
 
   CreateRequest() {
     this.spinner = true;
-   // var badarray = [];
+    // var badarray = [];
     var roomoarr = [];
     // this.Badges.forEach(x => {
     //   badarray.push(x["badgeId"]);
@@ -637,15 +645,15 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.Number_Of_Workers = this.RequestForm.controls["peopleinvalidcount"].value;
     this.Requestdata.Notes = this.RequestForm.controls["Note"].value;
 
-    this.Requestdata.Badge_Numbers =(this.RequestForm.controls["BADGENUMBER"].value).toString();
+    this.Requestdata.Badge_Numbers = (this.RequestForm.controls["BADGENUMBER"].value).toString();
 
-    // this.requestsserivies.CreateNewRequest(this.Requestdata).subscribe(res => {
-    //   this.spinner = false;
-    //   this.openSnackBar("Request Created Successfully");
-    // },
-    //   error => {
-    //     this.openSnackBar("Something went wrong. Plz try again later...");
-    //   });
+    this.requestsserivies.CreateNewRequest(this.Requestdata).subscribe(res => {
+      this.spinner = false;
+      this.openSnackBar("Request Created Successfully");
+    },
+      error => {
+        this.openSnackBar("Something went wrong. Plz try again later...");
+      });
   }
 
   UpdateRequest() {
@@ -660,7 +668,7 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Assign_Start_Time = this.RequestForm.controls["AssignStartTime"].value;
     this.updaterequestdata.Assign_End_Time = this.RequestForm.controls["AssignEndTime"].value;
     this.updaterequestdata.Special_Instructions = this.RequestForm.controls["SpecialInstruction"].value;
-   // this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
+    // this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
     // this.updaterequestdata.Safety_Precautions =  badarray.toString();
     this.updaterequestdata.Request_status = this.RequestForm.controls['Status'].value;
     var badarray = [];
@@ -671,12 +679,12 @@ export class NewRequestComponent implements OnInit {
     this.Rooms.forEach(x => {
       roomoarr.push(x["room_id"]);
     });
-    this.updaterequestdata.Room_Nos=(this.RequestForm.controls["Room"].value).toString();
+    this.updaterequestdata.Room_Nos = (this.RequestForm.controls["Room"].value).toString();
 
     this.updaterequestdata.Activity = this.RequestForm.controls["Activity"].value;
-   // this.updaterequestdata.Badge_Numbers = this.RequestForm.controls["BADGENUMBER"].value;
-    this.updaterequestdata.Badge_Numbers =(this.RequestForm.controls["BADGENUMBER"].value).toString();
-   // this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
+    // this.updaterequestdata.Badge_Numbers = this.RequestForm.controls["BADGENUMBER"].value;
+    this.updaterequestdata.Badge_Numbers = (this.RequestForm.controls["BADGENUMBER"].value).toString();
+    // this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
     this.updaterequestdata.Building_Id = this.RequestForm.controls["Building"].value;
     this.updaterequestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
     // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
@@ -695,7 +703,7 @@ export class NewRequestComponent implements OnInit {
     //this.Requestdata.Site_Id = this.RequestForm.controls["Site"].value;
     // this.Requestdata.Building_Id = this.RequestForm.controls["Building"].value;
     // this.Requestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
-   // this.updaterequestdata.Room_Nos = roomoarr.toString();
+    // this.updaterequestdata.Room_Nos = roomoarr.toString();
     this.updaterequestdata.Room_Type = this.RequestForm.controls["RoomType"].value;
     this.updaterequestdata.Crane_Requested = this.RequestForm.controls["CMTdata"].value;
     this.updaterequestdata.Crane_Number = this.RequestForm.controls["CmtValue"].value;
@@ -709,8 +717,76 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Power_Off_Required = this.RequestForm.controls["Poweroff"].value;
     this.updaterequestdata.Number_Of_Workers = this.RequestForm.controls["peopleinvalidcount"].value;
     this.updaterequestdata.Notes = this.RequestForm.controls["Note"].value;
-    this.updaterequestdata.Safety_Precautions=(this.RequestForm.controls["Safetyprecaustion"].value).toString();
-    
+    this.updaterequestdata.Safety_Precautions = (this.RequestForm.controls["Safetyprecaustion"].value).toString();
+
+    this.requestsserivies.UpdateRequest(this.updaterequestdata).subscribe(res => {
+      this.spinner = false;
+      this.openSnackBar("Request Updated Successfully");
+      this.requestsserivies.SelectedRequestData = {};
+    },
+      error => {
+        this.openSnackBar("Something went wrong. Plz try again later...");
+      }
+    )
+  }
+
+  UpdateRequestDraftToHold(data) {
+    var badarray = [];
+    this.spinner = true;
+
+    this.safetyprecdata.forEach(x => {
+      badarray.push(x["id"]);
+    });
+
+    this.updaterequestdata.Assign_Start_Time = this.RequestForm.controls["AssignStartTime"].value;
+    this.updaterequestdata.Assign_End_Time = this.RequestForm.controls["AssignEndTime"].value;
+    this.updaterequestdata.Special_Instructions = this.RequestForm.controls["SpecialInstruction"].value;
+    // this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
+    // this.updaterequestdata.Safety_Precautions =  badarray.toString();
+    this.updaterequestdata.Request_status = data;
+    var badarray = [];
+    var roomoarr = [];
+    this.Badges.forEach(x => {
+      badarray.push(x["badgeId"]);
+    });
+    this.Rooms.forEach(x => {
+      roomoarr.push(x["room_id"]);
+    });
+    this.updaterequestdata.Room_Nos = (this.RequestForm.controls["Room"].value).toString();
+
+    this.updaterequestdata.Activity = this.RequestForm.controls["Activity"].value;
+    // this.updaterequestdata.Badge_Numbers = this.RequestForm.controls["BADGENUMBER"].value;
+    this.updaterequestdata.Badge_Numbers = (this.RequestForm.controls["BADGENUMBER"].value).toString();
+    // this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
+    this.updaterequestdata.Building_Id = this.RequestForm.controls["Building"].value;
+    this.updaterequestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
+    // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
+    this.updaterequestdata.Company_Name = this.RequestForm.controls["Companyname"].value;
+    this.updaterequestdata.Sub_Contractor_Id = this.RequestForm.controls["SubContractor"].value;
+    this.updaterequestdata.teamId = this.RequestForm.controls["Team"].value;
+    this.updaterequestdata.Foreman = this.RequestForm.controls["Foreman"].value;
+    this.updaterequestdata.Foreman_Phone_Number = this.RequestForm.controls["ForemanPhone"].value;
+    this.updaterequestdata.Type_Of_Activity_Id = this.RequestForm.controls["TypeActivity"].value;;
+    let workdate = this.datePipe.transform(this.RequestForm.controls["Startdate"].value, 'yyyy-MM-dd');
+
+    this.updaterequestdata.Working_Date = workdate;
+    this.updaterequestdata.Start_Time = this.RequestForm.controls["StartTime"].value;
+    this.updaterequestdata.End_Time = this.RequestForm.controls["EndTime"].value;
+    this.updaterequestdata.Room_Type = this.RequestForm.controls["RoomType"].value;
+    this.updaterequestdata.Crane_Requested = this.RequestForm.controls["CMTdata"].value;
+    this.updaterequestdata.Crane_Number = this.RequestForm.controls["CmtValue"].value;
+    this.updaterequestdata.Tools = this.RequestForm.controls["Tools"].value;
+    this.updaterequestdata.Machinery = this.RequestForm.controls["Machinery"].value;
+    this.updaterequestdata.Hot_work = this.RequestForm.controls["HOTWORK"].value;
+    this.updaterequestdata.Certified_Person = this.RequestForm.controls["CertifiedPerson"].value;
+    this.updaterequestdata.LOTO_Procedure = this.RequestForm.controls["LOTOPROCEDURE"].value;
+    this.updaterequestdata.LOTO_Number = this.RequestForm.controls["LOTONumber"].value;
+
+    this.updaterequestdata.Power_Off_Required = this.RequestForm.controls["Poweroff"].value;
+    this.updaterequestdata.Number_Of_Workers = this.RequestForm.controls["peopleinvalidcount"].value;
+    this.updaterequestdata.Notes = this.RequestForm.controls["Note"].value;
+    this.updaterequestdata.Safety_Precautions = (this.RequestForm.controls["Safetyprecaustion"].value).toString();
+
     this.requestsserivies.UpdateRequest(this.updaterequestdata).subscribe(res => {
       this.spinner = false;
       this.openSnackBar("Request Updated Successfully");
@@ -740,6 +816,26 @@ export class NewRequestComponent implements OnInit {
     });
 
   }
+
+  openPopUpForDrafToHold() {
+    let title = 'Submitted Method Statement and Risk assessment for this activity';
+
+    let dialogRef: MatDialogRef<any> = this.dialog.open(RequestSaveOptionsDialogComponent, {
+      width: '500px',
+      height: '200px',
+      disableClose: false,
+      data: { title: title, listitemsstatus: false }
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      this.RequestForm.controls['Status'].setValue(result.data);
+
+      this.Requestdata.Request_status = result.data;
+      this.UpdateRequestDraftToHold(result.data);
+      //this.userservices.RequestLists.push(this.RequestForm.value);
+    });
+
+  }
+
   private _filter(value: string): string[] {
     const filterValue = value;
 
@@ -871,7 +967,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   EditFormDataBinding(data) {
-this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
+    this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
 
     var roomarrstr = [];
     this.spinner = true;
@@ -883,62 +979,22 @@ this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
       else {
         this.RoomsList = res["data"];
       }
-      // if (this.RoomsList.length > 0) {
-      //   this.RoomsList.forEach(x => {
-      //     roomarrstr.forEach(y => {
-      //       if (x["room_id"] == y) {
-      //         this.Rooms.push(x);
-      //       }
-      //     });
-      //   });
-
-      // }
-      // this.filteredRooms = this.RequestForm.controls["Room"].valueChanges.pipe(
-      //   startWith(null),
-      //   map((fruit: string | null) => fruit ? this._roomsfilter(fruit) : this.RoomsList.slice()));
-
     });
 
-    console.log(data);
     var badarrstr = [];
     var safetystr = [];
     this.EditSafetyArray.length = 0;
     this.EditSafetyArray = [];
-    //   this.Badges=data["Badge_Numbers"];
-   // badarrstr = data["Badge_Numbers"].split(",");
     safetystr = data["Safety_Precautions"].split(",");
-
-   // this.EditbadgeArray = badarrstr;
-   this.RequestForm.controls["Room"].setValue(data["room_id"].split(","));
+    this.RequestForm.controls["Room"].setValue(data["Room_Nos"].split(","));
 
     this.RequestForm.controls["Safetyprecaustion"].setValue(data["Safety_Precautions"].split(","));
-    this.RequestForm.controls["BADGENUMBER"].setValue(data["Badge_Numbers"].split(","));
-    //this.EditSafetyArray=safetystr;
-
-    // this.safetyprecdata.length=0;
-    //this.safetyprecdata=[];
-
-
-    // this.safetyservice.GetSafetyprecautions().subscribe(res=>
-    //   {
-    //     this.safetyList=res["data"];
-    //       this.safetyList.forEach(x => {
-    //   this.EditSafetyArray.forEach(y => {
-    //     if (x["id"] == y) {
-    //       this.safetyprecdata.push(x);
-    //     }
-    //   });
-    // });
-    //   });
 
     this.Getselectedsubcntrsteams(data["Sub_Contractor_Id"]);
 
-   // this.EditSafetyArray = safetystr;
     this.updaterequestdata.id = data["id"];
     this.updaterequestdata.PermitNo = data["PermitNo"];
-    // this.updaterequestdata.Request_status=data["Request_status"];
     this.updaterequestdata.Request_Date = data["Request_Date"];
-    //this.RequestForm.controls['Requestdate'].setValue(data["Request_Date"]);
     this.RequestForm.controls['Companyname'].setValue(data["Company_Name"]);
     this.RequestForm.controls['Requestdate'].setValue(data['Request_Date']);
     this.RequestForm.controls['SubContractor'].setValue(data["Sub_Contractor_Id"]);
@@ -949,7 +1005,6 @@ this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
     this.RequestForm.controls['Site'].setValue(data["Site_Id"]);
     this.RequestForm.controls['Activity'].setValue(data["Activity"]);
     this.RequestForm.controls['TypeActivity'].setValue(data["Type_Of_Activity_Id"]);
-    // console.log(this.RequestForm.controls['TypeActivity'].value)
     this.RequestForm.controls['Building'].setValue(data["Building_Id"]);
     this.RequestForm.controls['CMTdata'].setValue(data["Crane_Requested"]);
     this.RequestForm.controls['CmtValue'].setValue(data["Crane_Number"]);
@@ -1027,58 +1082,44 @@ this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
 
   GetEmployees(event) {
     let emps = [];
-    this.BADGENUMBERS.length=0;
-    this.BADGENUMBERS=[];
+    let selectedbadgs=[];
     this.teamservices.GetAllTeamsById(Number.parseInt(event)).subscribe(res => {
       emps = res["employeeIds"].split(",");
-
       this.spinner = true;
       this.Requestdata.teamId = event;
-      this.empservice.GetAllEmployees().subscribe(x => {
-        let allemps = [];
-        allemps = x["data"];
-        this.spinner = false;
-        allemps.forEach(x => {
+
+      this.BADGENUMBERS.forEach(p=>
+        {
           emps.forEach(y => {
-            if (y == x["id"]) {
-             
-              this.BADGENUMBERS.push(x);
-            }
-          });
+                  if (y == p["id"]) {
+                    selectedbadgs.push(p["badgeId"]);
+                  }
+                });
         });
+      this.RequestForm.controls["BADGENUMBER"].setValue(selectedbadgs);
+      if (this.editform == true && this.BADGENUMBERS.length > 0) 
+      {
+        this.RequestForm.controls["BADGENUMBER"].setValue(this.data["payload"]["Badge_Numbers"].split(","));
 
-        if (this.editform == true && this.BADGENUMBERS.length > 0) {
-          this.spinner = false;
-          this.BADGENUMBERS.forEach(x => {
-            this.EditbadgeArray.forEach(y => {
-              if (x["badgeId"] == y) {
-                this.Badges.push(x);
-              }
-            });
-          });
-        }
-        this.filteredBadges = this.RequestForm.controls["BADGENUMBER"].valueChanges.pipe(
-          startWith(null),
-          map((fruit: string | null) => fruit ? this._filter(fruit) : this.BADGENUMBERS.slice()));
-    });
-
+      }
+      this.spinner = false;
     });
 
     // this.empservice.GetAllEmployeesBySubContrId(id).subscribe(res => {
     //   console.log(res);
     //   // this.spinner = false;
-      // if (res["data"] != undefined) {
-      //   this.BADGENUMBERS = res["data"];
-      // }
+    // if (res["data"] != undefined) {
+    //   this.BADGENUMBERS = res["data"];
+    // }
 
-      // if (this.editform == true && this.BADGENUMBERS.length > 0) {
+    // if (this.editform == true && this.BADGENUMBERS.length > 0) {
 
-      //   this.BADGENUMBERS.forEach(x => {
-      //     this.EditbadgeArray.forEach(y => {
-      //       if (x["badgeId"] == y) {
-      //         this.Badges.push(x);
-      //       }
-      //     });
+    //   this.BADGENUMBERS.forEach(x => {
+    //     this.EditbadgeArray.forEach(y => {
+    //       if (x["badgeId"] == y) {
+    //         this.Badges.push(x);
+    //       }
+    //     });
     //    });
 
 
