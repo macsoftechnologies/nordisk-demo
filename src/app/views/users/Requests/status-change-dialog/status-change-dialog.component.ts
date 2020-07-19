@@ -78,7 +78,7 @@ export class StatusChangeDialogComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.updaterequestdata.userId = this.data["payload"]["userId"];
+    this.updaterequestdata.userId = this.userdata["id"];
     this.type = this.data["type"];
     this.updaterequestdata.teamId=this.data["payload"]["teamId"];
     this.updaterequestdata.Activity = this.data["payload"]["Activity"];
@@ -149,9 +149,13 @@ export class StatusChangeDialogComponent implements OnInit {
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
 
-    for (var i = 0; i < this.images.length; i++) {
-      formData.append("Image[]", this.images[i]);
+    if(this.images.length>0)
+    {
+      for (var i = 0; i < this.images.length; i++) {
+        formData.append("Image[]", this.images[i]);
+      }
     }
+
 
 
     // this.Close_Request.Image =  formData;

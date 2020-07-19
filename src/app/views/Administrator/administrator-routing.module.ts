@@ -15,6 +15,7 @@ import { ActivityComponent } from './Activities/activity/activity.component';
 import { SafetyprecautionComponent } from './SafetyPrecautions/safetyprecaution/safetyprecaution.component';
 import { ListSafetyprecautionComponent } from './SafetyPrecautions/list-safetyprecaution/list-safetyprecaution.component';
 import { ChangepasswordComponent } from '../AccountManagement/changepassword/changepassword.component';
+import { NewIssueComponent } from './Issues/new-issue/new-issue.component';
 
 
 const routes: Routes = [
@@ -107,12 +108,18 @@ const routes: Routes = [
         // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
       },
       {
-        path: "changepassword",
-        component: ChangepasswordComponent,
-        data: { title: "", breadcrumb: "changepassword",},
-      
+        path: "new-issue",
+        component: NewIssueComponent,
+        data: { title: "", breadcrumb: "new-issue",roles: config.authRoles.admin },
+        canActivate: [UserRoleGuard],
         // data: { title: "Default", breadcrumb: "Default", roles: config.authRoles.sa }
       },
+      {
+        path: "changepassword",
+        component: ChangepasswordComponent,
+        data: { title: "", breadcrumb: "changepassword",}
+      },
+
     ]
   }
 ];

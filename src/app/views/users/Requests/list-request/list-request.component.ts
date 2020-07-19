@@ -24,7 +24,7 @@ import { ActivityService } from 'app/shared/services/activity.service';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
 import { DatePipe } from '@angular/common';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-import { RequestsbyId } from 'app/views/Models/RequestDto';
+import { RequestsbyId, RequestBySubcontractorId } from 'app/views/Models/RequestDto';
 import * as xlsx from 'xlsx';
 import { EditRequestComponent } from '../edit-request/edit-request.component';
 
@@ -115,9 +115,9 @@ export class ListRequestComponent implements OnInit {
 
     }
 
-    RequestsbyidDto:RequestsbyId=
+    RequestsbyidDto:RequestBySubcontractorId=
     {
-      userId:null
+      SubContractorId:null
     }
   Contractors: any[] = []
   Sites: any[] = []
@@ -183,7 +183,8 @@ export class ListRequestComponent implements OnInit {
           if (this.userdata["role"] == "Subcontractor") {
             this.isoperator = false;
             this.IsNotSubCntr=false;
-            this.RequestsbyidDto.userId=this.userdata["id"];
+            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
             this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
               {
                 this.items=res["data"];
@@ -595,5 +596,8 @@ export class ListRequestComponent implements OnInit {
         });
     }
     }
-   
+    Reset()
+    {
+      this.RequestlistForm.reset();
+    }
 }

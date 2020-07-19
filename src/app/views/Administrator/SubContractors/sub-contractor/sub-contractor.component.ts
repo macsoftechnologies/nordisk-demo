@@ -64,7 +64,7 @@ export class SubContractorComponent implements OnInit {
       this.croppedImage = this.data["payload"]["logo"];
       this.updatesubcontr.logo = "";
 
-      this.editcroppedImage = "http://macsof.in/beamapi/services/subcontractor/images/" + this.data["payload"]["logo"];
+      this.editcroppedImage = "https://safesiteworksbeam.online/beamapi/services/subcontractor/images/" + this.data["payload"]["logo"];
     }
   }
   csvInputChange(fileInputEvent: any) {
@@ -83,7 +83,7 @@ export class SubContractorComponent implements OnInit {
       this.upload_imgsty = "uploadimgsty-no-img";
       if (this.Editform == true) {
         this.upload_imgsty = "uploadimgsty";
-        this.editcroppedImage = "http://macsof.in/beamapi/services/subcontractor/images/" + this.data["payload"]["logo"];
+        this.editcroppedImage = "https://safesiteworksbeam.online/beamapi/services/subcontractor/images/" + this.data["payload"]["logo"];
         this.croppedImage = "";
       }
       else {

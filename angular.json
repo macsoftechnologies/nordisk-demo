@@ -25,7 +25,7 @@
               "node_modules/ng-pick-datetime/assets/style/picker.min.css",
               "src/assets/styles/app.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/exceljs/dist/exceljs.min.js" ]
           },
           "configurations": {
             "production": {

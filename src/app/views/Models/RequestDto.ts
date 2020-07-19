@@ -142,3 +142,8 @@ export class RequestsbyId
 {
     userId:string;
 }
+
+export class RequestBySubcontractorId
+{
+    SubContractorId:string;
+} 

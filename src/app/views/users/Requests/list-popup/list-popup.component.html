@@ -266,11 +266,11 @@
       </div>
     </div>
   </div>
-  <div class="mat-card">
+  <div class="mat-card"  *ngIf="images.length>0">
     <div class="card-body">
       <mat-grid-list cols="3" rowHeight="250px">
         <mat-grid-tile *ngFor="let img of images" class="img-div-dty">
-          <img [src]="'http://macsof.in/beamapi/services/request/'+img.imageName" crossorigin="anonymous">
+          <img [src]="'https://safesiteworksbeam.online/beamapi/services/request/'+img.imageName" crossorigin="anonymous">
         </mat-grid-tile>
       </mat-grid-list>
     </div>

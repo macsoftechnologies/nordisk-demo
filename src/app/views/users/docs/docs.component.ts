@@ -117,7 +117,7 @@ export class DocsComponent implements OnInit {
   }
 
   OpenDoc(filename) {
-    window.open("http://macsof.in/beamapi/services/subcontractor/docs/" + filename);
+    window.open("https://safesiteworksbeam.online/beamapi/services/subcontractor/docs/" + filename);
   }
   Deletedoc(row)
   {

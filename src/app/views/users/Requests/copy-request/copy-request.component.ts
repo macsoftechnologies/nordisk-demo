@@ -80,7 +80,7 @@ this.userdata=this.jwtauthservice.getUser();
   ngOnInit(): void {
     this.CopyRequest.userId=this.userdata["id"];
     this.CopyRequest.Request_Date=this.data["payload"]["Request_Date"];
-    this.CopyRequest.Request_status = this.data["payload"]["Request_status"];
+    this.CopyRequest.Request_status ="Hold";
     this.CopyRequest.Room_Nos = this.data["payload"]["Room_Nos"];
 
     this.CopyRequest.Room_Type = this.data["payload"]["Room_Type"];

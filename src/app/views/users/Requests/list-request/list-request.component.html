@@ -72,7 +72,7 @@
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>SubContractor</mat-label>
-            <mat-select formControlName="Contractor" name="Company">
+            <mat-select formControlName="Contractor" name="Company"  [disabled]="!IsNotSubCntr">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
                 {{loc.subContractorName}}
@@ -141,10 +141,12 @@
 
     </form>
     <div class="butns-grp">
-      <button mat-raised-button color="primary" (click)='search()'>
+      <button style="margin-right: 5px;" mat-raised-button color="primary" (click)='search()'>
         <mat-icon>search</mat-icon>Search
       </button>
-
+      <button mat-raised-button color="primary" (click)='Reset()'>
+        Reset
+      </button>
     </div>
   </mat-card-content>
 

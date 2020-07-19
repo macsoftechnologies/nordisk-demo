@@ -5,6 +5,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { SubContractorComponent } from '../sub-contractor/sub-contractor.component';
 import { ListSubEmpComponent } from '../list-sub-emp/list-sub-emp.component';
 import { DeleteOptionComponent } from '../../delete-option/delete-option.component';
+import { ExportExcelService } from 'app/shared/services/export-excel.service';
 
 @Component({
   selector: 'app-list-subcontractors',
@@ -15,7 +16,10 @@ export class ListSubcontractorsComponent implements OnInit {
 
   public items: any[];
   spinner = false;
-  constructor(private subcontr: SubcontractorService, private dialog: MatDialog) {
+  DownloadExcelData: any;
+  dataForExcel: any;
+  constructor(private subcontr: SubcontractorService, private dialog: MatDialog,
+    public ete: ExportExcelService) {
   }
 
   ngOnInit(): void {
@@ -78,4 +82,6 @@ export class ListSubcontractorsComponent implements OnInit {
         this.GetAllSubContractors();
       });
     }
+
+   
 }

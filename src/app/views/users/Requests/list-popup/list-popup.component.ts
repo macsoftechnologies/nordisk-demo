@@ -47,10 +47,14 @@ export class ListPopupComponent implements OnInit {
       //        imgs= res[0]["data"];
       //        imgs.forEach(x=>
       //         {
-      //           x["imageName"]="http://macsof.in/beamapi/services/request/"+x["imageName"];
+      //           x["imageName"]="https://safesiteworksbeam.online/beamapi/services/request/"+x["imageName"];
       //           this.images.push(x);
       //         });
-      this.images = res[0]["data"];
+      if(!res[0]["message"])
+      {
+        this.images = res[0]["data"];
+      }
+     
       this.logsData = res[1]["data"];
     });
     this.buildItemForm(this.data.payload);

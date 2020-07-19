@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'app/shared/services/request.service';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-import { RequestsbyId } from 'app/views/Models/RequestDto';
+import { RequestsbyId, RequestBySubcontractorId } from 'app/views/Models/RequestDto';
 
 @Component({
   selector: 'app-notifications',
@@ -13,9 +13,9 @@ export class NotificationsComponent implements OnInit {
   RequestList:any[]=[];
   userdata: any = {};
   spinner:boolean=false;
-  RequestsbyidDto:RequestsbyId=
+  RequestsbyidDto:RequestBySubcontractorId=
   {
-    userId:null
+    SubContractorId:null
   }
   constructor(private reqservice:RequestService, private jwtauth:JwtAuthService) {
     this.userdata = this.jwtauth.getUser();
@@ -23,23 +23,51 @@ export class NotificationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner=true;
-    this.RequestsbyidDto.userId=this.userdata["id"];
-    this.reqservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
-      {
-        console.log(res);
-        let FilterList=[];
-        let AllList=[];
-        AllList=res["data"];
-        AllList.forEach(x=>
+
+    if (this.userdata["role"] == "Subcontractor") {
+      this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
+      this.reqservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+        {
+          let FilterList=[];
+          let AllList=[];
+          if(res["data"])
           {
-            if(x["Request_status"]=='Approve' || x["Request_status"]=='Reject')
-            {
-              FilterList.push(x);
-            }
-          });
-          this.RequestList=FilterList;
-          this.spinner=false;
-      });
+            AllList=res["data"];
+            AllList.forEach(x=>
+              {
+                if(x["Request_status"]=='Approve' || x["Request_status"]=='Reject')
+                {
+                  FilterList.push(x);
+                }
+              });
+              this.RequestList=FilterList;
+          }
+         
+            this.spinner=false;
+        });
+    }
+    else if (this.userdata["role"] == "Admin") {
+     
+      this.reqservice.GetAllRequests().subscribe(res=>
+        {
+          let FilterList=[];
+          let AllList=[];
+          if(res["data"])
+          {
+            AllList=res["data"];
+            AllList.forEach(x=>
+              {
+                if(x["Request_status"]=='Approve' || x["Request_status"]=='Reject')
+                {
+                  FilterList.push(x);
+                }
+              });
+              this.RequestList=FilterList;
+          }
+            this.spinner=false;
+        });
+
+    } 
   }
 
 }

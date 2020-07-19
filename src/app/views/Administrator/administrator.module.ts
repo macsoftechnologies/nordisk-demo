@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { AdministratorRoutingModule } from './administrator-routing.module';
 import { DepartmentComponent } from './Departments/department/department.component';
@@ -20,18 +20,20 @@ import { SafetyprecautionComponent } from './SafetyPrecautions/safetyprecaution/
 import { ListSafetyprecautionComponent } from './SafetyPrecautions/list-safetyprecaution/list-safetyprecaution.component';
 import { DeleteOptionComponent } from './delete-option/delete-option.component';
 import { DeptEmpsComponent } from './Departments/dept-emps/dept-emps.component';
+import { NewIssueComponent } from './Issues/new-issue/new-issue.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 @NgModule({
-  declarations: [DepartmentComponent, ListDepartmentComponent, EmployeeComponent, ListEmployeeComponent, TeamComponent, SubContractorComponent, ListSubcontractorsComponent, ListTeamsComponent, ListSubEmpComponent, TeamSubEmpListComponent, ActivityComponent, ListActivityComponent, SafetyprecautionComponent, ListSafetyprecautionComponent, DeleteOptionComponent, DeptEmpsComponent],
+  declarations: [DepartmentComponent, ListDepartmentComponent, EmployeeComponent, ListEmployeeComponent, TeamComponent, SubContractorComponent, ListSubcontractorsComponent, ListTeamsComponent, ListSubEmpComponent, TeamSubEmpListComponent, ActivityComponent, ListActivityComponent, SafetyprecautionComponent, ListSafetyprecautionComponent, DeleteOptionComponent, DeptEmpsComponent, NewIssueComponent],
   imports: [
     CommonModule,
-    
+    PdfViewerModule,
     SharedMaterialModule,
     AdministratorRoutingModule
   ],
   providers:[
-    
+    DatePipe,
   ]
 })
 export class AdministratorModule { }

@@ -512,7 +512,7 @@ export class NewRequestComponent implements OnInit {
       if (x['fl_id'] == event) {
         this.RequestForm.controls['FloorName'].setValue(x['floor_status']);
       }
-    })
+    });
     this.requestsserivies.GetAllRoomsbyid(event).subscribe(res => {
       this.spinner = false;
       this.RoomsList = res["data"];

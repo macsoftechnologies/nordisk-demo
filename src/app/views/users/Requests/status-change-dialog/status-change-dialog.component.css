@@ -4,16 +4,19 @@
 }
 .upload-div-sty
   {
+   text-align: right;
     /* width: 50%;
     height: 50px;
     padding-right: 30px; */
-    margin: 30px;
-
+  }
+  .save-btn-sty
+  {
+    margin-top: 20px;
   }
   .logo-btn-sty
   {
-    float: right;
-    margin: 10px;
+    
+    font-size: 15px;
   }
   .submit-btn-sty
   {
