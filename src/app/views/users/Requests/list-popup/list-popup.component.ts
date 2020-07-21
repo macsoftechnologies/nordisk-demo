@@ -140,7 +140,7 @@ export class ListPopupComponent implements OnInit {
     // 123.pdf
     this.spinner=true;
     const filename = `ACTIVITY_PERMIT_${this.Requestdata.PermitNo}.pdf`;
-    html2canvas(document.querySelector('#content'), { scale: 3, allowTaint: true, useCORS: true }).then(canvas => {
+    html2canvas(document.querySelector('#content'), { scale: 2, allowTaint: true, useCORS: true }).then(canvas => {
       let pdf = new jsPDF('p', 'mm', 'a4');
       pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 211, 200);
       pdf.save(filename);

@@ -21,8 +21,8 @@
   font-size: 30px !important;
 }
 .pdf-field-sections {
-  border: solid 1px #cccccc;
-  background: #f8f8f8;
+  border: solid 1px #f4f4f4;
+    background: #f4f4f4;
 }
 .mat-form-field {
   width: 100%;
@@ -65,7 +65,7 @@
   /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), */
     /* 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12); */
   /* border-radius: 10px; */
-  padding: 20px;
+  /* padding: 20px; */
   /* background-color: rgba(0, 0, 0, 0.02); */
   margin-bottom: 10px;
 }
@@ -75,8 +75,12 @@
   flex-wrap: wrap;
 }
 .request-data-wrapper .child {
-  width: 33%;
+  width: 50%;
 }
+.request-data-wrapper label {
+  text-transform: uppercase;
+}
+
 .chipsbox-height {
   /* height: 60px !important; */
 }
@@ -101,4 +105,95 @@ img:not(.mat-card-image) {
 .log_name
 {
   font-weight: bold;
+}
+
+
+
+
+.child {
+  padding: 0px;
+  display: flex;
+  border-bottom: 2px solid #fff;
+}
+
+.child label {
+  text-transform: uppercase;
+  width: 200px;
+  color: #edc510 !important;
+  font-weight: bold !important;
+  font-size: 17px;
+  background: #222a45;
+  padding: 5px;
+  margin-bottom: 0px;
+  border: 1px solid #222a45;
+}
+
+.request-data-wrapper label {
+  text-transform: uppercase;
+  width: 200px;
+  color: #edc510 !important;
+  font-size: 17px;
+  font-weight: bold !important;
+}
+
+.request-data-wrapper p {
+  padding: 5px;
+}
+
+.child p {
+  padding: 5px 5px 5px 15px;
+  margin-bottom: 0px;
+  margin-top: -3px;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  font-size: 19px;
+}
+
+.col1 {
+  border-right: 2px solid #fff;
+}
+
+.tool-given {
+  margin-top: 15px;
+}
+
+.tool-given p{
+  text-transform: uppercase;
+}
+
+/* .pop {
+  padding: 5px;
+} */
+
+.pop-label {
+  background-color: #222a45;
+  border: 1px solid #222a45;
+  padding: 5px;
+}
+
+.pop-label label {
+  margin-bottom: 0px;
+}
+
+
+@media (max-width: 468px) {
+  #content {
+    padding: 0px;
+  }
+
+  .child {
+    padding: 0px;
+  }
+
+  .child label {
+    width: 80px;
+  }
+
+  col1 {
+    border: none;
+  }
+
+  .child p {
+    font-size: 17px;
+  }
 }
