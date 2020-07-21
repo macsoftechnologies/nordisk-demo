@@ -32,7 +32,7 @@ export class ListSafetyprecautionComponent implements OnInit {
     let title = 'Edit precautions';
     let dialogRef: MatDialogRef<any> = this.dialog.open(SafetyprecautionComponent, {
       width: '1000px',
-      height: '300px',
+     
       disableClose: false,
       data: { title: title, payload: row, editform: true }
     })

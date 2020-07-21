@@ -1,48 +1,91 @@
-<!-- <mat-card class="p-0" [@animate]="{value:'*',params:{y:'50px',delay:'300ms'}}">
+ <div *ngIf="IsNotes">
+   <div>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Notes</mat-label>
+      <textarea class="safety-sty"
+        matInput [(ngModel)]="Notes"
+        placeholder="Notes">
+      </textarea>
+    </mat-form-field>
+   </div>
+  <div class="btns-sty">
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="CreateNotes()">Save</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+  </div>
+ </div>
 
-    <mat-card-content class="p-0">
-      <div *ngIf='items.length>0'>
-        <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
-      </div>
-      <ngx-datatable id="content" #content class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'"
-        [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50">
-        <ngx-datatable-column name="Permit number " [flexGrow]="1">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.Permitnumber }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Activity" [flexGrow]="1">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.Activity }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Sub-contractor" [flexGrow]="1">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.SubContractor }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Working Date" [flexGrow]="1">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.Startdate | date:'mediumDate' }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Time" [flexGrow]="1">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            {{ row?.StartTime }}
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Status" [flexGrow]="1">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            <mat-chip mat-sm-chip [color]="'primary'">{{row?.Status}}</mat-chip>
-          </ng-template>
-        </ngx-datatable-column>
-        <ngx-datatable-column name="Operations" [flexGrow]="1">
-          <ng-template let-row="row" ngx-datatable-cell-template>
-            <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="Editrow(row)">Edit</button>
-            <button mat-icon-button mat-sm-button color="primary" class="mr-1" (click)="openPopUp(row)">View</button>
-  
-          </ng-template>
-        </ngx-datatable-column>
-      </ngx-datatable>
-    </mat-card-content>
-  </mat-card> -->
+ <div *ngIf="IsSafety">
+  <!-- <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Safety Precaution</mat-label>
+    <textarea class="safety-sty"
+      matInput [(ngModel)]="precaution"
+      placeholder="Precaution">
+    </textarea>
+  </mat-form-field> -->
+  <form [formGroup]="RequestForm" class="example-form">
+    <!-- <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Safety Precautions </mat-label>
+      <mat-chip-list #chipList aria-label="Safety Precautions">
+        <mat-chip *ngFor="let badg of safetyprecdata" [selectable]="Safetypreselectable" [removable]="removable"
+          (removed)="removesafety(badg)">
+          {{badg.precaution}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="" #badgeInput formControlName="Safetyprecaustion"
+          [matAutocomplete]="auto" [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="addsafety($event)">
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedsafety($event)" >
+        <mat-option *ngFor="let badge of filteredsafety | async" [value]="badge.id">
+          {{badge.precaution}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field> -->
+ 
+
+  <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Safety Precautions</mat-label>
+                  <mat-select formControlName="Safetyprecaustion" multiple>
+                      <mat-option *ngFor="let e of safetyList" [value]="e.id">{{e.precaution}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+  </form>
+  <div class="btns-sty">
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="CreateSafety()">Save</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+  </div>
+ </div>
+ <div *ngIf="IsTime">
+  <mat-grid-list cols="2" rowHeight="80px">
+  <mat-grid-tile>
+   
+    <mat-form-field class="full-width" appearance="outline">
+            
+      <input matInput placeholder="Start Time"
+      [style.width]="'350px'"
+      [(ngModel)]="StartTime"
+      [owlDateTimeTrigger]="StartTimer" [owlDateTime]="StartTimer">
+  <owl-date-time #StartTimer pickerType="timer"></owl-date-time>
+    </mat-form-field>
+    
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field class="full-width" appearance="outline">
+      <input matInput placeholder="End Time"
+      [style.width]="'350px'"
+      [(ngModel)]="EndTime"
+      [owlDateTimeTrigger]="EndTimer" [owlDateTime]="EndTimer">
+  <owl-date-time #EndTimer pickerType="timer"></owl-date-time>
+    </mat-form-field>
+    <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
+  </mat-grid-tile>
+</mat-grid-list>
+  <div class="btns-sty">
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="CreateTime()">Save</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
+  </div>
+ </div>
+
+ <div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>

@@ -68,11 +68,11 @@
           </mat-grid-tile>
         </mat-grid-list> -->
 
-      <mat-grid-list cols="3" rowHeight="80px">
+      <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>SubContractor</mat-label>
-            <mat-select formControlName="Contractor" name="CompanyControl">
+            <mat-select formControlName="Contractor" name="Company"  [disabled]="!IsNotSubCntr">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
                 {{loc.subContractorName}}
@@ -80,7 +80,7 @@
             </mat-select>
           </mat-form-field>
         </mat-grid-tile>
-        <mat-grid-tile>
+        <!-- <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Site</mat-label>
             <mat-select formControlName="Site" name="Nightlys" (selectionChange)="Getbuilding($event.value)">
@@ -90,7 +90,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-        </mat-grid-tile>
+        </mat-grid-tile> -->
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Building</mat-label>
@@ -126,7 +126,7 @@
       <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Keyword</mat-label>
+            <mat-label>Activity</mat-label>
             <input matInput formControlName="Keyword" placeholder="Keyword">
           </mat-form-field>
         </mat-grid-tile>
@@ -141,10 +141,12 @@
 
     </form>
     <div class="butns-grp">
-      <button mat-raised-button color="primary" (click)='search()'>
+      <button style="margin-right: 5px;" mat-raised-button color="primary" (click)='search()'>
         <mat-icon>search</mat-icon>Search
       </button>
-
+      <button mat-raised-button color="primary" (click)='Reset()'>
+        Reset
+      </button>
     </div>
   </mat-card-content>
 
@@ -161,7 +163,21 @@
     <div *ngIf="isoperator">
       <button mat-raised-button class="span-apprv" (click)="statuschange('Approve')">Approve</button>
       <button mat-raised-button class="span-rejc" (click)="statuschange('Reject')">Reject</button>
-
+      <mat-form-field appearance="outline" *ngIf="selected.length>0">
+        <mat-label>Edit</mat-label>
+        <mat-select name="editmult" (selectionChange)="Getselected($event.value)">
+          <mat-option value="none">None</mat-option>
+          <mat-option value="Time">
+            Time
+          </mat-option>
+          <mat-option value="safetyPrecaution">
+            Safety Precaution
+          </mat-option>
+          <mat-option value="notes">
+            Notes
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
@@ -212,9 +228,13 @@
       <ngx-datatable-column name="Status" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <mat-chip mat-sm-chip [color]="'primary'" (click)="EditDraft(row)"
-            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approve' && row.Request_status!='Opened'">
+            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approve' && row.Request_status!='Opened' && row.Request_status!='Closed'">
             {{row?.Request_status}}
           </mat-chip>
+          <mat-chip mat-sm-chip [color]="'primary'"
+          *ngIf="row.Request_status=='Closed'">
+          {{row?.Request_status}}
+        </mat-chip>
           <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Opened')"
             *ngIf="row.Request_status=='Approve'">{{row?.Request_status}}
           </mat-chip>
@@ -231,19 +251,22 @@
 
       <ngx-datatable-column name="Operations" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator"
-          (click)="Editrow(row)">edit</mat-icon>
+          <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator && row.Request_status!='Closed'"
+            (click)="Editrow(row)">edit</mat-icon>
 
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1" *ngIf="isoperator"
             (click)="Editrow(row)">Edit</button> -->
           <!-- <i class="material-icons">edit</i> -->
-<mat-icon (click)="openPopUp(row)" class="icons-sty">visibility</mat-icon>
+          <mat-icon (click)="openPopUp(row)" class="icons-sty">visibility</mat-icon>
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" (click)="openPopUp(row)">View</button> -->
           <!-- <button mat-icon-button mat-sm-button color="primary" class="mr-1 icons-sty" *ngIf="row.Request_status=='Hold'"
             (click)="CopyRequest(row)">Copy</button> -->
-            <mat-icon (click)="CopyRequest(row)" class="icons-sty" *ngIf="row.Request_status=='Hold'">content_copy</mat-icon>
+          <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold' || row.Request_status=='Approve' || row.Request_status=='Reject'">content_copy
+          </mat-icon>
+          <mat-icon (click)="CopyRequest(row,'Closed')" class="icons-sty"
+            *ngIf="row.Request_status=='Closed' && isoperator">content_copy</mat-icon>
 
-            <mat-icon (click)="Deleterequest(row)" class="icons-sty">delete</mat-icon>
+          <mat-icon (click)="Deleterequest(row)" class="icons-sty" *ngIf="IsNotSubCntr">delete</mat-icon>
 
           <!-- <button mat-icon-button mat-sm-button color="primary" (click)="Deleterequest(row)"
           class="mr-1 icons-sty">Delete</button> -->

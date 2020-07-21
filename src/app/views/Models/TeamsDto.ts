@@ -17,3 +17,8 @@ export class DeleteTeamsDto
 {
     id:string;
 }
+
+export class TeamsBySubId
+{
+    subcontId:string;
+}

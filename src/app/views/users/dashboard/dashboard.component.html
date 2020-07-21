@@ -11,8 +11,8 @@
     >
       <div class="text-center pt-1 pb-1 border-right-light">
         <mat-icon class="text-green">show_chart</mat-icon>
-        <h4 class="m-0 ">5040</h4>
-        <small class="m-0 ">Page views</small>
+        <h4 class="m-0 ">{{count?.approveCount}}</h4>
+        <small class="m-0 ">Approved</small>
       </div>
     </div>
     <div
@@ -22,8 +22,8 @@
     >
       <div class="text-center pt-1 pb-1 border-right-light">
         <mat-icon class="text-blue">cloud_download</mat-icon>
-        <h4 class="m-0 ">1200</h4>
-        <small class="m-0 ">Downloads</small>
+        <h4 class="m-0 ">{{count?.closeCount}}</h4>
+        <small class="m-0 ">Closed</small>
       </div>
     </div>
     <div
@@ -33,8 +33,8 @@
     >
       <div class="text-center pt-1 pb-1 border-right-light">
         <mat-icon class="text-green">comment</mat-icon>
-        <h4 class="m-0 ">16420</h4>
-        <small class="m-0 ">Comments</small>
+        <h4 class="m-0 ">{{count?.holdCount}}</h4>
+        <small class="m-0 ">Hold</small>
       </div>
     </div>
     <div
@@ -44,8 +44,8 @@
     >
       <div class="text-center pt-1 pb-1 border-right-light">
         <mat-icon class="text-blue">person</mat-icon>
-        <h4 class="m-0 ">3010</h4>
-        <small class="m-0 ">Profile views</small>
+        <h4 class="m-0 ">{{count?.rejectCount}}</h4>
+        <small class="m-0 ">Rejected</small>
       </div>
     </div>
     <div
@@ -55,8 +55,8 @@
     >
       <div class="text-center pt-1 pb-1">
         <mat-icon class="text-red">favorite</mat-icon>
-        <h4 class="m-0 ">4070</h4>
-        <small class="m-0 ">Likes</small>
+        <h4 class="m-0 ">{{count?.totalCount}}</h4>
+        <small class="m-0 ">Total</small>
       </div>
     </div>
   </div>
@@ -70,29 +70,25 @@
     fxFlex.gt-sm="66.67"
     fxFlex.sm="50"
     [@animate]="{ value: '*', params: { y: '50px', delay: '600ms' } }"
-  >
-    <mat-card class="p-0 ">
-      <mat-tab-group>
-        <mat-tab label="Traffic Vs Sales">
-          <div
-            echarts
-            [options]="trafficVsSaleOptions"
-            [merge]="trafficVsSale"
-            [autoResize]="true"
-            style="height: 255px;"
-          ></div>
-        </mat-tab>
-        <mat-tab label="Sessions">
-          <div
-            echarts
-            [options]="sessionOptions"
-            [merge]="sessions"
-            [autoResize]="true"
-            style="height: 255px;"
-          ></div>
-        </mat-tab>
-      </mat-tab-group>
-    </mat-card>
+  > 
+  <jqxChart 
+    [width]="getWidth()" [height]="500"
+    [title]="'Weekly Results'"
+    [description]="''"
+    [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+    [titlePadding]="titlePadding" [source]="weeklyResults " [xAxis]="xAxis"
+    [seriesGroups]="seriesGroups" [colorScheme]="'scheme01'">
+</jqxChart>
+
+ <!-- <button (click) = "weekReports('1')">beforeWeek</button>
+ <button (click) = "weekReports('2')">nextWeek</button> -->
+
+ 
+  </div>
+  <div class="btns-sty">
+    <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('1')">Previous week</button>
+    <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('2')">Next Week</button>
+   
   </div>
   <!--/ End tab -->
 
@@ -104,7 +100,7 @@
     [@animate]="{ value: '*', params: { y: '50px', delay: '400ms' } }"
   >
     <mat-card class="p-0 ">
-      <p class=" ml-1 mt-1">TRAFFIC SOURCES</p>
+      <p class=" ml-1 mt-1">Reports</p>
       <div
         echarts
         [options]="trafficSourcesChart"
@@ -117,7 +113,7 @@
   <!--/ End 2nd row -->
 
   <!-- 3rd row, 1st column -->
-  <div
+  <!-- <div
     fxFlex="100"
     fxFlex.gt-sm="33.33"
     fxFlex.sm="50"
@@ -223,11 +219,11 @@
         </div>
       </mat-card-content>
     </mat-card>
-  </div>
+  </div> -->
   <!--/ End 3rd row, 1st column -->
 
   <!-- 3rd row, 2nd column -->
-  <div
+  <!-- <div
     fxFlex="100"
     fxFlex.gt-sm="66.67"
     fxFlex.sm="50"
@@ -329,7 +325,7 @@
           <mat-cell *matCellDef="let row" data-label="color">
             {{ row.bounceRate }}
           </mat-cell>
-        </ng-container>
+        </ng-container> -->
 
         <!-- <ng-container matColumnDef="action">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
@@ -338,7 +334,7 @@
             </mat-cell>
           </ng-container> -->
 
-        <mat-header-row
+        <!-- <mat-header-row
           *matHeaderRowDef="[
             'country',
             'visitor',
@@ -361,7 +357,7 @@
         >
         </mat-row>
       </mat-table>
-    </mat-card>
-  </div>
+    </mat-card> -->
+  <!-- </div> -->
   <!--/ End 3rd row, 2nd column -->
-</div>
+<!-- </div> -->

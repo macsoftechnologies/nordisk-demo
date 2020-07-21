@@ -3,3 +3,12 @@
     display: flex;
     justify-content: space-around;
 }
+.btns-sty
+{
+    float: right;
+    margin-top: 5px;
+}
+.btn-gaps
+{
+    margin-right: 3px;
+}

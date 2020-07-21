@@ -1,388 +1,10 @@
-<!-- <div id="content" #content>
-<mat-card class="example-card">
-    <mat-card-header>
-        <mat-card-title>
-            <img src="assets/images/logo-beam.png" alt="" class="app-logo">
-           
-        </mat-card-title>
-        <div style="text-align: center;">
-            <h1 matDialogTitle>WORK PERMIT N: S 09876 2020 </h1>
-        </div>
-    </mat-card-header>
-    <mat-divider></mat-divider>            
 
-
-    <mat-card-content class="card-content">
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Company Name :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Companyname}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Sub Contractor Name :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.SubContractorname}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Foreman :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Foreman}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Foreman Phone :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.ForemanPhone}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-       
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Request Date :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile colspan='3' class="content-sty">
-                <label>{{this.Requestdata.Requestdate}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Start Datetime :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Startdate | date}} {{this.Requestdata.StartTime }}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>End Datetime :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Enddate | date}} {{this.Requestdata.EndTime}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="6" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Activity :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Activity}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Type of Activity :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.TypeofActivity}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Team :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Team}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="6" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Location :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Location}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Site :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Site}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Building :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Building}} </label>
-            </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="6" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Floor :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.FloorName}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Room No :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.RoomNo}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Room Type :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.RoomType}} </label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Crane Requested :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.CMT}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Crane Number :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.CmtValue}}</label>
-            </mat-grid-tile>
-            
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Hotwork Requested :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Hotwork}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Certified Person :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.CertifiedPerson}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Loto Procedure :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.LOTOPROCEDURE}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label >LOTO Number :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.LOTONumber}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Applicant :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Applicant}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Phone No :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.PhoneNumber}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Power Off :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Poweroff}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>No Persons Involved :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.InvalidPersonnel}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>People Involved Count :</label>
-            </mat-grid-tile >
-            <mat-grid-tile colspan='3' class="content-sty">
-                <label>{{this.Requestdata.peopleinvalidcount}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Tools :</label> 
-            </mat-grid-tile> 
-            <mat-grid-tile colspan='3' class="content-sty">
-                <label>{{this.Requestdata.Tools}}</label>
-            </mat-grid-tile>         
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Machinery :</label>
-            </mat-grid-tile>
-            <mat-grid-tile colspan='3' class="content-sty">
-                <label>{{this.Requestdata.Machinery}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Note :</label>
-            </mat-grid-tile>
-            <mat-grid-tile colspan='3' class="content-sty">
-                <label>{{this.Requestdata.Note}}</label>
-            </mat-grid-tile>
-          
-        </mat-grid-list>
-
-    </mat-card-content>
-</mat-card> 
-</div> -->
-<!-- <input type="button" value="Download PDF" class="btn btn-success" (click)="SavePDF()">   -->
-
-<!-- <div class="container" id="content" #content>  
-       <br/><br/>  
-    <div class="container-firstdiv">  
-        <table class="table table-dark"> 
-            <tr>
-                <td></td> <td class="header">WORK PERMIT No.: S 11671 2018</td ><td colspan="2"></td>
-            </tr>
-            <tr class="tr-content">
-                <td class="tr-content-sty">COMPANY NAME :</td> <td >{{this.Requestdata.Companyname}}</td><td class="tr-content-sty">SUB CONTRACTOR:</td><td>{{this.Requestdata.SubContractorname}}</td>
-            </tr>
-            <tr class="tr-content">
-                <td class="tr-content-sty">DATE OF REQUEST :</td> <td >{{this.Requestdata.Requestdate}}</td><td class="tr-content-sty">FOREMAN and PHONE Nr:</td><td>{{this.Requestdata.Foreman}} {{this.Requestdata.ForemanPhone}}</td>
-            </tr>
-            <tr class="tr-content">
-                <td class="tr-content-sty">DATE OF WORK :</td> <td >{{this.Requestdata.Startdate}}</td><td class="tr-content-sty">TIME OF WORK:</td><td>
-                    <table class="innertable">
-                        <tr><td>FROM</td><td>TO</td></tr>
-                        <tr><td></td><td></td></tr>
-                    </table>
-                </td>
-            </tr>
-            <tr class="tr-content">
-                <td class="tr-content-sty">ACTIVITY DETAILS:</td> <td colspan="3" >{{this.Requestdata.Activity}}</td>
-            </tr>
-            <tr class="tr-content">
-                <td class="tr-content-sty">TYPE OF ACTIVITY:</td> <td >{{this.Requestdata.TypeofActivity}}</td><td class="tr-content-sty">TEAM:</td><td>{{this.Requestdata.Team}} </td>
-            </tr>
-        </table>  
-    </div>  
-    <div class="container-firstdiv">  
-        <table class="table table-dark"> 
-   
-            <tr class="tr-content">
-                <td class="tr-content-sty">LOCATION OF WORK:</td> <td >{{this.Requestdata.Site}}</td><td class="tr-content-sty">ROOM:</td><td>{{this.Requestdata.RoomNo}}</td>
-            </tr>
-            <tr class="tr-content">
-                <td class="tr-content-sty">ROOM TYPE::</td> <td colspan="3" >{{this.Requestdata.RoomType}}</td>
-            </tr>
-           
-            <tr class="tr-content">
-                <td class="tr-content-sty">NUMBER OF WORKERS:</td> <td >{{this.Requestdata.TypeofActivity}}</td><td class="tr-content-sty">TEAM:</td><td>{{this.Requestdata.Team}} </td>
-            </tr>
-        </table>  
-    </div>  
-</div>   -->
-
-<!-- <div id="content" #content>  
-    <mat-card>  
-      <div class="alert alert-info">  
-          <strong>WORK PERMIT N: S 09876 2020</strong>  
-      </div>  
-      <div>  
-        <input type="button" value="CPTURE" (click)="SavePDF()"/>  
-      </div>  
-    </mat-card> 
-    <div >  
-        <mat-card>  
-
-          <table id="contentToConvert">  
-
-            <tr class="tr-content">
-                <td class="tr-content-sty">Company Name :</td> <td >{{this.Requestdata.Companyname}}</td><td class="tr-content-sty">SUB CONTRACTOR:</td><td>{{this.Requestdata.SubContractorname}}</td>
-            </tr> 
-              <tr>  
-                <td>Row 1</td>  
-                <td>Row 1</td>  
-                <td colspan="2">Row 1</td>  
-              </tr>  
-              <tr>  
-                <td>Row 2</td>  
-                <td>Row 2</td>  
-                <td>Row 2</td>  
-              </tr>  
-              <tr>  
-                <td>Row 3</td>  
-                <td>Row 3</td>  
-                <td>Row 3</td>  
-              </tr>  
-              <tr>  
-                <td>Row 4</td>  
-                <td>Row 4</td>  
-                <td>Row 4</td>  
-              </tr>  
-              <tr>  
-                <td>Row 5</td>  
-                <td>Row 5</td>  
-                <td>Row 5</td>  
-              </tr>  
-              <tr>  
-                <td>Row 6</td>  
-                <td>Row 6</td>  
-                <td>Row 6</td>  
-              </tr>  
-            </table> 
-            <div class="tables-div">
-                <label class="clms-div">Company Name :</label>  <label>{{this.Requestdata.Companyname}}</label> <label>Sub Contractor Name :</label> <label>{{this.Requestdata.SubContractorname}}</label>
-            </div> 
-             <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Company Name :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Companyname}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Sub Contractor Name :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.SubContractorname}}</label>
-            </mat-grid-tile>
-        </mat-grid-list>
-        <mat-grid-list cols="4" rowHeight="40px">
-            <mat-grid-tile class="label-key-sty">
-                <label>Foreman :</label> 
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.Foreman}}</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="label-key-sty">
-                <label>Foreman Phone :</label>
-            </mat-grid-tile>
-            <mat-grid-tile class="content-sty">
-                <label>{{this.Requestdata.ForemanPhone}}</label>
-            </mat-grid-tile>
-        </mat-grid-list> 
-        </mat-card>  
-      </div>   
-  </div>   -->
-
-<!-- <div #content class="content" #content style="background-color:pink">
-
-	<h1>{{ name }}</h1>
-	<p style="color:red">
-		Start editing to see some magic happen :)
-	</p>
-</div>
-
-<button (click)="makePdf()">make pdf</button> -->
 
 <div class="download-sty">
   <button mat-raised-button color="primary" (click)="generatePdf()">
     Download
   </button>
 </div>
-<!-- <mat-card class="example-card" id="content" #content> -->
 <div id="content" #content>
   <div class="pdf-img-heading">
     <div class="pdf-logo">
@@ -392,10 +14,19 @@
       <h1 matDialogTitle>ACTIVITY PERMIT N:{{ Requestdata.PermitNo }}</h1>
     </div>
   </div>
-  
-  <!-- <mat-card-content class="card-content" > -->
-
-  <!-- <form class="example-form"> -->
+  <div style="float: right;">
+    <div *ngFor="let log of logsData" >
+      <div *ngIf="log.requestType=='Opened'"> 
+        <span class="log-sty">Check In : </span>
+        <span class="log_name">{{log.username}} </span><span>{{log.createdTime}}</span>
+      </div>
+      <div *ngIf="log.requestType=='Closed'"> 
+        <span class="log-sty">Check Out : </span>
+        <span class="log_name">{{log.username}} </span><span>{{log.createdTime}}</span>
+      </div>
+    </div>
+  </div>
+ 
   <div class="firstdiv pdf-field-sections ">
     <div class="container">
       <div class="request-data-wrapper">
@@ -429,57 +60,6 @@
         </div>
       </div>
     </div>
-    <!-- <mat-grid-list cols="2" rowHeight="60px">
-      <mat-grid-tile>
-        <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Request date</mat-label>
-          <input matInput readonly [value]="Requestdata.Request_Date" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="2" rowHeight="80px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Company</mat-label>
-          <input matInput readonly [value]="Requestdata.Company_Name" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>SubContractor</mat-label>
-          <input matInput readonly [value]="Requestdata.subContractorName" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="2" rowHeight="80px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Foreman</mat-label>
-          <input matInput readonly [value]="Requestdata.Foreman" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Foreman Phone</mat-label>
-          <input matInput readonly [value]="Requestdata.Foreman_Phone_Number" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="2" rowHeight="80px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Activity</mat-label>
-          <input matInput readonly [value]="Requestdata.Activity" />
-        </mat-form-field>
-      </mat-grid-tile> -->
-    <!-- <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Type of Activity</mat-label>
-                <input matInput readonly [value]="Requestdata.Request_Date">
-
-              </mat-form-field>
-            </mat-grid-tile> -->
-    <!-- </mat-grid-list> -->
   </div>
   <div class="secndfiv pdf-field-sections ">
     <div class="container">
@@ -499,18 +79,6 @@
           </p>
         </div>
         <div class="child">
-          <label class="text-14 text-muted">Assign Start Time</label>
-          <p class="text-16 font-weight-bold">
-            {{ Requestdata.Assign_Start_Time }}
-          </p>
-        </div>
-        <div class="child">
-          <label class="text-14 text-muted">Assign End Time</label>
-          <p class="text-16 font-weight-bold">
-            {{ Requestdata.Assign_End_Time }}
-          </p>
-        </div>
-        <div class="child">
           <label class="text-14 text-muted">Site</label>
           <p class="text-16 font-weight-bold">{{ Requestdata.site_name }}</p>
         </div>
@@ -526,256 +94,100 @@
         </div>
         <div class="child">
           <label class="text-14 text-muted">Room No</label>
-          <p class="text-16 font-weight-bold">{{ Requestdata.Room_Nos }}</p>
+          <p class="text-16 font-weight-bold">{{ Requestdata.room_name }}</p>
         </div>
         <div class="child">
           <label class="text-14 text-muted">Room Type</label>
           <p class="text-16 font-weight-bold">{{ Requestdata.Room_Type }}</p>
         </div>
       </div>
-      <!-- <mat-grid-list cols="3" rowHeight="80px">
-      <mat-grid-tile>
-        <mat-form-field class="datepikr full-width" appearance="outline">
-          <mat-label>Date</mat-label>
-
-          <input matInput readonly [value]="Requestdata.Request_Date" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Start Time</mat-label>
-          <input matInput readonly [value]="Requestdata.Start_Time" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>End Time</mat-label>
-          <input matInput readonly [value]="Requestdata.End_Time" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="80px">
-      <mat-grid-tile></mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Assign Start Time</mat-label>
-          <input matInput readonly [value]="Requestdata.Assign_Start_Time" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Assign End Time</mat-label>
-          <input matInput readonly [value]="Requestdata.Assign_End_Time" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="3" rowHeight="80px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Site</mat-label>
-          <input matInput readonly [value]="Requestdata.site_name" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Building</mat-label>
-          <input matInput readonly [value]="Requestdata.building_name" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Floor</mat-label>
-          <input matInput readonly [value]="Requestdata.floor_name" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="1" rowHeight="100px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width chipsbox-height" appearance="outline">
-          <mat-label>Room Type</mat-label>
-
-          <input matInput readonly [value]="Requestdata.Room_Nos" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="1" rowHeight="100px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width chipsbox-height" appearance="outline">
-          <mat-label>Room Type</mat-label>
-          <input matInput readonly [value]="Requestdata.Room_Type" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list> -->
-    </div>
-    <div>
-      <img
-        [src]="
-          'http://macsof.in/beamapi/services/subcontractor/images/' +
-          Requestdata.logo
-        "
-      />
     </div>
   </div>
   <div class="thirddiv pdf-field-sections ">
     <div class="container">
       <div class="request-data-wrapper">
-        <div class="child">
-          <label class="text-14 text-muted">Crane Number</label>
+        <div class="child" *ngIf="Requestdata.Crane_Requested=='' || Requestdata.Crane_Requested=='0'">
+          <label class="text-14 text-muted">Crane Requested</label>
+          <p class="text-16 font-weight-bold">
+            No
+          </p>
+        </div>
+        <div class="child" *ngIf="Requestdata.Crane_Requested!='' && Requestdata.Crane_Requested!='0'">
+          <label class="text-14 text-muted">Crane Requested</label>
+          <p class="text-16 font-weight-bold">
+            Yes
+          </p>
+        </div>
+        <div class="child" *ngIf="Requestdata.Crane_Number!='' && Requestdata.Crane_Number!='0'">
+          <label class="text-14 text-muted">Crane_Number</label>
           <p class="text-16 font-weight-bold">
             {{ Requestdata.Crane_Number }}
           </p>
         </div>
-        <!-- <div class="child col-md-12" style="width: 100%;">
-          <label class="text-14 text-muted">Tools</label>
-          <p class="text-18 font-weight-bold">
-            {{ Requestdata.Tools }}
-          </p>
-        </div> -->
-        <!-- <div class="child col-md-12" style="width: 100%;">
-          <label class="text-14 text-muted">Machinery</label>
-          <p class="text-18 font-weight-bold">
-            {{ Requestdata.Machinery }}
-          </p>
-        </div> -->
-        <div class="child">
-          <label class="text-14 text-muted">Certified Person</label>
-          <p class="text-16 font-weight-bold">
-            {{ Requestdata.Certified_Person }}
-          </p>
-        </div>
-        <div class="child">
+        <div class="child" *ngIf="Requestdata.LOTO_Procedure=='' || Requestdata.LOTO_Procedure=='0'">
           <label class="text-14 text-muted">Loto Procedure</label>
           <p class="text-16 font-weight-bold">
-            {{ Requestdata.Request_Date }}
+            No
           </p>
         </div>
-        <div class="child">
+        <div class="child" *ngIf="Requestdata.LOTO_Procedure!='' && Requestdata.LOTO_Procedure!='0'">
+          <label class="text-14 text-muted">Loto Procedure</label>
+          <p class="text-16 font-weight-bold">
+            Yes
+          </p>
+        </div>
+        <div class="child" *ngIf="Requestdata.LOTO_Procedure!='' && Requestdata.LOTO_Procedure!='0'">
+          <label class="text-14 text-muted">Loto Procedure</label>
+          <p class="text-16 font-weight-bold">
+            {{Requestdata.LOTO_Number}}
+          </p>
+        </div>
+
+        <div class="child" *ngIf="Requestdata.Hot_work=='' || Requestdata.Hot_work=='0'">
+          <label class="text-14 text-muted">Hot Work</label>
+          <p class="text-16 font-weight-bold">
+            No
+          </p>
+        </div>
+        <div class="child" *ngIf="Requestdata.Hot_work!='' && Requestdata.Hot_work!='0'">
+          <label class="text-14 text-muted">Hot Work</label>
+          <p class="text-16 font-weight-bold">
+            Yes
+          </p>
+        </div>
+        <div class="child" *ngIf="Requestdata.Hot_work!='' && Requestdata.Hot_work!='0'">
+          <label class="text-14 text-muted">Hot Work</label>
+          <p class="text-16 font-weight-bold">
+            {{Requestdata.Certified_Person}}
+          </p>
+        </div>
+
+        <div class="child" *ngIf="Requestdata.Power_Off_Required=='' || Requestdata.Power_Off_Required=='0'">
           <label class="text-14 text-muted">Power off</label>
           <p class="text-16 font-weight-bold">
-            {{ Requestdata.Request_Date }}
+            No
+          </p>
+        </div>
+
+        <div class="child" *ngIf="Requestdata.Power_Off_Required!='' && Requestdata.Power_Off_Required!='0'">
+          <label class="text-14 text-muted">Power off</label>
+          <p class="text-16 font-weight-bold">
+            Yes
           </p>
         </div>
         <div class="child">
           <label class="text-14 text-muted">Status</label>
           <p class="text-16 font-weight-bold">
-            {{ Requestdata.Request_Date }}
+            {{ Requestdata.Request_status }}
           </p>
         </div>
       </div>
     </div>
-
-    <!-- <mat-grid-list cols="2" rowHeight="100px"> -->
-      <!-- <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Crane Requested</mat-label>
-                <input matInput readonly *ngIf="Requestdata.Crane_Requested=='1'" [value]="Yes">
-                <input matInput readonly *ngIf="Requestdata.Crane_Requested=='0'" [value]="No">
-
-              </mat-form-field>
-            </mat-grid-tile> -->
-      <!-- <mat-grid-tile>
-        <div class="cmsnum full-width">
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Crane Number</mat-label>
-            <input matInput readonly [value]="Requestdata.Crane_Number" />
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list> -->
-    <!-- <mat-grid-list cols="1" rowHeight="100px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Tools</mat-label>
-          <input matInput readonly [value]="Requestdata.Tools" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list> -->
-    <!-- <mat-grid-list cols="1" rowHeight="100px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Machinery</mat-label>
-          <input matInput readonly [value]="Requestdata.Machinery" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list> -->
-
-    <!-- <mat-grid-list cols="2" rowHeight="100px"> -->
-      <!-- <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Hotwork</mat-label>
-                <input matInput readonly *ngIf="Requestdata.Hot_work=='1'" [value]="Requestdata.Hot_work">
-                <input matInput readonly *ngIf="Requestdata.Hot_work=='0'" [value]="Requestdata.Hot_work">
-
-              </mat-form-field>
-            </mat-grid-tile> -->
-      <!-- <mat-grid-tile>
-        <div class="cmsnum full-width">
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Certified Person</mat-label>
-            <input matInput readonly [value]="Requestdata.Certified_Person" />
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="2" rowHeight="100px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Loto Procedure</mat-label>
-          <input matInput readonly [value]="Requestdata.Request_Date" />
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <div class="cmsnum full-width">
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>LOTO Number</mat-label>
-            <input matInput readonly [value]="Requestdata.LOTO_Number" />
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols="2" rowHeight="100px">
-      <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Power off</mat-label>
-          <input
-            matInput
-            readonly
-            *ngIf="Requestdata.Power_Off_Required == '0'"
-            value="No"
-          />
-          <input
-            matInput
-            readonly
-            *ngIf="Requestdata.Power_Off_Required == '1'"
-            value="Yes"
-          />
-        </mat-form-field>
-      </mat-grid-tile> -->
-
-      <!-- <mat-grid-tile>
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Status</mat-label>
-          <input matInput readonly [value]="Requestdata.Request_Date" />
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list> -->
   </div>
 
-   <div class="fourthdiv pdf-field-sections ">
+  <div class="fourthdiv pdf-field-sections ">
     <div class="container">
       <div class="request-data-wrapper">
-        <!-- <div class="child col-md-12" style="width: 100%;">
-          <label class="text-14 text-muted">Special Instructions</label>
-          <p class="text-18 font-weight-bold">
-            {{ Requestdata.Special_Instructions }}
-          </p>
-        </div>
-        <div class="child">
-          <label class="text-14 text-muted">Safety Precautions</label>
-          <p class="text-18 font-weight-bold">
-            {{ Requestdata.Safety_Precautions }}
-          </p>
-        </div> -->
         <div class="child">
           <label class="text-14 text-muted">Number of workers involved</label>
           <p class="text-16 font-weight-bold">
@@ -788,124 +200,95 @@
             {{ Requestdata.Badge_Numbers }}
           </p>
         </div>
-        <!-- <div class="child col-md-12" style="width: 100%;">
-          <label class="text-14 text-muted">Note</label>
-          <p class="text-18 font-weight-bold">
-            {{ Requestdata.Note }}
+      </div>
+    </div>
+  </div>
+
+  <div class="fifthdiv pdf-field-sections">
+    <div class="container">
+      <div class="request-data-wrapper">
+        <div class="col-md-12" style="width: 100%;">
+          <label class="text-14 text-muted">Tools</label>
+          <p class="text-16 font-weight-bold">
+            {{ Requestdata.Tools }}
           </p>
-        </div> -->
+        </div>
       </div>
     </div>
-      <!-- <mat-grid-list cols="1" rowHeight="100px">
-        <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Special Instructions</mat-label>
-            <input
-              matInput
-              readonly
-              [value]="Requestdata.Special_Instructions"
-            />
-          </mat-form-field>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="container">
+      <div class="request-data-wrapper">
+        <div class="col-md-12" style="width: 100%;">
+          <label class="text-14 text-muted">Machinery</label>
+          <p class="text-16 font-weight-bold">
+            {{ Requestdata.Machinery }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="container">
+      <div class="request-data-wrapper">
+        <div class="col-md-12" style="width: 100%;">
+          <label class="text-14 text-muted">Special Instructions</label>
+          <p class="text-16 font-weight-bold">
+            {{ Requestdata.Special_Instructions }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="container">
+      <div class="request-data-wrapper">
+        <div class="col-md-12" style="width: 100%;">
+          <label class="text-14 text-muted">Safety Precautions</label>
+          <div class="text-16 font-weight-bold" *ngIf="safetydata.length">
+            <ul *ngFor="let sft of safetydata">
+              <li>{{sft}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fifthdiv pdf-field-sections">
+    <div class="container">
+      <div class="request-data-wrapper">
+        <div class="col-md-12" style="width: 100%;">
+          <label class="text-14 text-muted">Note</label>
+          <p class="text-16 font-weight-bold">
+            {{ Requestdata.Notes }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mat-card"  *ngIf="images.length>0">
+    <div class="card-body">
+      <mat-grid-list cols="3" rowHeight="250px">
+        <mat-grid-tile *ngFor="let img of images" class="img-div-dty">
+          <img [src]="'https://safesiteworksbeam.online/beamapi/services/request/'+img.imageName" crossorigin="anonymous">
         </mat-grid-tile>
       </mat-grid-list>
-      <mat-grid-list cols="1" rowHeight="100px">
-        <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Safety Precautions </mat-label>
-            <input matInput readonly [value]="Requestdata.Safety_Precautions" />
-          </mat-form-field>
-        </mat-grid-tile>
-      </mat-grid-list>
-      <mat-grid-list cols="1" rowHeight="100px">
-        <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Number of workers involved</mat-label>
-            <input matInput readonly [value]="Requestdata.Number_Of_Workers" />
-          </mat-form-field>
-        </mat-grid-tile>
-      </mat-grid-list>
-      <mat-grid-list cols="1" rowHeight="100px">
-        <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Badge Numbers</mat-label>
+    </div>
+  </div>
+  <!-- <div class="fourthdiv pdf-field-sections ">
+    <div class="container">
+      <div class="request-data-wrapper">
+        <div class="child" *ngFor="let img of images" class="img-div-dty">
+          <img src="{{img.imageName}}" crossorigin="anonymous">
+        </div>
+      </div>
+    </div>
+  </div> -->
+</div>
+<div class="loading-indicator" *ngIf="spinner">
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+</div>
 
-            <input matInput readonly [value]="Requestdata.Badge_Numbers" />
-          </mat-form-field>
-        </mat-grid-tile>
-      </mat-grid-list>
-      <mat-grid-list cols="1" rowHeight="100px">
-        <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Note</mat-label>
-            <input matInput readonly [value]="Requestdata.Notes" />
-          </mat-form-field>
-        </mat-grid-tile>
-      </mat-grid-list> -->
-    </div>
-
-    <div class="fifthdiv pdf-field-sections">
-      <div class="container">
-        <div class="request-data-wrapper">
-          <div class="col-md-12" style="width: 100%;">
-            <label class="text-14 text-muted">Tools</label>
-            <p class="text-16 font-weight-bold">
-              {{ Requestdata.Tools }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="fifthdiv pdf-field-sections">
-      <div class="container">
-        <div class="request-data-wrapper">
-          <div class="col-md-12" style="width: 100%;">
-            <label class="text-14 text-muted">Machinery</label>
-            <p class="text-16 font-weight-bold">
-              {{ Requestdata.Machinery }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="fifthdiv pdf-field-sections">
-      <div class="container">
-        <div class="request-data-wrapper">
-          <div class="col-md-12" style="width: 100%;">
-            <label class="text-14 text-muted">Special Instructions</label>
-            <p class="text-16 font-weight-bold">
-              {{ Requestdata.Special_Instructions }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="fifthdiv pdf-field-sections">
-      <div class="container">
-        <div class="request-data-wrapper">
-          <div class="col-md-12" style="width: 100%;">
-            <label class="text-14 text-muted">Safety Precautions</label>
-            <p class="text-16 font-weight-bold">
-              {{ Requestdata.Safety_Precautions }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="fifthdiv pdf-field-sections">
-      <div class="container">
-        <div class="request-data-wrapper">
-          <div class="col-md-12" style="width: 100%;">
-            <label class="text-14 text-muted">Note</label>
-            <p class="text-16 font-weight-bold">
-              {{ Requestdata.Note }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  <!-- </form> -->
-
-  <!-- </mat-card-content> -->
-  <!-- </mat-card> -->
+<div style="float: right;">
+  <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Close</button>
 </div>

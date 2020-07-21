@@ -94,7 +94,8 @@
                         <mat-grid-tile>
                             <mat-form-field appearance="outline" class="full-width">
                                 <mat-label>UserName</mat-label>
-                                <input matInput formControlName="username" placeholder="Username">
+                                <input matInput formControlName="username" #username placeholder="Username" >
+                              
                             </mat-form-field>
                       </mat-grid-tile>
                       <mat-grid-tile>
@@ -105,6 +106,9 @@
                       </mat-grid-tile>  
                       
                     </mat-grid-list>
+                    <div *ngIf="IsNameunique=='Username Exists'">
+                        <p style="color: red;">*<i>{{IsNameunique}}</i></p>
+                    </div>
 
                    
             </form>

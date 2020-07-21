@@ -5,6 +5,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { SubContractorComponent } from '../sub-contractor/sub-contractor.component';
 import { ListSubEmpComponent } from '../list-sub-emp/list-sub-emp.component';
 import { DeleteOptionComponent } from '../../delete-option/delete-option.component';
+import { ExportExcelService } from 'app/shared/services/export-excel.service';
 
 @Component({
   selector: 'app-list-subcontractors',
@@ -15,11 +16,14 @@ export class ListSubcontractorsComponent implements OnInit {
 
   public items: any[];
   spinner = false;
-  constructor(private subcontr: SubcontractorService, private dialog: MatDialog) {
-    this.GetAllSubContractors();
+  DownloadExcelData: any;
+  dataForExcel: any;
+  constructor(private subcontr: SubcontractorService, private dialog: MatDialog,
+    public ete: ExportExcelService) {
   }
 
   ngOnInit(): void {
+    this.GetAllSubContractors();
   }
 
   EditSubcrt(row) {
@@ -32,7 +36,7 @@ export class ListSubcontractorsComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
-        this.GetAllSubContractors();
+        this.ngOnInit();
         if (!res) {
 
           // If user press cancel
@@ -44,14 +48,13 @@ export class ListSubcontractorsComponent implements OnInit {
   GetAllSubContractors() {
     this.spinner = true;
     this.subcontr.GetAllSubContractors().subscribe(res => {
-      this.spinner = false;
       this.items = res["data"];
+      this.spinner = false;
     });
   }
 
   onActivate(event) {
     if (event.type == 'click') {
-      console.log(event.row);
       let title = 'Employees List By SubContractor';
       let dialogRef: MatDialogRef<any> = this.dialog.open(ListSubEmpComponent, {
         width: '1000px',
@@ -79,4 +82,6 @@ export class ListSubcontractorsComponent implements OnInit {
         this.GetAllSubContractors();
       });
     }
+
+   
 }

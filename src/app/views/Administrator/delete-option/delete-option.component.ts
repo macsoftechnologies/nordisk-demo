@@ -93,6 +93,14 @@ export class DeleteOptionComponent implements OnInit {
 
           });
     }
+    else if(this.data['type']=='docs')
+    {
+         this.subcontrservice.DeleteSubContractorDocs(this.Dto).subscribe(res=>
+          {
+            this.openSnackBar('Request Deleted Successfully');
+
+          });
+    }
 
     
     

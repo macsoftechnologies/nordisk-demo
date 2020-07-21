@@ -52,8 +52,8 @@
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Month </mat-label>
                             <mat-select formControlName="Month" name="monthName" [disabled]="monthfield">
-                                <mat-option *ngFor="let site of monthNames" [value]="site">
-                                    {{site}}
+                                <mat-option *ngFor="let month of monthNames" [value]="month.id">
+                                    {{month.Name}}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -72,7 +72,7 @@
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Week</mat-label>
                             <mat-select formControlName="Weekno" [disabled]="weekfield" name="weekno">
-                                <mat-option *ngFor="let wk of WeekNumbers" [value]="wk">
+                                <mat-option *ngFor="let wk of ListWeeks" [value]="wk">
                                     {{wk}}
                                 </mat-option>
                             </mat-select>
@@ -80,7 +80,7 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
-                <mat-grid-list cols="3" rowHeight="80px">
+                <mat-grid-list cols="2" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Sub-Contractor </mat-label>
@@ -91,7 +91,7 @@
                             </mat-select>
                         </mat-form-field>
                     </mat-grid-tile>
-                    <mat-grid-tile>
+                    <!-- <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Site </mat-label>
                             <mat-select formControlName="Site" name="Site" (selectionChange)="GetBuilding($event.value)">
@@ -99,8 +99,9 @@
                                     {{site.site_name}}
                                 </mat-option>
                             </mat-select>
+
                         </mat-form-field>
-                    </mat-grid-tile>
+                    </mat-grid-tile> -->
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Building </mat-label>
@@ -113,12 +114,58 @@
                     </mat-grid-tile>
                 </mat-grid-list>
             </form>
-            <button class="butns-grp" mat-raised-button color="primary" (click)="Createplan()">Show</button>
+            <div class="" style="text-align: right;">
+                <button class="butns-grp" style="margin-right: 5px; " mat-raised-button color="primary" (click)="Getplans()">Show</button>
+                <button mat-raised-button color="primary" (click)='Reset()'>          
+                Reset
+              </button>
+            </div>
 
         </div>
     </mat-card-content>
 </mat-card>
-<!-- <div>
-    <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
 
-</div> -->
+<mat-card>
+
+    <mat-card-content>
+        <div class="" style="text-align: right;">
+            <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
+          </div>
+        <ngx-datatable class="material ml-0 mr-0" [rows]="Planslist" [columnMode]="'force'" [headerHeight]="70"
+        [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50" 
+        >
+  
+        <ngx-datatable-column name="Permit number " [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.PermitNo }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Activity" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.Activity }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Sub-contractor" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.subContractorName }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Working Date" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.Working_Date | date:'mediumDate' }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Time" [flexGrow]="1">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{ row?.Start_Time }} - {{ row?.End_Time }}
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Status" [flexGrow]="1">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row?.Request_status}}
+              </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </mat-card-content>
+</mat-card>

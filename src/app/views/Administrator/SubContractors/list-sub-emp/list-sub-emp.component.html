@@ -1,5 +1,7 @@
 <mat-card class="p-0" >
-
+  <div class="" style="text-align: right;">
+    <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
+  </div>
     <mat-card-content class="p-0">
       <ngx-datatable class="material ml-0 mr-0" [rows]="EmpList" [columnMode]="'force'"
         [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50">

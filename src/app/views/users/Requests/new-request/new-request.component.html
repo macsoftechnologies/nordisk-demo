@@ -78,7 +78,7 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
-          <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-list cols="3" rowHeight="80px">
 
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -89,7 +89,7 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline" *ngIf="!issubcontr">
                 <mat-label>SubContractor</mat-label>
-                <mat-select formControlName="SubContractor" name="CMT" (selectionChange)="GetEmployees($event.value)">
+                <mat-select formControlName="SubContractor" name="CMT" (selectionChange)="Getselectedsubcntrsteams($event.value)">
                   <mat-option *ngFor="let tech of SubContractors" [value]="tech.id">
                     {{tech.subContractorName}}
                   </mat-option>
@@ -101,6 +101,19 @@
 
               </mat-form-field>
             </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Teams</mat-label>
+                <mat-select formControlName="Team" name="Team" (selectionChange)="GetEmployees($event.value)">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let tech of Teams" [value]="tech.id">
+                    {{tech.teamName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+           
           </mat-grid-list>
           <mat-grid-list cols="2" rowHeight="80px">
             <mat-grid-tile>
@@ -229,7 +242,7 @@
               <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
             </mat-grid-tile>
           </mat-grid-list>
-          <mat-grid-list cols="3" rowHeight="80px" *ngIf="Assigneditform">
+          <!-- <mat-grid-list cols="3" rowHeight="80px" *ngIf="Assigneditform">
             <mat-grid-tile></mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -248,7 +261,7 @@
               </mat-form-field>
               <ngx-material-timepicker #AendTime [minutesGap]="5"></ngx-material-timepicker>
             </mat-grid-tile>
-          </mat-grid-list>
+          </mat-grid-list> -->
           <mat-grid-list cols="3" rowHeight="80px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -271,11 +284,17 @@
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Room</mat-label>
+                <mat-select formControlName="Room" multiple>
+                    <mat-option *ngFor="let e of RoomsList" [value]="e.room_id">{{e.room_name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
               <!-- <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Room </mat-label>
                 <input matInput readonly formControlName="RoomNo" placeholder="Room No">
               </mat-form-field> -->
-              <mat-form-field class="full-width chipsbox-height" appearance="outline">
+              <!-- <mat-form-field class="full-width chipsbox-height" appearance="outline">
                 <mat-chip-list #rchipList aria-label="Room selection">
                   <mat-chip *ngFor="let badg of Rooms" [selectable]="rselectable" [removable]="rmremovable"
                     (removed)="removeroom(badg)">
@@ -292,7 +311,7 @@
                   </mat-option>
                  
                 </mat-autocomplete>
-              </mat-form-field>
+              </mat-form-field> -->
 
             </mat-grid-tile>
          
@@ -796,11 +815,22 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
+
+
           <mat-grid-list cols="1" rowHeight="100px" *ngIf="editform">
+
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Safety Precautions </mat-label>
+                  <mat-label>Safety Precautions</mat-label>
+                  <mat-select formControlName="Safetyprecaustion" multiple>
+                      <mat-option *ngFor="let e of safetyList" [value]="e.id">{{e.precaution}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </mat-grid-tile>
                 <!-- <textarea class="textarea" matInput formControlName="Safetyprecaustion" placeholder=""></textarea> -->
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Safety Precautions </mat-label>
                 <mat-chip-list #chipList aria-label="Safety Precautions">
                   <mat-chip *ngFor="let badg of safetyprecdata" [selectable]="Safetypreselectable" [removable]="removable"
                     (removed)="removesafety(badg)">
@@ -825,46 +855,30 @@
                 <mat-label>Number of workers involved</mat-label>
                 <input matInput formControlName="peopleinvalidcount" placeholder="">
               </mat-form-field>
-            </mat-grid-tile>
-            <!-- <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Keys Needed</mat-label>
-                <mat-select [formControl]="KeysneedControl" name="Applicant">
-                  <mat-option *ngFor="let tech of Keysneeds" [value]="tech.keysval">
-                    {{tech.keysval}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
             </mat-grid-tile> -->
 
+            
+          </mat-grid-list>
+
+          <mat-grid-list cols="1" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Number of workers involved</mat-label>
+                <input matInput formControlName="peopleinvalidcount" placeholder="">
+              </mat-form-field>
+            </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
-              <!-- <mat-form-field class="full-width" appearance="outline">
-      <mat-label>Badge No.s Of Workers</mat-label>
-      <input type="text" matInput [formControl]="BADGENUMBERControl" [matAutocomplete]="auto">
-      <mat-select [formControl]="BADGENUMBERControl" multiple>
-        <mat-option *ngFor="let badg of BADGENUMBERS" [value]="badg.badgeno">{{badg.badgeno}}</mat-option>
-      </mat-select>
-    </mat-form-field> -->
-
               <mat-form-field class="full-width" appearance="outline">
-                <!-- <mat-chip-list #chipList aria-label="Fruit selection">
-                  <mat-chip *ngFor="let badg of Badges" [selectable]="selectable" [removable]="removable"
-                    (removed)="remove(badg)">
-                    {{badg}}
-                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                  </mat-chip>
-                  <input placeholder="Badge No.s Of Workers" #badgeInput [formControl]="BADGENUMBERControl"
-                    [matAutocomplete]="auto" [matChipInputFor]="chipList"
-                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
-                </mat-chip-list>
-                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-                  <mat-option *ngFor="let badge of filteredBadges | async" [value]="badge.badgeno">
-                    {{badge.badgeno}}
-                  </mat-option>
-                </mat-autocomplete> -->
-
+                  <mat-label>Badge No.s Of Workers</mat-label>
+                  <mat-select formControlName="BADGENUMBER" multiple>
+                      <mat-option *ngFor="let e of BADGENUMBERS" [value]="e.badgeId">{{e.badgeId}}</mat-option>
+                  </mat-select>
+              </mat-form-field>
+          </mat-grid-tile>
+            <!-- <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
                 <mat-chip-list #chipList aria-label="Badg selection">
                   <mat-chip *ngFor="let badg of Badges" [selectable]="selectable" [removable]="removable"
                     (removed)="remove(badg)">
@@ -881,7 +895,7 @@
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
-            </mat-grid-tile>
+            </mat-grid-tile> -->
 
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
@@ -975,29 +989,19 @@
   </div>
   <div class="butns" *ngIf="subeditform">
     <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">Save</button>
-    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUp()">Change to Hold</button>
+    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUpForDrafToHold()">Change to Hold</button>
   </div>
 </div>
-    <div class="form-container" [hidden]="isnewrequestcreated">
+    <!-- <div class="form-container" [hidden]="isnewrequestcreated">
         <form id="input-form" [formGroup]="myForm" novalidate>
 
             <div *ngFor="let input of inputList; let i=index" [ngSwitch]="input.type">
-                <!-- <input *ngSwitchCase="'button'" [name]="input.name" type="button" [formControlName]="input.name"
-                        [value]="input.value" (change)="eventCheck($event)" 
-                        [ngStyle]="getInputPosition(input)">
-                        <input *ngSwitchCase="'radio'" [name]="input.name" type="radio" [formControlName]="input.name"
-                        [value]="input.value" (change)="eventCheck($event)" 
-                        [ngStyle]="getInputPosition(input)"> -->
                         <input type="button" [name]="input.name" [value]="input.value" [ngStyle]="getInputPosition(input)" (click)="eventCheck(input.value)"  class="btn-sty">
 
             </div>
         </form>
-        <form id="input-form">
-            
-          
-        </form>
       
-    </div>
+    </div> -->
 <div class="img-div-sty" [hidden]="isnewrequestcreated">
   <div>
     <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
@@ -1009,12 +1013,6 @@
   <button class="butns-grp" mat-raised-button color="primary" (click)="UpdateRequest()">Update</button>
 </div>
 
-
-<script>
-  function testfunc() {
-    alert("Hello! I am an alert box!!");
-  }
-  </script>
 
 <div class="loading-indicator" *ngIf="spinner">
   <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>

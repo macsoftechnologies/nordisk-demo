@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
-import { RequestDto, EditRequestDto, DeleteRequestDto, UpdateRequestStatusListDto, CopyRequestDto, UpdateClose_Status, RequestsbyId } from 'app/views/Models/RequestDto';
-import { PlansComponent } from 'app/views/users/plans/plans.component';
+import { RequestDto, EditRequestDto, DeleteRequestDto, UpdateRequestStatusListDto, CopyRequestDto, UpdateClose_Status, RequestsbyId, RequestBySubcontractorId } from 'app/views/Models/RequestDto';
 import { PlansDto } from 'app/views/Models/PlansDto';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
+import { UpdateNotes, UpdateSafety, UpdateTime } from 'app/views/Models/MultiRequestUpdateDto';
 
 @Injectable({
   providedIn: 'root'
@@ -30,8 +30,16 @@ export class RequestService {
   public GetAllRequests(): Observable<any[]> {
     return this.http.get<any[]>(environment.API_URL + 'request/read.php');
   }
-  public GetAllRequestsByid(res:RequestsbyId): Observable<any[]> {
+  public GetAllRequestsByid(res:RequestBySubcontractorId): Observable<any[]> {
     return this.http.post<any[]>(environment.API_URL + 'request/readrequestid.php',res);
+  }
+
+  public GetRequestsImagesByid(id): Observable<any[]> {
+    return this.http.get<any>(environment.API_URL + 'request/readImageslist.php?requestId='+id);
+  }
+
+  public GetRequestsLogs(id:RequestsbyId): Observable<any[]> {
+    return this.http.post<any>(environment.API_URL + 'request/readLogs.php',id);
   }
 
   public CreateNewRequest(req:RequestDto): Observable<any> {
@@ -57,8 +65,19 @@ export class RequestService {
     return this.http.post<any>(environment.API_URL + 'request/searchlist.php', req);
   }
 
-  public CloseRequest(req:UpdateClose_Status): Observable<any> {
-    return this.http.post<any>(environment.API_URL + 'request/update_close_status.php', req);
+  public CloseRequest(formData): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/upload.php', formData);
+  }
+
+
+  public UpdateListReqstNote(req:UpdateNotes): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/updateNotes.php', req);
+  }
+  public UpdateListReqstSafety(req:UpdateSafety): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/updateSafety.php', req);
+  }
+  public UpdateListReqstTime(req:UpdateTime): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/updateStartTime.php', req);
   }
   // public SetselectedRequest(row)
   // {

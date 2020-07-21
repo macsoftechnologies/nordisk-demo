@@ -3,10 +3,12 @@ export class SearchRequestDto
     Site_Id:string;
     Building_Id:string;
     Sub_Contractor_Id:string;
-    Working_Date:string;
+    fromDate:string;
+    toDate:string;
+    Type_Of_Activity_Id:string;
     Request_status:string;
     PermitNo:string;
-    Company_Name:string;
+    Activity:string;
 }
 
 export class ListRequest

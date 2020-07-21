@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
 import { EmployeesDto, DeleteEmployeeDto, EmployeeSubDto, UpdateEmployeeSubDto, UpdateEmployeeDeptDto, EmployeeDeptDto } from 'app/views/Models/EmployeesDto';
 import { DeptWiseEmps } from 'app/views/Models/DepartmentDto';
+import { UniqueUser } from 'app/views/Models/UniqueUserDto';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class EmployeeService {
     // var reqHeader = new HttpHeaders({ 'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods':' GET, PUT, POST, DELETE, HEAD, OPTIONS '});
 
     return this.http.post<any[]>(environment.API_URL + 'employee/emplistdepId.php',id);
+  }
+
+  public CheckUsername(username:UniqueUser): Observable<any[]> {
+    return this.http.post<any[]>(environment.API_URL + 'employee/readUsername.php',username);
   }
 
   public CreateEmployees(emp:EmployeesDto): Observable<any> {

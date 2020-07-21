@@ -7,14 +7,14 @@ import {
 import { egretAnimations } from "app/shared/animations/egret-animations";
 import { ThemeService } from "app/shared/services/theme.service";
 import tinyColor from 'tinycolor2';
-
+import { TeamService } from "app/shared/services/team.service";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   animations: egretAnimations
 })
-export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
+export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
   trafficVsSaleOptions: any;
   trafficVsSale: any;
   trafficData: any;
@@ -31,12 +31,68 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
   trafficSourcesChart: any;
   countryTrafficStats: any[];
 
-  constructor(
-    private themeService: ThemeService
-  ) {}
+  count: any;
 
-  ngAfterViewInit() {}
+
+  //  weekly Graph configaration
+  weeklyResults: any[] = [];
+  weekNumber = 0
+  getWidth(): any {
+    if (document.body.offsetWidth < 850) {
+      return '85%';
+    }
+
+    return 1100;
+  }
+
+  padding: any = { left: 5, top: 5, right: 5, bottom: 5 };
+  titlePadding: any = { left: 90, top: 0, right: 0, bottom: 10 };
+
+  xAxis: any =
+    {
+        dataField: 'date',
+        showGridLines: true
+    };
+    seriesGroups: any[] =
+    [
+        {
+            type: 'column',
+            columnsGapPercent: 50,
+            seriesGapPercent: 0,
+            valueAxis:
+            {
+                unitInterval: 10,
+                minValue: 0,
+                maxValue: 100,
+                displayValueAxis: true,
+                description: 'Count',
+                axisSize: 'auto',
+                tickMarksColor: '#888888'
+            },
+            series: [
+                { dataField: 'approveCount', displayText: 'Approved' },
+                { dataField: 'rejectCount', displayText: 'Rejected' },
+                { dataField: 'openCount', displayText: 'Open' },
+                { dataField: 'closeCount', displayText: 'Close' }
+
+            ]
+        }
+    ];
+    //  weekly Graph configaration //
+  constructor(
+    private themeService: ThemeService,
+    private teamService: TeamService
+  ) { }
+
+  ngAfterViewInit() { }
   ngOnInit() {
+     // Get DashBoard Counts From Api
+     this.getCounts()
+
+     // Get GraphCounts From API
+     this.getGraphCounts()
+
+
     this.themeService.onThemeChange.subscribe(activeTheme => {
       this.initTrafficVsSaleChart(activeTheme);
       this.initSessionsChart(activeTheme);
@@ -47,7 +103,7 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
     });
     this.initTrafficVsSaleChart(this.themeService.activatedTheme);
     this.initSessionsChart(this.themeService.activatedTheme);
-    this.initTrafficSourcesChart(this.themeService.activatedTheme)
+    
     this.initDailyTrafficChartBar(this.themeService.activatedTheme)
     this.initTrafficGrowthChart(this.themeService.activatedTheme)
 
@@ -110,7 +166,7 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
       }
     ];
 
-    
+
     this.bounceRateGrowthChart = {
       tooltip: {
         trigger: "axis",
@@ -201,6 +257,8 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
         }
       ]
     };
+
+   
   }
 
   initTrafficVsSaleChart(theme) {
@@ -225,21 +283,9 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
         type: "category",
         boundaryGap: false,
         data: [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15"
+          "day",
+
+
         ],
         axisLabel: {
           show: true,
@@ -262,6 +308,7 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
       },
       yAxis: {
         type: "value",
+
         axisLine: {
           show: false
         },
@@ -295,48 +342,32 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
           type: "bar",
           color: tinyColor(theme.baseColor).toString(),
           smooth: true
+        },
+        {
+          name: "Salesssssssss",
+          label: { show: false, color: "#68955" },
+          type: "bar",
+          color: tinyColor(theme.baseColor).toString(),
+          smooth: true
         }
       ]
     };
-    
+
     this.trafficData = [
       1400,
-      1350,
-      950,
-      1150,
-      950,
-      1260,
-      930,
-      1450,
-      1150,
-      1400,
-      1350,
-      950,
-      1150,
-      950,
-      1260
+
     ];
     this.saleData = [
       500,
-      700,
-      350,
-      840,
-      750,
-      800,
-      700,
-      500,
-      700,
-      650,
-      104,
-      750,
-      800,
-      700,
-      500
+
     ];
     this.trafficVsSale = {
       series: [
         {
           data: this.trafficData
+        },
+        {
+          data: this.saleData
         },
         {
           data: this.saleData
@@ -575,14 +606,17 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
           },
           data: [
             {
-              value: 335,
-              name: "Direct"
+              value: this.count == undefined ? 0 : this.count.approveCount,
+              name: "Approved"
             },
             {
-              value: 310,
-              name: "Search Eng."
+              value: this.count == undefined ? 0 : this.count.rejectCount,
+              name: "Rejected"
             },
-            { value: 148, name: "Social" }
+            { value: this.count == undefined ? 0 : this.count.holdCount,
+              name: "Hold" 
+            }
+
           ],
           itemStyle: {
             emphasis: {
@@ -762,6 +796,47 @@ export class DashboardComponent implements OnInit,  OnInit, AfterViewInit {
         }
       ]
     };
+  }
+
+
+  getCounts() {
+
+    this.teamService.GetDasboardCounts().subscribe((resp: any) => {
+      this.count = resp.data[0]
+      this.initTrafficSourcesChart(this.themeService.activatedTheme)
+
+    })
+
+  }
+
+  getGraphCounts() {
+
+    
+    console.log('this.weekNumber' , this.weekNumber)
+    // Get Current week first and last days
+    var curr = new Date();
+    const day = curr.getDay() + this.weekNumber;
+    const WeekFirstday = new Date(curr.getTime() - 60 * 60 * 24 * day * 1000); // will return firstday (i.e. Sunday) of the week
+    const WeekLastday = new Date(WeekFirstday.getTime() + 60 * 60 * 24 * 6 * 1000); // adding (60*60*6*24*1000) means adding six days to the firstday which results in lastday (Saturday) of the week
+    console.log({ WeekFirstday, WeekLastday })
+
+    const requestObj = {
+      WeekFirstday: WeekFirstday,
+      WeekLastday: WeekLastday
+    }
+  // Get Graph Counts From API 
+    this.teamService.getGraphCounts(requestObj).subscribe(response => {
+      console.log('response', response)
+
+       this.weeklyResults =  response.data != undefined ?   response.data : []
+
+    })
+  }
+
+  weekReports(weekType){
+    // weekType 1 (beforeWeek ) , 2 (afterweek)
+    weekType == 1 ?  this.weekNumber += 7 : this.weekNumber -= 7
+     this.getGraphCounts()
   }
 
 }

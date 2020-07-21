@@ -7,20 +7,19 @@
 
     <mat-card-content class="card-content">
       <form [formGroup]="SafetyprecautionForm" class="example-form">
-        <mat-grid-list cols="2" rowHeight="80px">
-          <mat-grid-tile *ngIf="editform">
+        <mat-grid-list cols="1" rowHeight="100px">
+          <!-- <mat-grid-tile *ngIf="editform">
             <mat-form-field appearance="outline" class="full-width">
               <mat-label> Id</mat-label>
               <input matInput formControlName="id" readonly placeholder="Id" />
             </mat-form-field>
-          </mat-grid-tile>
+          </mat-grid-tile> -->
           <mat-grid-tile>
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Safety Precaution</mat-label>
-              <textarea
+              <textarea class="safety-sty"
                 matInput
-                rows="2"
-                cols="40"
+               
                 formControlName="precaution"
                 placeholder="Precaution"
               >

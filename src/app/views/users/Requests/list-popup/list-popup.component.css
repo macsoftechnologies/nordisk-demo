@@ -84,3 +84,21 @@
   float: right;
   margin: 10px;
 }
+img:not(.mat-card-image) {
+  width: 250px !important;
+
+}
+.img-div-dty
+{
+  width: 250px !important;
+  height: 150px !important;
+}
+.log-sty
+{
+  color:#e91e63;
+  font-weight: bold;
+}
+.log_name
+{
+  font-weight: bold;
+}

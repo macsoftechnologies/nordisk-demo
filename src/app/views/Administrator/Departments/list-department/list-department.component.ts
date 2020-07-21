@@ -63,7 +63,6 @@ export class ListDepartmentComponent implements OnInit {
  
     onActivate(event) {
       if (event.type == 'click') {
-        console.log(event.row);
         let title = 'Employees List By Departments';
         let dialogRef: MatDialogRef<any> = this.dialog.open(DeptEmpsComponent, {
           width: '1000px',

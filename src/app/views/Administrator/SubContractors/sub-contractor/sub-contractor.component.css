@@ -30,3 +30,13 @@
 {
   margin-right: 10px;
 }
+
+.uploadimgsty
+{
+  width: 100px;
+  height: 70px;
+}
+.uploadimgsty-no-img
+{
+  display: none;
+}

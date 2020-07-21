@@ -57,7 +57,8 @@ export class CopyRequestComponent implements OnInit {
     Assign_Start_Time: null,
     count: null,
     Safety_Precautions: null,
-    Special_Instructions: null
+    Special_Instructions: null,
+    teamId:null
 
   }
   Requestdata: any = {};
@@ -77,10 +78,9 @@ this.userdata=this.jwtauthservice.getUser();
   }
 
   ngOnInit(): void {
-    console.log(this.data.payload);
     this.CopyRequest.userId=this.userdata["id"];
     this.CopyRequest.Request_Date=this.data["payload"]["Request_Date"];
-    this.CopyRequest.Request_status = this.data["payload"]["Request_status"];
+    this.CopyRequest.Request_status ="Hold";
     this.CopyRequest.Room_Nos = this.data["payload"]["Room_Nos"];
 
     this.CopyRequest.Room_Type = this.data["payload"]["Room_Type"];
@@ -91,6 +91,7 @@ this.userdata=this.jwtauthservice.getUser();
     this.CopyRequest.Special_Instructions = this.data["payload"]["Special_Instructions"];
     this.CopyRequest.Start_Time = this.data["payload"]["Start_Time"];
     this.CopyRequest.Sub_Contractor_Id = this.data["payload"]["Sub_Contractor_Id"];
+    this.CopyRequest.teamId = this.data["payload"]["teamId"];
     this.CopyRequest.Tools = this.data["payload"]["Tools"];
     this.CopyRequest.Type_Of_Activity_Id = this.data["payload"]["Type_Of_Activity_Id"];
     this.CopyRequest.Working_Date = this.data["payload"]["Working_Date"];
@@ -115,7 +116,6 @@ this.userdata=this.jwtauthservice.getUser();
     this.CopyRequest.Machinery = this.data["payload"]["Machinery"];
     this.CopyRequest.Notes = this.data["payload"]["Notes"];
     this.CopyRequest.Number_Of_Workers = this.data["payload"]["Number_Of_Workers"];
-
     this.CopyRequest.PermitNo = this.data["payload"]["PermitNo"];
     this.CopyRequest.Power_Off_Required = this.data["payload"]["Power_Off_Required"];
 
@@ -132,7 +132,6 @@ this.userdata=this.jwtauthservice.getUser();
     const diffDays = Math.round(Math.abs((this.workingdateFrom - this.workingdateTo) / oneDay))+1;
    
     this.CopyRequest.count=diffDays;
-    console.log(this.CopyRequest.count);
     this.reqservice.CopyRequest(this.CopyRequest).subscribe(res=>
       {
 this.openSnackBar();

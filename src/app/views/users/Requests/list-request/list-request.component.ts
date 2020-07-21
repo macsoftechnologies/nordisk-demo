@@ -24,8 +24,9 @@ import { ActivityService } from 'app/shared/services/activity.service';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
 import { DatePipe } from '@angular/common';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-import { RequestsbyId } from 'app/views/Models/RequestDto';
+import { RequestsbyId, RequestBySubcontractorId } from 'app/views/Models/RequestDto';
 import * as xlsx from 'xlsx';
+import { EditRequestComponent } from '../edit-request/edit-request.component';
 
 @Component({
   selector: 'app-list-request',
@@ -36,6 +37,7 @@ import * as xlsx from 'xlsx';
 export class ListRequestComponent implements OnInit {
   ModalOptions: PrintDownloadOptions;
   spinner = false;
+  IsNotSubCntr:boolean=false;
   selected = [];
   selectedRequestIds = [];
   Filtertab: boolean = false;
@@ -67,19 +69,19 @@ export class ListRequestComponent implements OnInit {
       "Statusname": "Draft"
     },
     {
-      "Statusid": "Approved",
+      "Statusid": "Approve",
       "Statusname": "Approved"
     },
     {
-      "Statusid": "Rejected",
+      "Statusid": "Reject",
       "Statusname": "Rejected"
     },
     {
-      "Statusid": "Open",
+      "Statusid": "Opened",
       "Statusname": "Opened"
     },
     {
-      "Statusid": "Close",
+      "Statusid": "Closed",
       "Statusname": "Closed"
     }
   ]
@@ -101,19 +103,21 @@ export class ListRequestComponent implements OnInit {
 
   SearchRequest: SearchRequestDto =
     {
-      Company_Name: null,
+      Activity: null,
       Site_Id: null,
       Sub_Contractor_Id: null,
       Request_status: null,
       PermitNo: null,
-      Working_Date: null,
+      fromDate: "",
+      toDate:"",
+      Type_Of_Activity_Id:null,
       Building_Id: null,
 
     }
 
-    RequestsbyidDto:RequestsbyId=
+    RequestsbyidDto:RequestBySubcontractorId=
     {
-      userId:null
+      SubContractorId:null
     }
   Contractors: any[] = []
   Sites: any[] = []
@@ -178,14 +182,16 @@ export class ListRequestComponent implements OnInit {
 
           if (this.userdata["role"] == "Subcontractor") {
             this.isoperator = false;
-            this.RequestsbyidDto.userId=this.userdata["id"];
+            this.IsNotSubCntr=false;
+            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
             this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
               {
-                console.log(res);
                 this.items=res["data"];
               });
           }
           else if (this.userdata["role"] == "Admin") {
+            this.IsNotSubCntr=true;
             this.items = res[0]["data"];
             this.isoperator = true;
             this.isoperator = true;
@@ -201,6 +207,7 @@ export class ListRequestComponent implements OnInit {
 
           }
           else if (this.userdata["role"] == "Department") {
+            this.IsNotSubCntr=true;
             this.items = res[0]["data"];
             this.isoperator = true;
             var filteritems = [];
@@ -217,6 +224,7 @@ export class ListRequestComponent implements OnInit {
 
         this.Contractors = res[1]["data"];
         this.Sites = res[2]["data"];
+        this.Getbuilding(this.Sites[1]["site_id"]);
         this.Typeofactivitys = res[3]["data"];
       });
     // this.requestservice.GetAllRequests().subscribe(x=>
@@ -255,40 +263,16 @@ export class ListRequestComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
+        this.getItems();
         if (!res) {
           // If user press cancel
           return;
         }
-        this.loader.open();
-        // if (isNew) {
-        //   // this.crudService.addItem(res)
-        //   //   .subscribe(data => {
-        //   //     this.items = data;
-        //   //     this.loader.close();
-        //   //     this.snack.open('Member Added!', 'OK', { duration: 4000 })
-        //   //   })
-        // } else {
-        //   // this.crudService.updateItem(data._id, res)
-        //   //   .subscribe(data => {
-        //   //     this.items = data;
-        //   //     this.loader.close();
-        //   //     this.snack.open('Member Updated!', 'OK', { duration: 4000 })
-        //   //   })
-        // }
-      })
+      });
   }
   deleteItem(row) {
     this.confirmService.confirm({ message: `Delete ${row.name}?` })
       .subscribe(res => {
-        if (res) {
-          this.loader.open();
-          // this.crudService.removeItem(row)
-          //   .subscribe(data => {
-          //     this.items = data;
-          //     this.loader.close();
-          //     this.snack.open('Member deleted!', 'OK', { duration: 4000 })
-          //   })
-        }
       })
   }
   addrequest() {
@@ -296,29 +280,37 @@ export class ListRequestComponent implements OnInit {
   }
 
   search() {
-
     this.spinner = true;
     this.SearchRequest.Building_Id = this.RequestlistForm.controls["Building"].value;
-    this.SearchRequest.Company_Name = "Beam";
+    this.SearchRequest.Activity =this.RequestlistForm.controls["Keyword"].value;
     this.SearchRequest.PermitNo = this.RequestlistForm.controls["Permitnumber"].value;
     this.SearchRequest.Request_status = this.RequestlistForm.controls["Status"].value;
     this.SearchRequest.Site_Id = this.RequestlistForm.controls["Site"].value;
     this.SearchRequest.Sub_Contractor_Id = this.RequestlistForm.controls["Contractor"].value;
+    this.SearchRequest.Type_Of_Activity_Id=this.RequestlistForm.controls["TypeOfActivity"].value;
     var mydate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateFrom"].value, 'yyyy-MM-dd');
-    this.SearchRequest.Working_Date = mydate;
+    var todate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateTo"].value, 'yyyy-MM-dd');
 
+    if(mydate!=null)
+    {
+      this.SearchRequest.fromDate = mydate;
+    }
+    if(todate!=null)
+    {
+      this.SearchRequest.toDate=todate;
+    }
+ 
     this.requestservice.SearchRequest(this.SearchRequest).subscribe(res => {
       if (res["message"] == "No Requests Found") {
         this.items = [];
         this.Filtertab = true;
-
+        this.spinner = false;
       }
       else {
         this.items = res["data"];
         this.Filtertab = true;
-
+        this.spinner = false;
       }
-      this.spinner = false;
     });
 
   }
@@ -433,7 +425,13 @@ export class ListRequestComponent implements OnInit {
 
     //   })
   }
-  CopyRequest(row) {
+  CopyRequest(row,status) {
+    if(status=="Closed")
+    {
+      row["Request_status"]="Hold";
+      let currentdate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+      row["Request_Date"]=currentdate;
+    }
     let title = 'Copy Request';
     let dialogRef: MatDialogRef<any> = this.dialog.open(CopyRequestComponent, {
       width: '1200px',
@@ -450,6 +448,7 @@ export class ListRequestComponent implements OnInit {
   ChangeStaus(row) {
     let title = 'Request Status Change ';
     let type = "operartor";
+    console.log(row);
     let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
       width: '300px',
       height: '150px',
@@ -485,6 +484,7 @@ export class ListRequestComponent implements OnInit {
 
       let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
         disableClose: false,
+        width:'600px',
         data: { title: title, payload: row, type: type }
       })
       dialogRef.afterClosed()
@@ -516,7 +516,6 @@ export class ListRequestComponent implements OnInit {
         this.selectedRequestIds.push(x["id"]);
       }
     });
-    console.log(this.selectedRequestIds.toString());
 
 
     let title = 'Do you want ' + statusdata + " Items";
@@ -535,9 +534,8 @@ export class ListRequestComponent implements OnInit {
   }
 
   onSelect({ selected }) {
-    console.log(selected);
+
     this.selected = selected;
-    console.log(this.selected);
 
     //this.selected.splice(0, this.selected.length);
     //this.selected.push(...selected);
@@ -563,6 +561,7 @@ export class ListRequestComponent implements OnInit {
 
   EditDraft(row)
   {
+    console.log(row);
     this.requestservice.SelectedRequestData =
     {
       "payload": row,
@@ -570,4 +569,35 @@ export class ListRequestComponent implements OnInit {
     };
     this.route.navigateByUrl("/user/new-request");
   }
+
+  Getselected(event)
+  {
+    console.log(event);
+    this.selected.forEach(x => {
+      if (x["Request_status"] == "Hold") {
+        this.selectedRequestIds.push(x["id"]);
+      }
+    });
+
+    if(event!="none")
+    {
+      let title=event;
+      let dialogRef: MatDialogRef<any> = this.dialog.open(EditRequestComponent, {
+        width: '800px',
+        height: '200px',
+        disableClose: false,
+        data: { title: title,payload: this.selectedRequestIds.toString()}
+      })
+      dialogRef.afterClosed()
+        .subscribe(res => {
+          this.selectedRequestIds.length=0;
+          this.selectedRequestIds=[];
+          this.getItems();
+        });
+    }
+    }
+    Reset()
+    {
+      this.RequestlistForm.reset();
+    }
 }
