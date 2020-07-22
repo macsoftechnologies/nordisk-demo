@@ -23,6 +23,10 @@ export class DocsComponent implements OnInit {
   isSubCntrSelected:boolean=false;
   userdata: any = {};
   Contractors:any[]=[];
+  CategoriesList:any[]=[
+    {id:"1", CatName:"cat1"},
+    {id:"2", CatName:"cat2"}
+  ];
   my_docs: Mydocs =
     {
       userId: null,
@@ -55,12 +59,16 @@ export class DocsComponent implements OnInit {
   GetMyDocs() {
     this.spinner = true;
     this.subcntrservice.GetSubContractorsDocs(this.my_docs_dto).subscribe(res => {
-      this.Mydocs = res["data"];
-      this.Mydocs.forEach(x=>
-        {
-          x["docName"]=x["docName"].substring(x["docName"].indexOf("docs") + 3 , x.length())
-        });
+      if(res["data"])
+      {
+        this.Mydocs = res["data"];
+        this.Mydocs.forEach(x=>
+          {
+            x["docName"]=x["docName"].substring(x["docName"].indexOf("docs") + 3 , x.length())
+          });
+      }
       this.spinner = false;
+
     });
   }
 
@@ -68,15 +76,21 @@ export class DocsComponent implements OnInit {
   {
 
     this.spinner = true;
+    this.Mydocs.length=0;
+    this.Mydocs=[];
     this.my_docs_dto.subcontractorId = Number.parseInt(event);
     this.subcntrservice.GetSubContractorsDocs(this.my_docs_dto).subscribe(res => {
-      this.Mydocs = res["data"];
-      this.Mydocs.forEach(x=>
-        {
-          x["docName"]=x["docName"].substring(x["docName"].indexOf("docs")+5 , x["docName"].length)
-        });
-      this.spinner = false;
       this.isSubCntrSelected=true;
+
+      if(res["data"])
+      {
+        this.Mydocs = res["data"];
+        this.Mydocs.forEach(x=>
+          {
+            x["docName"]=x["docName"].substring(x["docName"].indexOf("docs")+5 , x["docName"].length)
+          });
+      }
+      this.spinner = false;
     });
   }
   csvInputChange(e) {
@@ -102,6 +116,7 @@ export class DocsComponent implements OnInit {
       this.openSnackBar("Docs Updated Successfully");
       this.isimguploaded=false;
       this.GetSelectedSubctr(this.my_docs_dto.subcontractorId); 
+     // this.spinner = false;
     },
       error => {
         this.spinner = false;
@@ -109,7 +124,14 @@ export class DocsComponent implements OnInit {
       }
     )
   }
+  AddCategory()
+  {
 
+  }
+  GetSelectedCategory(event)
+  {
+    
+  }
   openSnackBar(msg) {
     this._snackBar.open(msg, "Close", {
       duration: 2000,

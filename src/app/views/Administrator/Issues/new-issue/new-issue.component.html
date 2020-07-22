@@ -20,7 +20,7 @@
           </div>
           <div [hidden]="nobuildingmselect">
               <mat-form-field class="matrequest">
-                <mat-label>Select Floor</mat-label>
+                <mat-label>Select Level</mat-label>
                 <mat-select (selectionChange)="Getselectedflooritem($event.value)">
                   <mat-option *ngFor="let floor of floors" [value]="floor.fl_id">
                     {{floor.floor_status}}
@@ -30,7 +30,7 @@
           </div>
           <div [hidden]="nofloorselected">
                 <mat-form-field class="matrequest">
-                  <mat-label>Select Room</mat-label>
+                  <mat-label>Select Sector</mat-label>
                   <mat-select (selectionChange)="Getselectedroomitem($event.value)">
                     <mat-option *ngFor="let room of RoomsList" [value]="room.room_id">
                       {{room.room_name}}
@@ -64,13 +64,13 @@
             <mat-grid-list cols="2" rowHeight="80px">
                 <mat-grid-tile>
                     <mat-form-field class="matrequest" appearance="outline" class="full-width">
-                        <mat-label>Select Floor</mat-label>
+                        <mat-label>Select Level</mat-label>
                         <input matInput readonly formControlName="FloorName" placeholder="">
                       </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Room</mat-label>
+                        <mat-label>Sector</mat-label>
                         <mat-select formControlName="RoomNo" multiple>
                             <mat-option *ngFor="let e of RoomsList" [value]="e.room_id">{{e.room_name}}</mat-option>
                         </mat-select>
@@ -107,7 +107,7 @@
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field class="datepikr full-width" appearance="outline">
-                      <mat-label>Issue Close Date</mat-label>
+                      <mat-label>Dead Line</mat-label>
                       <input matInput [min]="minDate" formControlName="IssueCompleteDate" [max]="maxDate" [matDatepicker]="spicker">
                       <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
                       <mat-datepicker #spicker></mat-datepicker>

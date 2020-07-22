@@ -8,8 +8,8 @@
 </div>
 
 <div mat-dialog-actions *ngIf="type=='Opened' && !isclose" >
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Opened')">Yes</button>
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close >No</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Opened')">Open</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Reject')">Reject</button>
 </div>
 
 <div class="" *ngIf="type=='Closed'">

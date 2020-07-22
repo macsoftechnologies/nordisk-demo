@@ -599,5 +599,7 @@ export class ListRequestComponent implements OnInit {
     Reset()
     {
       this.RequestlistForm.reset();
+      this.SearchRequest.fromDate=null;
+      this.SearchRequest.toDate=null;      
     }
 }

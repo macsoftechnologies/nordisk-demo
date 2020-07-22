@@ -14,7 +14,7 @@
       <h1 matDialogTitle>ACTIVITY PERMIT N:{{ Requestdata.PermitNo }}</h1>
     </div>
   </div>
-  <div style="float: right;">
+  <div class="logs_data">
     <div *ngFor="let log of logsData" >
       <div *ngIf="log.requestType=='Opened'"> 
         <span class="log-sty">Check In : </span>

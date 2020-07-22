@@ -34,7 +34,7 @@
         </div>
         <div [hidden]="nobuildingmselect">
             <mat-form-field class="matrequest">
-              <mat-label>Select Floor</mat-label>
+              <mat-label>Select Level</mat-label>
               <mat-select (selectionChange)="Getselectedflooritem($event.value)">
                 <mat-option *ngFor="let floor of floors" [value]="floor.fl_id">
                   {{floor.floor_status}}
@@ -44,7 +44,7 @@
         </div>
         <div [hidden]="nofloorselected">
               <mat-form-field class="matrequest">
-                <mat-label>Select Room</mat-label>
+                <mat-label>Select Sector</mat-label>
                 <mat-select (selectionChange)="Getselectedroomitem($event.value)">
                   <mat-option *ngFor="let room of RoomsList" [value]="room.room_id">
                     {{room.room_name}}
@@ -277,7 +277,7 @@
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Floor</mat-label>
+                <mat-label>Level</mat-label>
                 <input matInput readonly formControlName="FloorName" placeholder="Floor Name">
               </mat-form-field>
             </mat-grid-tile>
@@ -285,7 +285,7 @@
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Room</mat-label>
+                <mat-label>Sector</mat-label>
                 <mat-select formControlName="Room" multiple>
                     <mat-option *ngFor="let e of RoomsList" [value]="e.room_id">{{e.room_name}}</mat-option>
                 </mat-select>
@@ -327,14 +327,14 @@
             </mat-grid-tile> -->
 
           </mat-grid-list>
-          <mat-grid-list cols="1" rowHeight="100px">
+          <!-- <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width chipsbox-height" appearance="outline">
-                <mat-label>Room Type</mat-label>
+                <mat-label>Sector Type</mat-label>
                 <input matInput formControlName="RoomType" placeholder="Room Type">
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
+          </mat-grid-list> -->
         </div>
 
         <!-- <mat-grid-list cols="2" rowHeight="60px">

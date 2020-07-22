@@ -22,8 +22,8 @@
   }
 .top-bar-title{
   font-weight: bold;
-    font-size: 20px;
-    padding: 5px;
+    font-size: 17px;
+   
 }
 .card-content{
   margin: 30px;
@@ -31,4 +31,9 @@
 .download_btn_sty
 {
   float: right;
+}
+.icons-sty
+{
+    font-size: 15px !important;
+    cursor: pointer;
 }

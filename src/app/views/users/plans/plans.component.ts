@@ -11,6 +11,8 @@ import { DatePipe } from '@angular/common';
 
 import { HttpClient } from '@angular/common/http';
 import { ExportExcelService } from 'app/shared/services/export-excel.service';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { ListPopupComponent } from '../Requests/list-popup/list-popup.component';
 
 @Component({
   selector: 'app-plans',
@@ -38,10 +40,10 @@ export class PlansComponent implements OnInit {
       PlanId: 2,
       PlanName: 'Weekly Plan'
     },
-    {
-      PlanId: 3,
-      PlanName: 'Monthly Plan'
-    }
+    // {
+    //   PlanId: 3,
+    //   PlanName: 'Monthly Plan'
+    // }
   ];
 
   SubContractors: any[] = [];
@@ -111,6 +113,7 @@ export class PlansComponent implements OnInit {
     private route: Router,public ete: ExportExcelService,
     private subcontrservice: SubcontractorService,
     private requstservice: RequestService, private http: HttpClient,
+    private dialog: MatDialog,
     private datePipe: DatePipe) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
@@ -475,5 +478,14 @@ export class PlansComponent implements OnInit {
   Reset()
   {
     this.PlanForm.reset();
+  }
+  openPopUp(data) {
+    let title = 'Request';
+    let dialogRef: MatDialogRef<any> = this.dialog.open(ListPopupComponent, {
+      width: '1200px',
+      height: '600px',
+      disableClose: false,
+      data: { title: title, payload: data }
+    });
   }
 }

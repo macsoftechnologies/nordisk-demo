@@ -106,7 +106,11 @@ img:not(.mat-card-image) {
 {
   font-weight: bold;
 }
-
+.logs_data
+{
+  text-align: right;
+  margin-bottom: 20px;
+}
 
 
 

@@ -47,9 +47,10 @@ import { StatusChangeDialogComponent } from './Requests/status-change-dialog/sta
 import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { DocsComponent } from './docs/docs.component';
+import { CategoryComponent } from './categories/category/category.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent],
+  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent],
   imports: [
     CommonModule,
     jqxChartModule,

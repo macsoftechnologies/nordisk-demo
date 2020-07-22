@@ -191,9 +191,9 @@ export class NavigationService {
     },
 
         {
-      name: "Plans",
+      name: "Reports",
       type: "link",
-      tooltip: "Plans",
+      tooltip: "Reports",
       icon: "event", 
       state: "user/plans"
     },
@@ -299,9 +299,9 @@ export class NavigationService {
    
 
         {
-      name: "Plans",
+      name: "Reports",
       type: "link",
-      tooltip: "Plans",
+      tooltip: "Reports",
       icon: "event", 
       state: "user/plans"
     },
