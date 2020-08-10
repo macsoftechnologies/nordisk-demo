@@ -21,6 +21,7 @@ export class DocsComponent implements OnInit {
   spinner: boolean = false;
   isimguploaded: boolean = false;
   isSubCntrSelected:boolean=false;
+  categoryType:string=null;
   userdata: any = {};
   Contractors:any[]=[];
   CategoriesList:any[]=[
@@ -111,6 +112,7 @@ export class DocsComponent implements OnInit {
 
     formData.append('userId', this.my_docs_dto.subcontractorId.toString());
     formData.append('userType', "Subcontractor");
+    formData.append('category',  this.categoryType);
 
     this.subcntrservice.UploadDocs(formData).subscribe(res => {
       this.openSnackBar("Docs Updated Successfully");
@@ -130,7 +132,7 @@ export class DocsComponent implements OnInit {
   }
   GetSelectedCategory(event)
   {
-    
+    this.categoryType=event;
   }
   openSnackBar(msg) {
     this._snackBar.open(msg, "Close", {

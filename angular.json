@@ -22,16 +22,12 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/assets/styles/app.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/ng-pick-datetime/assets/style/picker.min.css",
+
+              "src/assets/styles/app.scss"
             ],
             "scripts": [
-              "node_modules/exceljs/dist/exceljs.min.js",
-              "./node_modules/jquery/dist/jquery.min.js",
-              "./node_modules/popper.js/dist/umd/popper.min.js",
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/ng-pick-datetime/assets/style/picker.min.css",
-              "src/assets/styles/app.scss"
+              "node_modules/exceljs/dist/exceljs.min.js"
             ]
           },
           "configurations": {
@@ -44,7 +40,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,

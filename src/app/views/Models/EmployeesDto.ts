@@ -86,3 +86,33 @@ export class UpdateEmployeeDeptDto
     username:string;
     password:string;
 }
+
+
+export class Employee
+{
+    roleId:string;
+    typeId:string;
+    type:string;
+    badgeId:string;
+    employeeName:string;
+    designation:string;
+    phonenumber:string;
+    access:string;
+    username:string;
+    password:string;
+}
+
+export class UpdateEmployee
+{
+    id:string;
+    roleId:string;
+    typeId:string;
+    type:string;
+    badgeId:string;
+    employeeName:string;
+    designation:string;
+    phonenumber:string;
+    access:string;
+    username:string;
+    password:string;
+}

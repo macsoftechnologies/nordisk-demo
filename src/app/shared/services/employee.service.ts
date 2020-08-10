@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'environments/environment';
-import { EmployeesDto, DeleteEmployeeDto, EmployeeSubDto, UpdateEmployeeSubDto, UpdateEmployeeDeptDto, EmployeeDeptDto } from 'app/views/Models/EmployeesDto';
+import { EmployeesDto, DeleteEmployeeDto, EmployeeSubDto, UpdateEmployeeSubDto, UpdateEmployeeDeptDto, EmployeeDeptDto, Employee, UpdateEmployee } from 'app/views/Models/EmployeesDto';
 import { DeptWiseEmps } from 'app/views/Models/DepartmentDto';
 import { UniqueUser } from 'app/views/Models/UniqueUserDto';
 
@@ -30,9 +30,13 @@ export class EmployeeService {
     return this.http.post<any[]>(environment.API_URL + 'employee/readUsername.php',username);
   }
 
-  public CreateEmployees(emp:EmployeesDto): Observable<any> {
-    return this.http.post<any>(environment.API_URL + 'employee/create.php', emp);
+  public CreateEmployees(emp:Employee): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'employee/createemp.php', emp);
   }
+  public UpdateEmployees(emp:UpdateEmployee): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'employee/updateemp.php', emp);
+  }
+
   public CreateEmployeeswithSub(emp:EmployeeSubDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'employee/createsubemp.php', emp);
   }
@@ -45,9 +49,7 @@ export class EmployeeService {
   public UpdateEmployeeswithDept(emp:UpdateEmployeeDeptDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'employee/updatedepemp.php', emp);
   }
-  public UpdateEmployees(emp:EmployeesDto): Observable<any> {
-    return this.http.post<any>(environment.API_URL + 'employee/update.php', emp);
-  }
+
   public DeleteEmployees(req:DeleteEmployeeDto): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'employee/delete.php', req);
   }
