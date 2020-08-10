@@ -128,7 +128,7 @@ img:not(.mat-card-image) {
   font-weight: bold !important;
   font-size: 17px;
   background: #222a45;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 0px;
   border: 1px solid #222a45;
 }
@@ -146,7 +146,7 @@ img:not(.mat-card-image) {
 }
 
 .child p {
-  padding: 5px 5px 5px 15px;
+  padding: 10px 15px;
   margin-bottom: 0px;
   margin-top: -3px;
   text-transform: uppercase;
