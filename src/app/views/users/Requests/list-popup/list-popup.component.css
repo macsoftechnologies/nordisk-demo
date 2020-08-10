@@ -21,8 +21,8 @@
   font-size: 30px !important;
 }
 .pdf-field-sections {
-  border: solid 1px #f4f4f4;
-    background: #f4f4f4;
+  /* border: solid 1px #f4f4f4; */
+    /* background: #f4f4f4; */
 }
 .mat-form-field {
   width: 100%;
@@ -69,11 +69,11 @@
   /* background-color: rgba(0, 0, 0, 0.02); */
   margin-bottom: 10px;
 }
-.request-data-wrapper {
+/* .request-data-wrapper {
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
-}
+} */
 .request-data-wrapper .child {
   width: 50%;
 }
@@ -118,6 +118,7 @@ img:not(.mat-card-image) {
   padding: 0px;
   display: flex;
   border-bottom: 2px solid #fff;
+  background: #f4f4f4;
 }
 
 .child label {
@@ -155,6 +156,9 @@ img:not(.mat-card-image) {
 
 .col1 {
   border-right: 2px solid #fff;
+  width: 50%;
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
 .tool-given {
@@ -179,6 +183,13 @@ img:not(.mat-card-image) {
   margin-bottom: 0px;
 }
 
+.modal-1 {
+  display: flex;
+}
+
+.p-1 {
+  background: #f4f4f4;
+}
 
 @media (max-width: 468px) {
   #content {
