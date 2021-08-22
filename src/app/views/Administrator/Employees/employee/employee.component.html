@@ -77,9 +77,17 @@
                 </mat-grid-list>
 
                 <mat-grid-list cols="2" rowHeight="80px">
-                    <mat-grid-tile>
+                    <!-- <mat-grid-tile>
                         <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
+                    </mat-grid-tile> -->
+
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Company Name</mat-label>
+                            <input matInput formControlName="companyName" placeholder="Company Name">
+                        </mat-form-field>
                     </mat-grid-tile>
+
                     <mat-grid-tile *ngIf="IsObserver">
                         <mat-form-field *ngIf="selectedradioval=='Subcontractor'" class="full-width"
                             appearance="outline">
@@ -90,7 +98,7 @@
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <mat-form-field *ngIf="selectedradioval=='Department'" class="full-width" appearance="outline">
+                        <mat-form-field *ngIf="selectedradioval=='Departments'" class="full-width" appearance="outline">
                             <mat-label> Select {{selectedradioval}}</mat-label>
                             <mat-select formControlName="EmpDept" name="Department">
                                 <mat-option *ngFor="let tech of Departments" [value]="tech.id">
@@ -117,6 +125,13 @@
                     </mat-grid-tile>
 
                 </mat-grid-list>
+
+                <mat-grid-list cols="1" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
                 <div *ngIf="IsNameunique=='Username Exists'">
                     <p style="color: red;">*<i>{{IsNameunique}}</i></p>
                 </div>

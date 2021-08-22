@@ -55,6 +55,7 @@ export class EmployeeComponent implements OnInit {
     subContId: null,
     username: null,
     password: null,
+    companyName: null,
     access: "1"
   }
   UpdateEmpdata: UpdateEmployeesDto = {
@@ -68,6 +69,7 @@ export class EmployeeComponent implements OnInit {
     subContId: null,
     username: null,
     password: null,
+    companyName: null,
     access: "0"
   }
   empwithsub: EmployeeSubDto =
@@ -80,6 +82,7 @@ export class EmployeeComponent implements OnInit {
       subContId: null,
       username: null,
       password: null,
+      companyName: null,
       access: "1"
     }
 
@@ -93,6 +96,7 @@ export class EmployeeComponent implements OnInit {
       designation: null,
       username: null,
       password: null,
+      companyName: null,
       access: "1"
     }
 
@@ -106,6 +110,7 @@ export class EmployeeComponent implements OnInit {
     subContId: null,
     username: null,
     password: null,
+    companyName: null,
     access: "0"
   }
 
@@ -119,6 +124,7 @@ export class EmployeeComponent implements OnInit {
     designation: null,
     username: null,
     password: null,
+    companyName: null,
     access: "0"
   }
 
@@ -133,6 +139,7 @@ export class EmployeeComponent implements OnInit {
       phonenumber: null,
       access: "1",
       username: null,
+      companyName: null,
       password: null
     }
   updateemp: UpdateEmployee =
@@ -147,6 +154,7 @@ export class EmployeeComponent implements OnInit {
       phonenumber: null,
       access: "1",
       username: null,
+      companyName: null,
       password: null
     }
 
@@ -198,17 +206,19 @@ export class EmployeeComponent implements OnInit {
       PhonenNumber: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
+      companyName: ['', Validators.required],
       options: ['Subcontractor']
     });
 
     if (this.data != null && this.data["editform"] == true) {
       this.editform = true;
-      console.log(this.data["payload"]);
+      // console.log(this.data["payload"]);
       this.EmployeeForm.controls["EmpName"].setValue(this.data["payload"]["employeeName"]);
       this.EmployeeForm.controls["Designation"].setValue(this.data["payload"]["designation"]);
       this.EmployeeForm.controls["badge"].setValue(this.data["payload"]["badgeId"]);
       this.EmployeeForm.controls["PhonenNumber"].setValue(this.data["payload"]["phonenumber"]);
       this.EmployeeForm.controls["username"].setValue(this.data["payload"]["username"]);
+      this.EmployeeForm.controls["companyName"].setValue(this.data["payload"]["companyName"]);
       this.EmployeeForm.controls["password"].setValue(atob(this.data["payload"]["password"]));
 
       this.EmployeeForm.controls["EmpDept"].setValue(this.data["payload"]["departId"]);
