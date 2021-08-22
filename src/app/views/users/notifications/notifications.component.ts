@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RequestService } from 'app/shared/services/request.service';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { RequestsbyId, RequestBySubcontractorId } from 'app/views/Models/RequestDto';
+import {MatTableDataSource} from '@angular/material/table';
+import { DatatableComponent } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'app-notifications',
@@ -13,11 +15,21 @@ export class NotificationsComponent implements OnInit {
   RequestList:any[]=[];
   userdata: any = {};
   spinner:boolean=false;
+  
+  tempTest = [];
+  
+  @ViewChild(DatatableComponent) table: DatatableComponent;
+
+  // temp = [];
+  // rows = [];
+
+
   RequestsbyidDto:RequestBySubcontractorId=
   {
     SubContractorId:null
   }
   constructor(private reqservice:RequestService, private jwtauth:JwtAuthService) {
+    
     this.userdata = this.jwtauth.getUser();
    }
 
@@ -35,11 +47,13 @@ export class NotificationsComponent implements OnInit {
             AllList=res["data"];
             AllList.forEach(x=>
               {
-                if(x["Request_status"]=='Approve' || x["Request_status"]=='Reject')
+                if(x["Request_status"]=='Approved' || x["Request_status"]=='Rejected')
                 {
                   FilterList.push(x);
                 }
               });
+
+              // console.log(this.RequestList)
               this.RequestList=FilterList;
           }
          
@@ -57,17 +71,52 @@ export class NotificationsComponent implements OnInit {
             AllList=res["data"];
             AllList.forEach(x=>
               {
-                if(x["Request_status"]=='Approve' || x["Request_status"]=='Reject')
+                if(x["Request_status"]=='Approved' || x["Request_status"]=='Rejected')
                 {
                   FilterList.push(x);
                 }
               });
+              
+              this.tempTest = FilterList;
+
               this.RequestList=FilterList;
+
+              console.log(this.RequestList)
+
+              // this.temp = this.RequestList;
+
+              
           }
             this.spinner=false;
         });
 
     } 
+  }
+  
+  updateFilter(event) {
+    const val = event.target.value.toLowerCase();
+    // console.log(val)
+    // console.log(this.temp);
+
+    if(val !== '') {
+      // filter our data
+      const temp = this.RequestList.filter(function (d) {
+        // console.log(d)
+        return d.PermitNo.toLowerCase().indexOf(val) !== -1 || !val;
+      });
+  
+      // console.log(temp);
+  
+      // update the rows
+      this.RequestList = temp;
+    }
+    
+    else {
+      // Whenever the filter changes, always go back to the first page
+      // this.table.offset = 0;
+      console.log(this.tempTest)
+      return this.RequestList = this.tempTest;
+    }
   }
 
 }

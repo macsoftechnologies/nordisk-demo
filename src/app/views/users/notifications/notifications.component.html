@@ -1,5 +1,16 @@
 
-<ngx-datatable class="material ml-0 mr-0" [rows]="RequestList" [columnMode]="'force'" [headerHeight]="70"
+<div class="search-icon">
+  <mat-form-field appearance="outline" class="search-bar">
+    <mat-label>Search Here....</mat-label>
+    <input
+    (keyup)="updateFilter($event)"
+      matInput
+      placeholder="Search Here...."
+    />
+  </mat-form-field>
+</div>
+
+<ngx-datatable #table class="material ml-0 mr-0" [rows]="RequestList" [columnMode]="'force'" [headerHeight]="70"
 [footerHeight]="50" [scrollbarH]="true" [limit]="5" [rowHeight]="50"
 >
 <ngx-datatable-column name="Permit number " [flexGrow]="1">

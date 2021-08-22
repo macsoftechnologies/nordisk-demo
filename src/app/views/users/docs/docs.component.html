@@ -1,7 +1,10 @@
 <div class="container">
-    <mat-grid-list cols="3" rowHeight="80px">
-        <mat-grid-tile>
-        </mat-grid-tile>
+    <div style="text-align: right;">
+        <button mat-flat-button class="submit-btn-sty" (click)="AddCategory()"
+        color="primary">Add Category</button>
+    </div>
+    <mat-grid-list cols="2" rowHeight="80px">
+
         <mat-grid-tile>
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>SubContractor</mat-label>
@@ -13,42 +16,25 @@
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Category Type </mat-label>
+                <mat-select name="category" (selectionChange)="GetSelectedCategory($event.value)">
+                    <mat-option *ngFor="let site of CategoriesList" [value]="site.id">
+                        {{site.category}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
         </mat-grid-tile>
     </mat-grid-list>
 </div>
 
-<mat-card *ngIf="isSubCntrSelected">
-    <mat-card-body>
-        <div style="text-align: right;">
-            <button mat-flat-button class="submit-btn-sty" (click)="AddCategory()"
-            color="primary">Add Category</button>
-        </div>
-        <div style="text-align: center;">
-            <mat-grid-list cols="3" rowHeight="80px">
-                <mat-grid-tile>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Plan Type </mat-label>
-                        <mat-select name="category" (selectionChange)="GetSelectedCategory($event.value)">
-                            <mat-option *ngFor="let site of CategoriesList" [value]="site.id">
-                                {{site.CatName}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                </mat-grid-tile>
-            </mat-grid-list>
-        </div>
-    </mat-card-body>
-</mat-card>
 
-<div *ngIf="isSubCntrSelected">
+
+<div *ngIf="isCategorySelected">
     <mat-card>
         <mat-card-header><span class="header-sty">MY Docs</span></mat-card-header>
         <mat-card-content>
-            <ngx-datatable class="material ml-0 mr-0" [rows]="Mydocs" [columnMode]="'force'" [headerHeight]="70"
+            <ngx-datatable class="material ml-0 mr-0" [rows]="Mydocs_Category" [columnMode]="'force'" [headerHeight]="70"
             [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50" 
             >
             <!-- <ngx-datatable-column>

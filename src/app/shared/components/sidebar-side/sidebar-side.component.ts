@@ -41,7 +41,10 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
       {
         this.menuItems = this.navService.OperatoriconMenu;
       }
-      
+      else  if(this.user["role"]=="Observer")
+      {
+        this.menuItems = this.navService.ObservericonMenu;
+      }
       //Checks item list has any icon type.
       this.hasIconTypeMenuItem = !!this.menuItems.filter(
         item => item.type === "icon"

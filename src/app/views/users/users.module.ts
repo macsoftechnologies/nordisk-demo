@@ -48,9 +48,10 @@ import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { DocsComponent } from './docs/docs.component';
 import { CategoryComponent } from './categories/category/category.component';
+import { NotificationLogsComponent } from './notification-logs/notification-logs.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent],
+  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent],
   imports: [
     CommonModule,
     jqxChartModule,

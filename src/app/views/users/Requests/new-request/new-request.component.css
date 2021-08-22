@@ -1,79 +1,323 @@
-.mat-form-field
-  {
-    width: 100%;
-    padding-right: 10px; 
-  }
+.mat-form-field {
+  width: 100%;
+  padding-right: 10px;
+}
 
-  .matrequest{
-    width: 35% !important;
-    padding: 0px !important; 
-  }
-  .card-content{
-    padding: 30px;
-  }
+.matrequest {
+  width: 35% !important;
+  padding: 0px !important;
+}
+.card-content {
+  padding: 30px;
+}
 
-  .cmsnum{
-    width: 100%;
-    padding-right: 70px; 
-  }
-  .butns
-  {
-    margin: 50px;
-    float: right;
-  }
-  .butns-grp
-  {
-    margin-right: 20px;
-  }
-  .butns-grp-back
-  {
-padding: 10px;
-  }
-  .img-sty{
-    width: 500px;
-  }
-  .img-div-sty
-  {
-    /* text-align: center; */
-    /* background-color: red; */
-  }
-  .firstdiv, .secndfiv, .thirddiv, .fourthdiv
-  {
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.02);
-    margin-bottom: 10px;
-  }
-  .chipsbox-height
-  {
-    /* height: 60px !important; */
-  }
+.cmsnum {
+  width: 100%;
+  padding-right: 70px;
+}
+.butns {
+  margin: 50px;
+  float: right;
+}
+.butns-grp {
+  margin-right: 20px;
+}
+.butns-grp-back {
+  padding: 10px;
+}
+.img-sty {
+  width: 500px;
+}
+.img-div-sty {
+  /* text-align: center; */
+  /* background-color: red; */
+}
+.plans_container {
+  position: relative;
+}
+.plans_container .plan_effect:hover {
+  opacity: 0.5;
+  background: #ff0;
+  box-shadow: 0 2px 10px #ff0;
+}
+.plans_container .plan_effect {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  z-index: 999;
+}
 
-  .form-value{
-    position: absolute;
-    left: 1rem;
-    font-size: 1.5rem;
+
+.plans_container .k_b_1_1 {
+  left: 48.5%;
+  top: 53.6%;
+  width: 24.5%;
+  height: 4rem;
+}
+.plans_container .k_b_1_2 {
+  left: 38.5%;
+  top: 53.6%;
+  width: 9.5%;
+  height: 5.5rem;
+}
+.plans_container .k_b_1_3 {
+  left: 31.5%;
+  top: 41%;
+  width: 24.5%;
+  height: 5rem;
+}
+.plans_container .k_b_1_4 {
+  left: 43%;
+  top: 79%;
+  width: 3%;
+  height: 4.3rem;
+}
+.plans_container .k_b_1_4_1 {
+  left: 46%;
+  top: 68%;
+  width: 6.6%;
+  height: 8.8rem;
+}
+.plans_container .k_b_1_4_2 {
+  left: 52.5%;
+  top: 84%;
+  width: 2%;
+  height: 1.2rem;
+}
+.plans_container .five_b_1_1 {
+  left: 48%;
+  top: 52%;
+  width: 25%;
+  height: 5rem;
+}
+.plans_container .five_b_1_2 {
+  left: 31.2%;
+  top: 42.9%;
+  width: 24.6%;
+  height: 10%;
+}
+.plans_container .five_b_1_3 {
+  left: 50%;
+  top: 6%;
+  width: 6%;
+  height: 37%;
+}
+.plans_container .zero_b_1_1 {
+  left: 46%;
+  top: 52%;
+  width: 23%;
+  height: 10%;
+}
+.plans_container .zero_b_1_2 {
+  left: 31%;
+  top: 42%;
+  width: 23%;
+  height: 10%;
+}
+.plans_container .zero_b_1_3 {
+  left: 48%;
+  top: 11%;
+  width: 6%;
+  height: 31%;
+}
+.plans_container .zero_b_1_4 {
+  left: 31%;
+  top: 12%;
+  width: 6%;
+  height: 30%;
+}
+.plans_container .zero_b_1_5 {
+  left: 36%;
+  top: 13%;
+  width: 12%;
+  height: 10%;
+}
+.plans_container .one_b_1_1 {
+  left: 48%;
+  top: 53%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .one_b_1_2 {
+  left: 31%;
+  top: 43%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .one_b_1_3 {
+  left: 50%;
+  top: 8%;
+  width: 6%;
+  height: 35%;
+}
+.plans_container .one_b_1_4 {
+  left: 31%;
+  top: 10%;
+  width: 6%;
+  height: 33%;
+}
+.plans_container .one_b_1_5 {
+  left: 36%;
+  top: 11%;
+  width: 14%;
+  height: 11%;
+}
+.plans_container .two_b_1_1 {
+  left: 48%;
+  top: 53%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .two_b_1_2 {
+  left: 31%;
+  top: 43%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .two_b_1_3 {
+  left: 50%;
+  top: 8%;
+  width: 6%;
+  height: 35%;
+}
+
+.plans_container .two_b_1_4 {
+  left: 31%;
+  top: 9%;
+  width: 19%;
+  height: 35%;
+
+  
+}
+
+.plans_container .two_b_1_4 .sub_02:hover {
+  clip-path: polygon(0 0, 100% 0, 100% 39%, 31% 39%, 31% 100%, 1% 100%);
+  opacity: 0.5;
+  background: #ff0;
+  box-shadow: 0 2px 10px #ff0;
+}
+
+/* .plans_container .two_b_1_4:hover div {  
+  opacity: 0.5;
+  background: #ff0;
+  box-shadow: 0 2px 10px #ff0;
+} */
+
+.plans_container .two_b_1_5 {
+  left: 37%;
+  top: 11%;
+  width: 13%;
+  height: 11%;
+}
+
+.plans_container .three_b_1_1 {
+  left: 48%;
+  top: 53%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .three_b_1_2 {
+  left: 31%;
+  top: 43%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .three_b_1_3 {
+  left: 50%;
+  top: 8%;
+  width: 6%;
+  height: 35%;
+}
+.plans_container .six_b_1_1 {
+  left: 48%;
+  top: 53%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .six_b_1_2 {
+  left: 31%;
+  top: 43%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .six_b_1_3 {
+  left: 50%;
+  top: 6%;
+  width: 6%;
+  height: 37%;
+}
+
+.plans_container .seven_b_1_1 {
+  left: 48%;
+  top: 53%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .seven_b_1_2 {
+  left: 31%;
+  top: 43%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .seven_b_1_3 {
+  left: 50%;
+  top: 6%;
+  width: 6%;
+  height: 37%;
+}
+.plans_container .eight_b_1_1 {
+  left: 48%;
+  top: 53%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .eight_b_1_2 {
+  left: 31%;
+  top: 43%;
+  width: 25%;
+  height: 11%;
+}
+.plans_container .eight_b_1_3 {
+  left: 50%;
+  top: 6%;
+  width: 6%;
+  height: 37%;
+}
+.firstdiv,
+.secndfiv,
+.thirddiv,
+.fourthdiv {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.02);
+  margin-bottom: 10px;
+}
+.chipsbox-height {
+  /* height: 60px !important; */
+}
+
+.form-value {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.5rem;
 }
 
 #input-form {
-    position: absolute;
-    z-index: 1;
-   
+  position: absolute;
+  z-index: 1;
 }
 input {
   position: relative !important;
   background: transparent;
   border: none;
- /* background-color: red; */
+  /* background-color: red; */
 }
-button
-{
+button {
   width: 200px;
   height: 50px;
 }
-.btn-sty
-{
+.btn-sty {
   /* background-color: red; 
   left: 118px;
   top:338.4px;
@@ -81,16 +325,297 @@ button
   height: 50px; */
 
   /* background-color: red; */
-    /* left: 260px;
+  /* left: 260px;
     top: 208.4px;
     width: 204px;
     height: 159px; */
-    cursor: pointer;
-    color: black;
-    text-align: center;
-font-weight: bold;
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    overflow: hidden;
-    outline:none;
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  outline: none;
+}
+
+/* Sub Button L00*/
+
+.plans_container .sub_LK_1 {
+  top: 53%;
+  left: 54%;
+  width: 41px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_LK_2 {
+  top: 61%;
+  left: 48%;
+  width: 38px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_LK_3 {
+  top: 49%;
+  left: 35%;
+  width: 22px;
+  height: 31px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_LK_4 {
+  top: 40%;
+  left: 50%;
+  width: 33px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_LK_5 {
+  top: 49%;
+  left: 48%;
+  width: 60px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* Sub Button L00*/
+
+.plans_container .sub_0_1 {
+  top: 51%;
+  left: 51%;
+  width: 41px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_2 {
+  top: 58%;
+  left: 46%;
+  width: 41px;
+  height: 22px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_3 {
+  top: 49%;
+  left: 34%;
+  width: 22px;
+  height: 17px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_4 {
+  top: 40%;
+  left: 48%;
+  width: 27px;
+  height: 15px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_5 {
+  top: 19%;
+  left: 31%;
+  width: 27px;
+  height: 15px;
+  padding: 0; 
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_6 {
+  top: 19%;
+  left: 34%;
+  width: 27px;
+  height: 15px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_7 {
+  top: 48%;
+  left: 46%;
+  width: 50px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* Sub Button L01*/
+
+.plans_container .sub_1_1 {
+  top: 53%;
+  left: 54%;
+  width: 34px;
+  height: 28px;
+  padding: 0;
+}
+
+.plans_container .sub_1_2 {
+  top: 61%;
+    left: 48%;
+    width: 41px;
+    height: 22px;
+    padding: 0;
+}
+
+.plans_container .sub_1_3 {
+  top: 51%;
+  left: 35%;
+  width: 22px;
+  height: 17px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_4 {
+  top: 41%;
+  left: 50%;
+  width: 30px;
+  height: 15px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_5 {
+  top: 18%;
+  left: 31%;
+  width: 30px;
+  height: 15px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_6 {
+  top: 18%;
+  left: 35%;
+  width: 22px;
+  height: 15px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_7 {
+  top: 49%;
+  left: 48%;
+  width: 55px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* sub Button L02 */
+.plans_container .sub_2_1_1 {
+  top: 53%;
+  left: 54%;
+  width: 39px;
+  height: 32px;
+  padding: 0;
+}
+
+/* Sub Button L03 04 05 06 08 */
+
+.plans_container .sub_2_1 {
+  top: 53%;
+  left: 54%;
+  width: 34px;
+  height: 28px;
+  padding: 0;
+}
+
+.plans_container .sub_2_2 {
+  top: 61%;
+    left: 48%;
+    width: 41px;
+    height: 22px;
+    padding: 0;
+}
+
+.plans_container .sub_2_3 {
+  top: 51%;
+  left: 35%;
+  width: 22px;
+  height: 17px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_4 {
+  top: 41%;
+  left: 50%;
+  width: 30px;
+  height: 15px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_5 {
+  top: 49%;
+  left: 48%;
+  width: 55px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_LTA{
+  top: 49%;
+  left: 49%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+  margin-left: 9px;
+}
+
+
+.sub_btn:hover {
+    opacity: 0.9 !important;
+    padding: 0 !important;
+    background: #71B238 !important;
+    box-shadow: 0 2px 10px #71b238 !important;
+}
+
+.backtotop {
+  margin: 0px 15px;
+}
+
+.backtotop:hover {
+  cursor: pointer;
+}
+
+.plans_container .mainn {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  z-index: 999;
+}
+
+ .plans_container .sub_02 {
+  top: 12px;
+  width: 101%;
+  height: 94%;
+  left: 0%;
+}
+
+/*.plans_container .sub_03 {
+  top: 0;
+  width: 100%;
+  height: 32%;
+  left: 0%;
+} */
+
+
+.textarea {
+  resize: none;
 }

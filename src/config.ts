@@ -8,7 +8,8 @@ export const config = {
     // guest: ['SA', 'Admin', 'Editor', 'User', 'Guest'] // Everyone has access
     admin: ['Admin'],
     operator: ['Admin','Department'],
-    subcontractor: ['Admin','Department','Subcontractor'],
-
+    observer:['Admin','Observer'],
+    subcontractor: ['Admin','Department','Observer','Subcontractor'],
+    
   }
 }

@@ -2,16 +2,20 @@
 <h5>Add Category</h5>
 <div>
     <mat-grid-list cols="3" rowHeight="80px">
+       
         <mat-grid-tile>
         </mat-grid-tile>
         <mat-grid-tile>
             <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Plan Type </mat-label>
-               
+                <mat-label>Category Name</mat-label>
+                <input matInput [(ngModel)]="catName" placeholder="Category Name">
             </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
         </mat-grid-tile>
-    </mat-grid-list>    
+    </mat-grid-list>   
+    <div class="butns" >
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="CreateCategoty()">Add</button>
+    </div>
 </div>
 </div>

@@ -1,7 +1,7 @@
 <div [hidden]="isnewrequestcreated">
   <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title>{{name}}</mat-card-title>
+      <mat-card-title>{{ name }}</mat-card-title>
     </mat-card-header>
     <mat-divider></mat-divider>
 
@@ -19,54 +19,82 @@
         </div> -->
         <div>
           <mat-label> Name: </mat-label>
-          <strong>{{selected_site_name}}</strong>  
+          <strong>Koge Hospital Project Team (KHPT)</strong>
+          <!-- <strong>{{ selected_site_name }}</strong> -->
         </div>
 
         <div [hidden]="nositemselect">
           <mat-form-field class="matrequest">
             <mat-label>Select Building</mat-label>
-            <mat-select (selectionChange)="GetselectedBuildingitem($event.value)">
-              <mat-option *ngFor="let building of buildings" [value]="building.build_id">
-                {{building.building_name}}
+            <mat-select
+              (selectionChange)="GetselectedBuildingitem($event.value)"
+            >
+              <mat-option
+                *ngFor="let building of buildings"
+                [value]="building.build_id"
+              >
+                {{ building.building_name }}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div [hidden]="nobuildingmselect">
-            <mat-form-field class="matrequest">
-              <mat-label>Select Level</mat-label>
-              <mat-select (selectionChange)="Getselectedflooritem($event.value)">
-                <mat-option *ngFor="let floor of floors" [value]="floor.fl_id">
-                  {{floor.floor_status}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
+          <mat-form-field class="matrequest">
+            <mat-label>Select Level</mat-label>
+            <mat-select (selectionChange)="Getselectedflooritem($event.value)">
+              <!-- <mat-option *ngFor="let floor of floors" [value]="floor.fl_id">
+                {{ floor.floor_status }}    
+              </mat-option> -->
+              <mat-option *ngFor="let floor of floors" [value]="floor">
+                {{ floor }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
         <div [hidden]="nofloorselected">
-              <mat-form-field class="matrequest">
-                <mat-label>Select Sector</mat-label>
-                <mat-select (selectionChange)="Getselectedroomitem($event.value)">
-                  <mat-option *ngFor="let room of RoomsList" [value]="room.room_id">
-                    {{room.room_name}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+          <mat-form-field class="matrequest">
+            <mat-label>Select Sector</mat-label>
+            <mat-select (selectionChange)="Getselectedroomitem($event.value)">
+              <mat-option *ngFor="let room of RoomsList" [value]="room.room_id">
+                {{ room.room_name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
-
       </div>
     </mat-card-content>
   </mat-card>
 </div>
 
 <div [hidden]="!isnewrequestcreated">
-
   <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title> </mat-card-title>
+      <mat-card-title>
+        <div>
+          <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="backto()" class="backtotop">home</mat-icon> -->
+          <div *ngIf="!editform" class="butns-grp-back">
+            <button
+              class=""
+              mat-raised-button
+              color="primary"
+              (click)="Backto()"
+            >
+              Back
+            </button>
+          </div>
+        </div>
+      </mat-card-title>
     </mat-card-header>
     <mat-card-content class="card-content">
       <div *ngIf="editform" class="butns-grp-back">
-        <button class="" mat-raised-button color="primary" (click)="BacktoList()">Back</button>
+        <button
+          class=""
+          mat-raised-button
+          color="primary"
+          (click)="BacktoList()"
+        >
+          Back
+        </button>
       </div>
       <form [formGroup]="RequestForm" class="example-form">
         <div class="firstdiv">
@@ -74,75 +102,120 @@
             <mat-grid-tile>
               <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Request date</mat-label>
-                <input matInput readonly formControlName="Requestdate" placeholder="12/12/2020">
+                <input
+                  matInput
+                  readonly
+                  formControlName="Requestdate"
+                  placeholder="12/12/2020"
+                />
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="3" rowHeight="80px">
-
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Company</mat-label>
-                <input matInput readonly formControlName="Companyname" placeholder="Company Name">
+                <input
+                  matInput
+                  readonly
+                  formControlName="Companyname"
+                  placeholder="Company Name"
+                />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline" *ngIf="!issubcontr">
+              <mat-form-field
+                class="full-width"
+                appearance="outline"
+                *ngIf="!issubcontr"
+              >
                 <mat-label>SubContractor</mat-label>
-                <mat-select formControlName="SubContractor" name="CMT" (selectionChange)="Getselectedsubcntrsteams($event.value)">
-                  <mat-option *ngFor="let tech of SubContractors" [value]="tech.id">
-                    {{tech.subContractorName}}
+                <mat-select
+                  formControlName="SubContractor"
+                  name="CMT"
+                  (selectionChange)="Getselectedsubcntrsteams($event.value)"
+                >
+                  <mat-option
+                    *ngFor="let tech of SubContractors"
+                    [value]="tech.id"
+                  >
+                    {{ tech.subContractorName }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-              <mat-form-field class="full-width" appearance="outline" *ngIf="issubcontr"> 
+              <mat-form-field
+                class="full-width"
+                appearance="outline"
+                *ngIf="issubcontr"
+              >
                 <mat-label>SubContractor</mat-label>
-                <input matInput readonly formControlName="SubContractorname" placeholder="SubContractor Name">
-
+                <input
+                  matInput
+                  readonly
+                  formControlName="SubContractorname"
+                  placeholder="SubContractor Name"
+                />
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Teams</mat-label>
-                <mat-select formControlName="Team" name="Team" (selectionChange)="GetEmployees($event.value)">
+                <mat-select
+                  formControlName="Team"
+                  name="Team"
+                  (selectionChange)="GetEmployees($event.value)"
+                >
                   <mat-option>None</mat-option>
                   <mat-option *ngFor="let tech of Teams" [value]="tech.id">
-                    {{tech.teamName}}
+                    {{ tech.teamName }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
-           
           </mat-grid-list>
           <mat-grid-list cols="2" rowHeight="80px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Foreman</mat-label>
-                <input matInput formControlName="Foreman" placeholder="Foreman">
+                <input
+                  matInput
+                  formControlName="Foreman"
+                  placeholder="Foreman"
+                />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Foreman Phone</mat-label>
-                <input matInput formControlName="ForemanPhone" placeholder="Foreman Phone">
+                <input
+                  matInput
+                  formControlName="ForemanPhone"
+                  placeholder="Foreman Phone"
+                />
               </mat-form-field>
             </mat-grid-tile>
-
           </mat-grid-list>
           <mat-grid-list cols="2" rowHeight="80px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Activity</mat-label>
-                <input matInput formControlName="Activity" placeholder="Activity">
+                <input
+                  matInput
+                  formControlName="Activity"
+                  placeholder="Activity"
+                />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Type of Activity</mat-label>
                 <mat-select formControlName="TypeActivity" name="TypeActivity">
-                  <mat-option *ngFor="let tech of TypeofActivites" [value]="tech.id">
-                    {{tech.activityName}}
+                  <mat-option
+                    *ngFor="let tech of TypeofActivites"
+                    [value]="tech.id"
+                  >
+                    {{ tech.activityName }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -218,28 +291,51 @@
             <mat-grid-tile>
               <mat-form-field class="datepikr full-width" appearance="outline">
                 <mat-label>Date</mat-label>
-                <input matInput [min]="minDate" formControlName="Startdate" [max]="maxDate" [matDatepicker]="spicker">
-                <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
+                <input
+                  matInput
+                  [min]="minDate"
+                  formControlName="Startdate"
+                  [max]="maxDate"
+                  [matDatepicker]="spicker"
+                />
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="spicker"
+                ></mat-datepicker-toggle>
                 <mat-datepicker #spicker></mat-datepicker>
               </mat-form-field>
-
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Start Time</mat-label>
-                <input matInput [ngxTimepicker]="startTime" [format]="24" placeholder="Start Time"
-                  formControlName="StartTime" />
-                <ngx-material-timepicker #startTime [minutesGap]="5"></ngx-material-timepicker>
+                <input
+                  matInput
+                  [ngxTimepicker]="startTime"
+                  [format]="24"
+                  placeholder="Start Time"
+                  formControlName="StartTime"
+                />
+                <ngx-material-timepicker
+                  #startTime
+                  [minutesGap]="5"
+                ></ngx-material-timepicker>
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
-
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>End Time</mat-label>
-                <input matInput [ngxTimepicker]="endTime" [format]="24" placeholder="End Time"
-                  formControlName="EndTime" />
+                <input
+                  matInput
+                  [ngxTimepicker]="endTime"
+                  [format]="24"
+                  placeholder="End Time"
+                  formControlName="EndTime"
+                />
               </mat-form-field>
-              <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
+              <ngx-material-timepicker
+                #endTime
+                [minutesGap]="5"
+              ></ngx-material-timepicker>
             </mat-grid-tile>
           </mat-grid-list>
           <!-- <mat-grid-list cols="3" rowHeight="80px" *ngIf="Assigneditform">
@@ -266,30 +362,53 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Site</mat-label>
-                <input matInput readonly formControlName="Site" placeholder="Site Name">
+                <input
+                  matInput
+                  readonly
+                  formControlName="Site"
+                  placeholder="Site Name"
+                />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Building</mat-label>
-                <input matInput formControlName="Building" placeholder="Building Name">
+                <input
+                  matInput
+                  formControlName="Building"
+                  placeholder="Building Name"
+                  readonly
+                />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Level</mat-label>
-                <input matInput readonly formControlName="FloorName" placeholder="Floor Name">
+                <input
+                  matInput
+                  readonly
+                  formControlName="FloorName"
+                  placeholder="Floor Name"
+                />
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Sector</mat-label>
-                <mat-select formControlName="Room" multiple>
-                    <mat-option *ngFor="let e of RoomsList" [value]="e.room_id">{{e.room_name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
+                <mat-label>Area</mat-label>
+                <input
+                  matInput
+                  readonly
+                  formControlName="Room"
+                  placeholder="Floor Name"
+                />
+                <!-- <mat-select formControlName="Room" multiple>
+                  <mat-option *ngFor="let e of RoomsList" [value]="e.room_id">{{
+                    e.room_name
+                  }}</mat-option>
+                </mat-select> -->
+              </mat-form-field>
               <!-- <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Room </mat-label>
                 <input matInput readonly formControlName="RoomNo" placeholder="Room No">
@@ -312,9 +431,8 @@
                  
                 </mat-autocomplete>
               </mat-form-field> -->
-
             </mat-grid-tile>
-         
+
             <!-- <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>ACCESS TO OTHER ROOMS</mat-label>
@@ -325,7 +443,6 @@
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile> -->
-
           </mat-grid-list>
           <!-- <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
@@ -523,18 +640,22 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Crane Requested</mat-label>
-                <mat-select (selectionChange)="Getselectedcmtitem($event.value)" formControlName="CMTdata" name="CMT">
+                <mat-select
+                  (selectionChange)="Getselectedcmtitem($event.value)"
+                  formControlName="CMTdata"
+                  name="CMT"
+                >
                   <mat-option *ngFor="let tech of CMTs" [value]="tech.id">
-                    {{tech.CMTval}}
+                    {{ tech.CMTval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
-              <div class="cmsnum full-width" [hidden]='!iscmsyes'>
+              <div class="cmsnum full-width" [hidden]="!iscmsyes">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Crane Number</mat-label>
-                  <input matInput formControlName="CmtValue" placeholder="">
+                  <input matInput formControlName="CmtValue" placeholder="" />
                 </mat-form-field>
               </div>
             </mat-grid-tile>
@@ -543,7 +664,12 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Tools</mat-label>
-                <textarea class="textarea" matInput formControlName="Tools" placeholder="Tools...."></textarea>
+                <textarea
+                  class="textarea"
+                  matInput
+                  formControlName="Tools"
+                  placeholder="Tools...."
+                ></textarea>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -551,7 +677,12 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Machinery</mat-label>
-                <textarea class="textarea" matInput formControlName="Machinery" placeholder="machinery...."></textarea>
+                <textarea
+                  class="textarea"
+                  matInput
+                  formControlName="Machinery"
+                  placeholder="machinery...."
+                ></textarea>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -560,44 +691,59 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Hotwork</mat-label>
-                <mat-select (selectionChange)="GetselectedHOTWORKitem($event.value)" formControlName="HOTWORK"
-                  name="HOTWORK">
+                <mat-select
+                  (selectionChange)="GetselectedHOTWORKitem($event.value)"
+                  formControlName="HOTWORK"
+                  name="HOTWORK"
+                >
                   <mat-option *ngFor="let tech of HOTWORKs" [value]="tech.id">
-                    {{tech.HOTWORKval}}
+                    {{ tech.HOTWORKval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
-              <div class="cmsnum full-width" [hidden]='!ishotworkyes'>
+              <div class="cmsnum full-width" [hidden]="!ishotworkyes">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Certified Person</mat-label>
-                  <input matInput formControlName="CertifiedPerson" placeholder="">
+                  <input
+                    matInput
+                    formControlName="CertifiedPerson"
+                    placeholder=""
+                  />
                 </mat-form-field>
               </div>
-
             </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="2" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Loto Procedure</mat-label>
-                <mat-select (selectionChange)="GetselectedLOTOPROCEDUREitem($event.value)"
-                formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{tech.LOTOPROCEDUREval}}
+                <mat-select
+                  (selectionChange)="GetselectedLOTOPROCEDUREitem($event.value)"
+                  formControlName="LOTOPROCEDURE"
+                  name="LOTO PROCEDURE"
+                >
+                  <mat-option
+                    *ngFor="let tech of LOTOPROCEDUREs"
+                    [value]="tech.id"
+                  >
+                    {{ tech.LOTOPROCEDUREval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
-              <div class="cmsnum full-width" [hidden]='!isLOTOPROCEDUREyes'>
+              <div class="cmsnum full-width" [hidden]="!isLOTOPROCEDUREyes">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>LOTO Number</mat-label>
-                  <input matInput formControlName="LOTONumber" placeholder="LOTO Number">
+                  <input
+                    matInput
+                    formControlName="LOTONumber"
+                    placeholder="LOTO Number"
+                  />
                 </mat-form-field>
               </div>
-
             </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="2" rowHeight="100px">
@@ -605,20 +751,27 @@
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Power off</mat-label>
                 <mat-select formControlName="Poweroff" name="Poweroff">
-                  <mat-option *ngFor="let tech of Poweroffs" [value]="tech.Poweroffid">
-                    {{tech.Poweroffname}}
+                  <mat-option
+                    *ngFor="let tech of Poweroffs"
+                    [value]="tech.Poweroffid"
+                  >
+                    {{ tech.Poweroffname }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline" *ngIf="seditform">
+              <mat-form-field
+                class="full-width"
+                appearance="outline"
+                *ngIf="seditform"
+              >
                 <mat-label>Status</mat-label>
                 <mat-select formControlName="Status" name="Status">
                   <mat-option>None</mat-option>
                   <mat-option *ngFor="let loc of Status" [value]="loc.Statusid">
-                    {{loc.Statusname}}
+                    {{ loc.Statusname }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -811,23 +964,28 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Special Instructions</mat-label>
-                <textarea class="textarea" matInput formControlName="SpecialInstruction" placeholder=""></textarea>
+                <textarea
+                  class="textarea"
+                  matInput
+                  formControlName="SpecialInstruction"
+                  placeholder=""
+                ></textarea>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
 
-
           <mat-grid-list cols="1" rowHeight="100px" *ngIf="editform">
-
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>Safety Precautions</mat-label>
-                  <mat-select formControlName="Safetyprecaustion" multiple>
-                      <mat-option *ngFor="let e of safetyList" [value]="e.id">{{e.precaution}}</mat-option>
-                  </mat-select>
+                <mat-label>Safety Precautions</mat-label>
+                <mat-select formControlName="Safetyprecaustion" multiple>
+                  <mat-option *ngFor="let e of safetyList" [value]="e.id">{{
+                    e.precaution
+                  }}</mat-option>
+                </mat-select>
               </mat-form-field>
-          </mat-grid-tile>
-                <!-- <textarea class="textarea" matInput formControlName="Safetyprecaustion" placeholder=""></textarea> -->
+            </mat-grid-tile>
+            <!-- <textarea class="textarea" matInput formControlName="Safetyprecaustion" placeholder=""></textarea> -->
             <!-- <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Safety Precautions </mat-label>
@@ -856,27 +1014,33 @@
                 <input matInput formControlName="peopleinvalidcount" placeholder="">
               </mat-form-field>
             </mat-grid-tile> -->
-
-            
           </mat-grid-list>
 
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Number of workers involved</mat-label>
-                <input matInput formControlName="peopleinvalidcount" placeholder="">
+                <input
+                  matInput
+                  formControlName="peopleinvalidcount"
+                  placeholder=""
+                />
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>Badge No.s Of Workers</mat-label>
-                  <mat-select formControlName="BADGENUMBER" multiple>
-                      <mat-option *ngFor="let e of BADGENUMBERS" [value]="e.badgeId">{{e.badgeId}}</mat-option>
-                  </mat-select>
+                <mat-label>Badge No.s Of Workers</mat-label>
+                <mat-select formControlName="BADGENUMBER" multiple>
+                  <mat-option
+                    *ngFor="let e of BADGENUMBERS"
+                    [value]="e.badgeId"
+                    >{{ e.badgeId }}</mat-option
+                  >
+                </mat-select>
               </mat-form-field>
-          </mat-grid-tile>
+            </mat-grid-tile>
             <!-- <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-chip-list #chipList aria-label="Badg selection">
@@ -896,16 +1060,19 @@
                 </mat-autocomplete>
               </mat-form-field>
             </mat-grid-tile> -->
-
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Note</mat-label>
-                <textarea class="textarea" matInput formControlName="Note" placeholder="Notes...."></textarea>
+                <textarea
+                  class="textarea"
+                  matInput
+                  formControlName="Note"
+                  placeholder="Notes...."
+                ></textarea>
               </mat-form-field>
             </mat-grid-tile>
-
           </mat-grid-list>
         </div>
         <!-- <mat-divider></mat-divider> -->
@@ -980,19 +1147,46 @@
   
           </mat-grid-list> -->
       </form>
-
     </mat-card-content>
   </mat-card>
   <div class="butns" [hidden]="editform">
-    <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">Save</button>
-    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUp()">Change to Hold</button>
+    <button
+      class="butns-grp"
+      mat-raised-button
+      color="primary"
+      (click)="SaveasDraft('Draft')"
+    >
+      Save
+    </button>
+    <button
+      class="butns-grp"
+      mat-raised-button
+      color="primary"
+      (click)="openPopUp()"
+    >
+      Change to Hold
+    </button>
   </div>
   <div class="butns" *ngIf="subeditform">
-    <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">Save</button>
-    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUpForDrafToHold()">Change to Hold</button>
+    <button
+      class="butns-grp"
+      mat-raised-button
+      color="primary"
+      (click)="SaveasDraft('Draft')"
+    >
+      Save
+    </button>
+    <button
+      class="butns-grp"
+      mat-raised-button
+      color="primary"
+      (click)="openPopUpForDrafToHold()"
+    >
+      Change to Hold
+    </button>
   </div>
 </div>
-    <!-- <div class="form-container" [hidden]="isnewrequestcreated">
+<!-- <div class="form-container" [hidden]="isnewrequestcreated">
         <form id="input-form" [formGroup]="myForm" novalidate>
 
             <div *ngFor="let input of inputList; let i=index" [ngSwitch]="input.type">
@@ -1003,19 +1197,340 @@
       
     </div> -->
 <div class="img-div-sty" [hidden]="isnewrequestcreated">
-  <div>
+  <div class="plans_container">
     <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
-    <pdf-viewer [src]='pdfSrc' (after-load-complete)="loadComplete($event)" [render-text]="true" style="display: block;"></pdf-viewer>
+    <ng-container *ngIf="planType === 'LK1'; else second">
+      <!-- sub button -->
+      <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_LK_1 sub_btn"></button>
+      <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_LK_2 sub_btn"></button>
+      <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_LK_3 sub_btn"></button>
+      <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_LK_4 sub_btn"></button>
+      <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LK_5 sub_btn"></button>
+      
+      <button
+        (click)="onFloorPlan('B 1.1')"
+        class="plan_effect k_b_1_1"
+      ></button>
+      <button
+        (click)="onFloorPlan('B 1.T')"
+        class="plan_effect k_b_1_2"
+      ></button>
+      <button
+        (click)="onFloorPlan('B 1.2')"
+        class="plan_effect k_b_1_3"
+      ></button>
+      <button
+        (click)="onFloorPlan('B 1.CM')"
+        class="plan_effect k_b_1_4"
+      ></button>
+      <button
+        (click)="onFloorPlan('B 1.CM')"
+        class="plan_effect k_b_1_4_1"
+      ></button>
+      <button
+        (click)="onFloorPlan('B 1.CM')"
+        class="plan_effect k_b_1_4_2"
+      ></button>
+    </ng-container>
+    <ng-template #second>
+      <ng-container *ngIf="planType === 'L00'; else third">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect zero_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_0_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_0_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_0_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_0_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.4A')" class="plan_effect sub_0_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.4B')" class="plan_effect sub_0_6 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_0_7 sub_btn"></button>
+
+
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect zero_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect zero_b_1_3"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.4N')"
+          class="plan_effect zero_b_1_4"
+        ></button>
+
+        <button
+          (click)="onFloorPlan('B 1.4E')"
+          class="plan_effect zero_b_1_5"
+        ></button
+      ></ng-container>
+    </ng-template>
+    <ng-template #third>
+      <ng-container *ngIf="planType === 'L01'; else forth"
+        ><button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect one_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_1_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_1_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_1_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_1_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.4A')" class="plan_effect sub_1_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.4B')" class="plan_effect sub_1_6 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_1_7 sub_btn"></button>
+
+
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect one_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect one_b_1_3"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.4N')"
+          class="plan_effect one_b_1_4"
+        ></button>
+
+        <button
+          (click)="onFloorPlan('B 1.4E')"
+          class="plan_effect one_b_1_5"
+        ></button
+      ></ng-container>
+    </ng-template>
+    <ng-template #forth>
+      <ng-container *ngIf="planType === 'L02'; else fifth">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect two_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect two_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect two_b_1_3"
+        ></button>
+        <!-- <button
+          (click)="onFloorPlan('B 1.4')"
+          class="plan_effect two_b_1_4"
+        >
+        </button> -->
+        <button class="two_b_1_4 mainn">
+          <div class="plan_effect sub_02" (click)="onFloorPlan('B 1.4 Roof')"></div>
+        </button>
+      </ng-container>
+    </ng-template>
+    <ng-template #fifth>
+      <ng-container *ngIf="planType === 'L03'; else sixth">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect three_b_1_1"
+        ></button>
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>        
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect three_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect three_b_1_3"
+        ></button>
+      </ng-container>
+    </ng-template>
+    <!-- Four -->
+    <ng-template #eleven>
+      <ng-container *ngIf="planType === 'L04'; else fifth">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect five_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect five_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect five_b_1_3"
+        ></button>
+      </ng-container>
+    </ng-template>
+
+
+    <ng-template #sixth>
+      <ng-container *ngIf="planType === 'L05'; else seventh">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect five_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect five_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect five_b_1_3"
+        ></button>
+      </ng-container>
+    </ng-template>
+    <ng-template #seventh>
+      <ng-container *ngIf="planType === 'L06'; else L07">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect six_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect six_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect six_b_1_3"
+        ></button>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #L07>
+      <ng-container *ngIf="planType === 'L07'; else eight">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect seven_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect seven_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect seven_b_1_3"
+        ></button>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #eight>
+      <ng-container *ngIf="planType === 'L08'; else LTA">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect eight_b_1_1"
+        ></button>
+
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect eight_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect eight_b_1_3"
+        ></button>
+      </ng-container>
+    </ng-template>
+
+
+    <!-- Roof Plan -->
+
+    <ng-template #LTA>
+      <ng-container *ngIf="planType === 'LTA'">
+        <button
+          (click)="onFloorPlan('B 1.1')"
+          class="plan_effect three_b_1_1"
+        ></button>
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LTA sub_btn"></button>
+
+        <button
+          (click)="onFloorPlan('B 1.2')"
+          class="plan_effect three_b_1_2"
+        ></button>
+        <button
+          (click)="onFloorPlan('B 1.3')"
+          class="plan_effect three_b_1_3"
+        ></button>
+      </ng-container>
+    </ng-template>
+
+    <pdf-viewer
+      [src]="pdfSrc"
+      [original-size]="false"
+      [zoom]="0.75"
+    ></pdf-viewer>
+    <!-- style="display: block" -->
+    <!-- [render-text]="true" -->
+    <!-- (after-load-complete)="loadComplete($event)" -->
   </div>
 </div>
 
 <div class="butns" [hidden]="!editform" *ngIf="!subeditform">
-  <button class="butns-grp" mat-raised-button color="primary" (click)="UpdateRequest()">Update</button>
+  <button
+    class="butns-grp"
+    mat-raised-button
+    color="primary"
+    (click)="UpdateRequest()"
+  >
+    Update
+  </button>
 </div>
-
 
 <div class="loading-indicator" *ngIf="spinner">
-  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="accent"
+  ></mat-progress-spinner>
 </div>
-
-

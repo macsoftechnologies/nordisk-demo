@@ -1,18 +1,31 @@
 
 
 <div class="download-sty">
-  <button mat-raised-button color="primary" (click)="generatePdf()">
-    Download
-  </button>
+  
+  <a href="https://beam.safesiteworks.com/newbeam/index.php?PermitNo={{ Requestdata.PermitNo }}">
+    <button mat-raised-button color="primary">
+      Download
+    </button>
+  </a>
+  
 </div>
 <div id="content" #content>
   <div class="pdf-img-heading">
-    <div class="pdf-logo">
-      <img src="../../../../../assets/images/logo-beam.png" alt="">
+    <div class="partner_logo">
+      <div class="pdf-logo">
+        <img src="../../../../../assets/images/Partner_logo.jpeg" alt="">
+      </div>
+      <div class="pdf-heading">
+        <h1 matDialogTitle>ACTIVITY PERMIT NO:{{ Requestdata.PermitNo }}</h1>
+      </div>
     </div>
-    <div class="pdf-heading">
-      <h1 matDialogTitle>ACTIVITY PERMIT N:{{ Requestdata.PermitNo }}</h1>
+
+    <div>
+      <div class="pdf-logo">
+        <img src="../../../../../assets/images/logo-beam.png" alt="">
+      </div>
     </div>
+
   </div>
   <div class="logs_data">
     <div *ngFor="let log of logsData" >
@@ -78,28 +91,30 @@
                 </div>
               </div>
   
-              <div class="col-md-6 p-0 col1">
+              <!-- <div class="col-md-6 p-0 col1">
                 <div class="child">
                   <label class="text-14 text-muted">Foreman Phone:</label>
                   <p class="text-16 font-weight-bold">
                     {{ Requestdata.Foreman_Phone_Number }}
                   </p>
                 </div>
-              </div>
-            </div>
+              </div> -->
 
-            <div class="modal-1">
               <div class="col-md-6 p-0 col1">
                 <div class="child">
                   <label class="text-14 text-muted">Activity:</label>
                   <p class="text-16 font-weight-bold">{{ Requestdata.Activity }}</p>
                 </div>
               </div>
+            </div>
+
+            <!-- <div class="modal-1">
+              
   
               <div class="col-md-6 p-0 col1">
                 
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>     
@@ -400,7 +415,7 @@
     <div class="card-body">
       <mat-grid-list cols="3" rowHeight="250px">
         <mat-grid-tile *ngFor="let img of images" class="img-div-dty">
-          <img [src]="'https://safesiteworksbeam.online/beamapi/services/request/'+img.imageName" crossorigin="anonymous">
+          <img [src]="'https://beam.safesiteworks.com/beamapi/services/request/'+img.imageName" crossorigin="anonymous">
         </mat-grid-tile>
       </mat-grid-list>
     </div>

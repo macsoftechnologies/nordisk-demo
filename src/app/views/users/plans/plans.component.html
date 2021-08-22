@@ -26,7 +26,7 @@
                 <mat-grid-list cols="2" rowHeight="80px">
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
-                            <mat-label>Plan Type </mat-label>
+                            <mat-label>Report Type </mat-label>
                             <mat-select formControlName="Plantype" name="plan"
                                 (selectionChange)="GetselectedPlantype($event.value)">
                                 <mat-option *ngFor="let site of PlanTypes" [value]="site.PlanId">

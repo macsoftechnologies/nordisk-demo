@@ -413,9 +413,9 @@ export class NavigationService {
       state: "user/mydocs"
     },
     {
-      name: "Plans",
+      name: "Reports",
       type: "link",
-      tooltip: "Plans",
+      tooltip: "Reports",
       icon: "event", 
       state: "user/plans"
     },
@@ -427,6 +427,30 @@ export class NavigationService {
       state: "user/notifications"
     },
   ];
+
+
+  ObservericonMenu: IMenuItem[] = [
+    {
+      name: "DASHBOARD",
+      type: "link",
+      tooltip: "Dashboard",
+      icon: "dashboard", 
+      state: "user/dashboard",
+      
+    },
+  
+    {
+      name: "Request",
+      type: "dropDown",
+      tooltip: "Request",
+      icon: "person", 
+      state: "",
+      sub: [
+        { name: "List Request", state: "user/list-request", icon: "list" }
+      ]
+    },
+  ];
+
 user:any={};
 menuItems$:any={};
   constructor( public jwtAuth: JwtAuthService) {
@@ -446,6 +470,11 @@ menuItems$:any={};
     else  if(this.user["role"]=="Department")
     {
       this.menuItems = new BehaviorSubject<IMenuItem[]>(this.OperatoriconMenu);
+      this.menuItems$ = this.menuItems.asObservable();
+    }
+    else  if(this.user["role"]=="Observer")
+    {
+      this.menuItems = new BehaviorSubject<IMenuItem[]>(this.ObservericonMenu);
       this.menuItems$ = this.menuItems.asObservable();
 
     }

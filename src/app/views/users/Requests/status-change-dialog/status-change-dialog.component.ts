@@ -133,7 +133,9 @@ export class StatusChangeDialogComponent implements OnInit {
       this.updaterequestdata.Request_status = statusdata;
       console.log(this.updaterequestdata)
       this.requestdataservice.UpdateRequest(this.updaterequestdata).subscribe(x => {
-        this.openSnackBar("Request Status Updated Successfully");
+        if(x.status == 200) {
+          this.openSnackBar("Request Status Updated Successfully");
+        }
 
       },
         error => {
@@ -165,8 +167,10 @@ export class StatusChangeDialogComponent implements OnInit {
     formData.append('userId', this.userdata["id"]);
 
     this.requestdataservice.CloseRequest(formData).subscribe(res => {
-      this.openSnackBar("Request Status Updated Successfully");
-      this.spinner = false;
+      if(res.status == 200) {
+        this.openSnackBar("Request Status Updated Successfully");
+        this.spinner = false;
+      }
     },
       error => {
         this.spinner = false;
@@ -174,6 +178,40 @@ export class StatusChangeDialogComponent implements OnInit {
       }
     )
   }
+
+  
+  Changestatusbysubcontractor1(status) {
+    const formData = new FormData();
+    this.spinner = true;
+    this.Close_Request.id = this.updaterequestdata.id;
+    this.Close_Request.Request_status = status;
+
+    if(this.images.length>0)
+    {
+      for (var i = 0; i < this.images.length; i++) {
+        formData.append("Image[]", this.images[i]);
+      }
+    }
+
+    formData.append('id', this.Close_Request.id);
+    formData.append('Request_status', this.Close_Request.Request_status);
+    formData.append('userId', this.userdata["id"]);
+
+    this.requestdataservice.CloseRequest(formData).subscribe(res => {
+      if(res.status == 200) {
+        this.openSnackBar("Request Status Updated Successfully");
+        this.spinner = false;
+        this.images = null;
+      }
+    },
+      error => {
+        this.spinner = false;
+        this.openSnackBar("Something went wrong. Plz try again later...");
+      }
+    )
+  }
+
+
   openSnackBar(msg) {
     this._snackBar.open(msg, "Close", {
       duration: 2000,

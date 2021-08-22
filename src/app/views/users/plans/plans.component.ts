@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import {FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from 'app/shared/services/user.service';
 import { Router } from '@angular/router';
 import { PrintDownloadOptions } from 'app/views/Models/PrintDownloadOptionsDto';
@@ -34,11 +34,11 @@ export class PlansComponent implements OnInit {
   PlanTypes: any[] = [
     {
       PlanId: 1,
-      PlanName: 'Daily Plan'
+      PlanName: 'Daily Report'
     },
     {
       PlanId: 2,
-      PlanName: 'Weekly Plan'
+      PlanName: 'Weekly Report'
     },
     // {
     //   PlanId: 3,
@@ -113,7 +113,7 @@ export class PlansComponent implements OnInit {
     private route: Router,public ete: ExportExcelService,
     private subcontrservice: SubcontractorService,
     private requstservice: RequestService, private http: HttpClient,
-    private dialog: MatDialog,
+    private dialog: MatDialog, 
     private datePipe: DatePipe) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);

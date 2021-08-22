@@ -1,15 +1,22 @@
-<div mat-dialog-content>
-    <h3> Change the Status </h3>
+<div mat-dialog-content class="dialog-header">
+  <h3> Change the Status </h3>
+
+  <div>
+    <span class="material-icons close" mat-dialog-close>
+      close
+    </span>
+  </div>
+  
 </div>
 
 <div mat-dialog-actions *ngIf="type=='operartor'">
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Approve')">Approved</button>
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Reject')">Rejected</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Approve')">Approve</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Rejected')">Reject</button>
 </div>
 
 <div mat-dialog-actions *ngIf="type=='Opened' && !isclose" >
     <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close  (click)="Changestatus('Opened')">Open</button>
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Reject')">Reject</button>
+    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="Changestatus('Rejected')">Reject</button>
 </div>
 
 <div class="" *ngIf="type=='Closed'">
