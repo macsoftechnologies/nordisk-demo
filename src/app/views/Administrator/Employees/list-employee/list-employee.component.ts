@@ -21,6 +21,11 @@ export class ListEmployeeComponent implements OnInit {
   spinner = false;
   public items: any[];
 
+  temptest = [];
+
+  reorderable = true;
+  loadingIndicator = true;
+
   Cols = [
     { field: 'id', header: 'Id' },
     { field: 'employeeName', header: 'Name' },
@@ -46,13 +51,17 @@ export class ListEmployeeComponent implements OnInit {
     this.empservice.GetAllEmployees().subscribe(res=>
       {
         this.spinner = false;
+        
         this.items=res["data"];
+
+        this.temptest = this.items;
         
       });
   }
 
   Editemp(row)
   {
+    console.log(row)
     let title = 'Edit Employee';
     let dialogRef: MatDialogRef<any> = this.dialog.open(EmployeeComponent, {
       width: '1200px',
@@ -195,7 +204,7 @@ export class ListEmployeeComponent implements OnInit {
         {
           this.DownloadExcelData.push(
             {EmployeeName:x["employeeName"],BadgeId:x["badgeId"],
-            Designation:x["designation"],PhoneNumber:x["phonenumber"]}
+            Designation:x["designation"],PhoneNumber:x["phonenumber"],companyName:x["companyName"]}
           )
         });
   
@@ -210,5 +219,24 @@ export class ListEmployeeComponent implements OnInit {
       }
   
       this.ete.exportExcel(reportData);
+    }
+
+
+    searchFilter(event) {
+      const val = event.target.value.toLowerCase();
+
+      if(val != '') {
+        const temp = this.items.filter(function (d) {
+          return d.companyName.toLowerCase().indexOf(val) !== -1 || !val; 
+        });
+
+        // console.log(temp);
+
+        this.items = temp;
+      }
+      else {
+        console.log(this.temptest);
+        return this.items = this.temptest;
+      }
     }
 }

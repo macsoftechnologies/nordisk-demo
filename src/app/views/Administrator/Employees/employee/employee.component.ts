@@ -34,7 +34,7 @@ export class EmployeeComponent implements OnInit {
   radiooptions: any[] =
     [
       { name: "Subcontractor" },
-      { name: "Department" },
+      { name: "Departments" },
       { name: "Observer" }
     ];
   useraccess: boolean = false;
@@ -139,8 +139,8 @@ export class EmployeeComponent implements OnInit {
       phonenumber: null,
       access: "1",
       username: null,
+      password: null,
       companyName: null,
-      password: null
     }
   updateemp: UpdateEmployee =
     {
@@ -154,8 +154,8 @@ export class EmployeeComponent implements OnInit {
       phonenumber: null,
       access: "1",
       username: null,
+      password: null,
       companyName: null,
-      password: null
     }
 
   // EmpDto:Employee
@@ -234,15 +234,15 @@ export class EmployeeComponent implements OnInit {
       else {
         this.useraccess = false;
       }
-      debugger
-      if(this.data["payload"]["obserId"]!=null)
+      
+      if(this.data["payload"]["obserId"]!=null || this.data["payload"]["obserId"]!="")
       {
         this.EmployeeForm.controls["options"].setValue("Observer");
         this.selectedradioval = "Observer";
       }
       else if (this.data["payload"]["subContId"] == null || this.data["payload"]["subContId"] == "" || this.data["payload"]["subContId"] == "0") {
-        this.EmployeeForm.controls["options"].setValue("Department");
-        this.selectedradioval = "Department";
+        this.EmployeeForm.controls["options"].setValue("Departments");
+        this.selectedradioval = "Departments";
 
       }
       else {
@@ -270,8 +270,8 @@ export class EmployeeComponent implements OnInit {
       this.selectedradioval = "Subcontractor";
       this.IsObserver = true;
     }
-    else if (event.value === 'Department') {
-      this.selectedradioval = "Department";
+    else if (event.value === 'Departments') {
+      this.selectedradioval = "Departments";
       this.IsObserver = true;
     }
     else if (event.value === 'Observer') {
@@ -305,12 +305,13 @@ export class EmployeeComponent implements OnInit {
     this.emp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
     this.emp.username = this.EmployeeForm.controls["username"].value;
     this.emp.password = this.EmployeeForm.controls["password"].value;
+    this.emp.companyName = this.EmployeeForm.controls["companyName"].value;
     this.emp.type = this.selectedradioval;
 
     if (this.selectedradioval == "Subcontractor") {
       this.emp.typeId = this.EmployeeForm.controls["subcontrid"].value;
     }
-    else if (this.selectedradioval == "Department") {
+    else if (this.selectedradioval == "Departments") {
       this.emp.typeId = this.EmployeeForm.controls["EmpDept"].value;
     }
     else if (this.selectedradioval == "Observer") {
@@ -319,6 +320,7 @@ export class EmployeeComponent implements OnInit {
 
     this.spinner = true;
     this.empservice.CreateEmployees(this.emp).subscribe(res => {
+      console.log(res);
       if (res["status"] == 200) {
         this.openSnackBar("Employee Created Successfully");
         this.EmployeeForm.reset();
@@ -342,6 +344,7 @@ export class EmployeeComponent implements OnInit {
     this.updateemp.employeeName = this.EmployeeForm.controls["EmpName"].value;
     this.updateemp.designation = this.EmployeeForm.controls["Designation"].value;
     this.updateemp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
+    this.updateemp.companyName = this.EmployeeForm.controls["companyName"].value;
     this.updateemp.username = this.EmployeeForm.controls["username"].value;
     this.updateemp.password =btoa(this.EmployeeForm.controls["password"].value);
     this.updateemp.type = this.selectedradioval;
@@ -349,7 +352,7 @@ export class EmployeeComponent implements OnInit {
     if (this.selectedradioval == "Subcontractor") {
       this.updateemp.typeId = this.EmployeeForm.controls["subcontrid"].value;
     }
-    else if (this.selectedradioval == "Department") {
+    else if (this.selectedradioval == "Departments") {
       this.updateemp.typeId = this.EmployeeForm.controls["EmpDept"].value;
     }
     else if (this.selectedradioval == "Observer") {
