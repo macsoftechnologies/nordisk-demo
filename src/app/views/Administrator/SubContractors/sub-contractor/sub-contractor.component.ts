@@ -64,7 +64,7 @@ export class SubContractorComponent implements OnInit {
       this.croppedImage = this.data["payload"]["logo"];
       this.updatesubcontr.logo = "";
 
-      this.editcroppedImage = "https://safesiteworksbeam.online/beamapi/services/subcontractor/images/" + this.data["payload"]["logo"];
+      this.editcroppedImage = "https://beam.safesiteworks.com/beamapi/services/subcontractor/images/" + this.data["payload"]["logo"];
     }
   }
   csvInputChange(fileInputEvent: any) {
