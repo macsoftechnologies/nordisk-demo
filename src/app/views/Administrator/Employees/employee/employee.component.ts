@@ -344,7 +344,7 @@ export class EmployeeComponent implements OnInit {
     this.updateemp.designation = this.EmployeeForm.controls["Designation"].value;
     this.updateemp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
     this.updateemp.username = this.EmployeeForm.controls["username"].value;
-    this.EmployeeForm.controls["companyName"].setValue(this.data["payload"]["companyName"]);
+    this.updateemp.companyName = this.EmployeeForm.controls["companyName"].value;
     this.updateemp.password =btoa(this.EmployeeForm.controls["password"].value);
     this.updateemp.type = this.selectedradioval;
 

@@ -54,7 +54,7 @@ export class JwtAuthService {
     return this.http.post(environment.API_URL+'user/login.php', { username, password })
       .pipe(
         map((res: any) => {
-          debugger
+          // debugger
           if(res["status"]==false)
           {
             this.signingIn = false;

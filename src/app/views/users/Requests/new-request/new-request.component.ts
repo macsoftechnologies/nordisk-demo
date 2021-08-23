@@ -742,7 +742,9 @@ export class NewRequestComponent implements OnInit {
     //this.Requestdata.Site_Id = this.RequestForm.controls["Site"].value;
     // this.Requestdata.Building_Id = this.RequestForm.controls["Building"].value;
     // this.Requestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
-    this.Requestdata.Room_Nos = roomoarr.toString();
+    this.Requestdata.Room_Nos = this.RequestForm.controls["Room"].value;
+    // roomoarr.toString();
+    
     this.Requestdata.Room_Type = this.RequestForm.controls["RoomType"].value;
     this.Requestdata.Crane_Requested =
       this.RequestForm.controls["CMTdata"].value;
