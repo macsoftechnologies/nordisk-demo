@@ -1203,7 +1203,7 @@ export class NewRequestComponent implements OnInit {
     this.RequestForm.controls["TypeActivity"].setValue(
       data["Type_Of_Activity_Id"]
     );
-    this.RequestForm.controls["Building"].setValue(data["Building_Id"]);
+    this.RequestForm.controls["Building"].setValue(data["building_name"]);
     this.RequestForm.controls["CMTdata"].setValue(data["Crane_Requested"]);
     this.RequestForm.controls["CmtValue"].setValue(data["Crane_Number"]);
     this.RequestForm.controls["CertifiedPerson"].setValue(

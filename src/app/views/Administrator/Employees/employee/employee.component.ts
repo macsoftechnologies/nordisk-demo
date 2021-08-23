@@ -298,6 +298,7 @@ export class EmployeeComponent implements OnInit {
 
 
   CreateEmp() {
+    console.log(this.EmployeeForm.value)
     this.emp.roleId = this.EmployeeForm.controls["Role"].value;
     this.emp.badgeId = this.EmployeeForm.controls["badge"].value;
     this.emp.employeeName = this.EmployeeForm.controls["EmpName"].value;
@@ -307,6 +308,7 @@ export class EmployeeComponent implements OnInit {
     this.emp.username = this.EmployeeForm.controls["username"].value;
     this.emp.password = this.EmployeeForm.controls["password"].value;
     this.emp.type = this.selectedradioval;
+    console.log(this.selectedradioval)
 
     if (this.selectedradioval == "Subcontractor") {
       this.emp.typeId = this.EmployeeForm.controls["subcontrid"].value;
@@ -344,7 +346,7 @@ export class EmployeeComponent implements OnInit {
     this.updateemp.designation = this.EmployeeForm.controls["Designation"].value;
     this.updateemp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
     this.updateemp.username = this.EmployeeForm.controls["username"].value;
-    this.updateemp.companyName = this.EmployeeForm.controls["companyName"].value;
+    this.EmployeeForm.controls["companyName"].setValue(this.data["payload"]["companyName"]);
     this.updateemp.password =btoa(this.EmployeeForm.controls["password"].value);
     this.updateemp.type = this.selectedradioval;
 
