@@ -26,7 +26,7 @@ export const rootRouterConfig: Routes = [
   {
     path:'',
     component:UserLayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children:[
       {
         path:'user',
@@ -55,7 +55,7 @@ export const rootRouterConfig: Routes = [
   {
     path: '', 
     component: AdminLayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'others', 
@@ -74,4 +74,3 @@ export const rootRouterConfig: Routes = [
   //   redirectTo: 'sessions/404'
   // }
 ];
-

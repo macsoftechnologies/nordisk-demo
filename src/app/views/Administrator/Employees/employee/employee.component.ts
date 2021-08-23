@@ -301,6 +301,7 @@ export class EmployeeComponent implements OnInit {
     this.emp.roleId = this.EmployeeForm.controls["Role"].value;
     this.emp.badgeId = this.EmployeeForm.controls["badge"].value;
     this.emp.employeeName = this.EmployeeForm.controls["EmpName"].value;
+    this.emp.companyName = this.EmployeeForm.controls["companyName"].value;
     this.emp.designation = this.EmployeeForm.controls["Designation"].value;
     this.emp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
     this.emp.username = this.EmployeeForm.controls["username"].value;
