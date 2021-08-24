@@ -253,7 +253,8 @@
         <ng-template let-row="row" ngx-datatable-cell-template>
           <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator && row.Request_status!='Closed'"
             (click)="Editrow(row)">edit</mat-icon>
-          <mat-icon (click)="openPopUp(row)" class="icons-sty">visibility</mat-icon>
+          <mat-icon class="icons-sty">
+            <a href="https://beam.safesiteworks.com/newbeam/index.php?PermitNo={{ row?.PermitNo }}" target="_blank">visibility</a></mat-icon>
           <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold' || row.Request_status=='Approve' || row.Request_status=='Reject'">content_copy
           </mat-icon>
           <mat-icon (click)="CopyRequest(row,'Closed')" class="icons-sty"

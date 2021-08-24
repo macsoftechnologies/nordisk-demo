@@ -262,6 +262,8 @@ export class NewRequestComponent implements OnInit {
     Request_status: null,
     PermitNo: "1234",
     teamId: null,
+    building_name: null
+    
   };
 
   updaterequestdata: EditRequestDto = {
@@ -740,7 +742,7 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.Start_Time = this.RequestForm.controls["StartTime"].value;
     this.Requestdata.End_Time = this.RequestForm.controls["EndTime"].value;
     //this.Requestdata.Site_Id = this.RequestForm.controls["Site"].value;
-    // this.Requestdata.Building_Id = this.RequestForm.controls["Building"].value;
+    this.Requestdata.building_name = this.RequestForm.controls["Building"].value;
     this.Requestdata.Room_Type = this.RequestForm.controls["FloorName"].value;
     this.Requestdata.Room_Nos = this.RequestForm.controls["Room"].value;
     // roomoarr.toString();

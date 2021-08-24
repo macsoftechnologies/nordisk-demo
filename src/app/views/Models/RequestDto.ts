@@ -32,6 +32,7 @@ export class RequestDto
     Request_status:string;
     PermitNo:string;
     teamId:string;
+    building_name: string
 }
 
 
