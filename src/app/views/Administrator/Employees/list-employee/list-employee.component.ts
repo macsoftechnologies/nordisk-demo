@@ -204,7 +204,7 @@ export class ListEmployeeComponent implements OnInit {
         {
           this.DownloadExcelData.push(
             {EmployeeName:x["employeeName"],BadgeId:x["badgeId"],
-            Designation:x["designation"],PhoneNumber:x["phonenumber"],companyName:x["companyName"]}
+            Designation:x["designation"],PhoneNumber:x["phonenumber"],companyName:x["companyName"],email:x["email"]}
           )
         });
   

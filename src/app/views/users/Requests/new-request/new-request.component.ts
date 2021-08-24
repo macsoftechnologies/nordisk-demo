@@ -741,11 +741,11 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.End_Time = this.RequestForm.controls["EndTime"].value;
     //this.Requestdata.Site_Id = this.RequestForm.controls["Site"].value;
     // this.Requestdata.Building_Id = this.RequestForm.controls["Building"].value;
-    this.Requestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
+    this.Requestdata.Room_Type = this.RequestForm.controls["FloorName"].value;
     this.Requestdata.Room_Nos = this.RequestForm.controls["Room"].value;
     // roomoarr.toString();
     
-    this.Requestdata.Room_Type = this.RequestForm.controls["RoomType"].value;
+    // this.Requestdata.Room_Type = this.RequestForm.controls["RoomType"].value;
     this.Requestdata.Crane_Requested =
       this.RequestForm.controls["CMTdata"].value;
     this.Requestdata.Crane_Number = this.RequestForm.controls["CmtValue"].value;
@@ -816,7 +816,7 @@ export class NewRequestComponent implements OnInit {
     // this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
     this.updaterequestdata.Building_Id =
       this.RequestForm.controls["Building"].value;
-    this.updaterequestdata.Floor_Id =
+    this.updaterequestdata.Room_Type =
       this.RequestForm.controls["FloorName"].value;
     // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
     this.updaterequestdata.Company_Name =
@@ -844,8 +844,8 @@ export class NewRequestComponent implements OnInit {
     // this.Requestdata.Building_Id = this.RequestForm.controls["Building"].value;
     // this.Requestdata.Floor_Id = this.RequestForm.controls["FloorName"].value;
     // this.updaterequestdata.Room_Nos = roomoarr.toString();
-    this.updaterequestdata.Room_Type =
-      this.RequestForm.controls["RoomType"].value;
+    // this.updaterequestdata.Room_Type =
+    //   this.RequestForm.controls["RoomType"].value;
     this.updaterequestdata.Crane_Requested =
       this.RequestForm.controls["CMTdata"].value;
     this.updaterequestdata.Crane_Number =
@@ -918,7 +918,7 @@ export class NewRequestComponent implements OnInit {
     // this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
     this.updaterequestdata.Building_Id =
       this.RequestForm.controls["Building"].value;
-    this.updaterequestdata.Floor_Id =
+    this.updaterequestdata.Room_Type =
       this.RequestForm.controls["FloorName"].value;
     // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
     this.updaterequestdata.Company_Name =
@@ -941,8 +941,8 @@ export class NewRequestComponent implements OnInit {
       this.RequestForm.controls["StartTime"].value;
     this.updaterequestdata.End_Time =
       this.RequestForm.controls["EndTime"].value;
-    this.updaterequestdata.Room_Type =
-      this.RequestForm.controls["RoomType"].value;
+    // this.updaterequestdata.Room_Type =
+    //   this.RequestForm.controls["RoomType"].value;
     this.updaterequestdata.Crane_Requested =
       this.RequestForm.controls["CMTdata"].value;
     this.updaterequestdata.Crane_Number =
@@ -1210,7 +1210,7 @@ export class NewRequestComponent implements OnInit {
       data["Certified_Person"]
     );
     this.RequestForm.controls["EndTime"].setValue(data["End_Time"]);
-    this.RequestForm.controls["FloorName"].setValue(data["Floor_Id"]);
+    this.RequestForm.controls["FloorName"].setValue(data["Room_Type"]);
     this.RequestForm.controls["Foreman"].setValue(data["Foreman"]);
     this.RequestForm.controls["ForemanPhone"].setValue(
       data["Foreman_Phone_Number"]

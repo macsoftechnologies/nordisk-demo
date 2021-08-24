@@ -56,6 +56,7 @@ export class EmployeeComponent implements OnInit {
     username: null,
     password: null,
     companyName: null,
+    email: null,
     access: "1"
   }
   UpdateEmpdata: UpdateEmployeesDto = {
@@ -70,6 +71,7 @@ export class EmployeeComponent implements OnInit {
     username: null,
     password: null,
     companyName: null,
+    email: null,
     access: "0"
   }
   empwithsub: EmployeeSubDto =
@@ -83,6 +85,7 @@ export class EmployeeComponent implements OnInit {
       username: null,
       password: null,
       companyName: null,
+      email: null,
       access: "1"
     }
 
@@ -97,6 +100,7 @@ export class EmployeeComponent implements OnInit {
       username: null,
       password: null,
       companyName: null,
+      email: null,
       access: "1"
     }
 
@@ -111,6 +115,7 @@ export class EmployeeComponent implements OnInit {
     username: null,
     password: null,
     companyName: null,
+    email: null,
     access: "0"
   }
 
@@ -125,6 +130,7 @@ export class EmployeeComponent implements OnInit {
     username: null,
     password: null,
     companyName: null,
+    email: null,
     access: "0"
   }
 
@@ -140,6 +146,7 @@ export class EmployeeComponent implements OnInit {
       access: "1",
       username: null,
       companyName: null,
+      email: null,
       password: null
     }
   updateemp: UpdateEmployee =
@@ -155,6 +162,7 @@ export class EmployeeComponent implements OnInit {
       access: "1",
       username: null,
       companyName: null,
+      email: null,
       password: null
     }
 
@@ -207,6 +215,7 @@ export class EmployeeComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       companyName: ['', Validators.required],
+      email: ['', Validators.required],
       options: ['Subcontractor']
     });
 
@@ -219,6 +228,7 @@ export class EmployeeComponent implements OnInit {
       this.EmployeeForm.controls["PhonenNumber"].setValue(this.data["payload"]["phonenumber"]);
       this.EmployeeForm.controls["username"].setValue(this.data["payload"]["username"]);
       this.EmployeeForm.controls["companyName"].setValue(this.data["payload"]["companyName"]);
+      this.EmployeeForm.controls["email"].setValue(this.data["payload"]["email"]);
       this.EmployeeForm.controls["password"].setValue(atob(this.data["payload"]["password"]));
 
       this.EmployeeForm.controls["EmpDept"].setValue(this.data["payload"]["departId"]);
@@ -303,6 +313,7 @@ export class EmployeeComponent implements OnInit {
     this.emp.badgeId = this.EmployeeForm.controls["badge"].value;
     this.emp.employeeName = this.EmployeeForm.controls["EmpName"].value;
     this.emp.companyName = this.EmployeeForm.controls["companyName"].value;
+    this.emp.email = this.EmployeeForm.controls["email"].value;
     this.emp.designation = this.EmployeeForm.controls["Designation"].value;
     this.emp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
     this.emp.username = this.EmployeeForm.controls["username"].value;
@@ -343,6 +354,8 @@ export class EmployeeComponent implements OnInit {
     this.updateemp.roleId = this.EmployeeForm.controls["Role"].value;
     this.updateemp.badgeId = this.EmployeeForm.controls["badge"].value;
     this.updateemp.employeeName = this.EmployeeForm.controls["EmpName"].value;
+    this.updateemp.companyName = this.EmployeeForm.controls["companyName"].value;
+    this.updateemp.email = this.EmployeeForm.controls["email"].value;
     this.updateemp.designation = this.EmployeeForm.controls["Designation"].value;
     this.updateemp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
     this.updateemp.username = this.EmployeeForm.controls["username"].value;

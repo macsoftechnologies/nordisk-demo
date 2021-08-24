@@ -10,7 +10,8 @@ export class EmployeesDto
     username:string;
     password:string;
     access:string;
-    companyName:string
+    companyName:string;
+    email: string
 }
 
 export class UpdateEmployeesDto
@@ -26,7 +27,8 @@ export class UpdateEmployeesDto
     username:string;
     password:string;
     access:string;
-    companyName:string
+    companyName:string;
+    email: string
 }
 
 export class DeleteEmployeeDto
@@ -45,7 +47,8 @@ export class EmployeeSubDto
     access:string;
     username:string;
     password:string;
-    companyName:string
+    companyName:string;
+    email: string
 }
 
 export class EmployeeDeptDto
@@ -59,7 +62,8 @@ export class EmployeeDeptDto
     access:string;
     username:string;
     password:string;
-    companyName:string
+    companyName:string;
+    email: string
 }
 
 
@@ -75,7 +79,8 @@ export class UpdateEmployeeSubDto
     access:string;
     username:string;
     password:string;
-    companyName:string
+    companyName:string;
+    email: string
 }
 
 export class UpdateEmployeeDeptDto
@@ -90,7 +95,8 @@ export class UpdateEmployeeDeptDto
     access:string;
     username:string;
     password:string;
-    companyName:string
+    companyName:string;
+    email: string
 }
 
 
@@ -106,7 +112,8 @@ export class Employee
     access:string;
     username:string;
     password:string;
-    companyName:string
+    companyName:string;
+    email: string
 }
 
 export class UpdateEmployee
@@ -122,5 +129,6 @@ export class UpdateEmployee
     access:string;
     username:string;
     password:string;
-    companyName:string
+    companyName:string;
+    email: string
 }

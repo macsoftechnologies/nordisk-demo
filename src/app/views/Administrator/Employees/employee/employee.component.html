@@ -109,6 +109,19 @@
                     </mat-grid-tile>
                 </mat-grid-list>
 
+                <mat-grid-list cols="2" rowHeight="80px">
+                    <mat-grid-tile>
+                        <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" placeholder="Email">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
                 <mat-grid-list cols="2" rowHeight="80px" *ngIf="useraccess">
                     <mat-grid-tile>
                         <mat-form-field appearance="outline" class="full-width">
@@ -126,11 +139,7 @@
 
                 </mat-grid-list>
 
-                <mat-grid-list cols="1" rowHeight="80px">
-                    <mat-grid-tile>
-                        <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
-                    </mat-grid-tile>
-                </mat-grid-list>
+                
 
                 <div *ngIf="IsNameunique=='Username Exists'">
                     <p style="color: red;">*<i>{{IsNameunique}}</i></p>
