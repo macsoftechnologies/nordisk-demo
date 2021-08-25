@@ -1,3 +1,6 @@
+import * as moment from "moment";
+import "moment-timezone";
+
 export const config = {
   apiUrl: 'http://ui-lib-demo-api.herokuapp.com',
   authRoles: {
@@ -14,7 +17,9 @@ export const config = {
   },
 
   
-  Denmarktz : new Date().toLocaleString('da-DK', {
-      timeZone: "Europe/Copenhagen",
-  })
+  Denmarktz: 
+    moment
+      .tz(new Date(), "UTC")
+      .tz("Europe/Copenhagen")
+      .format("YYYY-MM-DDTHH:mm:ss")
 }

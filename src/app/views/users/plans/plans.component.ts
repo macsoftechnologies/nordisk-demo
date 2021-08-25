@@ -13,6 +13,7 @@ import { HttpClient } from '@angular/common/http';
 import { ExportExcelService } from 'app/shared/services/export-excel.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { ListPopupComponent } from '../Requests/list-popup/list-popup.component';
+import { config } from 'config';
 
 @Component({
   selector: 'app-plans',
@@ -115,7 +116,7 @@ export class PlansComponent implements OnInit {
     private requstservice: RequestService, private http: HttpClient,
     private dialog: MatDialog, 
     private datePipe: DatePipe) {
-    const currentYear = new Date().getFullYear();
+    const currentYear = new Date(config.Denmarktz).getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
     this.maxDate = new Date(currentYear + 1, 11, 31);
 
@@ -174,7 +175,7 @@ export class PlansComponent implements OnInit {
     var simple = new Date(y, 0, 1 + (w - 1) * 7);
     var dow = simple.getDay();
     var ISOweekStart = simple;
-    if (dow <= 4) {
+    if (dow <= 7) {
       this.ListWeeks.push(this.datePipe.transform(ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1), 'yyyy/MM/dd') + "  -  " + this.datePipe.transform(ISOweekStart.setDate(simple.getDate() + 7 - simple.getDay()), 'yyyy/MM/dd'));
       // console.log(this.datePipe.transform(ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1), 'yyyy-MM-dd'));
       // console.log(this.datePipe.transform(ISOweekStart.setDate(simple.getDate() + 7 - simple.getDay()), 'yyyy-MM-dd'));

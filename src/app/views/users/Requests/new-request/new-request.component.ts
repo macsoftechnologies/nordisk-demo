@@ -39,6 +39,7 @@ import { TemplateDefinitionBuilder } from "@angular/compiler/src/render3/view/te
 import { TeamService } from "app/shared/services/team.service";
 import { TeamsBySubId } from "app/views/Models/TeamsDto";
 import { number } from "ngx-custom-validators/src/app/number/validator";
+import { config } from "config";
 
 @Component({
   selector: "app-new-request",
@@ -63,7 +64,7 @@ export class NewRequestComponent implements OnInit {
   NewRequestData: any = {};
   selectedbuildimg: string = "";
   selectedholdbtnoption: string = "";
-  Reqdate = new Date();
+  Reqdate = new Date(config.Denmarktz);
   minDate: Date;
   maxDate: Date;
   name: string;
