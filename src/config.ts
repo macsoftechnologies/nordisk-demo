@@ -11,5 +11,10 @@ export const config = {
     observer:['Admin','Observer'],
     subcontractor: ['Admin','Department','Observer','Subcontractor'],
     
-  }
+  },
+
+  
+  Denmarktz : new Date().toLocaleString('da-DK', {
+      timeZone: "Europe/Copenhagen",
+  })
 }

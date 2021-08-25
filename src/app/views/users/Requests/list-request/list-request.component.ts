@@ -27,6 +27,7 @@ import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { RequestsbyId, RequestBySubcontractorId } from 'app/views/Models/RequestDto';
 import * as xlsx from 'xlsx';
 import { EditRequestComponent } from '../edit-request/edit-request.component';
+import { config } from 'config';
 
 @Component({
   selector: 'app-list-request',
@@ -145,6 +146,11 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {
+    // var d = new Date();
+    // var n = d.toLocaleString('da-DK', {
+    //   timeZone: "Europe/Copenhagen",
+    // });
+    console.log(config.Denmarktz);
     this.getItems();
     this.RequestlistForm = this.fb.group({
       Permitnumber: ['', Validators.required],
