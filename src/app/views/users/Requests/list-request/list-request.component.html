@@ -161,8 +161,8 @@
       <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
     </div> -->
     <div *ngIf="isoperator">
-      <button mat-raised-button class="span-apprv" (click)="statuschange('Approve')">Approve</button>
-      <button mat-raised-button class="span-rejc" (click)="statuschange('Reject')">Reject</button>
+      <button mat-raised-button class="span-apprv" (click)="statuschange('Approved')">Approved</button>
+      <button mat-raised-button class="span-rejc" (click)="statuschange('Rejected')">Rejected</button>
       <mat-form-field appearance="outline" *ngIf="selected.length>0">
         <mat-label>Edit</mat-label>
         <mat-select name="editmult" (selectionChange)="Getselected($event.value)">
@@ -186,7 +186,7 @@
       <ngx-datatable-column *ngIf="isoperator">
         <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
           let-selectFn="selectFn">
-          <!-- <span class="span-sty span-apprv" color="primary">Approved</span>
+          <!-- <span class="span-sty span-apprv" color="primary">Approvedd</span>
           <span class="span-sty span-rejc" color="primary">Rejected</span> -->
 
           <div>
@@ -228,7 +228,7 @@
       <ngx-datatable-column name="Status" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <mat-chip mat-sm-chip [color]="'primary'" (click)="EditDraft(row)"
-            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approve' && row.Request_status!='Opened' && row.Request_status!='Closed'">
+            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approved' && row.Request_status!='Opened' && row.Request_status!='Closed'">
             {{row?.Request_status}}
           </mat-chip>
           <mat-chip mat-sm-chip [color]="'primary'"
@@ -236,7 +236,7 @@
           {{row?.Request_status}}
         </mat-chip>
           <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Opened')"
-            *ngIf="row.Request_status=='Approve'">{{row?.Request_status}}
+            *ngIf="row.Request_status=='Approved'">{{row?.Request_status}}
           </mat-chip>
           <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Closed')"
             *ngIf="row.Request_status=='Opened'">{{row?.Request_status}}
@@ -255,7 +255,7 @@
             (click)="Editrow(row)">edit</mat-icon>
           <mat-icon class="icons-sty">
             <a href="https://beam.safesiteworks.com/newbeam/index.php?PermitNo={{ row?.PermitNo }}" target="_blank">visibility</a></mat-icon>
-          <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold' || row.Request_status=='Approve' || row.Request_status=='Reject'">content_copy
+          <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold' || row.Request_status=='Approved' || row.Request_status=='Rejected'">content_copy
           </mat-icon>
           <mat-icon (click)="CopyRequest(row,'Closed')" class="icons-sty"
             *ngIf="row.Request_status=='Closed' && isoperator">content_copy</mat-icon>

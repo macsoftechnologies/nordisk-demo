@@ -70,7 +70,7 @@ export class ListRequestComponent implements OnInit {
       "Statusname": "Draft"
     },
     {
-      "Statusid": "Approve",
+      "Statusid": "Approved",
       "Statusname": "Approved"
     },
     {

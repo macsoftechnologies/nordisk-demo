@@ -172,8 +172,8 @@ export class NewRequestComponent implements OnInit {
       Statusname: "Draft",
     },
     {
-      Statusid: "Approve",
-      Statusname: "Approve",
+      Statusid: "Approved",
+      Statusname: "Approved",
     },
     {
       Statusid: "Rejected",
@@ -194,8 +194,8 @@ export class NewRequestComponent implements OnInit {
       Statusname: "Hold",
     },
     {
-      Statusid: "Approve",
-      Statusname: "Approve",
+      Statusid: "Approved",
+      Statusname: "Approved",
     },
     {
       Statusid: "Rejected",
