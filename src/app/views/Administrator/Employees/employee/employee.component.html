@@ -98,7 +98,7 @@
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <mat-form-field *ngIf="selectedradioval=='Departments'" class="full-width" appearance="outline">
+                        <mat-form-field *ngIf="selectedradioval=='Department'" class="full-width" appearance="outline">
                             <mat-label> Select {{selectedradioval}}</mat-label>
                             <mat-select formControlName="EmpDept" name="Department">
                                 <mat-option *ngFor="let tech of Departments" [value]="tech.id">
