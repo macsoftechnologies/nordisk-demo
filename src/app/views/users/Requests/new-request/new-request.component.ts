@@ -452,7 +452,7 @@ export class NewRequestComponent implements OnInit {
       this.updaterequestdata.userId = this.userdata["id"];
       if (this.userdata["role"] == "Subcontractor") {
         this.editform = true;
-        this.seditform = false;
+        this.seditform = true;
         this.Assigneditform = false;
         this.Status = this.subStatus;
         this.subeditform = true;
@@ -468,6 +468,7 @@ export class NewRequestComponent implements OnInit {
         this.editform = true;
         this.Assigneditform = true;
         this.subeditform = false;
+        this.seditform = true;
       } else if (this.userdata["role"] == "Department") {
         this.editform = true;
         this.Assigneditform = true;
