@@ -619,3 +619,29 @@ button {
 .textarea {
   resize: none;
 }
+
+.plan_effect {
+  position: relative;
+  /* display: inline-block; */
+}
+
+.plan_effect .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  right: -120px;
+  top: 0px;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  
+}
+
+.plan_effect:hover .tooltiptext {
+  visibility: visible;
+}

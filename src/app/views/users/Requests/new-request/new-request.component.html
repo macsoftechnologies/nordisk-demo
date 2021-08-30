@@ -1202,71 +1202,117 @@
     <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
     <ng-container *ngIf="planType === 'LK1'; else second">
       <!-- sub button -->
-      <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_LK_1 sub_btn"></button>
-      <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_LK_2 sub_btn"></button>
-      <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_LK_3 sub_btn"></button>
-      <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_LK_4 sub_btn"></button>
-      <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LK_5 sub_btn"></button>
+      <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_LK_1 sub_btn">
+        <span class="tooltiptext">B1.1B</span>
+      </button>
+      <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_LK_2 sub_btn">
+        <span class="tooltiptext">B1.1E</span>
+      </button>
+      <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_LK_3 sub_btn">
+        <span class="tooltiptext">B1.2C</span>
+      </button>
+      <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_LK_4 sub_btn">
+        <span class="tooltiptext">B1.3C</span>
+      </button>
+      <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LK_5 sub_btn">
+        <span class="tooltiptext">B1.2E</span>
+      </button>
       
       <button
         (click)="onFloorPlan('B 1.1')"
         class="plan_effect k_b_1_1"
-      ></button>
+      >
+      <span class="tooltiptext">B 1.1</span>
+    </button>
       <button
         (click)="onFloorPlan('B 1.T')"
         class="plan_effect k_b_1_2"
-      ></button>
+      >
+      <span class="tooltiptext">B 1.T</span>
+    </button>
       <button
         (click)="onFloorPlan('B 1.2')"
         class="plan_effect k_b_1_3"
-      ></button>
+      >
+      <span class="tooltiptext">B 1.2</span>
+    </button>
       <button
         (click)="onFloorPlan('B 1.CM')"
         class="plan_effect k_b_1_4"
-      ></button>
+      >
+      <span class="tooltiptext">B 1.CM</span>
+    </button>
       <button
         (click)="onFloorPlan('B 1.CM')"
         class="plan_effect k_b_1_4_1"
-      ></button>
+      >
+      <span class="tooltiptext">B 1.CM</span>
+    </button>
       <button
         (click)="onFloorPlan('B 1.CM')"
         class="plan_effect k_b_1_4_2"
-      ></button>
+      >
+      <span class="tooltiptext">B 1.CM</span>
+    </button>
     </ng-container>
     <ng-template #second>
       <ng-container *ngIf="planType === 'L00'; else third">
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect zero_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_0_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_0_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_0_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_0_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.4A')" class="plan_effect sub_0_5 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.4B')" class="plan_effect sub_0_6 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_0_7 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_0_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_0_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_0_3 sub_btn">
+          <span class="tooltiptext">B 1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_0_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.4A')" class="plan_effect sub_0_5 sub_btn">
+          <span class="tooltiptext">B1.4A</span>
+        </button>
+        <button (click)="onFloorPlan('B1.4B')" class="plan_effect sub_0_6 sub_btn">
+          <span class="tooltiptext">B1.4B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_0_7 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
 
 
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect zero_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect zero_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.4N')"
           class="plan_effect zero_b_1_4"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.4N</span>
+      </button>
 
         <button
           (click)="onFloorPlan('B 1.4E')"
           class="plan_effect zero_b_1_5"
-        ></button
+        >
+        <span class="tooltiptext">B 1.4E</span>
+        </button
       ></ng-container>
     </ng-template>
     <ng-template #third>
@@ -1274,35 +1320,59 @@
         ><button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect one_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_1_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_1_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_1_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_1_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.4A')" class="plan_effect sub_1_5 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.4B')" class="plan_effect sub_1_6 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_1_7 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_1_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_1_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_1_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_1_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.4A')" class="plan_effect sub_1_5 sub_btn">
+          <span class="tooltiptext">B1.4A</span>
+        </button>
+        <button (click)="onFloorPlan('B1.4B')" class="plan_effect sub_1_6 sub_btn">
+          <span class="tooltiptext">B1.4B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_1_7 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
 
 
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect one_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect one_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.4N')"
           class="plan_effect one_b_1_4"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.4N</span>
+      </button>
 
         <button
           (click)="onFloorPlan('B 1.4E')"
           class="plan_effect one_b_1_5"
-        ></button
+        >
+        <span class="tooltiptext">B 1.4E</span>
+        </button
       ></ng-container>
     </ng-template>
     <ng-template #forth>
@@ -1310,31 +1380,49 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect two_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
 
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect two_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect two_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
         <!-- <button
           (click)="onFloorPlan('B 1.4')"
           class="plan_effect two_b_1_4"
         >
         </button> -->
-        <button class="two_b_1_4 mainn">
-          <div class="plan_effect sub_02" (click)="onFloorPlan('B 1.4 Roof')"></div>
-        </button>
+        <div class="two_b_1_4 mainn">
+          <button class="plan_effect sub_02" (click)="onFloorPlan('B 1.4 Roof')">
+            <span class="tooltiptext">B 1.4 ROOF</span>
+          </button>
+        </div>
       </ng-container>
     </ng-template>
     <ng-template #fifth>
@@ -1342,22 +1430,38 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect three_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>        
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>        
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
 
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect three_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect three_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
       </ng-container>
     </ng-template>
     <!-- Four -->
@@ -1366,22 +1470,38 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect five_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect five_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect five_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
       </ng-container>
     </ng-template>
 
@@ -1391,22 +1511,38 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect five_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect five_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect five_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
       </ng-container>
     </ng-template>
     <ng-template #seventh>
@@ -1414,23 +1550,39 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect six_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
 
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect six_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect six_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
       </ng-container>
     </ng-template>
 
@@ -1439,23 +1591,39 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect seven_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
 
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect seven_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect seven_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
       </ng-container>
     </ng-template>
 
@@ -1464,23 +1632,39 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect eight_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
 
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn"></button>
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn"></button>
+        <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
+          <span class="tooltiptext">B1.1B</span>
+        </button>
+        <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
+          <span class="tooltiptext">B1.1E</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
+          <span class="tooltiptext">B1.2C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.3C')" class="plan_effect sub_2_4 sub_btn">
+          <span class="tooltiptext">B1.3C</span>
+        </button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
         
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect eight_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect eight_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
       </ng-container>
     </ng-template>
 
@@ -1492,18 +1676,26 @@
         <button
           (click)="onFloorPlan('B 1.1')"
           class="plan_effect three_b_1_1"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.1</span>
+      </button>
         <!-- sub button -->
-        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LTA sub_btn"></button>
+        <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LTA sub_btn">
+          <span class="tooltiptext">B1.2E</span>
+        </button>
 
         <button
           (click)="onFloorPlan('B 1.2')"
           class="plan_effect three_b_1_2"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.2</span>
+      </button>
         <button
           (click)="onFloorPlan('B 1.3')"
           class="plan_effect three_b_1_3"
-        ></button>
+        >
+        <span class="tooltiptext">B 1.3</span>
+      </button>
       </ng-container>
     </ng-template>
 
