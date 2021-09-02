@@ -4,6 +4,7 @@ import { EditRequestDto, UpdateClose_Status } from 'app/views/Models/RequestDto'
 import { RequestService } from 'app/shared/services/request.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
+import { config } from 'config';
 
 
 @Component({
@@ -50,7 +51,8 @@ export class StatusChangeDialogComponent implements OnInit {
       Assign_Start_Time: null,
       Special_Instructions: null,
       Safety_Precautions: null,
-      teamId: null
+      teamId: null,
+      createdTime: null
     }
   images: any[] = [];
   base64Images: any[] = [];
@@ -60,7 +62,8 @@ export class StatusChangeDialogComponent implements OnInit {
       id: null,
       Image: [],
       Request_status: null,
-      userId: null
+      userId: null,
+      createdTime: null
     }
   userdata: any = {};
 
@@ -130,8 +133,13 @@ export class StatusChangeDialogComponent implements OnInit {
     }
     else {
       this.isclose = false;
+      console.log(config.Denmarktz.split(' '));
+      const [currentDenmarkDate,currentDenmarkTime]= [...config.Denmarktz.split(' ')];
+      console.log(currentDenmarkTime);
+      console.log(currentDenmarkDate)
       this.updaterequestdata.Request_status = statusdata;
-      console.log(this.updaterequestdata)
+      this.updaterequestdata.createdTime = currentDenmarkTime;
+      console.log(this.updaterequestdata, "test data")
       this.requestdataservice.UpdateRequest(this.updaterequestdata).subscribe(x => {
         if(x.status == 200) {
           this.openSnackBar("Request Status Updated Successfully");
@@ -146,10 +154,15 @@ export class StatusChangeDialogComponent implements OnInit {
 
   }
   Changestatusbysubcontractor(status) {
+    console.log(config.Denmarktz.split(' '));
+    const [currentDenmarkDate,currentDenmarkTime]= [...config.Denmarktz.split(' ')];
+    console.log(currentDenmarkTime);
+    console.log(currentDenmarkDate)
     const formData = new FormData();
     this.spinner = true;
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
+    this.Close_Request.createdTime = currentDenmarkTime;
 
     if(this.images.length>0)
     {
@@ -165,6 +178,7 @@ export class StatusChangeDialogComponent implements OnInit {
     formData.append('id', this.Close_Request.id);
     formData.append('Request_status', this.Close_Request.Request_status);
     formData.append('userId', this.userdata["id"]);
+    formData.append('createdTime', this.Close_Request.createdTime)
 
     this.requestdataservice.CloseRequest(formData).subscribe(res => {
       if(res.status == 200) {

@@ -21,5 +21,5 @@ export const config = {
     moment
       .tz(new Date(), "UTC")
       .tz("Europe/Copenhagen")
-      .format("YYYY-MM-DDTHH:mm:ss")
+      .format("YYYY-MM-DD HH:mm:ss")
 }

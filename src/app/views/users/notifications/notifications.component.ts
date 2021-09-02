@@ -81,7 +81,7 @@ export class NotificationsComponent implements OnInit {
 
               this.RequestList=FilterList;
 
-              console.log(this.RequestList)
+              // console.log(this.RequestList)
 
               // this.temp = this.RequestList;
 
@@ -101,8 +101,9 @@ export class NotificationsComponent implements OnInit {
     if(val !== '') {
       // filter our data
       const temp = this.RequestList.filter(function (d) {
-        // console.log(d)
-        return d.PermitNo.toLowerCase().indexOf(val) !== -1 || !val;
+        console.log(d.PermitNo.toLowerCase().indexOf(val));
+        console.log(!val);
+        return d.PermitNo.toLowerCase().indexOf(val) !== -1;
       });
   
       // console.log(temp);
@@ -114,7 +115,7 @@ export class NotificationsComponent implements OnInit {
     else {
       // Whenever the filter changes, always go back to the first page
       // this.table.offset = 0;
-      console.log(this.tempTest)
+      // console.log(this.tempTest)
       return this.RequestList = this.tempTest;
     }
   }

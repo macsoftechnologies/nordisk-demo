@@ -304,6 +304,7 @@ export class NewRequestComponent implements OnInit {
     Special_Instructions: null,
     Safety_Precautions: null,
     teamId: null,
+    createdTime: null
   };
 
   userdata: any = {};

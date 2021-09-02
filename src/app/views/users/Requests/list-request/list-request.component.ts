@@ -46,6 +46,7 @@ export class ListRequestComponent implements OnInit {
 
   minDate: Date;
   maxDate: Date;
+  CurrentTime : Date;
   RequestlistForm: FormGroup;
   items: any[] = [];
   getItemSub: Subscription;
@@ -146,11 +147,13 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.CurrentTime, "TIME")
+    console.log(Date(), "DATE");
     // var d = new Date();
     // var n = d.toLocaleString('da-DK', {
     //   timeZone: "Europe/Copenhagen",
     // });
-    console.log(config.Denmarktz);
+    
     this.getItems();
     this.RequestlistForm = this.fb.group({
       Permitnumber: ['', Validators.required],
@@ -467,6 +470,10 @@ export class ListRequestComponent implements OnInit {
       });
   }
   ChangeStausbysubcontractor(row, status) {
+    console.log(config.Denmarktz.split(' '));
+    const [currentDenmarkDate,currentDenmarkTime]= [...config.Denmarktz.split(' ')];
+    console.log(currentDenmarkTime);
+    console.log(currentDenmarkDate)
     let title = 'Request Status Change ';
     let type = status;
     if (status == "Opened") {

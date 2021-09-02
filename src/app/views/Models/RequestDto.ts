@@ -32,7 +32,7 @@ export class RequestDto
     Request_status:string;
     PermitNo:string;
     teamId:string;
-    building_name: string
+    building_name: string;
 }
 
 
@@ -74,6 +74,7 @@ export class EditRequestDto
     Safety_Precautions:string;
     Special_Instructions:string;
     teamId:string;
+    createdTime: string;
 }
 
 export class DeleteRequestDto
@@ -136,6 +137,7 @@ export class UpdateClose_Status
     Image:any[];
     id:string;
     userId:string;
+    createdTime : string
     //files:string  []  =  [];
 }
 

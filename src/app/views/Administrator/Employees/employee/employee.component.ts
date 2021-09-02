@@ -28,13 +28,17 @@ export class EmployeeComponent implements OnInit {
   SubContractor: any[] = [];
   Roles: any[] = [];
   radioselectvalname: string = "Subcontractor";
-  selectedradioval = "Subcontractor";
+  selectedradioval = "Department";
   IsObserver: boolean = true;
+
+  SubContact: boolean = true;
+  Depart: boolean = true;
+  Company : any;
 
   radiooptions: any[] =
     [
-      { name: "Subcontractor" },
       { name: "Department" },
+      { name: "Subcontractor" },
       { name: "Observer" }
     ];
   useraccess: boolean = false;
@@ -216,7 +220,7 @@ export class EmployeeComponent implements OnInit {
       password: ['', Validators.required],
       companyName: ['', Validators.required],
       email: ['', Validators.required],
-      options: ['Subcontractor']
+      options: ['Department']
     });
 
     if (this.data != null && this.data["editform"] == true) {
@@ -279,14 +283,22 @@ export class EmployeeComponent implements OnInit {
     if (event.value === 'Subcontractor') {
       this.selectedradioval = "Subcontractor";
       this.IsObserver = true;
+      this.Depart = true;
+      this.SubContact = false;
     }
     else if (event.value === 'Department') {
       this.selectedradioval = "Department";
       this.IsObserver = true;
+      this.Depart = true;
+      this.SubContact = true;
+      this.Company = 'KHPT'
     }
     else if (event.value === 'Observer') {
       this.selectedradioval = "Observer";
       this.IsObserver = false;
+      this.Depart = true;
+      this.SubContact = true;
+      this.Company = ''
     }
   }
   toggle(event) {

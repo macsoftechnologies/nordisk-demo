@@ -81,10 +81,10 @@
                         <mat-slide-toggle [checked]="useraccess" (change)="toggle($event)">Access</mat-slide-toggle>
                     </mat-grid-tile> -->
 
-                    <mat-grid-tile>
-                        <mat-form-field class="full-width" appearance="outline">
+                    <mat-grid-tile *ngIf="Depart">
+                        <mat-form-field class="full-width" appearance="outline" *ngIf="SubContact">
                             <mat-label>Company Name</mat-label>
-                            <input matInput formControlName="companyName" placeholder="Company Name">
+                            <input matInput formControlName="companyName" placeholder="Company Name" [(ngModel)]="Company">
                         </mat-form-field>
                     </mat-grid-tile>
 

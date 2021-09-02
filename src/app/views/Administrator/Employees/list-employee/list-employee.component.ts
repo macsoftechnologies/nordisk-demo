@@ -227,7 +227,7 @@ export class ListEmployeeComponent implements OnInit {
 
       if(val != '') {
         const temp = this.items.filter(function (d) {
-          return d.companyName.toLowerCase().indexOf(val) !== -1 || !val; 
+          return d.companyName.toLowerCase().indexOf(val) !== -1 || d.employeeName.toLowerCase().indexOf(val) !== -1; 
         });
 
         // console.log(temp);
@@ -235,7 +235,7 @@ export class ListEmployeeComponent implements OnInit {
         this.items = temp;
       }
       else {
-        console.log(this.temptest);
+        // console.log(this.temptest);
         return this.items = this.temptest;
       }
     }
