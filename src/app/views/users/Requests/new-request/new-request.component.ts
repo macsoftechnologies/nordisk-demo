@@ -47,6 +47,8 @@ import { config } from "config";
   styleUrls: ["./new-request.component.css"],
 })
 export class NewRequestComponent implements OnInit {
+
+
   // pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
   //pdfSrc ="https://macsof.com/safesite/1complete_plan.pdf";
 
@@ -309,6 +311,8 @@ export class NewRequestComponent implements OnInit {
 
   userdata: any = {};
   planType: string = "";
+  FloorMain: any;
+  FloorOrdinates: any = [] ;
   constructor(
     private fb: FormBuilder,
     private route: Router,
@@ -331,7 +335,138 @@ export class NewRequestComponent implements OnInit {
     this.spinner = true;
   }
 
+  // Map Co-Ordinates
+  LK1 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.T',
+    'B 1.CM',
+    'B1.1B',
+    'B1.2C',
+    'B1.3C',
+    'B1.1E',
+    'B1.2E'
+  ];
+
+  L00 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B 1.4E',
+    'B 1.4N',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.4A',
+    'B1.4B',
+    'B1.2E'
+  ];
+
+  L01 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B 1.4E',
+    'B 1.4N',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.4A',
+    'B1.4B',
+    'B1.2E'
+  ];
+
+  L02 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B 1.4 Roof',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.2E'
+  ];
+
+  L03 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.2E'
+  ];
+
+  L04 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.2E'
+  ];
+
+  L05 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.2E'
+  ];
+
+  L06 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.2E'
+  ];
+
+  L07 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.2E'
+  ];
+
+  L08 = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B1.1B',
+    'B1.1E',
+    'B1.2C',
+    'B1.3C',
+    'B1.2E'
+  ];
+
+  LTA = [
+    'B 1.1',
+    'B 1.2',
+    'B 1.3',
+    'B1.2E'
+  ];
+
   ngOnInit(): void {
+
+    // console.log(this.L000)
+    
     this.RequestForm = this.fb.group({
       Requestdate: ["", [Validators.required]],
       Companyname: ["", Validators.required],
@@ -381,7 +516,7 @@ export class NewRequestComponent implements OnInit {
       //AccesstoOtherRoom:this.AccesstoroomControl,
       //Keysneeded:this.KeysneedControl,
 
-      Room: ["", Validators.required],
+      Room: [null, Validators.required],
       SubContractorname: ["", Validators.required],
       //Departconfs:this.departconfControl,
       //RequiredDocument:this.RequiredDocumentControl
@@ -611,6 +746,8 @@ export class NewRequestComponent implements OnInit {
     //   }
     // });
     this.RequestForm.controls["FloorName"].setValue(event);
+    this.FloorMain = event;
+    console.log(this.FloorMain,"For Test")
     this.requestsserivies.GetAllRoomsbyid(event).subscribe((res) => {
       this.spinner = false;
       this.RoomsList = res["data"];
@@ -627,7 +764,56 @@ export class NewRequestComponent implements OnInit {
     this.RequestForm.controls["Companyname"].setValue(
       "Koge Hospital Project Team (KHPT)"
     );
-    this.RequestForm.controls["Room"].setValue(planVal);
+    
+    switch(this.FloorMain) {
+      case "LK1": 
+        this.FloorOrdinates = this.LK1 ;
+        // console.log(this.FloorOrdinates, "tessssst");
+      break;
+
+      case "L00":
+        this.FloorOrdinates = this.L00;
+        break;
+      
+      case "L01":
+      this.FloorOrdinates = this.L01;
+      break;
+
+      case "L02":
+      this.FloorOrdinates = this.L02;
+      break;
+
+      case "L03":
+      this.FloorOrdinates = this.L03;
+      break;
+
+      case "L04":
+      this.FloorOrdinates = this.L04;
+      break;
+
+      case "L05":
+      this.FloorOrdinates = this.L05;
+      break;
+
+      case "L06":
+      this.FloorOrdinates = this.L06;
+      break;
+
+      case "L07":
+      this.FloorOrdinates = this.L07;
+      break;
+
+      case "L08":
+      this.FloorOrdinates = this.L08;
+      break;
+
+      case "LTA":
+      this.FloorOrdinates = this.LTA;
+      break;
+    }
+
+
+    this.RequestForm.controls["Room"].setValue([planVal]);
     this.isnewrequestcreated = true;
     console.log(this.RequestForm.value);
   }
@@ -675,6 +861,7 @@ export class NewRequestComponent implements OnInit {
 
         res["data"].forEach((x) => {
           emps.push(x);
+          console.log(emps)
         });
         this.BADGENUMBERS = emps;
       });
@@ -747,7 +934,7 @@ export class NewRequestComponent implements OnInit {
     //this.Requestdata.Site_Id = this.RequestForm.controls["Site"].value;
     this.Requestdata.building_name = this.RequestForm.controls["Building"].value;
     this.Requestdata.Room_Type = this.RequestForm.controls["FloorName"].value;
-    this.Requestdata.Room_Nos = this.RequestForm.controls["Room"].value;
+    this.Requestdata.Room_Nos = this.RequestForm.controls["Room"].value.toString();
     // roomoarr.toString();
     
     // this.Requestdata.Room_Type = this.RequestForm.controls["RoomType"].value;

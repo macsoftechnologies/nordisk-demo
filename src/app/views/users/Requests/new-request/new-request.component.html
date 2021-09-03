@@ -395,8 +395,8 @@
             </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
-            <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline">
+            <!-- <mat-grid-tile> -->
+              <!-- <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Area</mat-label>
                 <input
                   matInput
@@ -404,12 +404,8 @@
                   formControlName="Room"
                   placeholder="Floor Name"
                 />
-                <!-- <mat-select formControlName="Room" multiple>
-                  <mat-option *ngFor="let e of RoomsList" [value]="e.room_id">{{
-                    e.room_name
-                  }}</mat-option>
-                </mat-select> -->
-              </mat-form-field>
+                
+              </mat-form-field> -->
               <!-- <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Room </mat-label>
                 <input matInput readonly formControlName="RoomNo" placeholder="Room No">
@@ -432,6 +428,17 @@
                  
                 </mat-autocomplete>
               </mat-form-field> -->
+            <!-- </mat-grid-tile> -->
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Area</mat-label>
+                <mat-select formControlName="Room" [multiple]="true">
+                  <mat-option *ngFor="let item of FloorOrdinates" [value]="item">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             </mat-grid-tile>
 
             <!-- <mat-grid-tile>

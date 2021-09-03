@@ -261,7 +261,8 @@ export class EmployeeComponent implements OnInit {
       }
       else {
         this.EmployeeForm.controls["options"].setValue("Subcontractor");
-        
+        this.Depart = true;
+        this.SubContact = false;
         this.selectedradioval = "Subcontractor";
       }
 
@@ -371,7 +372,7 @@ export class EmployeeComponent implements OnInit {
     this.updateemp.designation = this.EmployeeForm.controls["Designation"].value;
     this.updateemp.phonenumber = this.EmployeeForm.controls["PhonenNumber"].value;
     this.updateemp.username = this.EmployeeForm.controls["username"].value;
-    this.EmployeeForm.controls["companyName"].setValue(this.data["payload"]["companyName"]);
+    // this.EmployeeForm.controls["companyName"].setValue(this.data["payload"]["companyName"]);
     this.updateemp.password =btoa(this.EmployeeForm.controls["password"].value);
     this.updateemp.type = this.selectedradioval;
 
