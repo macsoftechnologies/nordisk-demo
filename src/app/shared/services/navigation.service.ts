@@ -242,9 +242,9 @@ export class NavigationService {
       ]
     },
     {
-      name: "subcontractors",
+      name: "Subcontractors",
       type: "dropDown",
-      tooltip: "subcontractors",
+      tooltip: "Subcontractors",
       icon: "event", 
       state: "",
       sub: [
