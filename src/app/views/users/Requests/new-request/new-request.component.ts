@@ -1350,6 +1350,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   EditFormDataBinding(data) {
+    console.log(data);
     this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
 
     var roomarrstr = [];
@@ -1368,7 +1369,59 @@ export class NewRequestComponent implements OnInit {
     this.EditSafetyArray.length = 0;
     this.EditSafetyArray = [];
     safetystr = data["Safety_Precautions"].split(",");
-    this.RequestForm.controls["Room"].setValue(data["Room_Nos"].split(","));
+
+
+    this.onFloorPlan(data.Room_Type);
+    switch(data.Room_Type) {
+      case "LK1": 
+        this.FloorOrdinates = this.LK1 ;
+        // console.log(this.FloorOrdinates, "tessssst");
+      break;
+
+      case "L00":
+        this.FloorOrdinates = this.L00;
+        break;
+      
+      case "L01":
+      this.FloorOrdinates = this.L01;
+      break;
+
+      case "L02":
+      this.FloorOrdinates = this.L02;
+      break;
+
+      case "L03":
+      this.FloorOrdinates = this.L03;
+      break;
+
+      case "L04":
+      this.FloorOrdinates = this.L04;
+      break;
+
+      case "L05":
+      this.FloorOrdinates = this.L05;
+      break;
+
+      case "L06":
+      this.FloorOrdinates = this.L06;
+      break;
+
+      case "L07":
+      this.FloorOrdinates = this.L07;
+      break;
+
+      case "L08":
+      this.FloorOrdinates = this.L08;
+      break;
+
+      case "LTA":
+      this.FloorOrdinates = this.LTA;
+      break;
+    }
+    console.log(this.FloorOrdinates, "statinndd", data.Room_Type)
+    const roomData = data.Room_Nos.split(",");
+    this.RequestForm.controls["Room"].setValue(roomData);
+    console.log(roomData, "DEMO")
 
     this.RequestForm.controls["Safetyprecaustion"].setValue(
       data["Safety_Precautions"].split(",")
