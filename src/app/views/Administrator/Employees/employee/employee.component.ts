@@ -257,6 +257,7 @@ export class EmployeeComponent implements OnInit {
       else if (this.data["payload"]["subContId"] == null || this.data["payload"]["subContId"] == "" || this.data["payload"]["subContId"] == "0") {
         this.EmployeeForm.controls["options"].setValue("Department");
         this.selectedradioval = "Department";
+        this.Company = this.data["payload"]["companyName"]
 
       }
       else {
