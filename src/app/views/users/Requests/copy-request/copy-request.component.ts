@@ -134,7 +134,8 @@ this.userdata=this.jwtauthservice.getUser();
     this.CopyRequest.count=diffDays;
     this.reqservice.CopyRequest(this.CopyRequest).subscribe(res=>
       {
-this.openSnackBar();
+        this.openSnackBar();
+        window.location.reload();
       }); 
   }
 

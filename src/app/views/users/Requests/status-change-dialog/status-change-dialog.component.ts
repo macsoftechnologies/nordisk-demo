@@ -143,6 +143,7 @@ export class StatusChangeDialogComponent implements OnInit {
       this.requestdataservice.UpdateRequest(this.updaterequestdata).subscribe(x => {
         if(x.status == 200) {
           this.openSnackBar("Request Status Updated Successfully");
+          window.location.reload();
         }
 
       },
@@ -184,6 +185,7 @@ export class StatusChangeDialogComponent implements OnInit {
       if(res.status == 200) {
         this.openSnackBar("Request Status Updated Successfully");
         this.spinner = false;
+        window.location.reload();
       }
     },
       error => {
@@ -216,6 +218,7 @@ export class StatusChangeDialogComponent implements OnInit {
         this.openSnackBar("Request Status Updated Successfully");
         this.spinner = false;
         this.images = null;
+        window.location.reload();
       }
     },
       error => {
