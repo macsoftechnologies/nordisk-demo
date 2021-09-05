@@ -5,6 +5,6 @@ export const environment = {
   apiURL: config.apiUrl,
   //API_URL: 'http://macsof.in/beamapi/services/',
   //API_URL: 'https://safesiteworksbeam.online/beamapi/services/',
-  API_URL: "https://beam.safesiteworks.com/beamapitest/services/",
-  // API_URL: "https://beam.safesiteworks.com/beamapi/services/",
+  // API_URL: "https://beam.safesiteworks.com/beamapitest/services/",
+  API_URL: "https://beam.safesiteworks.com/beamapi/services/",
 };
