@@ -60,6 +60,20 @@ export class ListRequestComponent implements OnInit {
     { field: 'Request_status', header: 'Status' },
   ];
 
+  getFloors = [
+    'LK1',
+    'L00',
+    'L01',
+    'L02',
+    'L03',
+    'L04',
+    'L05',
+    'L06',
+    'L07',
+    'L08',
+    'LTA'    
+  ]
+
   Typeofactivitys: any[] = []
   Status: any[] = [
     {
@@ -114,7 +128,7 @@ export class ListRequestComponent implements OnInit {
       toDate:"",
       Type_Of_Activity_Id:null,
       Building_Id: null,
-
+      Room_Type: null
     }
 
     RequestsbyidDto:RequestBySubcontractorId=
@@ -165,6 +179,7 @@ export class ListRequestComponent implements OnInit {
       Contractor: ['', Validators.required],
       Site: ['', Validators.required],
       Building: ['', Validators.required],
+      Level: ['', Validators.required]
     });
   }
   ngOnDestroy() {
@@ -289,7 +304,9 @@ export class ListRequestComponent implements OnInit {
   }
 
   search() {
+    console.log(this.RequestlistForm.controls.Level, "Level");
     this.spinner = true;
+    this.SearchRequest.Room_Type = this.RequestlistForm.controls["Level"].value;
     this.SearchRequest.Building_Id = this.RequestlistForm.controls["Building"].value;
     this.SearchRequest.Activity =this.RequestlistForm.controls["Keyword"].value;
     this.SearchRequest.PermitNo = this.RequestlistForm.controls["Permitnumber"].value;

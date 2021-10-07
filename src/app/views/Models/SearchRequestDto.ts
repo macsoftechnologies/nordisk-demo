@@ -9,6 +9,7 @@ export class SearchRequestDto
     Request_status:string;
     PermitNo:string;
     Activity:string;
+    Room_Type: string;
 }
 
 export class ListRequest
@@ -20,4 +21,5 @@ export class ListRequest
     Time:string;
     Status:string;
     Operations:string; 
+    Room_Type: string;
 }
