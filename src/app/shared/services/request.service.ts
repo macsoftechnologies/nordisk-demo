@@ -79,6 +79,14 @@ export class RequestService {
   public UpdateListReqstTime(req:UpdateTime): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'request/updateStartTime.php', req);
   }
+
+  // pagination
+  public listpagination(data):Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/readrequestinfo.php', data );
+  }
+
+
+
   // public SetselectedRequest(row)
   // {
   //   this.SelectedRequestData=row;

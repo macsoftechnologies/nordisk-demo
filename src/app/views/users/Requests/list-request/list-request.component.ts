@@ -19,7 +19,7 @@ import { RequestService } from 'app/shared/services/request.service';
 import { StatusChangeDialogComponent } from '../status-change-dialog/status-change-dialog.component';
 import { RequestSaveOptionsDialogComponent } from '../request-save-options-dialog/request-save-options-dialog.component';
 import { DeleteOptionComponent } from 'app/views/Administrator/delete-option/delete-option.component';
-import { SelectionType } from '@swimlane/ngx-datatable';
+import { DatatableComponent, SelectionType } from '@swimlane/ngx-datatable';
 import { ActivityService } from 'app/shared/services/activity.service';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
 import { DatePipe } from '@angular/common';
@@ -35,7 +35,11 @@ import { config } from 'config';
   styleUrls: ['./list-request.component.css'],
   animations: egretAnimations
 })
+
+
 export class ListRequestComponent implements OnInit {
+
+  
   ModalOptions: PrintDownloadOptions;
   spinner = false;
   IsNotSubCntr:boolean=false;
@@ -59,6 +63,76 @@ export class ListRequestComponent implements OnInit {
     { field: 'End_Time', header: 'End Time' },
     { field: 'Request_status', header: 'Status' },
   ];
+
+  setPage(pageinfo) {
+    console.log("pagination", pageinfo);
+    let pagedatainfo = {
+      start : 1,
+      end : 10,
+      page: pageinfo.offset + 1 
+    }
+
+    this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
+      console.log("pageresp", res);
+      this.spinner = false;
+
+        if (res[0]["message"] == "No Requests Found") {
+          this.items = [];
+          this.Filtertab = false;
+        }
+        else {
+        
+          this.Filtertab = true;
+          this.userdata = this.jwtauth.getUser();
+
+          if (this.userdata["role"] == "Subcontractor") {
+            this.isoperator = false;
+            this.IsNotSubCntr=false;
+            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
+            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+              {
+                this.items=res["data"];
+              });
+          }
+          else if (this.userdata["role"] == "Admin") {
+            this.IsNotSubCntr=true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
+
+          }
+          else if (this.userdata["role"] == "Department") {
+            this.IsNotSubCntr=true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
+          }
+        }
+
+        this.Contractors = res[1]["data"];
+        this.Sites = res[2]["data"];
+        this.Getbuilding(this.Sites[1]["site_id"]);
+        this.Typeofactivitys = res[3]["data"];
+    })
+  }
 
   getFloors = [
     'LK1',
@@ -161,6 +235,75 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {
+  
+    let pagedatainfo = {
+      start : 1,
+      end : 10,
+      page: 1 
+    }
+
+    this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
+      console.log("pageresp", res);
+      this.spinner = false;
+
+        if (res[0]["message"] == "No Requests Found") {
+          this.items = [];
+          this.Filtertab = false;
+        }
+        else {
+        
+          this.Filtertab = true;
+          this.userdata = this.jwtauth.getUser();
+
+          if (this.userdata["role"] == "Subcontractor") {
+            this.isoperator = false;
+            this.IsNotSubCntr=false;
+            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
+            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+              {
+                this.items=res["data"];
+              });
+          }
+          else if (this.userdata["role"] == "Admin") {
+            this.IsNotSubCntr=true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
+
+          }
+          else if (this.userdata["role"] == "Department") {
+            this.IsNotSubCntr=true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
+          }
+        }
+
+        this.Contractors = res[1]["data"];
+        this.Sites = res[2]["data"];
+        this.Getbuilding(this.Sites[1]["site_id"]);
+        this.Typeofactivitys = res[3]["data"];
+    })
+
+
     console.log(this.CurrentTime, "TIME")
     console.log(Date(), "DATE");
     // var d = new Date();
