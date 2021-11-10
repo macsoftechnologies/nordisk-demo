@@ -311,7 +311,7 @@ export class ListRequestComponent implements OnInit {
     //   timeZone: "Europe/Copenhagen",
     // });
     
-    this.getItems();
+    // this.getItems();
     this.RequestlistForm = this.fb.group({
       Permitnumber: ['', Validators.required],
       TypeOfActivity: ['', Validators.required],
