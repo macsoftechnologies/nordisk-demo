@@ -26,7 +26,7 @@ export const rootRouterConfig: Routes = [
   {
     path:'',
     component:UserLayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children:[
       {
         path:'user',
