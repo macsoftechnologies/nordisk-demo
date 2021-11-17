@@ -196,7 +196,7 @@
 
     <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
       [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50" (select)="onSelect($event)"
-      [selected]="selected" [selectionType]="SelectionType.checkbox" (page)="setPage($event)" #table>
+      [selected]="selected" [selectionType]="SelectionType.checkbox"#table>
       <ngx-datatable-column *ngIf="isoperator">
         <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
           let-selectFn="selectFn">

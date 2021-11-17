@@ -64,75 +64,75 @@ export class ListRequestComponent implements OnInit {
     { field: 'Request_status', header: 'Status' },
   ];
 
-  setPage(pageinfo) {
-    console.log("pagination", pageinfo);
-    let pagedatainfo = {
-      start : 1,
-      end : 10,
-      page: pageinfo.offset + 1 
-    }
+  // setPage(pageinfo) {
+  //   console.log("pagination", pageinfo);
+  //   let pagedatainfo = {
+  //     start : 1,
+  //     end : 10,
+  //     page: pageinfo.offset + 1 
+  //   }
 
-    this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
-      console.log("pageresp", res);
-      this.spinner = false;
+  //   this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
+  //     console.log("pageresp", res);
+  //     this.spinner = false;
 
-        if (res[0]["message"] == "No Requests Found") {
-          this.items = [];
-          this.Filtertab = false;
-        }
-        else {
+  //       if (res[0]["message"] == "No Requests Found") {
+  //         this.items = [];
+  //         this.Filtertab = false;
+  //       }
+  //       else {
         
-          this.Filtertab = true;
-          this.userdata = this.jwtauth.getUser();
+  //         this.Filtertab = true;
+  //         this.userdata = this.jwtauth.getUser();
 
-          if (this.userdata["role"] == "Subcontractor") {
-            this.isoperator = false;
-            this.IsNotSubCntr=false;
-            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
-            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
-            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
-              {
-                this.items=res["data"];
-              });
-          }
-          else if (this.userdata["role"] == "Admin") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            this.items = [];
-            this.items.length = 0;
-            this.items = filteritems;
+  //         if (this.userdata["role"] == "Subcontractor") {
+  //           this.isoperator = false;
+  //           this.IsNotSubCntr=false;
+  //           this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+  //           this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
+  //           this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+  //             {
+  //               this.items=res["data"];
+  //             });
+  //         }
+  //         else if (this.userdata["role"] == "Admin") {
+  //           this.IsNotSubCntr=true;
+  //           this.items = res[0]["data"];
+  //           this.isoperator = true;
+  //           this.isoperator = true;
+  //           var filteritems = [];
+  //           this.items.forEach(x => {
+  //             if (x["Request_status"] != "Draft") {
+  //               filteritems.push(x);
+  //             }
+  //           });
+  //           this.items = [];
+  //           this.items.length = 0;
+  //           this.items = filteritems;
 
-          }
-          else if (this.userdata["role"] == "Department") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            this.items = [];
-            this.items.length = 0;
-            this.items = filteritems;
-          }
-        }
+  //         }
+  //         else if (this.userdata["role"] == "Department") {
+  //           this.IsNotSubCntr=true;
+  //           this.items = res[0]["data"];
+  //           this.isoperator = true;
+  //           var filteritems = [];
+  //           this.items.forEach(x => {
+  //             if (x["Request_status"] != "Draft") {
+  //               filteritems.push(x);
+  //             }
+  //           });
+  //           this.items = [];
+  //           this.items.length = 0;
+  //           this.items = filteritems;
+  //         }
+  //       }
 
-        this.Contractors = res[1]["data"];
-        this.Sites = res[2]["data"];
-        this.Getbuilding(this.Sites[1]["site_id"]);
-        this.Typeofactivitys = res[3]["data"];
-    })
-  }
+  //       this.Contractors = res[1]["data"];
+  //       this.Sites = res[2]["data"];
+  //       this.Getbuilding(this.Sites[1]["site_id"]);
+  //       this.Typeofactivitys = res[3]["data"];
+  //   })
+  // }
 
   getFloors = [
     'LK1',
@@ -236,72 +236,72 @@ export class ListRequestComponent implements OnInit {
 
   ngOnInit() {
   
-    let pagedatainfo = {
-      start : 1,
-      end : 10,
-      page: 1 
-    }
+    // let pagedatainfo = {
+    //   start : 1,
+    //   end : 10,
+    //   page: 1 
+    // }
 
-    this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
-      console.log("pageresp", res);
-      this.spinner = false;
+    // this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
+    //   console.log("pageresp", res);
+    //   this.spinner = false;
 
-        if (res[0]["message"] == "No Requests Found") {
-          this.items = [];
-          this.Filtertab = false;
-        }
-        else {
+    //     if (res[0]["message"] == "No Requests Found") {
+    //       this.items = [];
+    //       this.Filtertab = false;
+    //     }
+    //     else {
         
-          this.Filtertab = true;
-          this.userdata = this.jwtauth.getUser();
+    //       this.Filtertab = true;
+    //       this.userdata = this.jwtauth.getUser();
 
-          if (this.userdata["role"] == "Subcontractor") {
-            this.isoperator = false;
-            this.IsNotSubCntr=false;
-            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
-            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
-            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
-              {
-                this.items=res["data"];
-              });
-          }
-          else if (this.userdata["role"] == "Admin") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            this.items = [];
-            this.items.length = 0;
-            this.items = filteritems;
+    //       if (this.userdata["role"] == "Subcontractor") {
+    //         this.isoperator = false;
+    //         this.IsNotSubCntr=false;
+    //         this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+    //         this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
+    //         this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+    //           {
+    //             this.items=res["data"];
+    //           });
+    //       }
+    //       else if (this.userdata["role"] == "Admin") {
+    //         this.IsNotSubCntr=true;
+    //         this.items = res[0]["data"];
+    //         this.isoperator = true;
+    //         this.isoperator = true;
+    //         var filteritems = [];
+    //         this.items.forEach(x => {
+    //           if (x["Request_status"] != "Draft") {
+    //             filteritems.push(x);
+    //           }
+    //         });
+    //         this.items = [];
+    //         this.items.length = 0;
+    //         this.items = filteritems;
 
-          }
-          else if (this.userdata["role"] == "Department") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            this.items = [];
-            this.items.length = 0;
-            this.items = filteritems;
-          }
-        }
+    //       }
+    //       else if (this.userdata["role"] == "Department") {
+    //         this.IsNotSubCntr=true;
+    //         this.items = res[0]["data"];
+    //         this.isoperator = true;
+    //         var filteritems = [];
+    //         this.items.forEach(x => {
+    //           if (x["Request_status"] != "Draft") {
+    //             filteritems.push(x);
+    //           }
+    //         });
+    //         this.items = [];
+    //         this.items.length = 0;
+    //         this.items = filteritems;
+    //       }
+    //     }
 
-        this.Contractors = res[1]["data"];
-        this.Sites = res[2]["data"];
-        this.Getbuilding(this.Sites[1]["site_id"]);
-        this.Typeofactivitys = res[3]["data"];
-    })
+    //     this.Contractors = res[1]["data"];
+    //     this.Sites = res[2]["data"];
+    //     this.Getbuilding(this.Sites[1]["site_id"]);
+    //     this.Typeofactivitys = res[3]["data"];
+    // })
 
 
     console.log(this.CurrentTime, "TIME")
@@ -311,7 +311,7 @@ export class ListRequestComponent implements OnInit {
     //   timeZone: "Europe/Copenhagen",
     // });
     
-    // this.getItems();
+    this.getItems();
     this.RequestlistForm = this.fb.group({
       Permitnumber: ['', Validators.required],
       TypeOfActivity: ['', Validators.required],
