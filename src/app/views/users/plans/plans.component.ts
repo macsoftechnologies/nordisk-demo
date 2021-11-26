@@ -95,6 +95,7 @@ export class PlansComponent implements OnInit {
     Date:null,
     // Site_Id:null,
     Sub_Contractor_Id: null,
+    Room_Type: null
     //fromDate:null,
     // toDate:null
   }
@@ -126,6 +127,7 @@ export class PlansComponent implements OnInit {
     this.subcontrservice.GetAllSubContractors().subscribe(res => {
       this.SubContractors = res["data"];
     });
+
     this.requstservice.GetAllSites().subscribe(res => {
       this.Sites = res["data"];
       this.PlanForm.controls["Site"].setValue(res["data"][1]["site_name"]);
@@ -143,7 +145,8 @@ export class PlansComponent implements OnInit {
       Plantype: [''],
       subContractor: [''],
       Building: [''],
-      Site: ['']
+      Site: [''],
+      level: ['']
     });
 
     //     var current = new Date();     // get current date    
@@ -152,6 +155,20 @@ export class PlansComponent implements OnInit {
     // var monday = new Date(current.setDate(weekstart));  
     // var sunday = new Date(current.setDate(weekend));
   }
+
+  getFloors = [
+    'LK1',
+    'L00',
+    'L01',
+    'L02',
+    'L03',
+    'L04',
+    'L05',
+    'L06',
+    'L07',
+    'L08',
+    'LTA'    
+  ]
 
 
   Getselectedyear(event) {
@@ -233,6 +250,7 @@ export class PlansComponent implements OnInit {
     this.plansDtodata.Date=this.datePipe.transform(this.PlanForm.controls["Date"].value, 'yyyy-MM-dd');
     this.plansDtodata.Year=this.PlanForm.controls["Year"].value;
     this.plansDtodata.Week=this.PlanForm.controls["Weekno"].value;
+    this.plansDtodata.Room_Type=this.PlanForm.controls["level"].value;
 
     //  this.plansDtodata.Plans_Id=this.PlanForm.controls["Plantype"].value;
 

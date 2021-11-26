@@ -69,6 +69,14 @@ export class DeleteOptionComponent implements OnInit {
 
           });
     }
+    // else if(this.data['type']=='emp')
+    // {
+    //      this.empservice.DeleteUser(this.Dto).subscribe(res=>
+    //       {
+    //         this.openSnackBar('Record Deleted Successfully');
+    //         console.log("delted Succeessfully");
+    //       });
+    // }
     else if(this.data['type']=='dept')
     {
          this.deptservice.DeleteDepartment(this.Dto).subscribe(res=>

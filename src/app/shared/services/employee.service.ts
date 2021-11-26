@@ -54,4 +54,9 @@ export class EmployeeService {
     return this.http.post<any>(environment.API_URL + 'employee/delete.php', req);
   }
 
+  // User Delete
+  public DeleteUser(req:DeleteEmployeeDto): Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'employee/userdelete.php', req)
+  }
+
 }

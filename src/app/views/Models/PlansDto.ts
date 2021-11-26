@@ -6,6 +6,7 @@ export class PlansDto
     Week:string;
     Date:string;
     Year:string;
+    Room_Type: string
 
    // Plans_Id:number;
     Building_Id:number;
