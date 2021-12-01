@@ -12,3 +12,21 @@
 {
     margin-right: 3px;
 }
+
+.chart {
+    position: relative;
+}
+
+.paragraph {
+    position: absolute;
+    z-index: 99999;
+    right: 171px;
+    height: 20px;
+    width: 400px;
+    bottom: 5px;
+    background-color: #fff;
+}
+
+.paragraph p {
+    margin: 0px;
+}

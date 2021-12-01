@@ -4,6 +4,7 @@ import { UpdateRequestStatusListDto } from 'app/views/Models/RequestDto';
 import { RequestService } from 'app/shared/services/request.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
+// import { getItems } from 'app/views/users/Requests/list-request'
 
 @Component({
   selector: 'app-request-save-options-dialog',
@@ -54,6 +55,7 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
     this.UpdateRequestStatusList.userId = this.userData["id"];
     this.reqservice.UpdateListStatusRequest(this.UpdateRequestStatusList).subscribe(res => {
       this.openSnackBar("Requests Status Updated Successfully");
+      // this.getItems();
     },
       error => {
         this.openSnackBar("something went wrong please try again later...");

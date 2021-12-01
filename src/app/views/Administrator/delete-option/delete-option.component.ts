@@ -63,10 +63,11 @@ export class DeleteOptionComponent implements OnInit {
     }
     else if(this.data['type']=='emp')
     {
-         this.empservice.DeleteEmployees(this.Dto).subscribe(res=>
+         this.empservice.DeleteEmployees(this.Dto).subscribe(res=>          
           {
-            this.openSnackBar('Record Deleted Successfully');
-
+            this.empservice.DeleteUser(this.Dto).subscribe(res=> {
+              this.openSnackBar('User Deleted Successfully');
+            });
           });
     }
     // else if(this.data['type']=='emp')
@@ -109,8 +110,14 @@ export class DeleteOptionComponent implements OnInit {
 
           });
     }
-
-    
+    // else if(this.data['type']=='emp')
+    // {
+    //      this.empservice.DeleteUser(this.Dto).subscribe(res=>
+    //       {
+    //         this.openSnackBar('Record Deleted Successfully');
+    //         console.log("delted Succeessfully");
+    //       });
+    // }   
     
   }
 

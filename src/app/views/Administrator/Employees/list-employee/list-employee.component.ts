@@ -90,6 +90,7 @@ export class ListEmployeeComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
+        console.log("TESTING")
         this.GetAllEmployees();
       });
     }

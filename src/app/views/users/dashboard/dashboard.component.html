@@ -65,7 +65,8 @@
 
 <!-- 2nd, 3rd row -->
 <div fxLayout="row wrap">
-  <div
+  <div 
+    class="chart"
     fxFlex="100"
     fxFlex.gt-sm="66.67"
     fxFlex.sm="50"
@@ -83,8 +84,13 @@
  <!-- <button (click) = "weekReports('1')">beforeWeek</button>
  <button (click) = "weekReports('2')">nextWeek</button> -->
 
- 
+ <div class="paragraph">
+   <p></p>
+ </div>
   </div>
+
+
+
   <div class="btns-sty">
     <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('1')">Previous week</button>
     <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('2')">Next Week</button>

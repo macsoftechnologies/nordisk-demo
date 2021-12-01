@@ -81,9 +81,9 @@ export class RequestService {
   }
 
   // pagination
-  // public listpagination(data):Observable<any> {
-  //   return this.http.post<any>(environment.API_URL + 'request/readrequestinfo.php', data );
-  // }
+  public listpagination(data):Observable<any> {
+    return this.http.post<any>(environment.API_URL + 'request/readrequestinfo.php', data );
+  }
 
 
 

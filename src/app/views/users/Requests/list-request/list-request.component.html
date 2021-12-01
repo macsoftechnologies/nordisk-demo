@@ -1,9 +1,8 @@
 <div class="m-333">
-
   <span class="title-sty">Request List</span>
 </div>
 
-<mat-card class="p-0" *ngIf='Filtertab'>
+<mat-card class="p-0" *ngIf="Filtertab">
   <mat-card-title>
     <mat-icon class="icon-sty">filter_list</mat-icon>
     <span>Filter</span>
@@ -18,7 +17,7 @@
             <mat-select formControlName="TypeOfActivity" name="Typeofactivity">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Typeofactivitys" [value]="loc.id">
-                {{loc.activityName}}
+                {{ loc.activityName }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -29,7 +28,7 @@
             <mat-select formControlName="Status" name="Status">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Status" [value]="loc.Statusid">
-                {{loc.Statusname}}
+                {{ loc.Statusname }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -72,10 +71,14 @@
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>SubContractor</mat-label>
-            <mat-select formControlName="Contractor" name="Company"  [disabled]="!IsNotSubCntr">
+            <mat-select
+              formControlName="Contractor"
+              name="Company"
+              [disabled]="!IsNotSubCntr"
+            >
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
-                {{loc.subContractorName}}
+                {{ loc.subContractorName }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -97,7 +100,7 @@
             <mat-select formControlName="Building" name="Building">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Buildings" [value]="loc.build_id">
-                {{loc.building_name}}
+                {{ loc.building_name }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -107,17 +110,34 @@
         <mat-grid-tile>
           <mat-form-field class="datepikr full-width" appearance="outline">
             <mat-label>Working Date (from)</mat-label>
-            <input matInput [min]="minDate" formControlName="WorkingDateFrom" [max]="maxDate"
-              [matDatepicker]="fspicker">
-            <mat-datepicker-toggle matSuffix [for]="fspicker"></mat-datepicker-toggle>
+            <input
+              matInput
+              [min]="minDate"
+              formControlName="WorkingDateFrom"
+              [max]="maxDate"
+              [matDatepicker]="fspicker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="fspicker"
+            ></mat-datepicker-toggle>
             <mat-datepicker #fspicker></mat-datepicker>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field class="datepikr full-width" appearance="outline">
             <mat-label>Working Date (to)</mat-label>
-            <input matInput [min]="minDate" formControlName="WorkingDateTo" [max]="maxDate" [matDatepicker]="tspicker">
-            <mat-datepicker-toggle matSuffix [for]="tspicker"></mat-datepicker-toggle>
+            <input
+              matInput
+              [min]="minDate"
+              formControlName="WorkingDateTo"
+              [max]="maxDate"
+              [matDatepicker]="tspicker"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="tspicker"
+            ></mat-datepicker-toggle>
             <mat-datepicker #tspicker></mat-datepicker>
           </mat-form-field>
         </mat-grid-tile>
@@ -127,13 +147,17 @@
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Activity</mat-label>
-            <input matInput formControlName="Keyword" placeholder="Keyword">
+            <input matInput formControlName="Keyword" placeholder="Keyword" />
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Permit number </mat-label>
-            <input matInput formControlName="Permitnumber" placeholder="Permit number">
+            <input
+              matInput
+              formControlName="Permitnumber"
+              placeholder="Permit number"
+            />
           </mat-form-field>
         </mat-grid-tile>
       </mat-grid-list>
@@ -145,72 +169,111 @@
             <mat-select formControlName="Level" name="Level">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let Floors of getFloors" [value]="Floors">
-                {{Floors}}
+                {{ Floors }}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </mat-grid-tile>
       </mat-grid-list>
-
-
     </form>
     <div class="butns-grp">
-      <button style="margin-right: 5px;" mat-raised-button color="primary" (click)='search()'>
+      <button
+        style="margin-right: 5px"
+        mat-raised-button
+        color="primary"
+        (click)="search()"
+      >
         <mat-icon>search</mat-icon>Search
       </button>
-      <button mat-raised-button color="primary" (click)='Reset()'>
-        Reset
-      </button>
+      <button mat-raised-button color="primary" (click)="Reset()">Reset</button>
     </div>
   </mat-card-content>
-
 </mat-card>
 
-
-
 <mat-card class="p-0">
-
   <mat-card-content class="p-0">
     <!-- <div *ngIf='items.length>0'>
       <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
     </div> -->
     <div *ngIf="isoperator">
-      <button mat-raised-button class="span-apprv" (click)="statuschange('Approved')">Approved</button>
-      <button mat-raised-button class="span-rejc" (click)="statuschange('Rejected')">Rejected</button>
-      <mat-form-field appearance="outline" *ngIf="selected.length>0">
+      <button
+        mat-raised-button
+        class="span-apprv"
+        (click)="statuschange('Approved')"
+      >
+        Approved
+      </button>
+      <button
+        mat-raised-button
+        class="span-rejc"
+        (click)="statuschange('Rejected')"
+      >
+        Rejected
+      </button>
+      <mat-form-field appearance="outline" *ngIf="selected.length > 0">
         <mat-label>Edit</mat-label>
-        <mat-select name="editmult" (selectionChange)="Getselected($event.value)">
+        <mat-select
+          name="editmult"
+          (selectionChange)="Getselected($event.value)"
+        >
           <mat-option value="none">None</mat-option>
-          <mat-option value="Time">
-            Time
-          </mat-option>
-          <mat-option value="safetyPrecaution">
-            Safety Precaution
-          </mat-option>
-          <mat-option value="notes">
-            Notes
-          </mat-option>
+          <mat-option value="Time"> Time </mat-option>
+          <mat-option value="safetyPrecaution"> Safety Precaution </mat-option>
+          <mat-option value="notes"> Notes </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
 
-    <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
-      [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50" (select)="onSelect($event)"
-      [selected]="selected" [selectionType]="SelectionType.checkbox"#table>
+    <!-- ngx data table used to be there -->
+    <ngx-datatable
+      class="material ml-0 mr-0"
+      [rows]="items"
+      [columnMode]="'force'"
+      [headerHeight]="70"
+      [footerHeight]="50"
+      [scrollbarH]="true"
+      [limit]="10"
+      [rowHeight]="50"
+      (select)="onSelect($event)"
+      [selected]="selected"
+      [selectionType]="SelectionType.checkbox"
+      #table
+    >
       <ngx-datatable-column [width]="50" *ngIf="isoperator">
-        <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
-          let-selectFn="selectFn">
+        <ng-template
+        
+          ngx-datatable-header-template
+          let-value="value"
+          let-allRowsSelected="allRowsSelected"
+          let-selectFn="selectFn"
+        >
           <!-- <span class="span-sty span-apprv" color="primary">Approvedd</span>
           <span class="span-sty span-rejc" color="primary">Rejected</span> -->
 
           <div>
-            <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
+            <input
+              type="checkbox"
+              [checked]="allRowsSelected"
+              (change)="selectFn(!allRowsSelected)"
+            />
           </div>
         </ng-template>
-        <ng-template class="chcks-sty" ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
-          let-onCheckboxChangeFn="onCheckboxChangeFn" let-row="row">
-          <input type="checkbox" [checked]="isSelected" *ngIf="row.Request_status=='Hold'"
-            (change)="onCheckboxChangeFn($event)" />
+        <ng-template
+        [width]="50"
+          class="chcks-sty"
+          ngx-datatable-cell-template
+          let-value="value"
+          let-isSelected="isSelected"
+          let-onCheckboxChangeFn="onCheckboxChangeFn"
+          let-row="row"
+        >
+          <input
+          [width]="50"
+            type="checkbox"
+            [checked]="isSelected"
+            *ngIf="row.Request_status == 'Hold'"
+            (change)="onCheckboxChangeFn($event)"
+          />
         </ng-template>
       </ngx-datatable-column>
 
@@ -219,18 +282,18 @@
           {{ row?.PermitNo }}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column name="Activity" [flexGrow]="1">
+      <ngx-datatable-column name="Activity" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.Activity }}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column name="Sub-contractor" [flexGrow]="1" [width]="85">
+      <ngx-datatable-column name="Sub-contractor" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.subContractorName }}
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column name="Area" [flexGrow]="1" [width]="85">
+      <ngx-datatable-column name="Area" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.Room_Nos }}
         </ng-template>
@@ -242,9 +305,9 @@
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column name="Working Date" [flexGrow]="1" [width]="80">
+      <ngx-datatable-column name="Working Date" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          {{ row?.Working_Date | date:'mediumDate' }}
+          {{ row?.Working_Date | date: "mediumDate" }}
         </ng-template>
       </ngx-datatable-column>
       <ngx-datatable-column name="Time" [flexGrow]="1">
@@ -252,47 +315,138 @@
           {{ row?.Start_Time }} - {{ row?.End_Time }}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column name="Status" [flexGrow]="1" [width]="70">
+      <ngx-datatable-column name="Status" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-chip mat-sm-chip [color]="'primary'" (click)="EditDraft(row)"
-            *ngIf="row.Request_status!='Hold' && row.Request_status!='Approved' && row.Request_status!='Opened' && row.Request_status!='Closed'">
-            {{row?.Request_status}}
+          <mat-chip
+            mat-sm-chip
+            [color]="'primary'"
+            (click)="EditDraft(row)"
+            *ngIf="
+              row.Request_status != 'Hold' &&
+              row.Request_status != 'Approved' &&
+              row.Request_status != 'Opened' &&
+              row.Request_status != 'Closed'
+            "
+          >
+            {{ row?.Request_status }}
           </mat-chip>
-          <mat-chip mat-sm-chip [color]="'primary'"
-          *ngIf="row.Request_status=='Closed'">
-          {{row?.Request_status}}
-        </mat-chip>
-          <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Opened')"
-            *ngIf="row.Request_status=='Approved'">{{row?.Request_status}}
+          <mat-chip
+            mat-sm-chip
+            [color]="'primary'"
+            *ngIf="row.Request_status == 'Closed'"
+          >
+            {{ row?.Request_status }}
           </mat-chip>
-          <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row,'Closed')"
-            *ngIf="row.Request_status=='Opened'">{{row?.Request_status}}
+          <mat-chip
+            mat-sm-chip
+            class="hold-sty"
+            [color]="'primary'"
+            (click)="ChangeStausbysubcontractor(row, 'Opened')"
+            *ngIf="row.Request_status == 'Approved'"
+            >{{ row?.Request_status }}
           </mat-chip>
-          <mat-chip class="hold-sty" mat-sm-chip [color]="'primary'" *ngIf="row.Request_status=='Hold' && isoperator"
-            (click)="ChangeStaus(row)">{{row?.Request_status}}</mat-chip>
-          <mat-chip mat-sm-chip [color]="'primary'" *ngIf="row.Request_status=='Hold' && !isoperator">
-            {{row?.Request_status}}</mat-chip>
+          <mat-chip
+            mat-sm-chip
+            class="hold-sty"
+            [color]="'primary'"
+            (click)="ChangeStausbysubcontractor(row, 'Closed')"
+            *ngIf="row.Request_status == 'Opened'"
+            >{{ row?.Request_status }}
+          </mat-chip>
+          <mat-chip
+            class="hold-sty"
+            mat-sm-chip
+            [color]="'primary'"
+            *ngIf="row.Request_status == 'Hold' && isoperator"
+            (click)="ChangeStaus(row)"
+            >{{ row?.Request_status }}</mat-chip
+          >
+          <mat-chip
+            mat-sm-chip
+            [color]="'primary'"
+            *ngIf="row.Request_status == 'Hold' && !isoperator"
+          >
+            {{ row?.Request_status }}</mat-chip
+          >
         </ng-template>
       </ngx-datatable-column>
-
 
       <ngx-datatable-column name="Operations" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-icon (click)="Editrow(row)" class="icons-sty" *ngIf="isoperator && row.Request_status!='Closed'"
-            (click)="Editrow(row)">edit</mat-icon>
+          <mat-icon
+            (click)="Editrow(row)"
+            class="icons-sty"
+            *ngIf="isoperator && row.Request_status != 'Closed'"
+            (click)="Editrow(row)"
+            >edit</mat-icon
+          >
           <mat-icon class="icons-sty">
-            <a href="https://beam.safesiteworks.com/newbeam/index.php?PermitNo={{ row?.PermitNo }}" target="_blank">visibility</a></mat-icon>
-          <mat-icon (click)="CopyRequest(row,'Hold')" class="icons-sty" *ngIf="row.Request_status=='Hold' || row.Request_status=='Approved' || row.Request_status=='Rejected'">content_copy
+            <a
+              href="https://beam.safesiteworks.com/newbeam/index.php?PermitNo={{
+                row?.PermitNo
+              }}"
+              target="_blank"
+              >visibility</a
+            ></mat-icon
+          >
+          <mat-icon
+            (click)="CopyRequest(row, 'Hold')"
+            class="icons-sty"
+            *ngIf="
+              row.Request_status == 'Hold' ||
+              row.Request_status == 'Approved' ||
+              row.Request_status == 'Rejected'
+            "
+            >content_copy
           </mat-icon>
-          <mat-icon (click)="CopyRequest(row,'Closed')" class="icons-sty"
-            *ngIf="row.Request_status=='Closed' && isoperator">content_copy</mat-icon>
-          <mat-icon (click)="Deleterequest(row)" class="icons-sty" *ngIf="IsNotSubCntr">delete</mat-icon>
+          <mat-icon
+            (click)="CopyRequest(row, 'Closed')"
+            class="icons-sty"
+            *ngIf="row.Request_status == 'Closed' && isoperator"
+            >content_copy</mat-icon
+          >
+          <mat-icon
+            (click)="Deleterequest(row)"
+            class="icons-sty"
+            *ngIf="IsNotSubCntr"
+            >delete</mat-icon
+          >
         </ng-template>
       </ngx-datatable-column>
+      <ngx-datatable-footer>
+        <ng-template 
+          ngx-datatable-footer-template 
+          let-rowCount="rowCount"
+          let-pageSize="pageSize"
+          let-selectedCount="selectedCount"
+          let-curPage="curPage"
+          let-offset="offset">
+          <div style="padding: 5px 10px">
+            <div>
+              Showing {{(offset * pageSize)+1}} to {{(rowCount> 
+                (curPage*pageSize))?(curPage*pageSize):(rowCount)}} of 
+                {{(rowCount)}} records.
+            </div>
+          </div>
+          <datatable-pager
+          [pagerLeftArrowIcon]="'datatable-icon-left'"
+          [pagerRightArrowIcon]="'datatable-icon-right'"
+          [pagerPreviousIcon]="'datatable-icon-prev'"
+          [pagerNextIcon]="'datatable-icon-skip'"
+          [page]="curPage"
+          [size]="pageSize"
+          [count]="paginationCount"
+          (change)="onPagination($event)">
+           </datatable-pager>
+        </ng-template>
+      </ngx-datatable-footer>
     </ngx-datatable>
   </mat-card-content>
 </mat-card>
 
 <div class="loading-indicator" *ngIf="spinner">
-  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  <mat-progress-spinner
+    mode="indeterminate"
+    color="accent"
+  ></mat-progress-spinner>
 </div>

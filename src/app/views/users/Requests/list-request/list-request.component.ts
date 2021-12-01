@@ -38,7 +38,8 @@ import { config } from 'config';
 
 
 export class ListRequestComponent implements OnInit {
-
+  [x: string]: any;
+  @ViewChild(DatatableComponent) public table: DatatableComponent;
   
   ModalOptions: PrintDownloadOptions;
   spinner = false;
@@ -63,6 +64,8 @@ export class ListRequestComponent implements OnInit {
     { field: 'End_Time', header: 'End Time' },
     { field: 'Request_status', header: 'Status' },
   ];
+  paginationCount: any;
+  pagedatainfo: any ;
 
   // setPage(pageinfo) {
   //   console.log("pagination", pageinfo);
@@ -236,72 +239,74 @@ export class ListRequestComponent implements OnInit {
 
   ngOnInit() {
   
-    // let pagedatainfo = {
-    //   start : 1,
-    //   end : 10,
-    //   page: 1 
-    // }
+    this.pagedatainfo = {
+      start : 1,
+      end : 10,
+      page: 1 
+    }
 
-    // this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
-    //   console.log("pageresp", res);
-    //   this.spinner = false;
+    this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
+      console.log("pageresp", res);
+      this.spinner = false;
 
-    //     if (res[0]["message"] == "No Requests Found") {
-    //       this.items = [];
-    //       this.Filtertab = false;
-    //     }
-    //     else {
+        if (res[0]["message"] == "No Requests Found") {
+          this.items = [];
+          this.Filtertab = false;
+        }
+        else {
         
-    //       this.Filtertab = true;
-    //       this.userdata = this.jwtauth.getUser();
+          this.Filtertab = true;
+          this.userdata = this.jwtauth.getUser();
 
-    //       if (this.userdata["role"] == "Subcontractor") {
-    //         this.isoperator = false;
-    //         this.IsNotSubCntr=false;
-    //         this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
-    //         this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
-    //         this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
-    //           {
-    //             this.items=res["data"];
-    //           });
-    //       }
-    //       else if (this.userdata["role"] == "Admin") {
-    //         this.IsNotSubCntr=true;
-    //         this.items = res[0]["data"];
-    //         this.isoperator = true;
-    //         this.isoperator = true;
-    //         var filteritems = [];
-    //         this.items.forEach(x => {
-    //           if (x["Request_status"] != "Draft") {
-    //             filteritems.push(x);
-    //           }
-    //         });
-    //         this.items = [];
-    //         this.items.length = 0;
-    //         this.items = filteritems;
+          if (this.userdata["role"] == "Subcontractor") {
+            this.isoperator = false;
+            this.IsNotSubCntr=false;
+            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
+            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+              {
+                this.items=res["data"];
+              });
+          }
+          else if (this.userdata["role"] == "Admin") {
+            this.IsNotSubCntr=true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            // this.items = [];
+            // this.items.length = 0;
+            // this.items = filteritems;
+            
+            this.paginationCount = res[1].count;
+            console.log(this.paginationCount);
+          }
+          else if (this.userdata["role"] == "Department") {
+            this.IsNotSubCntr=true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach(x => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
+          }
+        }
 
-    //       }
-    //       else if (this.userdata["role"] == "Department") {
-    //         this.IsNotSubCntr=true;
-    //         this.items = res[0]["data"];
-    //         this.isoperator = true;
-    //         var filteritems = [];
-    //         this.items.forEach(x => {
-    //           if (x["Request_status"] != "Draft") {
-    //             filteritems.push(x);
-    //           }
-    //         });
-    //         this.items = [];
-    //         this.items.length = 0;
-    //         this.items = filteritems;
-    //       }
-    //     }
-
-    //     this.Contractors = res[1]["data"];
-    //     this.Sites = res[2]["data"];
-    //     this.Getbuilding(this.Sites[1]["site_id"]);
-    //     this.Typeofactivitys = res[3]["data"];
-    // })
+        this.Contractors = res[0]["data"];
+        this.Sites = res[0]["data"];
+        this.Getbuilding(this.Sites[0]["site_id"]);
+        this.Typeofactivitys = res[0]["data"];
+    })
 
 
     console.log(this.CurrentTime, "TIME")
@@ -311,7 +316,7 @@ export class ListRequestComponent implements OnInit {
     //   timeZone: "Europe/Copenhagen",
     // });
     
-    this.getItems();
+    // this.getItems();
     this.RequestlistForm = this.fb.group({
       Permitnumber: ['', Validators.required],
       TypeOfActivity: ['', Validators.required],
@@ -622,11 +627,18 @@ export class ListRequestComponent implements OnInit {
       width: '300px',
       height: '150px',
       disableClose: false,
-      data: { title: title, payload: row, type: type }
+      data: { title: title, payload: row, type: type, pagedatainfo: this.pagedatainfo}
     })
     dialogRef.afterClosed()
       .subscribe(res => {
         this.getItems();
+        this.requestservice
+            .listpagination(this.pagedatainfo)
+            .subscribe((x) => {
+              console.log("New Req List", x);
+              // this.openSnackBar("Request Status Updated Successfully");
+              // window.location.reload();
+            });
       });
   }
   ChangeStausbysubcontractor(row, status) {
@@ -774,5 +786,94 @@ export class ListRequestComponent implements OnInit {
       this.RequestlistForm.reset();
       this.SearchRequest.fromDate=null;
       this.SearchRequest.toDate=null;      
+    }
+    selectFn(info){
+      console.log(info);
+    }
+    onCheckboxChangeFn(event){
+      console.log(event);
+    }
+
+
+    onPagination(event){
+      console.log(event)
+      let start;
+      let offset = event.page - 1;            
+      if(offset === 0 ){
+        start = 1;
+      }
+      else if (offset > 0 ) {
+        start = (offset) * 10;
+      }
+      console.log(offset, "Set Value");
+      console.log(start, "start value");      
+      this.pagedatainfo = {
+        start : start,
+        end : 10,
+        page: event.page
+      }
+  
+      this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
+        console.log("pageresp", res);
+        this.spinner = false;
+  
+          if (res[0]["message"] == "No Requests Found") {
+            this.items = [];
+            this.Filtertab = false;
+          }
+          else {
+          
+            this.Filtertab = true;
+            this.userdata = this.jwtauth.getUser();
+  
+            if (this.userdata["role"] == "Subcontractor") {
+              this.isoperator = false;
+              this.IsNotSubCntr=false;
+              this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
+              this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
+              this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
+                {
+                  this.items=res["data"];
+                });
+            }
+            else if (this.userdata["role"] == "Admin") {
+              this.IsNotSubCntr=true;
+              this.items = res[0]["data"];
+              this.isoperator = true;
+              this.isoperator = true;
+              var filteritems = [];
+              this.items.forEach(x => {
+                if (x["Request_status"] != "Draft") {
+                  filteritems.push(x);
+                }
+              });
+              // this.items = [];
+              // this.items.length = 0;
+              // this.items = filteritems;
+              
+              this.paginationCount = res[1].count;
+              console.log(this.paginationCount);
+            }
+            else if (this.userdata["role"] == "Department") {
+              this.IsNotSubCntr=true;
+              this.items = res[0]["data"];
+              this.isoperator = true;
+              var filteritems = [];
+              this.items.forEach(x => {
+                if (x["Request_status"] != "Draft") {
+                  filteritems.push(x);
+                }
+              });
+              this.items = [];
+              this.items.length = 0;
+              this.items = filteritems;
+            }
+          }
+  
+          this.Contractors = res[0]["data"];
+          this.Sites = res[0]["data"];
+          this.Getbuilding(this.Sites[0]["site_id"]);
+          this.Typeofactivitys = res[0]["data"];
+      })
     }
 }
