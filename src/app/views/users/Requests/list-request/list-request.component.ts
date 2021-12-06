@@ -638,7 +638,7 @@ export class ListRequestComponent implements OnInit {
               console.log("New Req List", x);
               this.getItems();
               // this.openSnackBar("Request Status Updated Successfully");
-              // window.location.reload();
+              window.location.reload();
             });
       });
   }
