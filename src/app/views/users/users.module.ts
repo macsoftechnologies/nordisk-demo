@@ -49,9 +49,10 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { DocsComponent } from './docs/docs.component';
 import { CategoryComponent } from './categories/category/category.component';
 import { NotificationLogsComponent } from './notification-logs/notification-logs.component';
+import { CatDialogComponent } from './cat-dialog/cat-dialog.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent],
+  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent, CatDialogComponent],
   imports: [
     CommonModule,
     jqxChartModule,
@@ -99,6 +100,6 @@ import { NotificationLogsComponent } from './notification-logs/notification-logs
     DatePipe,
     
   ],
-  entryComponents: [ListPopupComponent]
+  entryComponents: [ListPopupComponent, CatDialogComponent]
 })
 export class UsersModule { }

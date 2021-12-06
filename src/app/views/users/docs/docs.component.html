@@ -20,7 +20,7 @@
 <mat-card *ngIf="isSubCntrSelected">
     <mat-card-body>
         <div style="text-align: right;">
-            <button mat-flat-button class="submit-btn-sty" (click)="AddCategory()"
+            <button mat-flat-button class="submit-btn-sty" (click)="openDialog()"
             color="primary">Add Category</button>
         </div>
         <div style="text-align: center;">
@@ -31,8 +31,8 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Plan Type </mat-label>
                         <mat-select name="category" (selectionChange)="GetSelectedCategory($event.value)">
-                            <mat-option *ngFor="let site of CategoriesList" [value]="site.id">
-                                {{site.CatName}}
+                            <mat-option *ngFor="let site of totalCatData" [value]="site.id">
+                                {{site.category}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>

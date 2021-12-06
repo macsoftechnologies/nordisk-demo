@@ -6,6 +6,8 @@ import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { DeleteSubcontractorDto, MydocsDto } from 'app/views/Models/Subcontractor';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { DeleteOptionComponent } from 'app/views/Administrator/delete-option/delete-option.component';
+import { CatDialogComponent } from '../cat-dialog/cat-dialog.component';
+import { RequestService } from 'app/shared/services/request.service';
 
 @Component({
   selector: 'app-docs',
@@ -43,8 +45,9 @@ export class DocsComponent implements OnInit {
       subcontractorId: null
     }
   Mydocs: any[] = [];
+  totalCatData: any;
 
-  constructor(private subcntrservice: SubcontractorService, private _snackBar: MatSnackBar, private dialog: MatDialog,
+  constructor(private subcntrservice: SubcontractorService, private requestServices: RequestService, private _snackBar: MatSnackBar, private dialog: MatDialog,
     private authservice: JwtAuthService, @Optional() @Inject(MAT_DIALOG_DATA) public data: any[]) { }
 
   ngOnInit(): void {
@@ -55,7 +58,22 @@ export class DocsComponent implements OnInit {
         this.Contractors=res["data"];
       });
    // this.GetMyDocs();
+
+   this.getCategories();
   }
+  
+  openDialog() {
+    this.dialog.open(CatDialogComponent)
+  }
+
+  // Get Category
+  getCategories() {
+    this.requestServices.readCategory().subscribe((getResp) => {
+      this.totalCatData = getResp.data;
+      console.log(this.totalCatData, "Cat Data");
+    })
+  }
+
 
   GetMyDocs() {
     this.spinner = true;

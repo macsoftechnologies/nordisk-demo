@@ -85,6 +85,14 @@ export class RequestService {
     return this.http.post<any>(environment.API_URL + 'request/readrequestinfo.php', data );
   }
 
+  public addCategory(data):Observable<any> {
+    return this.http.post<any>(environment.API_URL + "category/create.php", data);
+  }
+
+  public readCategory():Observable<any> {
+    return this.http.get(environment.API_URL + "category/read.php");
+  }
+
 
 
   // public SetselectedRequest(row)

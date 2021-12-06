@@ -631,11 +631,12 @@ export class ListRequestComponent implements OnInit {
     })
     dialogRef.afterClosed()
       .subscribe(res => {
-        this.getItems();
+        
         this.requestservice
             .listpagination(this.pagedatainfo)
             .subscribe((x) => {
               console.log("New Req List", x);
+              this.getItems();
               // this.openSnackBar("Request Status Updated Successfully");
               // window.location.reload();
             });
