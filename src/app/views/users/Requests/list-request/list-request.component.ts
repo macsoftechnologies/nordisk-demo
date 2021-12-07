@@ -240,9 +240,9 @@ export class ListRequestComponent implements OnInit {
   ngOnInit() {
   
     this.pagedatainfo = {
-      start : 1,
-      end : 10,
-      page: 1 
+      Start : 0,
+      End : 10,
+      Page: 1 
     }
 
     this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
@@ -801,17 +801,17 @@ export class ListRequestComponent implements OnInit {
       let start;
       let offset = event.page - 1;            
       if(offset === 0 ){
-        start = 1;
+        start = 0;
       }
       else if (offset > 0 ) {
-        start = (offset) * 10;
+        start = (offset) * 10 + 1;
       }
       console.log(offset, "Set Value");
       console.log(start, "start value");      
       this.pagedatainfo = {
-        start : start,
-        end : 10,
-        page: event.page
+        Start : start,
+        End : 10,
+        Page: event.page
       }
   
       this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
