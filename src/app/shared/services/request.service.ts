@@ -62,6 +62,7 @@ export class RequestService {
   }
 
   public SearchRequest(req:SearchRequestDto): Observable<any> {
+    // req: readrequestinfo
     return this.http.post<any>(environment.API_URL + 'request/searchlist.php', req);
   }
 

@@ -1,49 +1,62 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
-import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+} from "@angular/core";
+import { MatDialogRef, MatDialog } from "@angular/material/dialog";
 
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { egretAnimations } from 'app/shared/animations/egret-animations';
-import { Subscription, forkJoin } from 'rxjs';
-import { AppConfirmService } from 'app/shared/services/app-confirm/app-confirm.service';
-import { AppLoaderService } from 'app/shared/services/app-loader/app-loader.service';
-import { UserService } from 'app/shared/services/user.service';
-import { ListPopupComponent } from '../list-popup/list-popup.component';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import * as XLSX from 'xlsx';
-import { PrintDownloadOptions } from 'app/views/Models/PrintDownloadOptionsDto';
-import * as moment from 'moment';
-import { CopyRequestComponent } from '../copy-request/copy-request.component';
-import { SubcontractorService } from 'app/shared/services/subcontractor.service';
-import { RequestService } from 'app/shared/services/request.service';
-import { StatusChangeDialogComponent } from '../status-change-dialog/status-change-dialog.component';
-import { RequestSaveOptionsDialogComponent } from '../request-save-options-dialog/request-save-options-dialog.component';
-import { DeleteOptionComponent } from 'app/views/Administrator/delete-option/delete-option.component';
-import { DatatableComponent, SelectionType } from '@swimlane/ngx-datatable';
-import { ActivityService } from 'app/shared/services/activity.service';
-import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
-import { DatePipe } from '@angular/common';
-import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-import { RequestsbyId, RequestBySubcontractorId } from 'app/views/Models/RequestDto';
-import * as xlsx from 'xlsx';
-import { EditRequestComponent } from '../edit-request/edit-request.component';
-import { config } from 'config';
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { egretAnimations } from "app/shared/animations/egret-animations";
+import { Subscription, forkJoin } from "rxjs";
+import { AppConfirmService } from "app/shared/services/app-confirm/app-confirm.service";
+import { AppLoaderService } from "app/shared/services/app-loader/app-loader.service";
+import { UserService } from "app/shared/services/user.service";
+import { ListPopupComponent } from "../list-popup/list-popup.component";
+import { Router } from "@angular/router";
+import {
+  FormGroup,
+  FormBuilder,
+  FormControl,
+  Validators,
+} from "@angular/forms";
+import * as XLSX from "xlsx";
+import { PrintDownloadOptions } from "app/views/Models/PrintDownloadOptionsDto";
+import * as moment from "moment";
+import { CopyRequestComponent } from "../copy-request/copy-request.component";
+import { SubcontractorService } from "app/shared/services/subcontractor.service";
+import { RequestService } from "app/shared/services/request.service";
+import { StatusChangeDialogComponent } from "../status-change-dialog/status-change-dialog.component";
+import { RequestSaveOptionsDialogComponent } from "../request-save-options-dialog/request-save-options-dialog.component";
+import { DeleteOptionComponent } from "app/views/Administrator/delete-option/delete-option.component";
+import { DatatableComponent, SelectionType } from "@swimlane/ngx-datatable";
+import { ActivityService } from "app/shared/services/activity.service";
+import { SearchRequestDto } from "app/views/Models/SearchRequestDto";
+import { DatePipe } from "@angular/common";
+import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
+import {
+  RequestsbyId,
+  RequestBySubcontractorId,
+} from "app/views/Models/RequestDto";
+import * as xlsx from "xlsx";
+import { EditRequestComponent } from "../edit-request/edit-request.component";
+import { config } from "config";
+import { number } from "ngx-custom-validators/src/app/number/validator";
 
 @Component({
-  selector: 'app-list-request',
-  templateUrl: './list-request.component.html',
-  styleUrls: ['./list-request.component.css'],
-  animations: egretAnimations
+  selector: "app-list-request",
+  templateUrl: "./list-request.component.html",
+  styleUrls: ["./list-request.component.css"],
+  animations: egretAnimations,
 })
-
-
 export class ListRequestComponent implements OnInit {
   [x: string]: any;
   @ViewChild(DatatableComponent) public table: DatatableComponent;
-  
+
   ModalOptions: PrintDownloadOptions;
   spinner = false;
-  IsNotSubCntr:boolean=false;
+  IsNotSubCntr: boolean = false;
   selected = [];
   selectedRequestIds = [];
   Filtertab: boolean = false;
@@ -51,28 +64,28 @@ export class ListRequestComponent implements OnInit {
 
   minDate: Date;
   maxDate: Date;
-  CurrentTime : Date;
+  CurrentTime: Date;
   RequestlistForm: FormGroup;
   items: any[] = [];
   getItemSub: Subscription;
   Cols = [
-    { field: 'PermitNo', header: 'Permit number' },
-    { field: 'Activity', header: 'Activity' },
-    { field: 'subContractorName', header: 'Sub Contractor' },
-    { field: 'Working_Date', header: 'Working Date' },
-    { field: 'Start_Time', header: 'Start Time' },
-    { field: 'End_Time', header: 'End Time' },
-    { field: 'Request_status', header: 'Status' },
+    { field: "PermitNo", header: "Permit number" },
+    { field: "Activity", header: "Activity" },
+    { field: "subContractorName", header: "Sub Contractor" },
+    { field: "Working_Date", header: "Working Date" },
+    { field: "Start_Time", header: "Start Time" },
+    { field: "End_Time", header: "End Time" },
+    { field: "Request_status", header: "Status" },
   ];
   paginationCount: any;
-  pagedatainfo: any ;
+  pagedatainfo: any;
 
   // setPage(pageinfo) {
   //   console.log("pagination", pageinfo);
   //   let pagedatainfo = {
   //     start : 1,
   //     end : 10,
-  //     page: pageinfo.offset + 1 
+  //     page: pageinfo.offset + 1
   //   }
 
   //   this.requestservice.listpagination(pagedatainfo).subscribe((res) => {
@@ -84,7 +97,7 @@ export class ListRequestComponent implements OnInit {
   //         this.Filtertab = false;
   //       }
   //       else {
-        
+
   //         this.Filtertab = true;
   //         this.userdata = this.jwtauth.getUser();
 
@@ -138,82 +151,82 @@ export class ListRequestComponent implements OnInit {
   // }
 
   getFloors = [
-    'LK1',
-    'L00',
-    'L01',
-    'L02',
-    'L03',
-    'L04',
-    'L05',
-    'L06',
-    'L07',
-    'L08',
-    'LTA'    
-  ]
+    "LK1",
+    "L00",
+    "L01",
+    "L02",
+    "L03",
+    "L04",
+    "L05",
+    "L06",
+    "L07",
+    "L08",
+    "LTA",
+  ];
 
-  Typeofactivitys: any[] = []
+  Typeofactivitys: any[] = [];
   Status: any[] = [
     {
-      "Statusid": "Hold",
-      "Statusname": "Hold"
+      Statusid: "Hold",
+      Statusname: "Hold",
     },
     {
-      "Statusid": "Draft",
-      "Statusname": "Draft"
+      Statusid: "Draft",
+      Statusname: "Draft",
     },
     {
-      "Statusid": "Approved",
-      "Statusname": "Approved"
+      Statusid: "Approved",
+      Statusname: "Approved",
     },
     {
-      "Statusid": "Reject",
-      "Statusname": "Rejected"
+      Statusid: "Reject",
+      Statusname: "Rejected",
     },
     {
-      "Statusid": "Opened",
-      "Statusname": "Opened"
+      Statusid: "Opened",
+      Statusname: "Opened",
     },
     {
-      "Statusid": "Closed",
-      "Statusname": "Closed"
-    }
-  ]
+      Statusid: "Closed",
+      Statusname: "Closed",
+    },
+  ];
   TypeS: any[] = [
     {
-      "Typeid": 1,
-      "Typename": "T"
+      Typeid: 1,
+      Typename: "T",
     },
     {
-      "Typeid": 2,
-      "Typename": "S"
+      Typeid: 2,
+      Typename: "S",
     },
     {
-      "Typeid": 3,
-      "Typename": "C"
+      Typeid: 3,
+      Typename: "C",
     },
+  ];
 
-  ]
+  SearchRequest: SearchRequestDto = {
+    Activity: null,
+    Site_Id: null,
+    Sub_Contractor_Id: null,
+    Request_status: null,
+    PermitNo: null,
+    fromDate: "",
+    toDate: "",
+    Type_Of_Activity_Id: null,
+    Building_Id: null,
+    Room_Type: null,
+    Start: null,
+    End: null,
+    Page: null,
+  };
 
-  SearchRequest: SearchRequestDto =
-    {
-      Activity: null,
-      Site_Id: null,
-      Sub_Contractor_Id: null,
-      Request_status: null,
-      PermitNo: null,
-      fromDate: "",
-      toDate:"",
-      Type_Of_Activity_Id:null,
-      Building_Id: null,
-      Room_Type: null
-    }
-
-    RequestsbyidDto:RequestBySubcontractorId=
-    {
-      SubContractorId:null
-    }
-  Contractors: any[] = []
-  Sites: any[] = []
+  RequestsbyidDto: RequestBySubcontractorId = {
+    SubContractorId: null,
+  };
+  Contractors: any[] = [];
+  Sites: any[] = [];
   Buildings: any[] = [];
   userdata: any = {};
   isoperator: boolean = false;
@@ -238,167 +251,172 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+    this.api = "listpagination";
+
     this.pagedatainfo = {
-      Start : 0,
-      End : 10,
-      Page: 1 
-    }
+      Start: 0,
+      End: 10,
+      Page: 1,
+    };
 
     this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
       console.log("pageresp", res);
       this.spinner = false;
 
-        if (res[0]["message"] == "No Requests Found") {
+      if (res[0]["message"] == "No Requests Found") {
+        this.items = [];
+        this.Filtertab = false;
+      } else {
+        this.Filtertab = true;
+        this.userdata = this.jwtauth.getUser();
+
+        if (this.userdata["role"] == "Subcontractor") {
+          this.isoperator = false;
+          this.IsNotSubCntr = false;
+          this.RequestlistForm.controls["Contractor"].setValue(
+            this.userdata["typeId"]
+          );
+          this.RequestsbyidDto.SubContractorId = this.userdata["typeId"];
+          // this.requestservice
+          //   .GetAllRequestsByid(this.RequestsbyidDto)
+          //   .subscribe((res) => {
+          this.items = res[0]["data"];
+          // });
+          this.paginationCount = res[1].count;
+          console.log(this.paginationCount);
+        } else if (this.userdata["role"] == "Admin") {
+          this.IsNotSubCntr = true;
+          this.items = res[0]["data"];
+          this.isoperator = true;
+          this.isoperator = true;
+          var filteritems = [];
+          this.items.forEach((x) => {
+            if (x["Request_status"] != "Draft") {
+              filteritems.push(x);
+            }
+          });
+          // this.items = [];
+          // this.items.length = 0;
+          // this.items = filteritems;
+
+          this.paginationCount = res[1].count;
+          console.log(this.paginationCount);
+        } else if (this.userdata["role"] == "Department") {
+          this.IsNotSubCntr = true;
+          this.items = res[0]["data"];
+          this.isoperator = true;
+          var filteritems = [];
+          this.items.forEach((x) => {
+            if (x["Request_status"] != "Draft") {
+              filteritems.push(x);
+            }
+          });
+          this.paginationCount = res[1].count;
+          console.log(this.paginationCount);
           this.items = [];
-          this.Filtertab = false;
+          this.items.length = 0;
+          this.items = filteritems;
         }
-        else {
-        
-          this.Filtertab = true;
-          this.userdata = this.jwtauth.getUser();
+      }
 
-          if (this.userdata["role"] == "Subcontractor") {
-            this.isoperator = false;
-            this.IsNotSubCntr=false;
-            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
-            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
-            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
-              {
-                this.items=res["data"];
-              });
-          }
-          else if (this.userdata["role"] == "Admin") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            // this.items = [];
-            // this.items.length = 0;
-            // this.items = filteritems;
-            
-            this.paginationCount = res[1].count;
-            console.log(this.paginationCount);
-          }
-          else if (this.userdata["role"] == "Department") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            this.items = [];
-            this.items.length = 0;
-            this.items = filteritems;
-          }
-        }
+      this.Contractors = res[0]["data"];
+      this.Sites = res[0]["data"];
+      this.Getbuilding(this.Sites[0]["site_id"]);
+      this.Typeofactivitys = res[0]["data"];
+    });
 
-        this.Contractors = res[0]["data"];
-        this.Sites = res[0]["data"];
-        this.Getbuilding(this.Sites[0]["site_id"]);
-        this.Typeofactivitys = res[0]["data"];
-    })
-
-
-    console.log(this.CurrentTime, "TIME")
+    console.log(this.CurrentTime, "TIME");
     console.log(Date(), "DATE");
     // var d = new Date();
     // var n = d.toLocaleString('da-DK', {
     //   timeZone: "Europe/Copenhagen",
     // });
-    
+
     // this.getItems();
     this.RequestlistForm = this.fb.group({
-      Permitnumber: ['', Validators.required],
-      TypeOfActivity: ['', Validators.required],
-      Keyword: ['', Validators.required],
-      WorkingDateFrom: ['', Validators.required],
-      WorkingDateTo: ['', Validators.required],
-      Status: ['', Validators.required],
-      Contractor: ['', Validators.required],
-      Site: ['', Validators.required],
-      Building: ['', Validators.required],
-      Level: ['', Validators.required]
+      Permitnumber: ["", Validators.required],
+      TypeOfActivity: ["", Validators.required],
+      Keyword: ["", Validators.required],
+      WorkingDateFrom: ["", Validators.required],
+      WorkingDateTo: ["", Validators.required],
+      Status: ["", Validators.required],
+      Contractor: ["", Validators.required],
+      Site: ["", Validators.required],
+      Building: ["", Validators.required],
+      Level: ["", Validators.required],
     });
   }
   ngOnDestroy() {
     if (this.getItemSub) {
-      this.getItemSub.unsubscribe()
+      this.getItemSub.unsubscribe();
     }
   }
   getItems() {
     //this.items = this.userservices.RequestLists;
     this.spinner = true;
 
-    forkJoin(this.requestservice.GetAllRequests(), this.subcntrservice.GetAllSubContractors(), this.requestservice.GetAllSites(),
-      this.activityservice.GetAllActivites()).subscribe(res => {
-        this.spinner = false;
+    forkJoin(
+      this.requestservice.GetAllRequests(),
+      this.subcntrservice.GetAllSubContractors(),
+      this.requestservice.GetAllSites(),
+      this.activityservice.GetAllActivites()
+    ).subscribe((res) => {
+      this.spinner = false;
 
-        if (res[0]["message"] == "No Requests Found") {
+      if (res[0]["message"] == "No Requests Found") {
+        this.items = [];
+        this.Filtertab = false;
+      } else {
+        this.Filtertab = true;
+        this.userdata = this.jwtauth.getUser();
+
+        if (this.userdata["role"] == "Subcontractor") {
+          this.isoperator = false;
+          this.IsNotSubCntr = false;
+          this.RequestlistForm.controls["Contractor"].setValue(
+            this.userdata["typeId"]
+          );
+          this.RequestsbyidDto.SubContractorId = this.userdata["typeId"];
+          this.requestservice
+            .GetAllRequestsByid(this.RequestsbyidDto)
+            .subscribe((res) => {
+              this.items = res["data"];
+            });
+        } else if (this.userdata["role"] == "Admin") {
+          this.IsNotSubCntr = true;
+          this.items = res[0]["data"];
+          this.isoperator = true;
+          this.isoperator = true;
+          var filteritems = [];
+          this.items.forEach((x) => {
+            if (x["Request_status"] != "Draft") {
+              filteritems.push(x);
+            }
+          });
           this.items = [];
-          this.Filtertab = false;
+          this.items.length = 0;
+          this.items = filteritems;
+        } else if (this.userdata["role"] == "Department") {
+          this.IsNotSubCntr = true;
+          this.items = res[0]["data"];
+          this.isoperator = true;
+          var filteritems = [];
+          this.items.forEach((x) => {
+            if (x["Request_status"] != "Draft") {
+              filteritems.push(x);
+            }
+          });
+          this.items = [];
+          this.items.length = 0;
+          this.items = filteritems;
         }
-        else {
-        
-          this.Filtertab = true;
-          this.userdata = this.jwtauth.getUser();
+      }
 
-          if (this.userdata["role"] == "Subcontractor") {
-            this.isoperator = false;
-            this.IsNotSubCntr=false;
-            this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
-            this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
-            this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
-              {
-                this.items=res["data"];
-              });
-          }
-          else if (this.userdata["role"] == "Admin") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            this.items = [];
-            this.items.length = 0;
-            this.items = filteritems;
-
-          }
-          else if (this.userdata["role"] == "Department") {
-            this.IsNotSubCntr=true;
-            this.items = res[0]["data"];
-            this.isoperator = true;
-            var filteritems = [];
-            this.items.forEach(x => {
-              if (x["Request_status"] != "Draft") {
-                filteritems.push(x);
-              }
-            });
-            this.items = [];
-            this.items.length = 0;
-            this.items = filteritems;
-          }
-        }
-
-        this.Contractors = res[1]["data"];
-        this.Sites = res[2]["data"];
-        this.Getbuilding(this.Sites[1]["site_id"]);
-        this.Typeofactivitys = res[3]["data"];
-      });
+      this.Contractors = res[1]["data"];
+      this.Sites = res[2]["data"];
+      this.Getbuilding(this.Sites[1]["site_id"]);
+      this.Typeofactivitys = res[3]["data"];
+    });
     // this.requestservice.GetAllRequests().subscribe(x=>
     //   {
     //     this.spinner=false;
@@ -413,177 +431,204 @@ export class ListRequestComponent implements OnInit {
     //     {
     //       this.Sites=x["data"];
     //     });
-
-
-
   }
   Getbuilding(event) {
     this.spinner = true;
-    this.requestservice.GetAllBuildingsbyid(event).subscribe(x => {
+    this.requestservice.GetAllBuildingsbyid(event).subscribe((x) => {
       this.spinner = false;
       this.Buildings = x["data"];
     });
   }
 
   openPopUp(data) {
-    let title = 'Request';
+    let title = "Request";
     let dialogRef: MatDialogRef<any> = this.dialog.open(ListPopupComponent, {
-      width: '1200px',
-      height: '600px',
+      width: "1200px",
+      height: "600px",
       disableClose: false,
-      data: { title: title, payload: data }
-    })
-    dialogRef.afterClosed()
-      .subscribe(res => {
-        this.getItems();
-        if (!res) {
-          // If user press cancel
-          return;
-        }
-      });
+      data: { title: title, payload: data },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      this.getItems();
+      if (!res) {
+        // If user press cancel
+        return;
+      }
+    });
   }
   deleteItem(row) {
-    this.confirmService.confirm({ message: `Delete ${row.name}?` })
-      .subscribe(res => {
-      })
+    this.confirmService
+      .confirm({ message: `Delete ${row.name}?` })
+      .subscribe((res) => {});
   }
   addrequest() {
-    this.route.navigateByUrl('user/new-request');
+    this.route.navigateByUrl("user/new-request");
   }
 
-  search() {
+  search(event) {
+    this.api = "SearchRequest";
+    console.log(event);
+    let start;
+    let offset = event.page - 1;
+    if (offset === 0) {
+      start = 0;
+    } else if (offset > 0) {
+      start = offset * 10 + 1;
+    }
+    console.log(offset, "Set Value");
+    console.log(start, "start value");
+
     console.log(this.RequestlistForm.controls.Level, "Level");
     this.spinner = true;
-    this.SearchRequest.Room_Type = this.RequestlistForm.controls["Level"].value;
-    this.SearchRequest.Building_Id = this.RequestlistForm.controls["Building"].value;
-    this.SearchRequest.Activity =this.RequestlistForm.controls["Keyword"].value;
-    this.SearchRequest.PermitNo = this.RequestlistForm.controls["Permitnumber"].value;
-    this.SearchRequest.Request_status = this.RequestlistForm.controls["Status"].value;
+    this.SearchRequest.Request_status =
+      this.RequestlistForm.controls["Status"].value;
+    this.SearchRequest.Activity =
+      this.RequestlistForm.controls["Keyword"].value;
+    this.SearchRequest.PermitNo =
+      this.RequestlistForm.controls["Permitnumber"].value;
     this.SearchRequest.Site_Id = this.RequestlistForm.controls["Site"].value;
-    this.SearchRequest.Sub_Contractor_Id = this.RequestlistForm.controls["Contractor"].value;
-    this.SearchRequest.Type_Of_Activity_Id=this.RequestlistForm.controls["TypeOfActivity"].value;
-    var mydate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateFrom"].value, 'yyyy-MM-dd');
-    var todate = this.datePipe.transform(this.RequestlistForm.controls["WorkingDateTo"].value, 'yyyy-MM-dd');
+    this.SearchRequest.Building_Id =
+      this.RequestlistForm.controls["Building"].value;
+    this.SearchRequest.Sub_Contractor_Id =
+      this.RequestlistForm.controls["Contractor"].value;
+    var mydate = this.datePipe.transform(
+      this.RequestlistForm.controls["WorkingDateFrom"].value,
+      "yyyy-MM-dd"
+    );
+    var todate = this.datePipe.transform(
+      this.RequestlistForm.controls["WorkingDateTo"].value,
+      "yyyy-MM-dd"
+    );
+    this.SearchRequest.Type_Of_Activity_Id =
+      this.RequestlistForm.controls["TypeOfActivity"].value;
+    this.SearchRequest.Room_Type = this.RequestlistForm.controls["Level"].value;
+    this.SearchRequest.Start = "0";
+    this.SearchRequest.End = "10";
+    this.SearchRequest.Page = "1";
 
-    if(mydate!=null)
-    {
+    if (mydate != null) {
       this.SearchRequest.fromDate = mydate;
     }
-    if(todate!=null)
-    {
-      this.SearchRequest.toDate=todate;
+    if (todate != null) {
+      this.SearchRequest.toDate = todate;
     }
- 
-    this.requestservice.SearchRequest(this.SearchRequest).subscribe(res => {
+
+    // this.SearchRequest = {
+    //   Start : start,
+    //   End : 10,
+    //   Page: event.page
+    // }
+
+    console.log(event.page, "CCCC");
+
+    this.requestservice.SearchRequest(this.SearchRequest).subscribe((res) => {
+      // , this.pagedatainfo
       if (res["message"] == "No Requests Found") {
         this.items = [];
         this.Filtertab = true;
         this.spinner = false;
-      }
-      else {
-        this.items = res["data"];
+      } else {
+        this.items = res[0]["data"];
+        this.paginationCount = res[1]["count"];
+        this.api = "SearchRequest";
         this.Filtertab = true;
         this.spinner = false;
       }
     });
-
   }
 
   exportToExcel() {
     const rowsString: string[] = [];
-    let headerString = '';
-    let csv = '';
+    let headerString = "";
+    let csv = "";
 
     this.ModalOptions = {
-      key: '',
-      fileName: '',
-      dialogHeader: '',
-      dialogMessage: '',
+      key: "",
+      fileName: "",
+      dialogHeader: "",
+      dialogMessage: "",
       enableDownloadExcel: true,
       enablePrint: true,
-      dataSource: '',
-      tableData: '',
+      dataSource: "",
+      tableData: "",
       columns: this.Cols,
-      reportHeaderColumns: '',
-      reportFooterColumns: ''
-
+      reportHeaderColumns: "",
+      reportFooterColumns: "",
     };
 
     this.ModalOptions.tableData = this.items;
 
-    this.ModalOptions.fileName = "test" + "_" + moment(new Date()).format('YYYY/MM/DD').toString();
+    this.ModalOptions.fileName =
+      "test" + "_" + moment(new Date()).format("YYYY/MM/DD").toString();
 
     for (const column of this.ModalOptions.columns) {
       let data = column.header;
-      data = data === 'undefined' ? '' : data;
-      data = data === null ? '' : data;
-      data = data === 'null' ? '' : data;
-      headerString += data + ',';
-
+      data = data === "undefined" ? "" : data;
+      data = data === null ? "" : data;
+      data = data === "null" ? "" : data;
+      headerString += data + ",";
     }
-    csv += headerString + '\n';
+    csv += headerString + "\n";
 
     for (let i = 0; i < this.ModalOptions.tableData.length; i++) {
-      let rowString = '';
-      let colNames = '';
+      let rowString = "";
+      let colNames = "";
       let objValues = {};
-      let val = '';
+      let val = "";
 
       const tableRow = this.ModalOptions.tableData[i];
       for (const column of this.ModalOptions.columns) {
-        if (column.field.includes('.')) {
-          colNames = column.field.split('.');
+        if (column.field.includes(".")) {
+          colNames = column.field.split(".");
           objValues = tableRow[colNames[0]];
           val = String(objValues[colNames[1]])
-            .replace(/[\n\r]+/g, '')
-            .replace(/\s{2,}/g, ' ')
-            .replace(/,/g, '')
+            .replace(/[\n\r]+/g, "")
+            .replace(/\s{2,}/g, " ")
+            .replace(/,/g, "")
             .trim();
-          val = val === 'true' ? '1' : val === 'false' ? '0' : val;
-          val = val === null ? '' : val;
-          val = val === 'null' ? '' : val;
-          val = val === '0' ? '' : val;
-          val = val === 'undefined' ? '' : val;
-          rowString += val + ',';
+          val = val === "true" ? "1" : val === "false" ? "0" : val;
+          val = val === null ? "" : val;
+          val = val === "null" ? "" : val;
+          val = val === "0" ? "" : val;
+          val = val === "undefined" ? "" : val;
+          rowString += val + ",";
         } else {
           val = String(tableRow[column.field])
-            .replace(/[\n\r]+/g, '')
-            .replace(/\s{2,}/g, ' ')
-            .replace(/,/g, '')
+            .replace(/[\n\r]+/g, "")
+            .replace(/\s{2,}/g, " ")
+            .replace(/,/g, "")
             .trim();
-          val = val === 'true' ? '1' : val === 'false' ? '0' : val;
-          val = val === null ? '' : val;
-          val = val === 'null' ? '' : val;
-          val = val === '0' ? '' : val;
-          val = val === 'undefined' ? '' : val;
-          rowString += val + ',';
+          val = val === "true" ? "1" : val === "false" ? "0" : val;
+          val = val === null ? "" : val;
+          val = val === "null" ? "" : val;
+          val = val === "0" ? "" : val;
+          val = val === "undefined" ? "" : val;
+          rowString += val + ",";
         }
       }
       rowsString.push(rowString);
     }
 
     for (const row of rowsString) {
-      csv += row + '\n';
+      csv += row + "\n";
     }
 
-    csv += this.ModalOptions.reportFooterColumns + '\n';
-    const blob = new Blob(['\uFEFF', csv], { type: 'text/csv' });
-    const link = document.createElement('a');
-    link.setAttribute('href', window.URL.createObjectURL(blob));
+    csv += this.ModalOptions.reportFooterColumns + "\n";
+    const blob = new Blob(["\uFEFF", csv], { type: "text/csv" });
+    const link = document.createElement("a");
+    link.setAttribute("href", window.URL.createObjectURL(blob));
     link.setAttribute(
-      'download',
-      this.ModalOptions.fileName + this.ModalOptions.key + '.csv'
+      "download",
+      this.ModalOptions.fileName + this.ModalOptions.key + ".csv"
     );
-    document.body.appendChild(link); 
+    document.body.appendChild(link);
     link.click();
   }
 
   Editrow(row) {
-
-    this.requestservice.SelectedRequestData =
-    {
-      "payload": row,
-      "editform": true
+    this.requestservice.SelectedRequestData = {
+      payload: row,
+      editform: true,
     };
     this.route.navigateByUrl("/user/new-request");
 
@@ -599,128 +644,134 @@ export class ListRequestComponent implements OnInit {
 
     //   })
   }
-  CopyRequest(row,status) {
-    if(status=="Closed")
-    {
-      row["Request_status"]="Hold";
-      let currentdate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-      row["Request_Date"]=currentdate;
+  CopyRequest(row, status) {
+    if (status == "Closed") {
+      row["Request_status"] = "Hold";
+      let currentdate = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+      row["Request_Date"] = currentdate;
     }
-    let title = 'Copy Request';
+    let title = "Copy Request";
     let dialogRef: MatDialogRef<any> = this.dialog.open(CopyRequestComponent, {
-      width: '1200px',
-      height: '300px',
+      width: "1200px",
+      height: "300px",
       disableClose: false,
-      data: { title: title, payload: row, copyform: true }
-    })
-    dialogRef.afterClosed()
-      .subscribe(res => {
-        this.getItems();
-      });
+      data: { title: title, payload: row, copyform: true },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      this.getItems();
+    });
   }
 
   ChangeStaus(row) {
-    let title = 'Request Status Change ';
+    let title = "Request Status Change ";
     let type = "operartor";
     console.log(row);
-    let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
-      width: '300px',
-      height: '150px',
-      disableClose: false,
-      data: { title: title, payload: row, type: type, pagedatainfo: this.pagedatainfo}
-    })
-    dialogRef.afterClosed()
-      .subscribe(res => {
-        
-        this.requestservice
-            .listpagination(this.pagedatainfo)
-            .subscribe((x) => {
-              console.log("New Req List", x);
-              this.getItems();
-              // this.openSnackBar("Request Status Updated Successfully");
-              window.location.reload();
-            });
+    let dialogRef: MatDialogRef<any> = this.dialog.open(
+      StatusChangeDialogComponent,
+      {
+        width: "300px",
+        height: "150px",
+        disableClose: false,
+        data: {
+          title: title,
+          payload: row,
+          type: type,
+          pagedatainfo: this.pagedatainfo,
+        },
+      }
+    );
+    dialogRef.afterClosed().subscribe((res) => {
+      this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
+        console.log("New Req List", x);
+        this.getItems();
+        // this.openSnackBar("Request Status Updated Successfully");
+        window.location.reload();
       });
+    });
   }
   ChangeStausbysubcontractor(row, status) {
-    console.log(config.Denmarktz.split(' '));
-    const [currentDenmarkDate,currentDenmarkTime]= [...config.Denmarktz.split(' ')];
+    console.log(config.Denmarktz.split(" "));
+    const [currentDenmarkDate, currentDenmarkTime] = [
+      ...config.Denmarktz.split(" "),
+    ];
     console.log(currentDenmarkTime);
-    console.log(currentDenmarkDate)
-    let title = 'Request Status Change ';
+    console.log(currentDenmarkDate);
+    let title = "Request Status Change ";
     let type = status;
     if (status == "Opened") {
-      
-      var currentdate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-      var mydate = this.datePipe.transform(row["Working_Date"], 'yyyy-MM-dd');
+      var currentdate = this.datePipe.transform(new Date(), "yyyy-MM-dd");
+      var mydate = this.datePipe.transform(row["Working_Date"], "yyyy-MM-dd");
       if (currentdate === mydate) {
-        let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
-
-
-          disableClose: false,
-          data: { title: title, payload: row, type: type }
-        })
-        dialogRef.afterClosed()
-          .subscribe(res => {
-            this.getItems();
-          });
-      }
-    }
-    else if (status == "Closed") {
-
-      let dialogRef: MatDialogRef<any> = this.dialog.open(StatusChangeDialogComponent, {
-        disableClose: false,
-        width:'600px',
-        data: { title: title, payload: row, type: type }
-      })
-      dialogRef.afterClosed()
-        .subscribe(res => {
+        let dialogRef: MatDialogRef<any> = this.dialog.open(
+          StatusChangeDialogComponent,
+          {
+            disableClose: false,
+            data: { title: title, payload: row, type: type },
+          }
+        );
+        dialogRef.afterClosed().subscribe((res) => {
           this.getItems();
         });
+      }
+    } else if (status == "Closed") {
+      let dialogRef: MatDialogRef<any> = this.dialog.open(
+        StatusChangeDialogComponent,
+        {
+          disableClose: false,
+          width: "600px",
+          data: { title: title, payload: row, type: type },
+        }
+      );
+      dialogRef.afterClosed().subscribe((res) => {
+        this.getItems();
+      });
     }
   }
 
   Deleterequest(row) {
-    let title = 'Delete Request';
+    let title = "Delete Request";
     let dialogRef: MatDialogRef<any> = this.dialog.open(DeleteOptionComponent, {
-      width: '300px',
-      height: '150px',
+      width: "300px",
+      height: "150px",
       disableClose: false,
-      data: { title: title, payload: row, type: "request" }
-    })
-    dialogRef.afterClosed()
-      .subscribe(res => {
-        this.getItems();
-      });
+      data: { title: title, payload: row, type: "request" },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      this.getItems();
+    });
   }
   statuschange(statusdata) {
-
     this.selectedRequestIds.length = 0;
 
-    this.selected.forEach(x => {
+    this.selected.forEach((x) => {
       if (x["Request_status"] == "Hold") {
         this.selectedRequestIds.push(x["id"]);
       }
     });
 
-
-    let title = 'Do you want ' + statusdata + " Items";
-    let dialogRef: MatDialogRef<any> = this.dialog.open(RequestSaveOptionsDialogComponent, {
-      width: '300px',
-      height: '150px',
-      disableClose: false,
-      data: { title: title, payload: this.selectedRequestIds.toString(), statustype: statusdata, listitemsstatus: true }
-    })
-    dialogRef.afterClosed()
-      .subscribe(res => {
-        this.selected.length=0;
-        this.selected=[];
-        this.ngOnInit();
-      });
+    let title = "Do you want " + statusdata + " Items";
+    let dialogRef: MatDialogRef<any> = this.dialog.open(
+      RequestSaveOptionsDialogComponent,
+      {
+        width: "300px",
+        height: "150px",
+        disableClose: false,
+        data: {
+          title: title,
+          payload: this.selectedRequestIds.toString(),
+          statustype: statusdata,
+          listitemsstatus: true,
+        },
+      }
+    );
+    dialogRef.afterClosed().subscribe((res) => {
+      this.selected.length = 0;
+      this.selected = [];
+      this.ngOnInit();
+    });
   }
 
   onSelect({ selected }) {
-
     this.selected = selected;
 
     //this.selected.splice(0, this.selected.length);
@@ -732,149 +783,233 @@ export class ListRequestComponent implements OnInit {
   }
 
   DeleteDepart(row) {
-    let title = 'Delete Request';
+    let title = "Delete Request";
     let dialogRef: MatDialogRef<any> = this.dialog.open(DeleteOptionComponent, {
-      width: '300px',
-      height: '150px',
+      width: "300px",
+      height: "150px",
       disableClose: false,
-      data: { title: title, payload: row, type: "request" }
-    })
-    dialogRef.afterClosed()
-      .subscribe(res => {
-        this.getItems();
-      });
+      data: { title: title, payload: row, type: "request" },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      this.getItems();
+    });
   }
 
-  EditDraft(row)
-  {
+  EditDraft(row) {
     console.log(row);
-    this.requestservice.SelectedRequestData =
-    {
-      "payload": row,
-      "editform": true
+    this.requestservice.SelectedRequestData = {
+      payload: row,
+      editform: true,
     };
     this.route.navigateByUrl("/user/new-request");
   }
 
-  Getselected(event)
-  {
+  Getselected(event) {
     console.log(event);
-    this.selected.forEach(x => {
+    this.selected.forEach((x) => {
       if (x["Request_status"] == "Hold") {
         this.selectedRequestIds.push(x["id"]);
       }
     });
 
-    if(event!="none")
-    {
-      let title=event;
-      let dialogRef: MatDialogRef<any> = this.dialog.open(EditRequestComponent, {
-        width: '800px',
-        height: '200px',
-        disableClose: false,
-        data: { title: title,payload: this.selectedRequestIds.toString()}
-      })
-      dialogRef.afterClosed()
-        .subscribe(res => {
-          this.selectedRequestIds.length=0;
-          this.selectedRequestIds=[];
-          this.getItems();
-        });
+    if (event != "none") {
+      let title = event;
+      let dialogRef: MatDialogRef<any> = this.dialog.open(
+        EditRequestComponent,
+        {
+          width: "800px",
+          height: "200px",
+          disableClose: false,
+          data: { title: title, payload: this.selectedRequestIds.toString() },
+        }
+      );
+      dialogRef.afterClosed().subscribe((res) => {
+        this.selectedRequestIds.length = 0;
+        this.selectedRequestIds = [];
+        this.getItems();
+      });
     }
-    }
-    Reset()
-    {
-      this.RequestlistForm.reset();
-      this.SearchRequest.fromDate=null;
-      this.SearchRequest.toDate=null;      
-    }
-    selectFn(info){
-      console.log(info);
-    }
-    onCheckboxChangeFn(event){
-      console.log(event);
-    }
+  }
+  Reset() {
+    this.api = "listpagination";
+    this.RequestlistForm.reset();
+    this.SearchRequest.fromDate = null;
+    this.SearchRequest.toDate = null;
+  }
+  selectFn(info) {
+    console.log(info);
+  }
+  onCheckboxChangeFn(event) {
+    console.log(event);
+  }
 
+  onPagination(event) {
+    let start;
+    let offset = event.page - 1;
+    if (offset === 0) {
+      start = 0;
+    } else if (offset > 0) {
+      start = offset * 10 + 1;
+    }
+    console.log(offset, "Set Value");
+    console.log(start, "start value");
+    this.pagedatainfo = {
+      Start: start,
+      End: 10,
+      Page: event.page,
+    };
 
-    onPagination(event){
-      console.log(event)
-      let start;
-      let offset = event.page - 1;            
-      if(offset === 0 ){
-        start = 0;
-      }
-      else if (offset > 0 ) {
-        start = (offset) * 10 + 1;
-      }
-      console.log(offset, "Set Value");
-      console.log(start, "start value");      
-      this.pagedatainfo = {
-        Start : start,
-        End : 10,
-        Page: event.page
-      }
-  
-      this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
+    if (this.api == "listpagination") {
+      this.requestservice[this.api](this.pagedatainfo).subscribe((res) => {
         console.log("pageresp", res);
         this.spinner = false;
-  
-          if (res[0]["message"] == "No Requests Found") {
+
+        // if (res[0]["message"] == "No Requests Found") {
+        //   this.items = [];
+        //   this.Filtertab = false;
+        // }
+        if (res.length > 0) {
+          this.Filtertab = true;
+          this.userdata = this.jwtauth.getUser();
+
+          if (this.userdata["role"] == "Subcontractor") {
+            this.isoperator = false;
+            this.IsNotSubCntr = false;
+            this.RequestlistForm.controls["Contractor"].setValue(
+              this.userdata["typeId"]
+            );
+            this.RequestsbyidDto.SubContractorId = this.userdata["typeId"];
+            // this.requestservice
+            //   .GetAllRequestsByid(this.RequestsbyidDto)
+            //   .subscribe((res) => {
+            this.items = res[0]["data"];
+            // });
+            this.paginationCount = res[1].count;
+            console.log(this.paginationCount);
+          } else if (this.userdata["role"] == "Admin") {
+            this.IsNotSubCntr = true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach((x) => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+
+            this.paginationCount = res[1].count;
+            console.log(this.paginationCount);
+          } else if (this.userdata["role"] == "Department") {
+            this.IsNotSubCntr = true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach((x) => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
             this.items = [];
-            this.Filtertab = false;
+            this.items.length = 0;
+            this.items = filteritems;
           }
-          else {
-          
-            this.Filtertab = true;
-            this.userdata = this.jwtauth.getUser();
-  
-            if (this.userdata["role"] == "Subcontractor") {
-              this.isoperator = false;
-              this.IsNotSubCntr=false;
-              this.RequestlistForm.controls["Contractor"].setValue(this.userdata["typeId"]);
-              this.RequestsbyidDto.SubContractorId=this.userdata["typeId"];
-              this.requestservice.GetAllRequestsByid(this.RequestsbyidDto).subscribe(res=>
-                {
-                  this.items=res["data"];
-                });
-            }
-            else if (this.userdata["role"] == "Admin") {
-              this.IsNotSubCntr=true;
-              this.items = res[0]["data"];
-              this.isoperator = true;
-              this.isoperator = true;
-              var filteritems = [];
-              this.items.forEach(x => {
-                if (x["Request_status"] != "Draft") {
-                  filteritems.push(x);
-                }
+        }
+
+        this.Contractors = res["data"];
+        this.Sites = res["data"];
+        // this.Getbuilding(this.Sites["site_id"]);
+        this.Typeofactivitys = res["data"];
+      });
+    } else if (this.api == "SearchRequest") {
+      this.SearchRequest.Request_status =
+        this.RequestlistForm.controls["Status"].value;
+      this.SearchRequest.Activity =
+        this.RequestlistForm.controls["Keyword"].value;
+      this.SearchRequest.PermitNo =
+        this.RequestlistForm.controls["Permitnumber"].value;
+      this.SearchRequest.Site_Id = this.RequestlistForm.controls["Site"].value;
+      this.SearchRequest.Building_Id =
+        this.RequestlistForm.controls["Building"].value;
+      this.SearchRequest.Sub_Contractor_Id =
+        this.RequestlistForm.controls["Contractor"].value;
+      var mydate = this.datePipe.transform(
+        this.RequestlistForm.controls["WorkingDateFrom"].value,
+        "yyyy-MM-dd"
+      );
+      var todate = this.datePipe.transform(
+        this.RequestlistForm.controls["WorkingDateTo"].value,
+        "yyyy-MM-dd"
+      );
+      this.SearchRequest.Type_Of_Activity_Id =
+        this.RequestlistForm.controls["TypeOfActivity"].value;
+      this.SearchRequest.Room_Type =
+        this.RequestlistForm.controls["Level"].value;
+      this.SearchRequest.Start = start;
+      this.SearchRequest.End = "10";
+      this.SearchRequest.Page = event.page;
+
+      this.requestservice[this.api](this.SearchRequest).subscribe((res) => {
+        console.log("pageresp", res);
+        this.spinner = false;
+
+        // if (res[0]["message"] == "No Requests Found") {
+        //   this.items = [];
+        //   this.Filtertab = false;
+        // }
+        if (res.length > 0) {
+          this.Filtertab = true;
+          this.userdata = this.jwtauth.getUser();
+
+          if (this.userdata["role"] == "Subcontractor") {
+            this.isoperator = false;
+            this.IsNotSubCntr = false;
+            this.RequestlistForm.controls["Contractor"].setValue(
+              this.userdata["typeId"]
+            );
+            this.RequestsbyidDto.SubContractorId = this.userdata["typeId"];
+            this.requestservice
+              .GetAllRequestsByid(this.RequestsbyidDto)
+              .subscribe((res) => {
+                this.items = res["data"];
               });
-              // this.items = [];
-              // this.items.length = 0;
-              // this.items = filteritems;
-              
-              this.paginationCount = res[1].count;
-              console.log(this.paginationCount);
-            }
-            else if (this.userdata["role"] == "Department") {
-              this.IsNotSubCntr=true;
-              this.items = res[0]["data"];
-              this.isoperator = true;
-              var filteritems = [];
-              this.items.forEach(x => {
-                if (x["Request_status"] != "Draft") {
-                  filteritems.push(x);
-                }
-              });
-              this.items = [];
-              this.items.length = 0;
-              this.items = filteritems;
-            }
+            this.paginationCount = res[1].count;
+            console.log(this.paginationCount);
+          } else if (this.userdata["role"] == "Admin") {
+            this.IsNotSubCntr = true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach((x) => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+
+            this.paginationCount = res[1].count;
+            console.log(this.paginationCount);
+          } else if (this.userdata["role"] == "Department") {
+            this.IsNotSubCntr = true;
+            this.items = res[0]["data"];
+            this.isoperator = true;
+            var filteritems = [];
+            this.items.forEach((x) => {
+              if (x["Request_status"] != "Draft") {
+                filteritems.push(x);
+              }
+            });
+            this.items = [];
+            this.items.length = 0;
+            this.items = filteritems;
           }
-  
-          this.Contractors = res[0]["data"];
-          this.Sites = res[0]["data"];
-          this.Getbuilding(this.Sites[0]["site_id"]);
-          this.Typeofactivitys = res[0]["data"];
-      })
+        }
+
+        this.Contractors = res["data"];
+        this.Sites = res["data"];
+        // this.Getbuilding(this.Sites["site_id"]);
+        this.Typeofactivitys = res["data"];
+      });
     }
+  }
 }

@@ -155,6 +155,7 @@ export class StatusChangeDialogComponent implements OnInit {
         (x) => {
           if(x.status == 200){
             this.openSnackBar("Request Status Updated Successfully");
+            window.location.reload();
           }
         },
         (error) => {
