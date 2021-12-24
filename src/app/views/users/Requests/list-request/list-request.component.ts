@@ -324,10 +324,10 @@ export class ListRequestComponent implements OnInit {
         }
       }
 
-      this.Contractors = res[0]['data'];
+      this.Contractors = res[2]['subcontractors'];
       this.Sites = res[0]['data'];
       this.Getbuilding(this.Sites[0]['site_id']);
-      this.Typeofactivitys = res[0]['data'];
+      this.Typeofactivitys = res[3]['activities'];
     });
 
     console.log(this.CurrentTime, 'TIME');
@@ -663,7 +663,7 @@ export class ListRequestComponent implements OnInit {
       data: { title: title, payload: row, copyform: true },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.getItems();
+      this.ngOnInit();
     });
   }
 
@@ -688,9 +688,9 @@ export class ListRequestComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
         console.log('New Req List', x);
-        this.getItems();
+        this.ngOnInit();
         // this.openSnackBar("Request Status Updated Successfully");
-        window.location.reload();
+        // window.location.reload();
       });
     });
   }
@@ -715,7 +715,7 @@ export class ListRequestComponent implements OnInit {
           }
         );
         dialogRef.afterClosed().subscribe((res) => {
-          this.getItems();
+          this.ngOnInit();
         });
       }
     } else if (status == 'Closed') {
@@ -728,7 +728,7 @@ export class ListRequestComponent implements OnInit {
         }
       );
       dialogRef.afterClosed().subscribe((res) => {
-        this.getItems();
+        this.ngOnInit();
       });
     }
   }
@@ -742,7 +742,7 @@ export class ListRequestComponent implements OnInit {
       data: { title: title, payload: row, type: 'request' },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.getItems();
+      this.ngOnInit();
     });
   }
   statuschange(statusdata) {
@@ -796,7 +796,7 @@ export class ListRequestComponent implements OnInit {
       data: { title: title, payload: row, type: 'request' },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.getItems();
+      this.ngOnInit();
     });
   }
 
@@ -831,7 +831,7 @@ export class ListRequestComponent implements OnInit {
       dialogRef.afterClosed().subscribe((res) => {
         this.selectedRequestIds.length = 0;
         this.selectedRequestIds = [];
-        this.getItems();
+        this.ngOnInit();
       });
     }
   }
@@ -1010,10 +1010,10 @@ export class ListRequestComponent implements OnInit {
           }
         }
 
-        this.Contractors = res['data'];
+        this.Contractors = res[2]['subcontractors'];
         this.Sites = res['data'];
         // this.Getbuilding(this.Sites["site_id"]);
-        this.Typeofactivitys = res['data'];
+        this.Typeofactivitys = res[3]['activities'];
       });
     }
   }
