@@ -28,13 +28,20 @@
                 <mat-grid-tile>
                 </mat-grid-tile>
                 <mat-grid-tile>
-                    <mat-form-field class="full-width" appearance="outline">
+                    <mat-form-field class="full-width plan-drop" appearance="outline">
                         <mat-label>Plan Type </mat-label>
                         <mat-select name="category" (selectionChange)="GetSelectedCategory($event.value)">
                             <mat-option *ngFor="let site of totalCatData" [value]="site.id">
-                                {{site.category}}
+                                <div class="plan-activity">
+                                    {{site.category}}                                
+                                    
+                                    <div (click)="deleteopenDialog(site)">
+                                        <i class="fa fa-trash"></i>
+                                    </div>
+                                </div>
                             </mat-option>
                         </mat-select>
+                        
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>

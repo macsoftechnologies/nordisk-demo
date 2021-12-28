@@ -19,3 +19,9 @@
     font-size: 16px !important;
     cursor: pointer !important;
 }
+
+.plan-activity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

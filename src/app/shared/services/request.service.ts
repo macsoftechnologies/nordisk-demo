@@ -94,6 +94,10 @@ export class RequestService {
     return this.http.get(environment.API_URL + "category/read.php");
   }
 
+  public deleteActivity(data):Observable<any> {
+    return this.http.post(environment.API_URL + "category/delete.php", data);
+  }
+
 
 
   // public SetselectedRequest(row)

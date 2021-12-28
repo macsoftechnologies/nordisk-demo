@@ -8,6 +8,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 import { DeleteOptionComponent } from 'app/views/Administrator/delete-option/delete-option.component';
 import { CatDialogComponent } from '../cat-dialog/cat-dialog.component';
 import { RequestService } from 'app/shared/services/request.service';
+import { DeleteCatDialogComponentComponent } from '../delete-cat-dialog-component/delete-cat-dialog-component.component';
 
 @Component({
   selector: 'app-docs',
@@ -64,6 +65,11 @@ export class DocsComponent implements OnInit {
   
   openDialog() {
     this.dialog.open(CatDialogComponent)
+  }
+
+  deleteopenDialog(currentItem) {
+    this.dialog.open(DeleteCatDialogComponentComponent)
+    localStorage.setItem("activityname", currentItem.id)
   }
 
   // Get Category

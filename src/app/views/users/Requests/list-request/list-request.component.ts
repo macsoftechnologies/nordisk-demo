@@ -180,7 +180,7 @@ export class ListRequestComponent implements OnInit {
       Statusname: 'Approved',
     },
     {
-      Statusid: 'Reject',
+      Statusid: 'Rejected',
       Statusname: 'Rejected',
     },
     {
