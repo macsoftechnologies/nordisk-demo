@@ -423,9 +423,9 @@
           let-offset="offset">
           <div style="padding: 5px 10px">
             <div>
-              Showing {{(offset * pageSize)+1}} to {{(rowCount> 
-                (curPage*pageSize))?(curPage*pageSize):(rowCount)}} of 
-                {{(rowCount)}} records.
+              Selected {{Countresult.length}} of {{(rowCount> 
+                (curPage*pageSize))?(curPage*pageSize):(rowCount)}} /
+                {{paginationCount}} records.
             </div>
           </div>
           <datatable-pager

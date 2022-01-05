@@ -63,6 +63,10 @@ export class ListRequestComponent implements OnInit {
   SelectionType = SelectionType;
   isUserLoggedIn: any;
 
+  Countresult = [];
+
+  dummyArray = [];
+
   minDate: Date;
   maxDate: Date;
   CurrentTime: Date;
@@ -252,6 +256,15 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    let testing = [1,2,3]
+
+    this.dummyArray = testing.filter((item) =>  {
+     return item % 2 === 0
+    }) 
+
+    // console.log(this.dummyArray, 'array')
+
     this.api = 'listpagination';
 
     this.isUserLoggedIn = JSON.parse(localStorage.getItem('EGRET_USER'));
@@ -328,6 +341,8 @@ export class ListRequestComponent implements OnInit {
       this.Sites = res[0]['data'];
       this.Getbuilding(this.Sites[0]['site_id']);
       this.Typeofactivitys = res[3]['activities'];
+      this.totalCount = res[1]['count']
+      console.log(this.totalCount, "Count Total")
     });
 
     console.log(this.CurrentTime, 'TIME');
@@ -778,6 +793,8 @@ export class ListRequestComponent implements OnInit {
 
   onSelect({ selected }) {
     this.selected = selected;
+    this.Countresult = this.selected.filter((filterdata) => filterdata.Request_status === 'Hold')
+    console.log(this.Countresult.length, "count")
 
     //this.selected.splice(0, this.selected.length);
     //this.selected.push(...selected);

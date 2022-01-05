@@ -56,6 +56,7 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
     this.reqservice.UpdateListStatusRequest(this.UpdateRequestStatusList).subscribe(res => {
       this.openSnackBar("Requests Status Updated Successfully");
       // this.getItems();
+      this.ngOnInit();
     },
       error => {
         this.openSnackBar("something went wrong please try again later...");
