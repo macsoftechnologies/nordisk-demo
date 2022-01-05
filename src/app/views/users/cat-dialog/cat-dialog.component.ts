@@ -30,6 +30,7 @@ export class CatDialogComponent implements OnInit {
       if(catResp.status === 200) {
         console.log("Category Added");
         this.snackBar.open("Category Created Successfully", 'close');
+        this.beamServices.catDialogservice.emit('true');
         this.ngOnInit();
         // window.location.reload();
       }

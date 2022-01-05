@@ -6,6 +6,7 @@ import { RequestDto, EditRequestDto, DeleteRequestDto, UpdateRequestStatusListDt
 import { PlansDto } from 'app/views/Models/PlansDto';
 import { SearchRequestDto } from 'app/views/Models/SearchRequestDto';
 import { UpdateNotes, UpdateSafety, UpdateTime } from 'app/views/Models/MultiRequestUpdateDto';
+import { EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ import { UpdateNotes, UpdateSafety, UpdateTime } from 'app/views/Models/MultiReq
 export class RequestService {
 
   SelectedRequestData:any={};
+
+  catDialogservice = new EventEmitter<any>();
+  DeleteActivityEmitter = new EventEmitter<any>();
+  
   constructor(private http:HttpClient) { }
   public GetAllSites(): Observable<any[]> {
     return this.http.get<any[]>(environment.API_URL + 'common/sites.php');

@@ -25,6 +25,7 @@ export class DeleteCatDialogComponentComponent implements OnInit {
     this.RequestService.deleteActivity(deleteObj).subscribe ((deleteResp) => {
       console.log(deleteResp, "Delete Response")
       this.snackBar.open("Activity Delete Successfully", 'close');
+      this.RequestService.DeleteActivityEmitter.emit(true)
       // window.location.reload();
     })
   }
