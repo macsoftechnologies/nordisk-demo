@@ -299,6 +299,7 @@ export class ListRequestComponent implements OnInit {
           //   .GetAllRequestsByid(this.RequestsbyidDto)
           //   .subscribe((res) => {
           this.items = res[0]['data'];
+          console.log("Total Data", this.items)
           // });
           this.paginationCount = res[1].count;
           console.log(this.paginationCount);
@@ -877,6 +878,8 @@ export class ListRequestComponent implements OnInit {
     console.log(offset, 'Set Value');
     console.log(start, 'start value');
     this.pagedatainfo = {
+      LoginType: this.isUserLoggedIn.role,
+      Type: this.isUserLoggedIn.typeId,
       Start: start,
       End: 50,
       Page: event.page,
