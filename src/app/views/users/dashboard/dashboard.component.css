@@ -20,10 +20,11 @@
 .paragraph {
     position: absolute;
     z-index: 99999;
-    right: 171px;
+    /* right: 171px; */
     height: 20px;
-    width: 400px;
+    width: 1000px;
     bottom: 5px;
+    right: 2px;
     background-color: #fff;
 }
 

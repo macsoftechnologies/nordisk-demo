@@ -273,7 +273,7 @@ export class ListRequestComponent implements OnInit {
       LoginType: this.isUserLoggedIn.role,
       Type: this.isUserLoggedIn.typeId,
       Start: 1,
-      End: 50,
+      End: 30,
       Page: 1,
     };
 
@@ -492,9 +492,9 @@ export class ListRequestComponent implements OnInit {
     let start;
     let offset = event.page - 1;
     if (offset === 0) {
-      start = 0;
+      start = 1;
     } else if (offset > 0) {
-      start = offset * 50 + 1;
+      start = offset * 30 + 1;
     }
     console.log(offset, 'Set Value');
     console.log(start, 'start value');
@@ -524,7 +524,7 @@ export class ListRequestComponent implements OnInit {
       this.RequestlistForm.controls['TypeOfActivity'].value;
     this.SearchRequest.Room_Type = this.RequestlistForm.controls['Level'].value;
     this.SearchRequest.Start = '0';
-    this.SearchRequest.End = '50';
+    this.SearchRequest.End = '30';
     this.SearchRequest.Page = '1';
 
     if (mydate != null) {
@@ -871,9 +871,9 @@ export class ListRequestComponent implements OnInit {
     let start;
     let offset = event.page - 1;
     if (offset === 0) {
-      start = 0;
+      start = 1;
     } else if (offset > 0) {
-      start = offset * 50 + 1;
+      start = offset * 30 + 1;
     }
     console.log(offset, 'Set Value');
     console.log(start, 'start value');
@@ -881,7 +881,7 @@ export class ListRequestComponent implements OnInit {
       LoginType: this.isUserLoggedIn.role,
       Type: this.isUserLoggedIn.typeId,
       Start: start,
-      End: 50,
+      End: 30,
       Page: event.page,
     };
 
@@ -972,7 +972,7 @@ export class ListRequestComponent implements OnInit {
       this.SearchRequest.Room_Type =
         this.RequestlistForm.controls['Level'].value;
       this.SearchRequest.Start = start;
-      this.SearchRequest.End = '50';
+      this.SearchRequest.End = '30';
       this.SearchRequest.Page = event.page;
 
       this.requestservice[this.api](this.SearchRequest).subscribe((res) => {
