@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Inject } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import {
@@ -81,6 +82,7 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log("DATA", this.data)
     this.updaterequestdata.userId = this.userdata["id"];
     this.type = this.data["type"];
     this.updaterequestdata.teamId = this.data["payload"]["teamId"];
@@ -155,8 +157,9 @@ export class StatusChangeDialogComponent implements OnInit {
         (x) => {
           if(x.status == 200){
             this.openSnackBar("Request Status Updated Successfully");
+            console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
             // window.location.reload();
-            this.ngOnInit();
+            // this.ngOnInit();
           }
         },
         (error) => {
@@ -197,7 +200,7 @@ export class StatusChangeDialogComponent implements OnInit {
           this.openSnackBar("Request Status Updated Successfully");
           this.spinner = false;
           // window.location.reload();
-          this.ngOnInit();
+          // this.ngOnInit();
         }
       },
       (error) => {
@@ -230,7 +233,7 @@ export class StatusChangeDialogComponent implements OnInit {
           this.spinner = false;
           this.images = null;
           // window.location.reload();
-          this.ngOnInit();
+          // this.ngOnInit();
         }
       },
       (error) => {

@@ -85,6 +85,8 @@ export class ListRequestComponent implements OnInit {
   paginationCount: any;
   pagedatainfo: any;
 
+  currentPage : any;
+
   // setPage(pageinfo) {
   //   console.log("pagination", pageinfo);
   //   let pagedatainfo = {
@@ -255,7 +257,7 @@ export class ListRequestComponent implements OnInit {
     this.requestservice.SelectedRequestData = {};
   }
 
-  ngOnInit() {
+  ngOnInit() {    
 
     let testing = [1,2,3]
 
@@ -269,13 +271,53 @@ export class ListRequestComponent implements OnInit {
 
     this.isUserLoggedIn = JSON.parse(localStorage.getItem('EGRET_USER'));
     console.log(this.isUserLoggedIn);
+
+    this.currentPage = 1;
+
+    this.startValue = 1;
+    
+    this.getPermits(this.currentPage, this.startValue);
+    
+
+    console.log(this.CurrentTime, 'TIME');
+    console.log(Date(), 'DATE');
+    // var d = new Date();
+    // var n = d.toLocaleString('da-DK', {
+    //   timeZone: "Europe/Copenhagen",
+    // });
+
+    // this.getItems();
+    this.RequestlistForm = this.fb.group({
+      Permitnumber: ['', Validators.required],
+      TypeOfActivity: ['', Validators.required],
+      Keyword: ['', Validators.required],
+      WorkingDateFrom: ['', Validators.required],
+      WorkingDateTo: ['', Validators.required],
+      Status: ['', Validators.required],
+      Contractor: ['', Validators.required],
+      Site: ['', Validators.required],
+      Building: ['', Validators.required],
+      Level: ['', Validators.required],
+    });
+  }
+  ngOnDestroy() {
+    if (this.getItemSub) {
+      this.getItemSub.unsubscribe();
+    }
+  }
+
+  getPermits(page,value) {
+
     this.pagedatainfo = {
       LoginType: this.isUserLoggedIn.role,
       Type: this.isUserLoggedIn.typeId,
-      Start: 1,
+      Start: value,
       End: 30,
-      Page: 1,
+      Page: page,
     };
+
+    console.log("StartValue", this.pagedatainfo.Start);
+    console.log("PageNum", this.pagedatainfo.Page)
 
     this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
       console.log('pageresp', res);
@@ -345,33 +387,9 @@ export class ListRequestComponent implements OnInit {
       this.totalCount = res[1]['count']
       console.log(this.totalCount, "Count Total")
     });
-
-    console.log(this.CurrentTime, 'TIME');
-    console.log(Date(), 'DATE');
-    // var d = new Date();
-    // var n = d.toLocaleString('da-DK', {
-    //   timeZone: "Europe/Copenhagen",
-    // });
-
-    // this.getItems();
-    this.RequestlistForm = this.fb.group({
-      Permitnumber: ['', Validators.required],
-      TypeOfActivity: ['', Validators.required],
-      Keyword: ['', Validators.required],
-      WorkingDateFrom: ['', Validators.required],
-      WorkingDateTo: ['', Validators.required],
-      Status: ['', Validators.required],
-      Contractor: ['', Validators.required],
-      Site: ['', Validators.required],
-      Building: ['', Validators.required],
-      Level: ['', Validators.required],
-    });
   }
-  ngOnDestroy() {
-    if (this.getItemSub) {
-      this.getItemSub.unsubscribe();
-    }
-  }
+
+
   getItems() {
     //this.items = this.userservices.RequestLists;
     this.spinner = true;
@@ -523,7 +541,7 @@ export class ListRequestComponent implements OnInit {
     this.SearchRequest.Type_Of_Activity_Id =
       this.RequestlistForm.controls['TypeOfActivity'].value;
     this.SearchRequest.Room_Type = this.RequestlistForm.controls['Level'].value;
-    this.SearchRequest.Start = '0';
+    this.SearchRequest.Start = '1';
     this.SearchRequest.End = '30';
     this.SearchRequest.Page = '1';
 
@@ -679,7 +697,9 @@ export class ListRequestComponent implements OnInit {
       data: { title: title, payload: row, copyform: true },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.ngOnInit();
+      const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1 ;
+        this.getPermits(this.currentPage, this.startValue);
     });
   }
 
@@ -702,12 +722,16 @@ export class ListRequestComponent implements OnInit {
       }
     );
     dialogRef.afterClosed().subscribe((res) => {
-      this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
-        console.log('New Req List', x);
-        this.ngOnInit();
+      // this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
+        // console.log('New Req List', x);
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1 ;
+        this.getPermits(this.currentPage, this.startValue);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
         // this.openSnackBar("Request Status Updated Successfully");
         // window.location.reload();
-      });
+      // });
     });
   }
   ChangeStausbysubcontractor(row, status) {
@@ -731,7 +755,9 @@ export class ListRequestComponent implements OnInit {
           }
         );
         dialogRef.afterClosed().subscribe((res) => {
-          this.ngOnInit();
+          const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1 ;
+        this.getPermits(this.currentPage, this.startValue);
         });
       }
     } else if (status == 'Closed') {
@@ -744,7 +770,9 @@ export class ListRequestComponent implements OnInit {
         }
       );
       dialogRef.afterClosed().subscribe((res) => {
-        this.ngOnInit();
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1 ;
+        this.getPermits(this.currentPage, this.startValue);
       });
     }
   }
@@ -758,7 +786,9 @@ export class ListRequestComponent implements OnInit {
       data: { title: title, payload: row, type: 'request' },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.ngOnInit();
+      const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1 ;
+        this.getPermits(this.currentPage, this.startValue);
     });
   }
   statuschange(statusdata) {
@@ -788,7 +818,9 @@ export class ListRequestComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       this.selected.length = 0;
       this.selected = [];
-      this.ngOnInit();
+      const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1 ;
+        this.getPermits(this.currentPage, this.startValue);
     });
   }
 
@@ -849,7 +881,9 @@ export class ListRequestComponent implements OnInit {
       dialogRef.afterClosed().subscribe((res) => {
         this.selectedRequestIds.length = 0;
         this.selectedRequestIds = [];
-        this.ngOnInit();
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1 ;
+        this.getPermits(this.currentPage, this.startValue);
       });
     }
   }
@@ -868,8 +902,13 @@ export class ListRequestComponent implements OnInit {
   }
 
   onPagination(event) {
+    this.currentPage = event.page;
     let start;
+    console.log("Event Value", event)
+    console.log("pagination",event.page)
+    console.log("Current Page", this.currentPage)
     let offset = event.page - 1;
+    console.log("Page Number", offset)
     if (offset === 0) {
       start = 1;
     } else if (offset > 0) {
@@ -882,8 +921,11 @@ export class ListRequestComponent implements OnInit {
       Type: this.isUserLoggedIn.typeId,
       Start: start,
       End: 30,
-      Page: event.page,
+      Page: this.currentPage,
     };
+
+    console.log("PAGENUM", this.pagedatainfo.Page)
+    console.log("startValue", this.pagedatainfo.Start)
 
     if (this.api == 'listpagination') {
       this.requestservice[this.api](this.pagedatainfo).subscribe((res) => {
