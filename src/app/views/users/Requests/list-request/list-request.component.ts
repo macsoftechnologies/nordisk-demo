@@ -278,6 +278,7 @@ export class ListRequestComponent implements OnInit {
     
     this.getPermits(this.currentPage, this.startValue);
     
+    console.log("permitsonit", this.currentPage, this.startValue)
 
     console.log(this.CurrentTime, 'TIME');
     console.log(Date(), 'DATE');
@@ -316,8 +317,8 @@ export class ListRequestComponent implements OnInit {
       Page: page,
     };
 
-    console.log("StartValue", this.pagedatainfo.Start);
-    console.log("PageNum", this.pagedatainfo.Page)
+    console.log("Get Permits called start", this.pagedatainfo.Start);
+    console.log("get page", this.pagedatainfo.Page)
 
     this.requestservice.listpagination(this.pagedatainfo).subscribe((res) => {
       console.log('pageresp', res);
@@ -505,8 +506,10 @@ export class ListRequestComponent implements OnInit {
   }
 
   search(event) {
+    console.log("inSearh",this.currentPage);
+    console.log("in search value", this.startValue);
     this.api = 'SearchRequest';
-    console.log(event);
+    console.log(event.page);
     let start;
     let offset = event.page - 1;
     if (offset === 0) {
@@ -541,9 +544,9 @@ export class ListRequestComponent implements OnInit {
     this.SearchRequest.Type_Of_Activity_Id =
       this.RequestlistForm.controls['TypeOfActivity'].value;
     this.SearchRequest.Room_Type = this.RequestlistForm.controls['Level'].value;
-    this.SearchRequest.Start = '1';
+    this.SearchRequest.Start = this.startValue;
     this.SearchRequest.End = '30';
-    this.SearchRequest.Page = '1';
+    this.SearchRequest.Page = this.currentPage;
 
     if (mydate != null) {
       this.SearchRequest.fromDate = mydate;
@@ -697,9 +700,24 @@ export class ListRequestComponent implements OnInit {
       data: { title: title, payload: row, copyform: true },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1 ;
+      if (this.api == 'SearchRequest') {
+        console.log("search API");
+        // this.api = 'SearchRequest';
+        // this.items = res[0]['data'];
+        // this.paginationCount = res[1]['count'];
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1;
+        this.search(event);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
+      }
+      else {
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1;
         this.getPermits(this.currentPage, this.startValue);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
+      }
     });
   }
 
@@ -722,13 +740,31 @@ export class ListRequestComponent implements OnInit {
       }
     );
     dialogRef.afterClosed().subscribe((res) => {
-      // this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
-        // console.log('New Req List', x);
+      if (this.api == 'SearchRequest') {
+        console.log("search API");
+        // this.api = 'SearchRequest';
+        // this.items = res[0]['data'];
+        // this.paginationCount = res[1]['count'];
         const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1 ;
+        this.startValue = mainValue * 30 + 1;
+        this.search(event);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
+      }
+      else {
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1;
         this.getPermits(this.currentPage, this.startValue);
         console.log("NUMMBER", this.currentPage)
         console.log("Start Value", this.startValue)
+      }
+      // this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
+        // console.log('New Req List', x);
+        // const mainValue = this.currentPage - 1;
+        // this.startValue = mainValue * 30 + 1 ;
+        // this.getPermits(this.currentPage, this.startValue);
+        // console.log("NUMMBER", this.currentPage)
+        // console.log("Start Value", this.startValue)
         // this.openSnackBar("Request Status Updated Successfully");
         // window.location.reload();
       // });
@@ -755,9 +791,24 @@ export class ListRequestComponent implements OnInit {
           }
         );
         dialogRef.afterClosed().subscribe((res) => {
-          const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1 ;
-        this.getPermits(this.currentPage, this.startValue);
+          if (this.api == 'SearchRequest') {
+            console.log("search API");
+            // this.api = 'SearchRequest';
+            // this.items = res[0]['data'];
+            // this.paginationCount = res[1]['count'];
+            const mainValue = this.currentPage - 1;
+            this.startValue = mainValue * 30 + 1;
+            this.search(event);
+            console.log("NUMMBER", this.currentPage)
+            console.log("Start Value", this.startValue)
+          }
+          else {
+            const mainValue = this.currentPage - 1;
+            this.startValue = mainValue * 30 + 1;
+            this.getPermits(this.currentPage, this.startValue);
+            console.log("NUMMBER", this.currentPage)
+            console.log("Start Value", this.startValue)
+          }
         });
       }
     } else if (status == 'Closed') {
@@ -770,9 +821,24 @@ export class ListRequestComponent implements OnInit {
         }
       );
       dialogRef.afterClosed().subscribe((res) => {
-        const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1 ;
-        this.getPermits(this.currentPage, this.startValue);
+        if (this.api == 'SearchRequest') {
+          console.log("search API");
+          // this.api = 'SearchRequest';
+          // this.items = res[0]['data'];
+          // this.paginationCount = res[1]['count'];
+          const mainValue = this.currentPage - 1;
+          this.startValue = mainValue * 30 + 1;
+          this.search(event);
+          console.log("NUMMBER", this.currentPage)
+          console.log("Start Value", this.startValue)
+        }
+        else {
+          const mainValue = this.currentPage - 1;
+          this.startValue = mainValue * 30 + 1;
+          this.getPermits(this.currentPage, this.startValue);
+          console.log("NUMMBER", this.currentPage)
+          console.log("Start Value", this.startValue)
+        }
       });
     }
   }
@@ -786,9 +852,24 @@ export class ListRequestComponent implements OnInit {
       data: { title: title, payload: row, type: 'request' },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1 ;
+      if (this.api == 'SearchRequest') {
+        console.log("search API");
+        // this.api = 'SearchRequest';
+        // this.items = res[0]['data'];
+        // this.paginationCount = res[1]['count'];
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1;
+        this.search(event);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
+      }
+      else {
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1;
         this.getPermits(this.currentPage, this.startValue);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
+      }
     });
   }
   statuschange(statusdata) {
@@ -816,11 +897,27 @@ export class ListRequestComponent implements OnInit {
       }
     );
     dialogRef.afterClosed().subscribe((res) => {
+      this.Countresult.length = 0
       this.selected.length = 0;
       this.selected = [];
-      const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1 ;
+      if (this.api == 'SearchRequest') {
+        console.log("search API");
+        // this.api = 'SearchRequest';
+        // this.items = res[0]['data'];
+        // this.paginationCount = res[1]['count'];
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1;
+        this.search(event);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
+      }
+      else {
+        const mainValue = this.currentPage - 1;
+        this.startValue = mainValue * 30 + 1;
         this.getPermits(this.currentPage, this.startValue);
+        console.log("NUMMBER", this.currentPage)
+        console.log("Start Value", this.startValue)
+      }
     });
   }
 
@@ -879,11 +976,27 @@ export class ListRequestComponent implements OnInit {
         }
       );
       dialogRef.afterClosed().subscribe((res) => {
+        this.Countresult.length = 0;
         this.selectedRequestIds.length = 0;
         this.selectedRequestIds = [];
-        const mainValue = this.currentPage - 1;
-        this.startValue = mainValue * 30 + 1 ;
-        this.getPermits(this.currentPage, this.startValue);
+        if (this.api == 'SearchRequest') {
+          console.log("search API");
+          // this.api = 'SearchRequest';
+          // this.items = res[0]['data'];
+          // this.paginationCount = res[1]['count'];
+          const mainValue = this.currentPage - 1;
+          this.startValue = mainValue * 30 + 1;
+          this.search(event);
+          console.log("NUMMBER", this.currentPage)
+          console.log("Start Value", this.startValue)
+        }
+        else {
+          const mainValue = this.currentPage - 1;
+          this.startValue = mainValue * 30 + 1;
+          this.getPermits(this.currentPage, this.startValue);
+          console.log("NUMMBER", this.currentPage)
+          console.log("Start Value", this.startValue)
+        }
       });
     }
   }
@@ -1014,8 +1127,10 @@ export class ListRequestComponent implements OnInit {
       this.SearchRequest.Room_Type =
         this.RequestlistForm.controls['Level'].value;
       this.SearchRequest.Start = start;
+      console.log("start", start)
       this.SearchRequest.End = '30';
-      this.SearchRequest.Page = event.page;
+      this.SearchRequest.Page = this.currentPage;
+      console.log("value", this.currentPage)
 
       this.requestservice[this.api](this.SearchRequest).subscribe((res) => {
         console.log('pageresp', res);
