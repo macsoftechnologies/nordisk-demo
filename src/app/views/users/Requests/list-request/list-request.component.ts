@@ -1015,6 +1015,7 @@ export class ListRequestComponent implements OnInit {
   }
 
   onPagination(event) {
+    this.Countresult.length = 0
     this.currentPage = event.page;
     let start;
     console.log("Event Value", event)
