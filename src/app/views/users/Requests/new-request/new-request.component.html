@@ -26,13 +26,8 @@
         <div [hidden]="nositemselect">
           <mat-form-field class="matrequest">
             <mat-label>Select Building</mat-label>
-            <mat-select
-              (selectionChange)="GetselectedBuildingitem($event.value)"
-            >
-              <mat-option
-                *ngFor="let building of buildings"
-                [value]="building.build_id"
-              >
+            <mat-select (selectionChange)="GetselectedBuildingitem($event.value)">
+              <mat-option *ngFor="let building of buildings" [value]="building.build_id">
                 {{ building.building_name }}
               </mat-option>
             </mat-select>
@@ -73,12 +68,7 @@
         <div>
           <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="backto()" class="backtotop">home</mat-icon> -->
           <div *ngIf="!editform" class="butns-grp-back">
-            <button
-              class=""
-              mat-raised-button
-              color="primary"
-              (click)="Backto()"
-            >
+            <button class="" mat-raised-button color="primary" (click)="Backto()">
               Back
             </button>
           </div>
@@ -87,12 +77,7 @@
     </mat-card-header>
     <mat-card-content class="card-content">
       <div *ngIf="editform" class="butns-grp-back">
-        <button
-          class=""
-          mat-raised-button
-          color="primary"
-          (click)="BacktoList()"
-        >
+        <button class="" mat-raised-button color="primary" (click)="BacktoList()">
           Back
         </button>
       </div>
@@ -102,12 +87,7 @@
             <mat-grid-tile>
               <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Request date</mat-label>
-                <input
-                  matInput
-                  readonly
-                  formControlName="Requestdate"
-                  placeholder="12/12/2020"
-                />
+                <input matInput readonly formControlName="Requestdate" placeholder="12/12/2020" />
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -115,57 +95,29 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Company</mat-label>
-                <input
-                  matInput
-                  readonly
-                  formControlName="Companyname"
-                  placeholder="Company Name"
-                />
+                <input matInput readonly formControlName="Companyname" placeholder="Company Name" />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
-              <mat-form-field
-                class="full-width"
-                appearance="outline"
-                *ngIf="!issubcontr"
-              >
+              <mat-form-field class="full-width" appearance="outline" *ngIf="!issubcontr">
                 <mat-label>SubContractor</mat-label>
-                <mat-select
-                  formControlName="SubContractor"
-                  name="CMT"
-                  (selectionChange)="Getselectedsubcntrsteams($event.value)"
-                >
-                  <mat-option
-                    *ngFor="let tech of SubContractors"
-                    [value]="tech.id"
-                  >
+                <mat-select formControlName="SubContractor" name="CMT"
+                  (selectionChange)="Getselectedsubcntrsteams($event.value)">
+                  <mat-option *ngFor="let tech of SubContractors" [value]="tech.id">
                     {{ tech.subContractorName }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-              <mat-form-field
-                class="full-width"
-                appearance="outline"
-                *ngIf="issubcontr"
-              >
+              <mat-form-field class="full-width" appearance="outline" *ngIf="issubcontr">
                 <mat-label>SubContractor</mat-label>
-                <input
-                  matInput
-                  readonly
-                  formControlName="SubContractorname"
-                  placeholder="SubContractor Name"
-                />
+                <input matInput readonly formControlName="SubContractorname" placeholder="SubContractor Name" />
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Teams</mat-label>
-                <mat-select
-                  formControlName="Team"
-                  name="Team"
-                  (selectionChange)="GetEmployees($event.value)"
-                >
+                <mat-select formControlName="Team" name="Team" (selectionChange)="GetEmployees($event.value)">
                   <mat-option>None</mat-option>
                   <mat-option *ngFor="let tech of Teams" [value]="tech.id">
                     {{ tech.teamName }}
@@ -178,21 +130,13 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Foreman</mat-label>
-                <input
-                  matInput
-                  formControlName="Foreman"
-                  placeholder="Foreman"
-                />
+                <input matInput formControlName="Foreman" placeholder="Foreman" />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Foreman Phone</mat-label>
-                <input
-                  matInput
-                  formControlName="ForemanPhone"
-                  placeholder="Foreman Phone"
-                />
+                <input matInput formControlName="ForemanPhone" placeholder="Foreman Phone" />
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -200,21 +144,14 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Activity</mat-label>
-                <input
-                  matInput
-                  formControlName="Activity"
-                  placeholder="Activity"
-                />
+                <input matInput formControlName="Activity" placeholder="Activity" />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Type of Activity</mat-label>
                 <mat-select formControlName="TypeActivity" name="TypeActivity">
-                  <mat-option
-                    *ngFor="let tech of TypeofActivites"
-                    [value]="tech.id"
-                  >
+                  <mat-option *ngFor="let tech of TypeofActivites" [value]="tech.id">
                     {{ tech.activityName }}
                   </mat-option>
                 </mat-select>
@@ -291,51 +228,26 @@
             <mat-grid-tile>
               <mat-form-field class="datepikr full-width" appearance="outline">
                 <mat-label>Date</mat-label>
-                <input
-                  matInput
-                  [min]="minDate"
-                  formControlName="Startdate"
-                  [max]="maxDate"
-                  [matDatepicker]="spicker"
-                />
-                <mat-datepicker-toggle
-                  matSuffix
-                  [for]="spicker"
-                ></mat-datepicker-toggle>
+                <input matInput [min]="minDate" formControlName="Startdate" [max]="maxDate" [matDatepicker]="spicker" />
+                <mat-datepicker-toggle matSuffix [for]="spicker"></mat-datepicker-toggle>
                 <mat-datepicker #spicker></mat-datepicker>
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Start Time</mat-label>
-                <input
-                  matInput
-                  [ngxTimepicker]="startTime"
-                  [format]="24"
-                  placeholder="Start Time"
-                  formControlName="StartTime"
-                />
-                <ngx-material-timepicker
-                  #startTime
-                  [minutesGap]="5"
-                ></ngx-material-timepicker>
+                <input matInput [ngxTimepicker]="startTime" [format]="24" placeholder="Start Time"
+                  formControlName="StartTime" />
+                <ngx-material-timepicker #startTime [minutesGap]="5"></ngx-material-timepicker>
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>End Time</mat-label>
-                <input
-                  matInput
-                  [ngxTimepicker]="endTime"
-                  [format]="24"
-                  placeholder="End Time"
-                  formControlName="EndTime"
-                />
+                <input matInput [ngxTimepicker]="endTime" [format]="24" placeholder="End Time"
+                  formControlName="EndTime" />
               </mat-form-field>
-              <ngx-material-timepicker
-                #endTime
-                [minutesGap]="5"
-              ></ngx-material-timepicker>
+              <ngx-material-timepicker #endTime [minutesGap]="5"></ngx-material-timepicker>
             </mat-grid-tile>
           </mat-grid-list>
           <!-- <mat-grid-list cols="3" rowHeight="80px" *ngIf="Assigneditform">
@@ -362,41 +274,26 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Site</mat-label>
-                <input
-                  matInput
-                  readonly
-                  formControlName="Site"
-                  placeholder="Site Name"
-                />
+                <input matInput readonly formControlName="Site" placeholder="Site Name" />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Building</mat-label>
-                <input
-                  matInput
-                  value="B1"
-                  placeholder="Building Name"
-                  readonly
-                />
+                <input matInput value="B1" placeholder="Building Name" readonly />
                 <!-- formControlName="Building" -->
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Level</mat-label>
-                <input
-                  matInput
-                  readonly
-                  formControlName="FloorName"
-                  placeholder="Floor Name"
-                />
+                <input matInput readonly formControlName="FloorName" placeholder="Floor Name" />
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
           <mat-grid-list cols="1" rowHeight="100px">
             <!-- <mat-grid-tile> -->
-              <!-- <mat-form-field class="full-width" appearance="outline">
+            <!-- <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Area</mat-label>
                 <input
                   matInput
@@ -406,11 +303,11 @@
                 />
                 
               </mat-form-field> -->
-              <!-- <mat-form-field class="full-width" appearance="outline">
+            <!-- <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Room </mat-label>
                 <input matInput readonly formControlName="RoomNo" placeholder="Room No">
               </mat-form-field> -->
-              <!-- <mat-form-field class="full-width chipsbox-height" appearance="outline">
+            <!-- <mat-form-field class="full-width chipsbox-height" appearance="outline">
                 <mat-chip-list #rchipList aria-label="Room selection">
                   <mat-chip *ngFor="let badg of Rooms" [selectable]="rselectable" [removable]="rmremovable"
                     (removed)="removeroom(badg)">
@@ -648,11 +545,7 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Crane Requested</mat-label>
-                <mat-select
-                  (selectionChange)="Getselectedcmtitem($event.value)"
-                  formControlName="CMTdata"
-                  name="CMT"
-                >
+                <mat-select (selectionChange)="Getselectedcmtitem($event.value)" formControlName="CMTdata" name="CMT">
                   <mat-option *ngFor="let tech of CMTs" [value]="tech.id">
                     {{ tech.CMTval }}
                   </mat-option>
@@ -672,12 +565,7 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Tools</mat-label>
-                <textarea
-                  class="textarea"
-                  matInput
-                  formControlName="Tools"
-                  placeholder="Tools...."
-                ></textarea>
+                <textarea class="textarea" matInput formControlName="Tools" placeholder="Tools...."></textarea>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -685,12 +573,7 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Machinery</mat-label>
-                <textarea
-                  class="textarea"
-                  matInput
-                  formControlName="Machinery"
-                  placeholder="machinery...."
-                ></textarea>
+                <textarea class="textarea" matInput formControlName="Machinery" placeholder="machinery...."></textarea>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -699,11 +582,8 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Hotwork</mat-label>
-                <mat-select
-                  (selectionChange)="GetselectedHOTWORKitem($event.value)"
-                  formControlName="HOTWORK"
-                  name="HOTWORK"
-                >
+                <mat-select (selectionChange)="GetselectedHOTWORKitem($event.value)" formControlName="HOTWORK"
+                  name="HOTWORK">
                   <mat-option *ngFor="let tech of HOTWORKs" [value]="tech.id">
                     {{ tech.HOTWORKval }}
                   </mat-option>
@@ -714,11 +594,7 @@
               <div class="cmsnum full-width" [hidden]="!ishotworkyes">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Certified Person</mat-label>
-                  <input
-                    matInput
-                    formControlName="CertifiedPerson"
-                    placeholder=""
-                  />
+                  <input matInput formControlName="CertifiedPerson" placeholder="" />
                 </mat-form-field>
               </div>
             </mat-grid-tile>
@@ -727,15 +603,9 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Loto Procedure</mat-label>
-                <mat-select
-                  (selectionChange)="GetselectedLOTOPROCEDUREitem($event.value)"
-                  formControlName="LOTOPROCEDURE"
-                  name="LOTO PROCEDURE"
-                >
-                  <mat-option
-                    *ngFor="let tech of LOTOPROCEDUREs"
-                    [value]="tech.id"
-                  >
+                <mat-select (selectionChange)="GetselectedLOTOPROCEDUREitem($event.value)"
+                  formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
                     {{ tech.LOTOPROCEDUREval }}
                   </mat-option>
                 </mat-select>
@@ -745,11 +615,7 @@
               <div class="cmsnum full-width" [hidden]="!isLOTOPROCEDUREyes">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>LOTO Number</mat-label>
-                  <input
-                    matInput
-                    formControlName="LOTONumber"
-                    placeholder="LOTO Number"
-                  />
+                  <input matInput formControlName="LOTONumber" placeholder="LOTO Number" />
                 </mat-form-field>
               </div>
             </mat-grid-tile>
@@ -759,10 +625,7 @@
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Power off</mat-label>
                 <mat-select formControlName="Poweroff" name="Poweroff">
-                  <mat-option
-                    *ngFor="let tech of Poweroffs"
-                    [value]="tech.Poweroffid"
-                  >
+                  <mat-option *ngFor="let tech of Poweroffs" [value]="tech.Poweroffid">
                     {{ tech.Poweroffname }}
                   </mat-option>
                 </mat-select>
@@ -770,11 +633,7 @@
             </mat-grid-tile>
 
             <mat-grid-tile>
-              <mat-form-field
-                class="full-width"
-                appearance="outline"
-                *ngIf="seditform"
-              >
+              <mat-form-field class="full-width" appearance="outline" *ngIf="seditform">
                 <mat-label>Status</mat-label>
                 <mat-select formControlName="Status" name="Status">
                   <mat-option>None</mat-option>
@@ -989,7 +848,7 @@
                 <mat-select formControlName="Safetyprecaustion" multiple>
                   <mat-option *ngFor="let e of safetyList" [value]="e.id">{{
                     e.precaution
-                  }}</mat-option>
+                    }}</mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
@@ -1028,11 +887,7 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Number of workers involved</mat-label>
-                <input
-                  matInput
-                  formControlName="peopleinvalidcount"
-                  placeholder=""
-                />
+                <input matInput formControlName="peopleinvalidcount" placeholder="" />
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -1041,11 +896,7 @@
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Badge No.s Of Workers</mat-label>
                 <mat-select formControlName="BADGENUMBER" multiple>
-                  <mat-option
-                    *ngFor="let e of BADGENUMBERS"
-                    [value]="e.badgeId"
-                    >{{ e.badgeId }}</mat-option
-                  >
+                  <mat-option *ngFor="let e of BADGENUMBERS" [value]="e.badgeId">{{ e.badgeId }}</mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
@@ -1073,12 +924,7 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Note</mat-label>
-                <textarea
-                  class="textarea"
-                  matInput
-                  formControlName="Note"
-                  placeholder="Notes...."
-                ></textarea>
+                <textarea class="textarea" matInput formControlName="Note" placeholder="Notes...."></textarea>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -1158,38 +1004,18 @@
     </mat-card-content>
   </mat-card>
   <div class="butns" [hidden]="editform">
-    <button
-      class="butns-grp"
-      mat-raised-button
-      color="primary"
-      (click)="SaveasDraft('Draft')"
-    >
+    <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">
       Save
     </button>
-    <button
-      class="butns-grp"
-      mat-raised-button
-      color="primary"
-      (click)="openPopUp()"
-    >
+    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUp()">
       Change to Hold
     </button>
   </div>
   <div class="butns" *ngIf="subeditform">
-    <button
-      class="butns-grp"
-      mat-raised-button
-      color="primary"
-      (click)="SaveasDraft('Draft')"
-    >
+    <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('Draft')">
       Save
     </button>
-    <button
-      class="butns-grp"
-      mat-raised-button
-      color="primary"
-      (click)="openPopUpForDrafToHold()"
-    >
+    <button class="butns-grp" mat-raised-button color="primary" (click)="openPopUpForDrafToHold()">
       Change to Hold
     </button>
   </div>
@@ -1207,7 +1033,7 @@
 <div class="img-div-sty" [hidden]="isnewrequestcreated">
   <div class="plans_container">
     <!-- <img src='this.selectedbuildimg' class="img-sty" /> -->
-    <ng-container *ngIf="planType === 'LK1'; else second">
+    <ng-container *ngIf="planType == 'LK1' && selectedbuilding == '9'; else second">
       <!-- sub button -->
       <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_LK_1 sub_btn">
         <span class="tooltiptext">B1.1B</span>
@@ -1224,52 +1050,31 @@
       <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LK_5 sub_btn">
         <span class="tooltiptext">B1.2E</span>
       </button>
-      
-      <button
-        (click)="onFloorPlan('B 1.1')"
-        class="plan_effect k_b_1_1"
-      >
-      <span class="tooltiptext">B 1.1</span>
-    </button>
-      <button
-        (click)="onFloorPlan('B 1.T')"
-        class="plan_effect k_b_1_2"
-      >
-      <span class="tooltiptext">B 1.T</span>
-    </button>
-      <button
-        (click)="onFloorPlan('B 1.2')"
-        class="plan_effect k_b_1_3"
-      >
-      <span class="tooltiptext">B 1.2</span>
-    </button>
-      <button
-        (click)="onFloorPlan('B 1.CM')"
-        class="plan_effect k_b_1_4"
-      >
-      <span class="tooltiptext">B 1.CM</span>
-    </button>
-      <button
-        (click)="onFloorPlan('B 1.CM')"
-        class="plan_effect k_b_1_4_1"
-      >
-      <span class="tooltiptext">B 1.CM</span>
-    </button>
-      <button
-        (click)="onFloorPlan('B 1.CM')"
-        class="plan_effect k_b_1_4_2"
-      >
-      <span class="tooltiptext">B 1.CM</span>
-    </button>
-    </ng-container>
-    <ng-template #second>
-      <ng-container *ngIf="planType === 'L00'; else third">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect zero_b_1_1"
-        >
+
+      <button (click)="onFloorPlan('B 1.1')" class="plan_effect k_b_1_1">
         <span class="tooltiptext">B 1.1</span>
       </button>
+      <button (click)="onFloorPlan('B 1.T')" class="plan_effect k_b_1_2">
+        <span class="tooltiptext">B 1.T</span>
+      </button>
+      <button (click)="onFloorPlan('B 1.2')" class="plan_effect k_b_1_3">
+        <span class="tooltiptext">B 1.2</span>
+      </button>
+      <button (click)="onFloorPlan('B 1.CM')" class="plan_effect k_b_1_4">
+        <span class="tooltiptext">B 1.CM</span>
+      </button>
+      <button (click)="onFloorPlan('B 1.CM')" class="plan_effect k_b_1_4_1">
+        <span class="tooltiptext">B 1.CM</span>
+      </button>
+      <button (click)="onFloorPlan('B 1.CM')" class="plan_effect k_b_1_4_2">
+        <span class="tooltiptext">B 1.CM</span>
+      </button>
+    </ng-container>
+    <ng-template #second>
+      <ng-container *ngIf="planType == 'L00' && selectedbuilding == '9'; else third">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect zero_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_0_1 sub_btn">
@@ -1295,41 +1100,26 @@
         </button>
 
 
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect zero_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect zero_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.4N')"
-          class="plan_effect zero_b_1_4"
-        >
-        <span class="tooltiptext">B 1.4N</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect zero_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect zero_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.4N')" class="plan_effect zero_b_1_4">
+          <span class="tooltiptext">B 1.4N</span>
+        </button>
 
-        <button
-          (click)="onFloorPlan('B 1.4E')"
-          class="plan_effect zero_b_1_5"
-        >
-        <span class="tooltiptext">B 1.4E</span>
-        </button
-      ></ng-container>
+        <button (click)="onFloorPlan('B 1.4E')" class="plan_effect zero_b_1_5">
+          <span class="tooltiptext">B 1.4E</span>
+        </button>
+      </ng-container>
     </ng-template>
     <ng-template #third>
-      <ng-container *ngIf="planType === 'L01'; else forth"
-        ><button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect one_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L01' && selectedbuilding == '9'; else forth"><button
+          (click)="onFloorPlan('B 1.1')" class="plan_effect one_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_1_1 sub_btn">
@@ -1355,41 +1145,26 @@
         </button>
 
 
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect one_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect one_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.4N')"
-          class="plan_effect one_b_1_4"
-        >
-        <span class="tooltiptext">B 1.4N</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect one_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect one_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.4N')" class="plan_effect one_b_1_4">
+          <span class="tooltiptext">B 1.4N</span>
+        </button>
 
-        <button
-          (click)="onFloorPlan('B 1.4E')"
-          class="plan_effect one_b_1_5"
-        >
-        <span class="tooltiptext">B 1.4E</span>
-        </button
-      ></ng-container>
+        <button (click)="onFloorPlan('B 1.4E')" class="plan_effect one_b_1_5">
+          <span class="tooltiptext">B 1.4E</span>
+        </button>
+      </ng-container>
     </ng-template>
     <ng-template #forth>
-      <ng-container *ngIf="planType === 'L02'; else fifth">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect two_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L02' && selectedbuilding == '9'; else fifth">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect two_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1_1 sub_btn">
@@ -1408,18 +1183,12 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect two_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect two_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect two_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect two_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
         <!-- <button
           (click)="onFloorPlan('B 1.4')"
           class="plan_effect two_b_1_4"
@@ -1433,13 +1202,10 @@
       </ng-container>
     </ng-template>
     <ng-template #fifth>
-      <ng-container *ngIf="planType === 'L03'; else sixth">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect three_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L03' && selectedbuilding == '9'; else sixth">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect three_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
           <span class="tooltiptext">B1.1B</span>
@@ -1449,7 +1215,7 @@
         </button>
         <button (click)="onFloorPlan('B1.2C')" class="plan_effect sub_2_3 sub_btn">
           <span class="tooltiptext">B1.2C</span>
-        </button>        
+        </button>
         <button (click)="onFloorPlan('B1.1E')" class="plan_effect sub_2_2 sub_btn">
           <span class="tooltiptext">B1.1E</span>
         </button>
@@ -1457,29 +1223,20 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect three_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect three_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect three_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect three_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
       </ng-container>
     </ng-template>
     <!-- Four -->
     <ng-template #eleven>
-      <ng-container *ngIf="planType === 'L04'; else fifth">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect five_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L04' && selectedbuilding == '9'; else fifth">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect five_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
@@ -1497,30 +1254,20 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect five_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect five_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect five_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect five_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
       </ng-container>
     </ng-template>
 
-
     <ng-template #sixth>
-      <ng-container *ngIf="planType === 'L05'; else seventh">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect five_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L05' && selectedbuilding == '9'; else seventh">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect five_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
@@ -1538,28 +1285,19 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect five_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect five_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect five_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect five_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
       </ng-container>
     </ng-template>
     <ng-template #seventh>
-      <ng-container *ngIf="planType === 'L06'; else L07">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect six_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L06' && selectedbuilding == '9'; else L07">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect six_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
@@ -1578,29 +1316,20 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect six_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect six_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect six_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect six_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
       </ng-container>
     </ng-template>
 
     <ng-template #L07>
-      <ng-container *ngIf="planType === 'L07'; else eight">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect seven_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L07' && selectedbuilding == '9'; else eight">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect seven_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
@@ -1619,29 +1348,20 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect seven_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect seven_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect seven_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect seven_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
       </ng-container>
     </ng-template>
 
     <ng-template #eight>
-      <ng-container *ngIf="planType === 'L08'; else LTA">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect eight_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'L08' && selectedbuilding == '9'; else LTA">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect eight_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
 
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.1B')" class="plan_effect sub_2_1 sub_btn">
@@ -1659,58 +1379,312 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
-        
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect eight_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect eight_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect eight_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect eight_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
       </ng-container>
     </ng-template>
-
 
     <!-- Roof Plan -->
 
     <ng-template #LTA>
-      <ng-container *ngIf="planType === 'LTA'">
-        <button
-          (click)="onFloorPlan('B 1.1')"
-          class="plan_effect three_b_1_1"
-        >
-        <span class="tooltiptext">B 1.1</span>
-      </button>
+      <ng-container *ngIf="planType == 'LTA' && selectedbuilding == '9'">
+        <button (click)="onFloorPlan('B 1.1')" class="plan_effect three_b_1_1">
+          <span class="tooltiptext">B 1.1</span>
+        </button>
         <!-- sub button -->
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_LTA sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
 
-        <button
-          (click)="onFloorPlan('B 1.2')"
-          class="plan_effect three_b_1_2"
-        >
-        <span class="tooltiptext">B 1.2</span>
-      </button>
-        <button
-          (click)="onFloorPlan('B 1.3')"
-          class="plan_effect three_b_1_3"
-        >
-        <span class="tooltiptext">B 1.3</span>
-      </button>
+        <button (click)="onFloorPlan('B 1.2')" class="plan_effect three_b_1_2">
+          <span class="tooltiptext">B 1.2</span>
+        </button>
+        <button (click)="onFloorPlan('B 1.3')" class="plan_effect three_b_1_3">
+          <span class="tooltiptext">B 1.3</span>
+        </button>
       </ng-container>
     </ng-template>
 
-    <pdf-viewer
-      [src]="pdfSrc"
-      [original-size]="false"
-      [zoom]="0.75"
-    ></pdf-viewer>
+
+    <!-- B2 Drawings -->
+
+    <!-- B2 L00 -->
+    <ng-container *ngIf="planType == 'L00' && selectedbuilding == '10';else twentyone">
+      <!-- sub button -->
+      <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_2_1">
+        <span class="tooltiptext">B2.1</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_2_2">
+        <span class="tooltiptext">B2.2</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.4')" class="plan_effect b2_2_4">
+        <span class="tooltiptext">B2.4</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_2_5_I">
+        <span class="tooltiptext">B2.5 I</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_2_5_II">
+        <span class="tooltiptext">B2.5 II</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.6')" class="plan_effect b2_2_6">
+        <span class="tooltiptext">B2.6</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.T')" class="plan_effect b2_2_T">
+        <span class="tooltiptext">B2.T</span>
+      </button>
+
+      <!-- Sub Buttons -->
+      <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_2_2A sub_btn">
+        <span class="tooltiptext">B2.2-A</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_2_1A sub_btn">
+        <span class="tooltiptext">B2.1-A</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.4-A')" class="plan_effect b2_2_4A sub_btn">
+        <span class="tooltiptext">B2.4-A</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_2_2C sub_btn">
+        <span class="tooltiptext">B2.2-C</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_2_1D sub_btn">
+        <span class="tooltiptext">B2.1-D</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_2_1C sub_btn">
+        <span class="tooltiptext">B2.1-C</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_2_5C sub_btn">
+        <span class="tooltiptext">B2.5-C</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_2_5A sub_btn">
+        <span class="tooltiptext">B2.5-A</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_2_5D sub_btn">
+        <span class="tooltiptext">B2.5-D</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_2_5E sub_btn">
+        <span class="tooltiptext">B2.5-E</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.1-B')" class="plan_effect b2_2_1B sub_btn">
+        <span class="tooltiptext">B2.1-B</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.2-B')" class="plan_effect b2_2_2B sub_btn">
+        <span class="tooltiptext">B2.2-B</span>
+      </button>
+
+      <button (click)="onFloorPlan('B2.4-B')" class="plan_effect b2_2_4B sub_btn">
+        <span class="tooltiptext">B2.4-B</span>
+      </button>
+
+    </ng-container>
+
+    <!-- B2 L01 -->
+    <ng-template #twentyone>
+      <ng-container *ngIf="planType == 'L01' && selectedbuilding == '10';else twentytwo">
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_01_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_01_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.4')" class="plan_effect b2_2_4">
+          <span class="tooltiptext">B2.4</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_01_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_01_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.6')" class="plan_effect b2_2_6">
+          <span class="tooltiptext">B2.6</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1 Roof')" class="plan_effect b2_01_1Roof">
+          <span class="tooltiptext">B2.1 Roof</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_2_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_2_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.4-A')" class="plan_effect b2_2_4A sub_btn">
+          <span class="tooltiptext">B2.4-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_2_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_2_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_2_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_2_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_2_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_2_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_2_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-B')" class="plan_effect b2_2_1B sub_btn">
+          <span class="tooltiptext">B2.1-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-B')" class="plan_effect b2_2_2B sub_btn">
+          <span class="tooltiptext">B2.2-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.4-B')" class="plan_effect b2_2_4B sub_btn">
+          <span class="tooltiptext">B2.4-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-E')" class="plan_effect b2_01_1E sub_btn">
+          <span class="tooltiptext">B2.1-E</span>
+        </button>
+
+
+      </ng-container>
+    </ng-template>
+
+    <!-- B2 L02 -->
+    <ng-template #twentytwo>
+      <ng-container *ngIf="planType == 'L02' && selectedbuilding == '10';else twentythree">
+        <!-- sub button -->
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_02_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_02_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.4 Roof')" class="plan_effect b2_2_4">
+          <span class="tooltiptext">B2.4 Roof</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 Roof')" class="plan_effect b2_02_5Roof">
+          <span class="tooltiptext">B2.5 Roof</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_02_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_02_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_2_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_2_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.4-A')" class="plan_effect b2_2_4A sub_btn">
+          <span class="tooltiptext">B2.4-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_2_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_2_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_2_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_2_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_2_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_2_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_2_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-B')" class="plan_effect b2_2_1B sub_btn">
+          <span class="tooltiptext">B2.1-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-B')" class="plan_effect b2_2_2B sub_btn">
+          <span class="tooltiptext">B2.2-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-B')" class="plan_effect b2_02_5B sub_btn">
+          <span class="tooltiptext">B2.5-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-E')" class="plan_effect b2_02_1E sub_btn">
+          <span class="tooltiptext">B2.1-E</span>
+        </button>
+
+
+      </ng-container>
+    </ng-template>
+
+
+    <pdf-viewer [src]="pdfSrc" [original-size]="false" [zoom]="0.75"></pdf-viewer>
     <!-- style="display: block" -->
     <!-- [render-text]="true" -->
     <!-- (after-load-complete)="loadComplete($event)" -->
@@ -1718,19 +1692,11 @@
 </div>
 
 <div class="butns" [hidden]="!editform" *ngIf="!subeditform">
-  <button
-    class="butns-grp"
-    mat-raised-button
-    color="primary"
-    (click)="UpdateRequest()"
-  >
+  <button class="butns-grp" mat-raised-button color="primary" (click)="UpdateRequest()">
     Update
   </button>
 </div>
 
 <div class="loading-indicator" *ngIf="spinner">
-  <mat-progress-spinner
-    mode="indeterminate"
-    color="accent"
-  ></mat-progress-spinner>
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
 </div>

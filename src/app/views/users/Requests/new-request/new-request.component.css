@@ -47,7 +47,6 @@
   z-index: 999;
 }
 
-
 .plans_container .k_b_1_1 {
   left: 48.5%;
   top: 53.6%;
@@ -186,8 +185,6 @@
   top: 9%;
   width: 19%;
   height: 35%;
-
-  
 }
 
 .plans_container .two_b_1_4 .sub_02:hover {
@@ -283,6 +280,309 @@
   width: 6%;
   height: 37%;
 }
+
+/* B2 Drawings */
+
+/* L00 Drawing */
+.plans_container .b2_2_1 {
+  top: 49%;
+  left: 27%;
+  width: 393px;
+  height: 135px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_2 {
+  top: 16%;
+  left: 50%;
+  width: 100px;
+  height: 266px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_4 {
+  top: 65%;
+  left: 26%;
+  width: 120px;
+  height: 230px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_5_I {
+  top: 65%;
+  left: 48%;
+  width: 200px;
+  height: 135px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_5_II {
+  top: 65%;
+  left: 64%;
+  width: 210px;
+  height: 135px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_6 {
+  top: 40px;
+  left: 20%;
+  width: 160px;
+  height: 350px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_T {
+  top: 65%;
+  left: 35%;
+  width: 165px;
+  height: 130px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_2A {
+  top: 16%;
+  left: 50%;
+  width: 45px;
+  height: 60px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_1A {
+  top: 61%;
+  left: 27%;
+  width: 45px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_4A {
+  top: 90%;
+  left: 32%;
+  width: 50px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_2C {
+  top: 52%;
+  left: 50%;
+  width: 45px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_1D {
+  top: 54%;
+  left: 48%;
+  width: 70px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_1C {
+  top: 61%;
+  left: 48%;
+  width: 60px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_5C {
+  top: 73%;
+  left: 48%;
+  width: 55px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_5A {
+  top: 63%;
+  left: 55%;
+  width: 35px;
+  height: 55px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_5D {
+  top: 65%;
+  left: 73%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_5E {
+  top: 65%;
+  left: 78%;
+  width: 35px;
+  height: 34px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_1B {
+  top: 54%;
+  left: 26%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_2B {
+  top: 16%;
+  left: 55%;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_2_4B {
+  top: 65%;
+  left: 25%;
+  width: 73px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* L01 Drawing */
+.plans_container .b2_01_1 {
+  top: 54%;
+  left: 27%;
+  width: 393px;
+  height: 100px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_01_1Roof {
+  top: 49%;
+  left: 27%;
+  width: 300px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_01_1E {
+  top: 61%;
+  left: 53%;
+  width: 23px;
+  height: 39px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_01_2 {
+  top: 16%;
+  left: 50%;
+  width: 100px;
+  height: 305px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_01_5_I {
+  top: 65%;
+  left: 48%;
+  width: 215px;
+  height: 135px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_01_5_II {
+  top: 65%;
+  left: 65%;
+  width: 195px;
+  height: 135px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* L02 Drawing */
+.plans_container .b2_02_1 {
+  top: 54%;
+  left: 27%;
+  width: 393px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_02_2 {
+  top: 16%;
+  left: 50%;
+  width: 100px;
+  height: 300px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_02_5Roof {
+  top: 77%;
+  left: 48%;
+  width: 350px;
+  height: 45px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_02_5_I {
+  top: 65%;
+  left: 48%;
+  width: 215px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_02_5_II {
+  top: 65%;
+  left: 65%;
+  width: 195px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_02_5B {
+  top: 66%;
+  left: 48%;
+  width: 60px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_02_1E {
+  top: 61%;
+  left: 53%;
+  width: 20px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
 .firstdiv,
 .secndfiv,
 .thirddiv,
@@ -429,7 +729,7 @@ button {
   left: 31%;
   width: 27px;
   height: 15px;
-  padding: 0; 
+  padding: 0;
   z-index: 9999999;
 }
 
@@ -463,10 +763,10 @@ button {
 
 .plans_container .sub_1_2 {
   top: 61%;
-    left: 48%;
-    width: 41px;
-    height: 22px;
-    padding: 0;
+  left: 48%;
+  width: 41px;
+  height: 22px;
+  padding: 0;
 }
 
 .plans_container .sub_1_3 {
@@ -535,10 +835,10 @@ button {
 
 .plans_container .sub_2_2 {
   top: 61%;
-    left: 48%;
-    width: 41px;
-    height: 22px;
-    padding: 0;
+  left: 48%;
+  width: 41px;
+  height: 22px;
+  padding: 0;
 }
 
 .plans_container .sub_2_3 {
@@ -568,7 +868,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .sub_LTA{
+.plans_container .sub_LTA {
   top: 49%;
   left: 49%;
   width: 40px;
@@ -578,12 +878,11 @@ button {
   margin-left: 9px;
 }
 
-
 .sub_btn:hover {
-    opacity: 0.9 !important;
-    padding: 0 !important;
-    background: #71B238 !important;
-    box-shadow: 0 2px 10px #71b238 !important;
+  opacity: 0.9 !important;
+  padding: 0 !important;
+  background: #71b238 !important;
+  box-shadow: 0 2px 10px #71b238 !important;
 }
 
 .backtotop {
@@ -601,7 +900,7 @@ button {
   z-index: 999;
 }
 
- .plans_container .sub_02 {
+.plans_container .sub_02 {
   top: 12px;
   width: 101%;
   height: 94%;
@@ -614,7 +913,6 @@ button {
   height: 32%;
   left: 0%;
 } */
-
 
 .textarea {
   resize: none;
@@ -639,7 +937,6 @@ button {
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  
 }
 
 .plan_effect:hover .tooltiptext {

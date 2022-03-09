@@ -659,6 +659,7 @@ export class NewRequestComponent implements OnInit {
       });
   }
   GetselectedBuildingitem(event) {
+    console.log(event, "Data")
     this.selectedbuilding = event;
     this.Requestdata.Building_Id = event;
     this.buildings.forEach((x) => {
@@ -666,9 +667,9 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.controls["Building"].setValue(x["building_name"]);
       }
     });
-    this.spinner = true;
-    this.requestsserivies.GetAllFloorsbyid(event).subscribe((res) => {
-      this.spinner = false;
+    // console.log("Buildings", this.buildings)
+    if(event == '9') {
+      console.log("B1")
       this.floors = [
         "LK1",
         "L00",
@@ -681,60 +682,131 @@ export class NewRequestComponent implements OnInit {
         "L07",
         "L08",
         "LTA",
-      ]; //res["data"];
+      ]; 
+    }
+    else {
+      console.log("B2")
+      this.floors = [
+        "L00",
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "LK1"
+      ];
+    }
+    this.spinner = true;
+    this.requestsserivies.GetAllFloorsbyid(event).subscribe((res) => {
+      this.spinner = false;
+      
     });
     this.nobuildingmselect = false;
     this.name = "Floor";
   }
   Getselectedflooritem(event) {
     console.log(event);
-    switch (event) {
-      case "LK1":
-        this.planType = "LK1";
-        this.pdfSrc = "assets/images/plans/LK1.pdf";
-        break;
-      case "L00":
-        this.planType = "L00";
-        this.pdfSrc = "assets/images/plans/L00.pdf";
-        break;
-      case "L01":
-        this.planType = "L01";
-        this.pdfSrc = "assets/images/plans/L01.pdf";
-        break;
-      case "L02":
-        this.planType = "L02";
-        this.pdfSrc = "assets/images/plans/L02.pdf";
-        break;
-      case "L03":
-        this.planType = "L03";
-        this.pdfSrc = "assets/images/plans/L03.pdf";
-        break;
-      case "L04":
-        this.planType = "L04";
-        this.pdfSrc = "assets/images/plans/L04.pdf";
-      case "L05":
-        this.planType = "L05";
-        this.pdfSrc = "assets/images/plans/L05.pdf";
-        break;
-      case "L06":
-        this.planType = "L06";
-        this.pdfSrc = "assets/images/plans/L06.pdf";
-        break;
-      case "L07":
-        this.planType = "L07";
-        this.pdfSrc = "assets/images/plans/L07.pdf";
-        break;
-      case "L08":
-        this.planType = "L08";
-        this.pdfSrc = "assets/images/plans/L08.pdf";
-        break;
-      case "LTA":
-        this.planType = "LTA";
-        this.pdfSrc = "assets/images/plans/LTA.pdf";
-
-      default:
-        break;
+    if(this.selectedbuilding == '9') {
+      console.log("B1 Drawing")
+      switch (event) {
+        case "LK1":
+          this.planType = "LK1";
+          this.pdfSrc = "assets/images/plans/LK1.pdf";
+          break;
+        case "L00":
+          this.planType = "L00";
+          this.pdfSrc = "assets/images/plans/L00.pdf";
+          break;
+        case "L01":
+          this.planType = "L01";
+          this.pdfSrc = "assets/images/plans/L01.pdf";
+          break;
+        case "L02":
+          this.planType = "L02";
+          this.pdfSrc = "assets/images/plans/L02.pdf";
+          break;
+        case "L03":
+          this.planType = "L03";
+          this.pdfSrc = "assets/images/plans/L03.pdf";
+          break;
+        case "L04":
+          this.planType = "L04";
+          this.pdfSrc = "assets/images/plans/L04.pdf";
+        case "L05":
+          this.planType = "L05";
+          this.pdfSrc = "assets/images/plans/L05.pdf";
+          break;
+        case "L06":
+          this.planType = "L06";
+          this.pdfSrc = "assets/images/plans/L06.pdf";
+          break;
+        case "L07":
+          this.planType = "L07";
+          this.pdfSrc = "assets/images/plans/L07.pdf";
+          break;
+        case "L08":
+          this.planType = "L08";
+          this.pdfSrc = "assets/images/plans/L08.pdf";
+          break;
+        case "LTA":
+          this.planType = "LTA";
+          this.pdfSrc = "assets/images/plans/LTA.pdf";
+  
+        default:
+          break;
+      }
     }
+    else {
+        console.log("B2 Drwaing")
+      switch (event) {
+        case "LK1":
+          this.planType = "LK1";
+          this.pdfSrc = "assets/images/plans/B2_LK1.pdf";
+          break;
+        case "L00":
+          this.planType = "L00";
+          this.pdfSrc = "assets/images/plans/B2_L00.pdf";
+          break;
+        case "L01":
+          this.planType = "L01";
+          this.pdfSrc = "assets/images/plans/B2_L01.pdf";
+          break;
+        case "L02":
+          this.planType = "L02";
+          this.pdfSrc = "assets/images/plans/B2_L02.pdf";
+          break;
+        case "L03":
+          this.planType = "L03";
+          this.pdfSrc = "assets/images/plans/B2_L03.pdf";
+          break;
+        case "L04":
+          this.planType = "L04";
+          this.pdfSrc = "assets/images/plans/B2_L04.pdf";
+        case "L05":
+          this.planType = "L05";
+          this.pdfSrc = "assets/images/plans/B2_L05.pdf";
+          break;
+        case "L06":
+          this.planType = "L06";
+          this.pdfSrc = "assets/images/plans/B2_L06.pdf";
+          break;
+        case "L07":
+          this.planType = "L07";
+          this.pdfSrc = "assets/images/plans/B2_L07.pdf";
+          break;
+        case "L08":
+          this.planType = "L08";
+          this.pdfSrc = "assets/images/plans/B2_L08.pdf";
+          break;
+  
+        default:
+          break;
+      }
+    }
+    
 
     // this.spinner = true;
     this.selectedfloor = event;
@@ -765,53 +837,99 @@ export class NewRequestComponent implements OnInit {
       "Koge Hospital Project Team (KHPT)"
     );
     
-    switch(this.FloorMain) {
-      case "LK1": 
-        this.FloorOrdinates = this.LK1 ;
-        // console.log(this.FloorOrdinates, "tessssst");
-      break;
-
-      case "L00":
-        this.FloorOrdinates = this.L00;
+    if(this.selectedbuilding == '9') {
+      switch(this.FloorMain) {
+        case "LK1": 
+          this.FloorOrdinates = this.LK1 ;
+          // console.log(this.FloorOrdinates, "tessssst");
         break;
-      
-      case "L01":
-      this.FloorOrdinates = this.L01;
-      break;
-
-      case "L02":
-      this.FloorOrdinates = this.L02;
-      break;
-
-      case "L03":
-      this.FloorOrdinates = this.L03;
-      break;
-
-      case "L04":
-      this.FloorOrdinates = this.L04;
-      break;
-
-      case "L05":
-      this.FloorOrdinates = this.L05;
-      break;
-
-      case "L06":
-      this.FloorOrdinates = this.L06;
-      break;
-
-      case "L07":
-      this.FloorOrdinates = this.L07;
-      break;
-
-      case "L08":
-      this.FloorOrdinates = this.L08;
-      break;
-
-      case "LTA":
-      this.FloorOrdinates = this.LTA;
-      break;
+  
+        case "L00":
+          this.FloorOrdinates = this.L00;
+          break;
+        
+        case "L01":
+        this.FloorOrdinates = this.L01;
+        break;
+  
+        case "L02":
+        this.FloorOrdinates = this.L02;
+        break;
+  
+        case "L03":
+        this.FloorOrdinates = this.L03;
+        break;
+  
+        case "L04":
+        this.FloorOrdinates = this.L04;
+        break;
+  
+        case "L05":
+        this.FloorOrdinates = this.L05;
+        break;
+  
+        case "L06":
+        this.FloorOrdinates = this.L06;
+        break;
+  
+        case "L07":
+        this.FloorOrdinates = this.L07;
+        break;
+  
+        case "L08":
+        this.FloorOrdinates = this.L08;
+        break;
+  
+        case "LTA":
+        this.FloorOrdinates = this.LTA;
+        break;
+      }
     }
-
+    else {
+      switch(this.FloorMain) {
+        case "LK1": 
+          this.FloorOrdinates = this.LK1 ;
+          // console.log(this.FloorOrdinates, "tessssst");
+        break;
+  
+        case "L00":
+          this.FloorOrdinates = this.L00;
+          break;
+        
+        case "L01":
+        this.FloorOrdinates = this.L01;
+        break;
+  
+        case "L02":
+        this.FloorOrdinates = this.L02;
+        break;
+  
+        case "L03":
+        this.FloorOrdinates = this.L03;
+        break;
+  
+        case "L04":
+        this.FloorOrdinates = this.L04;
+        break;
+  
+        case "L05":
+        this.FloorOrdinates = this.L05;
+        break;
+  
+        case "L06":
+        this.FloorOrdinates = this.L06;
+        break;
+  
+        case "L07":
+        this.FloorOrdinates = this.L07;
+        break;
+  
+        case "L08":
+        this.FloorOrdinates = this.L08;
+        break;
+      }
+    }
+    
 
     this.RequestForm.controls["Room"].setValue([planVal]);
     this.isnewrequestcreated = true;

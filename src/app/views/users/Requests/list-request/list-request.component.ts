@@ -1152,11 +1152,11 @@ export class ListRequestComponent implements OnInit {
               this.userdata['typeId']
             );
             this.RequestsbyidDto.SubContractorId = this.userdata['typeId'];
-            this.requestservice
-              .GetAllRequestsByid(this.RequestsbyidDto)
-              .subscribe((res) => {
-                this.items = res['data'];
-              });
+            // this.requestservice
+            //   .GetAllRequestsByid(this.RequestsbyidDto)
+            //   .subscribe((res) => {
+                this.items = res[0]['data'];
+              // });
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
           } else if (this.userdata['role'] == 'Admin') {
