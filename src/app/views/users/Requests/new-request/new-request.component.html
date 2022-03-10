@@ -1683,6 +1683,407 @@
       </ng-container>
     </ng-template>
 
+    <!-- B2 L03 -->
+    <ng-template #twentythree>
+      <ng-container *ngIf="planType == 'L03' && selectedbuilding == '10';else twentyeight">
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_03_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_03_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_03_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_03_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_03_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_03_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_03_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_03_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_03_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-B')" class="plan_effect b2_03_5B sub_btn">
+          <span class="tooltiptext">B2.5-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_03_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_03_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_03_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_03_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+
+
+      </ng-container>
+    </ng-template>
+
+    <!-- B04 Drawing Still Pending  -->
+    <ng-template #twentyeight>
+      <ng-container *ngIf="planType == 'L04' && selectedbuilding == '10';else twentyfour">
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_05_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_05_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_05_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_05_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_05_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_05_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_05_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_05_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_05_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-B')" class="plan_effect b2_05_5B sub_btn">
+          <span class="tooltiptext">B2.5-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_05_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_05_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_05_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_05_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+      </ng-container>
+    </ng-template>
+
+    <!-- B05 Drawing -->
+    <ng-template #twentyfour>
+      <ng-container *ngIf="planType == 'L05' && selectedbuilding == '10';else twentyfive">
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_05_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_05_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_05_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_05_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_05_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_05_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_05_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_05_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_05_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-B')" class="plan_effect b2_05_5B sub_btn">
+          <span class="tooltiptext">B2.5-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_05_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_05_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_05_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_05_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+      </ng-container>
+    </ng-template>
+
+    <!-- B06 Drwaing -->
+    <ng-template #twentyfive>
+      <ng-container *ngIf="planType == 'L06' && selectedbuilding == '10';else twentysix">
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_05_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_05_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_05_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_05_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_05_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_05_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_05_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_05_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_05_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-B')" class="plan_effect b2_05_5B sub_btn">
+          <span class="tooltiptext">B2.5-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_05_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_05_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_05_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_05_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+      </ng-container>
+    </ng-template>
+
+    <!-- B07 Drawing -->
+    <ng-template #twentysix>
+      <ng-container *ngIf="planType == 'L07' && selectedbuilding == '10';else twentyseven">
+        <button (click)="onFloorPlan('B2.1 Roof')" class="plan_effect b2_05_1">
+          <span class="tooltiptext">B2.1 Roof</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_05_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_05_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_05_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_05_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_05_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_05_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_05_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_05_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-B')" class="plan_effect b2_05_5B sub_btn">
+          <span class="tooltiptext">B2.5-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_05_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_05_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_05_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_05_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+      </ng-container>
+    </ng-template>
+
+    <!-- L08 Drawing -->
+    <ng-template #twentyseven>
+      <ng-container *ngIf="planType == 'L08' && selectedbuilding == '10'; else twentynine">
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_08_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2')" class="plan_effect b2_08_2">
+          <span class="tooltiptext">B2.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 Roof')" class="plan_effect b2_08_5Roof">
+          <span class="tooltiptext">B2.5 Roof</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.2-A')" class="plan_effect b2_08_2A sub_btn">
+          <span class="tooltiptext">B2.2-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_08_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_08_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+
+      </ng-container>
+    </ng-template>
+
+    <!-- LK1 Drawing -->
+    <ng-template #twentynine>
+      <ng-container *ngIf="planType == 'LK1' && selectedbuilding == '10';">
+        <button (click)="onFloorPlan('B2.1')" class="plan_effect b2_LK_1">
+          <span class="tooltiptext">B2.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.T')" class="plan_effect b2_LK_T">
+          <span class="tooltiptext">B2.T</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 I')" class="plan_effect b2_LK_5_I">
+          <span class="tooltiptext">B2.5 I</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5 II')" class="plan_effect b2_LK_5_II">
+          <span class="tooltiptext">B2.5 II</span>
+        </button>
+
+        <!-- Sub Buttons -->
+        <button (click)="onFloorPlan('B2.1-A')" class="plan_effect b2_LK_1A sub_btn">
+          <span class="tooltiptext">B2.1-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.2-C')" class="plan_effect b2_LK_2C sub_btn">
+          <span class="tooltiptext">B2.2-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-D')" class="plan_effect b2_LK_1D sub_btn">
+          <span class="tooltiptext">B2.1-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.1-C')" class="plan_effect b2_LK_1C sub_btn">
+          <span class="tooltiptext">B2.1-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-B')" class="plan_effect b2_LK_5B sub_btn">
+          <span class="tooltiptext">B2.5-B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-C')" class="plan_effect b2_LK_5C sub_btn">
+          <span class="tooltiptext">B2.5-C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-A')" class="plan_effect b2_LK_5A sub_btn">
+          <span class="tooltiptext">B2.5-A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-D')" class="plan_effect b2_LK_5D sub_btn">
+          <span class="tooltiptext">B2.5-D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B2.5-E')" class="plan_effect b2_LK_5E sub_btn">
+          <span class="tooltiptext">B2.5-E</span>
+        </button>
+      </ng-container>
+    </ng-template>
+
 
     <pdf-viewer [src]="pdfSrc" [original-size]="false" [zoom]="0.75"></pdf-viewer>
     <!-- style="display: block" -->

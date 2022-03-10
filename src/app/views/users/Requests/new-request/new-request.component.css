@@ -583,6 +583,437 @@
   z-index: 9999999;
 }
 
+/* L03 Drawing */
+
+.plans_container .b2_03_1 {
+  top: 57%;
+  left: 24%;
+  width: 393px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_2 {
+  top: 17%;
+  left: 48%;
+  width: 95px;
+  height: 320px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_5_I {
+  top: 69%;
+  left: 45%;
+  width: 230px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_5_II {
+  top: 68%;
+  left: 64%;
+  width: 175px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_2A {
+  top: 19%;
+  left: 48%;
+  width: 35px;
+  height: 60px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_1A {
+  top: 64%;
+  left: 24%;
+  width: 50px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_2C {
+  top: 55%;
+  left: 48%;
+  width: 35px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_1D {
+  top: 57%;
+  left: 45%;
+  width: 74px;
+  height: 45px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_1C {
+  top: 64%;
+  left: 45%;
+  width: 65px;
+  height: 45px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_5B {
+  top: 69%;
+  left: 45%;
+  width: 65px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_5C {
+  top: 77%;
+  left: 45%;
+  width: 45px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_5A {
+  top: 66%;
+  left: 52%;
+  width: 40px;
+  height: 60px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_5D {
+  top: 69%;
+  left: 71%;
+  width: 30px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_03_5E {
+  top: 69%;
+  left: 76%;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* L05 Drawing */
+.plans_container .b2_05_1 {
+  top: 58%;
+  left: 22%;
+  width: 395px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_2 {
+  top: 17%;
+  left: 45%;
+  width: 105px;
+  height: 325px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_5_I {
+  top: 69%;
+  left: 43%;
+  width: 210px;
+  height: 100px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_5_II {
+  top: 69%;
+  left: 59%;
+  width: 210px;
+  height: 100px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_2A {
+  top: 20%;
+  left: 46%;
+  width: 35px;
+  height: 55px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_1A {
+  top: 65%;
+  left: 22%;
+  width: 50px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_2C {
+  top: 55%;
+  left: 46%;
+  width: 35px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_1D {
+  top: 58%;
+  left: 43%;
+  width: 70px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_1C {
+  top: 65%;
+  left: 43%;
+  width: 70px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_5B {
+  top: 70%;
+  left: 43%;
+  width: 65px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_5C {
+  top: 77%;
+  left: 43%;
+  width: 55px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_5A {
+  top: 67%;
+  left: 50%;
+  width: 40px;
+  height: 55px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_5D {
+  top: 69%;
+  left: 69%;
+  width: 30px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_05_5E {
+  top: 69%;
+  left: 74%;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* L08 Drawing */
+
+.plans_container .b2_08_1 {
+  top: 58%;
+  left: 43%;
+  width: 125px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_2 {
+  top: 17%;
+  left: 45%;
+  width: 105px;
+  height: 325px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_5Roof {
+  top: 69%;
+  left: 43%;
+  width: 420px;
+  height: 95px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_2A {
+  top: 19%;
+  left: 45%;
+  width: 50px;
+  height: 65px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_5D {
+  top: 69%;
+  left: 69%;
+  width: 30px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_5E {
+  top: 69%;
+  left: 74%;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* LK1 Drawing */
+.plans_container .b2_LK_1 {
+  top: 26%;
+  left: 26%;
+  width: 405px;
+  height: 115px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_T {
+  top: 40%;
+  left: 34%;
+  width: 175px;
+  height: 130px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_5_I {
+  top: 40%;
+  left: 48%;
+  width: 200px;
+  height: 130px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_5_II {
+  top: 40%;
+  left: 64%;
+  width: 205px;
+  height: 130px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_1A {
+  top: 35%;
+  left: 26%;
+  width: 55px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_2C {
+  top: 26%;
+  left: 50%;
+  width: 40px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_1D {
+  top: 29%;
+  left: 48%;
+  width: 65px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_1C {
+  top: 35%;
+  left: 48%;
+  width: 60px;
+  height: 45px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_5B {
+  top: 40%;
+  left: 48%;
+  width: 60px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_5C {
+  top: 48%;
+  left: 48%;
+  width: 60px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_5A {
+  top: 38%;
+  left: 55%;
+  width: 35px;
+  height: 55px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_5D {
+  top: 40%;
+  left: 73%;
+  width: 40px;
+  height: 39px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_LK_5E {
+  top: 40%;
+  left: 78%;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
+
 .firstdiv,
 .secndfiv,
 .thirddiv,
