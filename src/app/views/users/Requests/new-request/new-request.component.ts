@@ -463,6 +463,197 @@ export class NewRequestComponent implements OnInit {
     'B1.2E'
   ];
 
+  // B2 DRWAING CO-ORDINATES
+
+  B2L00 = [
+    'B2.1',
+    'B2.2',
+    'B2.4',
+    'B2.5 I',
+    'B2.5 II',
+    'B2.6',
+    'B2.T',
+    'B2.2-A',
+    'B2.1-A',
+    'B2.4-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E',
+    'B2.1-B',
+    'B2.2-B',
+    'B2.4-B',
+    'B2.1-E'
+  ];
+
+  B2L01 = [
+    'B2.1',
+    'B2.2',
+    'B2.4',
+    'B2.5 I',
+    'B2.5 II',
+    'B2.6',
+    'B2.1 Roof',
+    'B2.2-A',
+    'B2.1-A',
+    'B2.4-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E',
+    'B2.1-B',
+    'B2.2-B',
+    'B2.4-B',
+    'B2.1-E'
+  ];
+
+  B2L02 = [
+    'B2.1',
+    'B2.2',
+    'B2.4 Roof',
+    'B2.5 I',
+    'B2.5 II',
+    'B2.5 Roof',
+
+    'B2.2-A',
+    'B2.1-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E',
+    'B2.1-B',
+    'B2.2-B',
+    'B2.1-E'
+  ];
+
+  B2L03 = [
+    'B2.1',
+    'B2.2',
+    'B2.5 I',
+    'B2.5 II',
+
+    'B2.2-A',
+    'B2.1-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E'
+  ];
+
+  B2L04 = [
+    'B2.1',
+    'B2.2',
+    'B2.5 I',
+    'B2.5 II',
+
+    'B2.2-A',
+    'B2.1-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E'
+  ];
+
+  B2L05 = [
+    'B2.1',
+    'B2.2',
+    'B2.5 I',
+    'B2.5 II',
+
+    'B2.2-A',
+    'B2.1-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E'
+  ];
+
+  B2L06 = [
+    'B2.1',
+    'B2.2',
+    'B2.5 I',
+    'B2.5 II',
+
+    'B2.2-A',
+    'B2.1-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E'
+  ];
+
+  B2L07 = [
+    'B2.1 Roof',
+    'B2.2',
+    'B2.5 I',
+    'B2.5 II',
+
+    'B2.2-A',
+    'B2.1-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E'
+  ];
+
+  B2L08 = [
+    'B2.1',
+    'B2.2',
+    'B2.5 Roof',
+    'B2.2-A',
+    'B2.5-D',
+    'B2.5-E'
+  ];
+
+  B2LK1 = [
+    'B2.1',
+    'B2.5 I',
+    'B2.5 II',
+    'B2.T',
+
+    'B2.1-A',
+    'B2.2-C',
+    'B2.1-D',
+    'B2.1-C',
+    'B2.5-B',
+    'B2.5-C',
+    'B2.5-A',
+    'B2.5-D',
+    'B2.5-E'
+  ]
+
   ngOnInit(): void {
 
     // console.log(this.L000)
@@ -888,44 +1079,45 @@ export class NewRequestComponent implements OnInit {
     else {
       switch(this.FloorMain) {
         case "LK1": 
-          this.FloorOrdinates = this.LK1 ;
+          this.FloorOrdinates = this.B2LK1 ;
+          // Testing
           // console.log(this.FloorOrdinates, "tessssst");
         break;
   
         case "L00":
-          this.FloorOrdinates = this.L00;
+          this.FloorOrdinates = this.B2L00;
           break;
         
         case "L01":
-        this.FloorOrdinates = this.L01;
+        this.FloorOrdinates = this.B2L01;
         break;
   
         case "L02":
-        this.FloorOrdinates = this.L02;
+        this.FloorOrdinates = this.B2L02;
         break;
   
         case "L03":
-        this.FloorOrdinates = this.L03;
+        this.FloorOrdinates = this.B2L03;
         break;
   
         case "L04":
-        this.FloorOrdinates = this.L04;
+        this.FloorOrdinates = this.B2L04;
         break;
   
         case "L05":
-        this.FloorOrdinates = this.L05;
+        this.FloorOrdinates = this.B2L05;
         break;
   
         case "L06":
-        this.FloorOrdinates = this.L06;
+        this.FloorOrdinates = this.B2L06;
         break;
   
         case "L07":
-        this.FloorOrdinates = this.L07;
+        this.FloorOrdinates = this.B2L07;
         break;
   
         case "L08":
-        this.FloorOrdinates = this.L08;
+        this.FloorOrdinates = this.B2L08;
         break;
       }
     }
@@ -1490,52 +1682,102 @@ export class NewRequestComponent implements OnInit {
 
 
     this.onFloorPlan(data.Room_Type);
-    switch(data.Room_Type) {
-      case "LK1": 
-        this.FloorOrdinates = this.LK1 ;
-        // console.log(this.FloorOrdinates, "tessssst");
-      break;
-
-      case "L00":
-        this.FloorOrdinates = this.L00;
+    
+    if(this.selectedbuilding == '9') {
+      switch(data.Room_Type) {
+        case "LK1": 
+          this.FloorOrdinates = this.LK1 ;
+          // console.log(this.FloorOrdinates, "tessssst");
         break;
-      
-      case "L01":
-      this.FloorOrdinates = this.L01;
-      break;
+  
+        case "L00":
+          this.FloorOrdinates = this.L00;
+          break;
+        
+        case "L01":
+        this.FloorOrdinates = this.L01;
+        break;
+  
+        case "L02":
+        this.FloorOrdinates = this.L02;
+        break;
+  
+        case "L03":
+        this.FloorOrdinates = this.L03;
+        break;
+  
+        case "L04":
+        this.FloorOrdinates = this.L04;
+        break;
+  
+        case "L05":
+        this.FloorOrdinates = this.L05;
+        break;
+  
+        case "L06":
+        this.FloorOrdinates = this.L06;
+        break;
+  
+        case "L07":
+        this.FloorOrdinates = this.L07;
+        break;
+  
+        case "L08":
+        this.FloorOrdinates = this.L08;
+        break;
+  
+        case "LTA":
+        this.FloorOrdinates = this.LTA;
 
-      case "L02":
-      this.FloorOrdinates = this.L02;
-      break;
-
-      case "L03":
-      this.FloorOrdinates = this.L03;
-      break;
-
-      case "L04":
-      this.FloorOrdinates = this.L04;
-      break;
-
-      case "L05":
-      this.FloorOrdinates = this.L05;
-      break;
-
-      case "L06":
-      this.FloorOrdinates = this.L06;
-      break;
-
-      case "L07":
-      this.FloorOrdinates = this.L07;
-      break;
-
-      case "L08":
-      this.FloorOrdinates = this.L08;
-      break;
-
-      case "LTA":
-      this.FloorOrdinates = this.LTA;
-      break;
+        break;
+      }
     }
+    else {
+      switch(data.Room_Type) {
+        case "LK1": 
+          this.FloorOrdinates = this.B2LK1 ;
+          // Testing
+          // console.log(this.FloorOrdinates, "tessssst");
+        break;
+  
+        case "L00":
+          this.FloorOrdinates = this.B2L00;
+          break;
+        
+        case "L01":
+        this.FloorOrdinates = this.B2L01;
+        break;
+  
+        case "L02":
+        this.FloorOrdinates = this.B2L02;
+        break;
+  
+        case "L03":
+        this.FloorOrdinates = this.B2L03;
+        break;
+  
+        case "L04":
+        this.FloorOrdinates = this.B2L04;
+        break;
+  
+        case "L05":
+        this.FloorOrdinates = this.B2L05;
+        break;
+  
+        case "L06":
+        this.FloorOrdinates = this.B2L06;
+        break;
+  
+        case "L07":
+        this.FloorOrdinates = this.B2L07;
+        break;
+  
+        case "L08":
+        this.FloorOrdinates = this.B2L08;
+        break;
+      }
+    }
+    
     console.log(this.FloorOrdinates, "statinndd", data.Room_Type)
     const roomData = data.Room_Nos.split(",");
     this.RequestForm.controls["Room"].setValue(roomData);
