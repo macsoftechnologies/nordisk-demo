@@ -850,6 +850,7 @@ export class NewRequestComponent implements OnInit {
       });
   }
   GetselectedBuildingitem(event) {
+    
     console.log(event, "Data")
     this.selectedbuilding = event;
     this.Requestdata.Building_Id = event;
@@ -890,9 +891,12 @@ export class NewRequestComponent implements OnInit {
         "LK1"
       ];
     }
+    this.planType = null;
+    this.pdfSrc = null;
     this.spinner = true;
     this.requestsserivies.GetAllFloorsbyid(event).subscribe((res) => {
       this.spinner = false;
+      console.log(res, "Floors")
       
     });
     this.nobuildingmselect = false;

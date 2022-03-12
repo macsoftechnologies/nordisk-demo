@@ -35,11 +35,12 @@
         </div>
         <div [hidden]="nobuildingmselect">
           <mat-form-field class="matrequest">
-            <mat-label>Select Level</mat-label>
-            <mat-select (selectionChange)="Getselectedflooritem($event.value)">
+            <!-- <mat-label>Select Level</mat-label> -->
+            <mat-select [(value)]="planType" placeholder="Select Level"  (selectionChange)="Getselectedflooritem($event.value)">
               <!-- <mat-option *ngFor="let floor of floors" [value]="floor.fl_id">
                 {{ floor.floor_status }}    
               </mat-option> -->
+              <!-- <mat-option [value]="null">Select Level</mat-option> -->
               <mat-option *ngFor="let floor of floors" [value]="floor">
                 {{ floor }}
               </mat-option>
@@ -2083,9 +2084,8 @@
         </button>
       </ng-container>
     </ng-template>
-
-
-    <pdf-viewer [src]="pdfSrc" [original-size]="false" [zoom]="0.75"></pdf-viewer>
+    
+    <pdf-viewer *ngIf="pdfSrc" [src]="pdfSrc" [original-size]="false" [zoom]="0.75"></pdf-viewer>
     <!-- style="display: block" -->
     <!-- [render-text]="true" -->
     <!-- (after-load-complete)="loadComplete($event)" -->
