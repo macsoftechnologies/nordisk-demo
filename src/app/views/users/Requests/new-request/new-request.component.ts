@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import {
   FormControl,
@@ -360,7 +361,17 @@ export class NewRequestComponent implements OnInit {
     'B1.3C',
     'B1.4A',
     'B1.4B',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.4D',
+    'B1.2D',
+    'B1.1D'
+
   ];
 
   L01 = [
@@ -375,7 +386,16 @@ export class NewRequestComponent implements OnInit {
     'B1.3C',
     'B1.4A',
     'B1.4B',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.4D',
+    'B1.2D',
+    'B1.1D'
   ];
 
   L02 = [
@@ -387,7 +407,15 @@ export class NewRequestComponent implements OnInit {
     'B1.1E',
     'B1.2C',
     'B1.3C',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.2D',
+    'B1.1D'
   ];
 
   L03 = [
@@ -398,7 +426,15 @@ export class NewRequestComponent implements OnInit {
     'B1.1E',
     'B1.2C',
     'B1.3C',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.2D',
+    'B1.1D'
   ];
 
   L04 = [
@@ -409,7 +445,15 @@ export class NewRequestComponent implements OnInit {
     'B1.1E',
     'B1.2C',
     'B1.3C',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.2D',
+    'B1.1D'
   ];
 
   L05 = [
@@ -420,7 +464,15 @@ export class NewRequestComponent implements OnInit {
     'B1.1E',
     'B1.2C',
     'B1.3C',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.2D',
+    'B1.1D'
   ];
 
   L06 = [
@@ -431,7 +483,15 @@ export class NewRequestComponent implements OnInit {
     'B1.1E',
     'B1.2C',
     'B1.3C',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.2D',
+    'B1.1D'
   ];
 
   L07 = [
@@ -442,7 +502,15 @@ export class NewRequestComponent implements OnInit {
     'B1.1E',
     'B1.2C',
     'B1.3C',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.2D',
+    'B1.1D'
   ];
 
   L08 = [
@@ -453,7 +521,15 @@ export class NewRequestComponent implements OnInit {
     'B1.1E',
     'B1.2C',
     'B1.3C',
-    'B1.2E'
+    'B1.2E',
+    'B1.3A',
+    'B1.3B',
+    'B1.1A',
+    'B1.1C',
+    'B1.2A',
+    'B1.2B',
+    'B1.2D',
+    'B1.1D'
   ];
 
   LTA = [
@@ -775,7 +851,7 @@ export class NewRequestComponent implements OnInit {
     });
 
     this.data = this.requestsserivies.SelectedRequestData;
-    console.log(this.data);
+    console.log(this.data, "rowdata");
     if (this.data["editform"] == true) {
       this.updaterequestdata.userId = this.userdata["id"];
       if (this.userdata["role"] == "Subcontractor") {
@@ -854,6 +930,8 @@ export class NewRequestComponent implements OnInit {
     console.log(event, "Data")
     this.selectedbuilding = event;
     this.Requestdata.Building_Id = event;
+    this.updaterequestdata.Building_Id = event;
+    console.log("Update", this.updaterequestdata.Building_Id)
     this.buildings.forEach((x) => {
       if (x["build_id"] == event) {
         this.RequestForm.controls["Building"].setValue(x["building_name"]);
@@ -1273,6 +1351,7 @@ export class NewRequestComponent implements OnInit {
 
     this.Requestdata.Badge_Numbers =
       this.RequestForm.controls["BADGENUMBER"].value.toString();
+      console.log("Requestdata", this.Requestdata)
 
     this.requestsserivies.CreateNewRequest(this.Requestdata).subscribe(
       (res) => {
@@ -1320,8 +1399,8 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Badge_Numbers =
       this.RequestForm.controls["BADGENUMBER"].value.toString();
     // this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
-    this.updaterequestdata.Building_Id =
-      this.RequestForm.controls["Building"].value;
+    // this.updaterequestdata.Building_Id =
+    //   this.RequestForm.controls["Building"].value;
     this.updaterequestdata.Room_Type =
       this.RequestForm.controls["FloorName"].value;
     // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
@@ -1389,6 +1468,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   UpdateRequestDraftToHold(data) {
+    console.log("draft", data)
     var badarray = [];
     this.spinner = true;
 
@@ -1422,8 +1502,9 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Badge_Numbers =
       this.RequestForm.controls["BADGENUMBER"].value.toString();
     // this.updaterequestdata.Site_Id = this.RequestForm.controls["Site"].value;
-    this.updaterequestdata.Building_Id =
-      this.RequestForm.controls["Building"].value;
+    // this.updaterequestdata.Building_Id =
+    //   this.RequestForm.controls["Building"].value;
+    this.updaterequestdata.Building_Id = data["Building_Id"];
     this.updaterequestdata.Room_Type =
       this.RequestForm.controls["FloorName"].value;
     // this.updaterequestdata.Request_Date = this.RequestForm.controls["Requestdate"].value;
@@ -1684,8 +1765,9 @@ export class NewRequestComponent implements OnInit {
     this.EditSafetyArray = [];
     safetystr = data["Safety_Precautions"].split(",");
 
-
-    this.onFloorPlan(data.Room_Type);
+    this.selectedbuilding = data["Building_Id"]
+    // this.onFloorPlan(data.Room_Type);
+    // this.selectedbuildimg = data["Building_Id"]
     
     if(this.selectedbuilding == '9') {
       switch(data.Room_Type) {
@@ -1794,6 +1876,8 @@ export class NewRequestComponent implements OnInit {
     this.Getselectedsubcntrsteams(data["Sub_Contractor_Id"]);
 
     this.updaterequestdata.id = data["id"];
+    this.updaterequestdata.Building_Id = data["Building_Id"];
+    console.log("EDIT FORM", this.updaterequestdata.Building_Id)
     this.updaterequestdata.PermitNo = data["PermitNo"];
     this.updaterequestdata.Request_Date = data["Request_Date"];
     this.RequestForm.controls["Companyname"].setValue(data["Company_Name"]);
@@ -2090,3 +2174,6 @@ export class NewRequestComponent implements OnInit {
     this.isnewrequestcreated = false;
   }
 }
+
+
+

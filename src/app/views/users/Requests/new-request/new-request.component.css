@@ -1012,8 +1012,6 @@
   z-index: 9999999;
 }
 
-
-
 .firstdiv,
 .secndfiv,
 .thirddiv,
@@ -1182,6 +1180,87 @@ button {
   z-index: 9999999;
 }
 
+.plans_container .sub_0_8 {
+  top: 10%;
+  left: 48%;
+  width: 30px;
+  height: 50px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_9 {
+  top: 11%;
+  left: 51%;
+  width: 35px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_10 {
+  top: 51%;
+  left: 66%;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_11 {
+  top: 57%;
+  left: 66%;
+  width: 35px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_12 {
+  top: 41%;
+  left: 31%;
+  width: 25px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_13 {
+  top: 47%;
+  left: 31%;
+  width: 25px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_14 {
+  top: 38%;
+  left: 31%;
+  width: 25px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_15 {
+  top: 42%;
+  left: 47%;
+  width: 40px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_0_16 {
+  top: 52%;
+  left: 46%;
+  width: 50px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
 /* Sub Button L01*/
 
 .plans_container .sub_1_1 {
@@ -1228,9 +1307,9 @@ button {
 }
 
 .plans_container .sub_1_6 {
-  top: 18%;
-  left: 35%;
-  width: 22px;
+  top: 120px;
+  left: 440px;
+  width: 30px;
   height: 15px;
   padding: 0;
   z-index: 9999999;
@@ -1244,6 +1323,91 @@ button {
   padding: 0;
   z-index: 9999999;
 }
+
+.plans_container .sub_1_8 {
+  top: 8%;
+  left: 50%;
+  width: 30px;
+  height: 50px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_9 {
+  top: 8%;
+  left: 53%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_10 {
+  top: 53%;
+  left: 70%;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_11 {
+  top: 60%;
+  left: 70%;
+  width: 35px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_12 {
+  top: 42%;
+  left: 31%;
+  width: 30px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_13 {
+  top: 48%;
+  left: 31%;
+  width: 30px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_14 {
+  top: 40%;
+  left: 31%;
+  width: 30px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_15 {
+  top: 43%;
+  left: 49%;
+  width: 45px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_1_16 {
+  top: 54%;
+  left: 48%;
+  width: 50px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
+
+
 
 /* sub Button L02 */
 .plans_container .sub_2_1_1 {
@@ -1298,6 +1462,85 @@ button {
   padding: 0;
   z-index: 9999999;
 }
+
+/* Recently */
+.plans_container .sub_2_6 {
+  top: 8%;
+  left: 50%;
+  width: 30px;
+  height: 50px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_7 {
+  top: 8%;
+  left: 53%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_8 {
+  top: 53%;
+  left: 70%;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_9 {
+  top: 60%;
+  left: 70%;
+  width: 35px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_10 {
+  top: 42%;
+  left: 31%;
+  width: 30px;
+  height: 35px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_11 {
+  top: 48%;
+  left: 31%;
+  width: 30px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_12 {
+  top: 43%;
+  left: 49%;
+  width: 45px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .sub_2_13 {
+  top: 54%;
+  left: 48%;
+  width: 50px;
+  height: 20px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
+
+
+
+
 
 .plans_container .sub_LTA {
   top: 49%;

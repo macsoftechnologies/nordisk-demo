@@ -281,8 +281,23 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Building</mat-label>
-                <input matInput placeholder="Building Name" formControlName="Building" readonly  />
+                <!-- <input matInput placeholder="Building Name" formControlName="Building" readonly  /> -->
                 <!-- formControlName="Building" -->
+                <!-- <select placeholder="Building Name" formControlName="Building" readonly>
+                  <option [value]="" *ngFor="let item of "></option>
+                </select> -->
+                <!-- <mat-select formControlName="Building" readonly>
+                  <mat-option *ngFor="let building of buildings" [value]="building.building_name" disabled>
+                    {{ building.building_name }}
+                  </mat-option>
+                </mat-select> -->
+                
+
+                <mat-select formControlName="Building">
+                  <mat-option *ngFor="let building of buildings" [value]="building.building_name" disabled>
+                    {{ building.building_name }}
+                  </mat-option>
+                </mat-select>
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
@@ -1100,6 +1115,44 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_0_8 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_0_9 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_0_10 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_0_11 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_0_12 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_0_13 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.4D')" class="plan_effect sub_0_14 sub_btn">
+          <span class="tooltiptext">B1.4D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_0_15 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_0_16 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
+
 
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect zero_b_1_2">
           <span class="tooltiptext">B 1.2</span>
@@ -1117,7 +1170,8 @@
       </ng-container>
     </ng-template>
     <ng-template #third>
-      <ng-container *ngIf="planType == 'L01' && selectedbuilding == '9'; else forth"><button
+      <ng-container *ngIf="planType == 'L01' && selectedbuilding == '9'; else forth">
+        <button
           (click)="onFloorPlan('B 1.1')" class="plan_effect one_b_1_1">
           <span class="tooltiptext">B 1.1</span>
         </button>
@@ -1144,6 +1198,44 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_1_7 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
+
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_1_8 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_1_9 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_1_10 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_1_11 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_1_12 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_1_13 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.4D')" class="plan_effect sub_1_14 sub_btn">
+          <span class="tooltiptext">B1.4D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_1_15 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_1_16 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
 
 
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect one_b_1_2">
@@ -1184,6 +1276,40 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_2_6 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_2_7 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_2_8 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_2_9 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_2_10 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_2_11 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_2_12 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_2_13 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
+
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect two_b_1_2">
           <span class="tooltiptext">B 1.2</span>
         </button>
@@ -1203,7 +1329,7 @@
       </ng-container>
     </ng-template>
     <ng-template #fifth>
-      <ng-container *ngIf="planType == 'L03' && selectedbuilding == '9'; else sixth">
+      <ng-container *ngIf="planType == 'L03' && selectedbuilding == '9'; else L04">
         <button (click)="onFloorPlan('B 1.1')" class="plan_effect three_b_1_1">
           <span class="tooltiptext">B 1.1</span>
         </button>
@@ -1224,6 +1350,42 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_2_6 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_2_7 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_2_8 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_2_9 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_2_10 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_2_11 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_2_12 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_2_13 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
+
+
+
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect three_b_1_2">
           <span class="tooltiptext">B 1.2</span>
         </button>
@@ -1233,8 +1395,8 @@
       </ng-container>
     </ng-template>
     <!-- Four -->
-    <ng-template #eleven>
-      <ng-container *ngIf="planType == 'L04' && selectedbuilding == '9'; else fifth">
+    <ng-template #L04>
+      <ng-container *ngIf="planType == 'L04' && selectedbuilding == '9'; else sixth">
         <button (click)="onFloorPlan('B 1.1')" class="plan_effect five_b_1_1">
           <span class="tooltiptext">B 1.1</span>
         </button>
@@ -1255,6 +1417,42 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
+
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_2_6 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_2_7 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_2_8 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_2_9 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_2_10 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_2_11 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_2_12 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_2_13 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
+
+
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect five_b_1_2">
           <span class="tooltiptext">B 1.2</span>
         </button>
@@ -1286,6 +1484,42 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
+
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_2_6 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_2_7 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_2_8 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_2_9 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_2_10 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_2_11 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_2_12 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_2_13 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
+
+
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect five_b_1_2">
           <span class="tooltiptext">B 1.2</span>
         </button>
@@ -1316,6 +1550,40 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
+
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_2_6 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_2_7 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_2_8 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_2_9 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_2_10 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_2_11 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_2_12 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_2_13 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
 
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect six_b_1_2">
           <span class="tooltiptext">B 1.2</span>
@@ -1349,6 +1617,40 @@
           <span class="tooltiptext">B1.2E</span>
         </button>
 
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_2_6 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_2_7 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_2_8 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_2_9 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_2_10 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_2_11 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_2_12 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_2_13 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
+
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect seven_b_1_2">
           <span class="tooltiptext">B 1.2</span>
         </button>
@@ -1380,6 +1682,40 @@
         <button (click)="onFloorPlan('B1.2E')" class="plan_effect sub_2_5 sub_btn">
           <span class="tooltiptext">B1.2E</span>
         </button>
+
+        <!-- Recently Added -->
+        <button (click)="onFloorPlan('B1.3A')" class="plan_effect sub_2_6 sub_btn">
+          <span class="tooltiptext">B1.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.3B')" class="plan_effect sub_2_7 sub_btn">
+          <span class="tooltiptext">B1.3B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1A')" class="plan_effect sub_2_8 sub_btn">
+          <span class="tooltiptext">B1.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1C')" class="plan_effect sub_2_9 sub_btn">
+          <span class="tooltiptext">B1.1C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2A')" class="plan_effect sub_2_10 sub_btn">
+          <span class="tooltiptext">B1.2A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2B')" class="plan_effect sub_2_11 sub_btn">
+          <span class="tooltiptext">B1.2B</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.2D')" class="plan_effect sub_2_12 sub_btn">
+          <span class="tooltiptext">B1.2D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B1.1D')" class="plan_effect sub_2_13 sub_btn">
+          <span class="tooltiptext">B1.1D</span>
+        </button>
+        <!-- End Recently -->
 
         <button (click)="onFloorPlan('B 1.2')" class="plan_effect eight_b_1_2">
           <span class="tooltiptext">B 1.2</span>
