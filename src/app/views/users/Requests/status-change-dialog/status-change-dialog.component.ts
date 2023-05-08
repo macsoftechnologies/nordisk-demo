@@ -9,6 +9,7 @@ import { RequestService } from "app/shared/services/request.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
 import { config } from "config";
+import * as moment from 'moment';
 
 @Component({
   selector: "app-status-change-dialog",
@@ -72,6 +73,7 @@ export class StatusChangeDialogComponent implements OnInit {
   isclose: boolean = false;
   isimguploaded: boolean = false;
   spinner: boolean = false;
+  CurrenttimeNow: string;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private requestdataservice: RequestService,
@@ -140,6 +142,11 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   Changestatus(statusdata) {
+    var today = moment.tz("Europe/Copenhagen"); 
+    this.CurrenttimeNow = today.format('HH:mm:ss');
+    console.log("Time now", this.CurrenttimeNow)
+    // document.getElementById('watch1').innerHTML = today.format('DD/MM/YYYY');
+    var t = setTimeout(this.startTime, 500);
     if (statusdata == "Closed") {
       this.isclose = true;
     } else {
@@ -151,7 +158,7 @@ export class StatusChangeDialogComponent implements OnInit {
       console.log(currentDenmarkTime);
       console.log(currentDenmarkDate);
       this.updaterequestdata.Request_status = statusdata;
-      this.updaterequestdata.createdTime = currentDenmarkTime;
+      this.updaterequestdata.createdTime = this.CurrenttimeNow;
       console.log(this.updaterequestdata, "test data");
       this.requestdataservice.UpdateRequest(this.updaterequestdata).subscribe(
         (x) => {
@@ -168,7 +175,20 @@ export class StatusChangeDialogComponent implements OnInit {
       );
     }
   }
+
+  startTime() {
+    
+  }
+
+
   Changestatusbysubcontractor(status) {
+
+    var today = moment.tz("Europe/Copenhagen"); 
+    this.CurrenttimeNow = today.format('HH:mm:ss');
+    console.log("Time now", this.CurrenttimeNow)
+    // document.getElementById('watch1').innerHTML = today.format('DD/MM/YYYY');
+    var t = setTimeout(this.startTime, 500);
+
     console.log(config.Denmarktz.split(" "));
     const [currentDenmarkDate, currentDenmarkTime] = [
       ...config.Denmarktz.split(" "),
@@ -179,7 +199,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.spinner = true;
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
-    this.Close_Request.createdTime = currentDenmarkTime;
+    this.Close_Request.createdTime = this.CurrenttimeNow;
 
     if (this.images.length > 0) {
       for (var i = 0; i < this.images.length; i++) {

@@ -560,10 +560,10 @@ export class NewRequestComponent implements OnInit {
     'B2.5-A',
     'B2.5-D',
     'B2.5-E',
-    'B2.1-B',
-    'B2.2-B',
-    'B2.4-B',
-    'B2.1-E'
+    // 'B2.1-B',
+    // 'B2.2-B',
+    // 'B2.4-B',
+    // 'B2.1-E'
   ];
 
   B2L01 = [
@@ -585,10 +585,10 @@ export class NewRequestComponent implements OnInit {
     'B2.5-A',
     'B2.5-D',
     'B2.5-E',
-    'B2.1-B',
-    'B2.2-B',
-    'B2.4-B',
-    'B2.1-E'
+    // 'B2.1-B',
+    // 'B2.2-B',
+    // 'B2.4-B',
+    // 'B2.1-E'
   ];
 
   B2L02 = [
@@ -609,9 +609,9 @@ export class NewRequestComponent implements OnInit {
     'B2.5-A',
     'B2.5-D',
     'B2.5-E',
-    'B2.1-B',
-    'B2.2-B',
-    'B2.1-E'
+    // 'B2.1-B',
+    // 'B2.2-B',
+    // 'B2.1-E'
   ];
 
   B2L03 = [
@@ -708,9 +708,15 @@ export class NewRequestComponent implements OnInit {
     'B2.1',
     'B2.2',
     'B2.5 Roof',
+
     'B2.2-A',
+    'B2.2-C',
+    'B2.1-C',
+    'B2.5-C',
+    'B2.5-A',
     'B2.5-D',
-    'B2.5-E'
+    'B2.5-E',
+
   ];
 
   B2LK1 = [

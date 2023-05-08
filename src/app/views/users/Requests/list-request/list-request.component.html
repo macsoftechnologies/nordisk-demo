@@ -239,7 +239,7 @@
       [selectionType]="SelectionType.checkbox"
       #table
     >
-      <ngx-datatable-column [width]="50" *ngIf="isoperator">
+      <ngx-datatable-column [width]="10" *ngIf="isoperator">
         <ng-template
         
           ngx-datatable-header-template
@@ -277,7 +277,7 @@
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column name="Permit number " [flexGrow]="1">
+      <ngx-datatable-column name="Permit number " [flexGrow]="1" [width]="60">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.PermitNo }}
         </ng-template>
@@ -287,9 +287,16 @@
           {{ row?.Activity }}
         </ng-template>
       </ngx-datatable-column>
+
       <ngx-datatable-column name="Sub-contractor" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.subContractorName }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Building" [flexGrow]="1" [width]="20">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row?.building_name }}
         </ng-template>
       </ngx-datatable-column>
 
@@ -299,7 +306,7 @@
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column name="Level" [flexGrow]="1" [width]="50">
+      <ngx-datatable-column name="Level" [flexGrow]="1" [width]="20">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.Room_Type }}
         </ng-template>
@@ -310,7 +317,7 @@
           {{ row?.Working_Date | date: "mediumDate" }}
         </ng-template>
       </ngx-datatable-column>
-      <ngx-datatable-column name="Time" [flexGrow]="1">
+      <ngx-datatable-column name="Time" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.Start_Time }} - {{ row?.End_Time }}
         </ng-template>

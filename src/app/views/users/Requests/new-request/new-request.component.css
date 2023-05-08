@@ -446,6 +446,15 @@
   z-index: 9999999;
 }
 
+.plans_container .b2_2_5B {
+  top: 66%;
+  left: 48%;
+  width: 65px;
+  height: 30px;
+  padding: 0;
+  z-index: 9999999;
+}
+
 .plans_container .b2_2_2B {
   top: 16%;
   left: 55%;
@@ -872,6 +881,42 @@
   left: 45%;
   width: 50px;
   height: 65px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_2C {
+  top: 55%;
+  left: 46%;
+  width: 35px;
+  height: 25px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_1C {
+  top: 65%;
+  left: 46%;
+  width: 25px;
+  height: 40px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_5C {
+  top: 77%;
+  left: 43%;
+  width: 40px;
+  height: 28px;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b2_08_5A {
+  top: 67%;
+  left: 50%;
+  width: 40px;
+  height: 50px;
   padding: 0;
   z-index: 9999999;
 }
