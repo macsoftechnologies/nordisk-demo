@@ -1363,6 +1363,7 @@ export class NewRequestComponent implements OnInit {
       (res) => {
         this.spinner = false;
         this.openSnackBar("Request Created Successfully");
+        this.route.navigateByUrl("/user/list-request");
       },
       (error) => {
         this.openSnackBar("Something went wrong. Plz try again later...");
@@ -1612,6 +1613,7 @@ export class NewRequestComponent implements OnInit {
 
       this.Requestdata.Request_status = result.data;
       this.UpdateRequestDraftToHold(result.data);
+      this.route.navigateByUrl("/user/list-request");
       //this.userservices.RequestLists.push(this.RequestForm.value);
     });
   }

@@ -16,11 +16,14 @@ export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(MatProgressBar) progressBar: MatProgressBar;
   @ViewChild(MatButton) submitButton: MatButton;
 
+  
+
   signinForm: FormGroup;
   errorMsg = '';
   return: string;
 
   private _unsubscribeAll: Subject<any>;
+  userType: any;
 
   constructor(
     private jwtAuth: JwtAuthService,
@@ -58,6 +61,7 @@ export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
     this.progressBar.mode = 'indeterminate';    
     this.jwtAuth.signin(signinData.username, signinData.password)
     .subscribe(response => {
+      this.userType = localStorage.setItem('UserType', response?.userType);
       if(response["status"]==false)
       {
         this.submitButton.disabled = false;

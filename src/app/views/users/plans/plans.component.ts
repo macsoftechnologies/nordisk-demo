@@ -475,8 +475,8 @@ export class PlansComponent implements OnInit {
       {
         var day=new Date(x["Working_Date"]).getDay();
         this.DownloadExcelData.push(
-          {Company_Name:x["Company_Name"],subContractorName:x["subContractorName"],Site_Id:x["Site_Id"],
-          Building_Id:x["Building_Id"],Activity:x["Activity"],PermitNo:x["PermitNo"],
+          {Company_Name:x["Company_Name"],subContractorName:x["subContractorName"],Level:x["Room_Type"],
+          Building_Name:x["building_name"],Activity:x["Activity"],PermitNo:x["PermitNo"],
           Start_Time:x["Start_Time"],End_Time:x["End_Time"],Request_status:x["Request_status"],
           Notes:x["Notes"],Working_Date:x["Working_Date"],Day:this.days_Names[day]}
         )

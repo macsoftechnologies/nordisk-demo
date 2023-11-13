@@ -15,6 +15,7 @@ import { TeamService } from "app/shared/services/team.service";
   animations: egretAnimations
 })
 export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
+  
   trafficVsSaleOptions: any;
   trafficVsSale: any;
   trafficData: any;
@@ -37,6 +38,8 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
   //  weekly Graph configaration
   weeklyResults: any[] = [];
   weekNumber = 0
+  userType: string;
+  userLoggedIn = "Admin"
   getWidth(): any {
     if (document.body.offsetWidth < 850) {
       return '85%';
@@ -86,6 +89,7 @@ export class DashboardComponent implements OnInit, OnInit, AfterViewInit {
 
   ngAfterViewInit() { }
   ngOnInit() {
+    this.userType = localStorage.getItem('UserType')
      // Get DashBoard Counts From Api
      this.getCounts()
 

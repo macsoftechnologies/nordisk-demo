@@ -286,16 +286,16 @@ export class NavigationService {
         { name: "List Request", state: "user/list-request", icon: "list" }
       ]
     },
-    {
-      name: "Issues",
-      type: "dropDown",
-      tooltip: "Issues",
-      icon: "person", 
-      state: "",
-      sub: [
-        { name: "New issue", state: "admin/new-issue" ,icon: "fa fa-plus-square"},
-      ]
-    },
+    // {
+    //   name: "Issues",
+    //   type: "dropDown",
+    //   tooltip: "Issues",
+    //   icon: "person", 
+    //   state: "",
+    //   sub: [
+    //     { name: "New issue", state: "admin/new-issue" ,icon: "fa fa-plus-square"},
+    //   ]
+    // },
    
 
         {

@@ -757,6 +757,7 @@ export class ListRequestComponent implements OnInit {
         this.getPermits(this.currentPage, this.startValue);
         console.log("NUMMBER", this.currentPage)
         console.log("Start Value", this.startValue)
+        // window.location.reload();
       }
       // this.requestservice.listpagination(this.pagedatainfo).subscribe((x) => {
         // console.log('New Req List', x);
@@ -896,10 +897,13 @@ export class ListRequestComponent implements OnInit {
         },
       }
     );
+    console.log("before model opened", this.selectedRequestIds.length)
     dialogRef.afterClosed().subscribe((res) => {
       this.Countresult.length = 0
       this.selected.length = 0;
       this.selected = [];
+      this.selectedRequestIds.length = 0;
+      console.log("after model closed", this.selectedRequestIds.length)
       if (this.api == 'SearchRequest') {
         console.log("search API");
         // this.api = 'SearchRequest';
@@ -908,23 +912,30 @@ export class ListRequestComponent implements OnInit {
         const mainValue = this.currentPage - 1;
         this.startValue = mainValue * 30 + 1;
         this.search(event);
-        console.log("NUMMBER", this.currentPage)
-        console.log("Start Value", this.startValue)
+        // console.log("NUMMBER", this.currentPage)
+        // console.log("Start Value", this.startValue);
+        // window.location.reload();
       }
       else {
         const mainValue = this.currentPage - 1;
         this.startValue = mainValue * 30 + 1;
         this.getPermits(this.currentPage, this.startValue);
-        console.log("NUMMBER", this.currentPage)
-        console.log("Start Value", this.startValue)
+        // console.log("NUMMBER", this.currentPage)
+        // console.log("Start Value", this.startValue);
+        // this.Countresult.length = 0;
+        // this.selected.length = 0;
+        
+        // this.ngOnInit();
       }
+      // window.location.reload();
     });
   }
 
   onSelect({ selected }) {
     this.selected = selected;
     this.Countresult = this.selected.filter((filterdata) => filterdata.Request_status === 'Hold')
-    console.log(this.Countresult.length, "count")
+    // console.log(this.Countresult, "RESULTTTT")
+    // console.log(this.Countresult.length, "count")
 
     //this.selected.splice(0, this.selected.length);
     //this.selected.push(...selected);
@@ -980,22 +991,24 @@ export class ListRequestComponent implements OnInit {
         this.selectedRequestIds.length = 0;
         this.selectedRequestIds = [];
         if (this.api == 'SearchRequest') {
-          console.log("search API");
+          // console.log("search API");
           // this.api = 'SearchRequest';
           // this.items = res[0]['data'];
           // this.paginationCount = res[1]['count'];
           const mainValue = this.currentPage - 1;
           this.startValue = mainValue * 30 + 1;
           this.search(event);
-          console.log("NUMMBER", this.currentPage)
-          console.log("Start Value", this.startValue)
+          // console.log("NUMMBER", this.currentPage)
+          // console.log("Start Value", this.startValue)
         }
         else {
           const mainValue = this.currentPage - 1;
           this.startValue = mainValue * 30 + 1;
           this.getPermits(this.currentPage, this.startValue);
           console.log("NUMMBER", this.currentPage)
-          console.log("Start Value", this.startValue)
+          console.log("Start Value", this.startValue);
+          // window.location.reload();
+          this.selected.length = 0;
         }
       });
     }
@@ -1011,7 +1024,7 @@ export class ListRequestComponent implements OnInit {
     console.log(info);
   }
   onCheckboxChangeFn(event) {
-    console.log(event);
+    console.log(event, "EVENT DATA");
   }
 
   onPagination(event) {

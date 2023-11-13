@@ -31,3 +31,8 @@
 .paragraph p {
     margin: 0px;
 }
+
+.records_Button {
+    display: flex;
+    align-items: center;
+}

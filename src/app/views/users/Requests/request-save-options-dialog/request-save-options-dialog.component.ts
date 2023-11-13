@@ -4,6 +4,7 @@ import { UpdateRequestStatusListDto } from 'app/views/Models/RequestDto';
 import { RequestService } from 'app/shared/services/request.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
+import { Router } from "@angular/router";
 // import { getItems } from 'app/views/users/Requests/list-request'
 
 @Component({
@@ -31,7 +32,8 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<RequestSaveOptionsDialogComponent>,
     private reqservice: RequestService, private authservice: JwtAuthService,
-    private _snackBar: MatSnackBar) {
+    private _snackBar: MatSnackBar,
+    private route: Router) {
 
     this.userData = this.authservice.getUser();
   }
@@ -57,6 +59,7 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
       this.openSnackBar("Requests Status Updated Successfully");
       // this.getItems();
       this.ngOnInit();
+      this.route.navigateByUrl("/user/list-request");
     },
       error => {
         this.openSnackBar("something went wrong please try again later...");

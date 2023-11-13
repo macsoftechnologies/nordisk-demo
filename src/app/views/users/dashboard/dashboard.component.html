@@ -59,6 +59,12 @@
         <small class="m-0 ">Total</small>
       </div>
     </div>
+
+    <div class="records_Button" *ngIf="this.userType == this.userLoggedIn">
+      <button mat-raised-button color="primary" class="btn-gaps">
+        <a href="https://beam.safesiteworks.com/newbeam/sqldownload.php">Downalod Records</a>
+      </button>
+    </div>
   </div>
 </mat-card>
 <!--/ End first row -->
