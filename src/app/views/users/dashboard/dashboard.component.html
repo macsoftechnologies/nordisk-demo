@@ -60,11 +60,18 @@
       </div>
     </div>
 
-    <div class="records_Button" *ngIf="this.userType == this.userLoggedIn">
+    <div class="records_Button dwn-btn-web" *ngIf="this.userType == this.userLoggedIn">
       <button mat-raised-button color="primary" class="btn-gaps">
         <a href="https://beam.safesiteworks.com/newbeam/sqldownload.php">Downalod Records</a>
       </button>
     </div>
+
+    <div class="records_Button dwn-btn-res" *ngIf="this.userType == this.userLoggedIn">
+      <button mat-raised-button color="primary" class="btn-gaps">
+        <a href="https://beam.safesiteworks.com/newbeam/sqldownload.php"><i class="fa fa-download" aria-hidden="true"></i></a>
+      </button>
+    </div>
+
   </div>
 </mat-card>
 <!--/ End first row -->
@@ -97,9 +104,15 @@
 
 
 
-  <div class="btns-sty">
+  <div class="btns-sty forward-btn-web">
     <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('1')">Previous week</button>
     <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('2')">Next Week</button>
+   
+  </div>
+
+  <div class="btns-sty forward-btn-res">
+    <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('1')"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+    <button mat-raised-button color="primary" class="btn-gaps" (click) = "weekReports('2')"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
    
   </div>
   <!--/ End tab -->
