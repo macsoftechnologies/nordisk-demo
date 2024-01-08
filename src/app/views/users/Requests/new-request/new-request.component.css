@@ -1671,16 +1671,44 @@ button {
   top: 58%;
   left: 39%;
   width: 40%;
-  height: 155px;
+  height: 23%;
   padding: 0;
   z-index: 9999999;
 }
+
+.plans_container .b6_6_1A_1 {
+    top: 69%;
+    left: 44%;
+    width: 2%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+}
+
+.plans_container .b6_6_1W_1 {
+    top: 59%;
+    left: 40%;
+    width: 2%;
+    height: 5%;
+    padding: 0;
+    z-index: 9999999;
+}
+
 
 .plans_container .b6_6_2_2 {
   top: 43%;
   left: 15%;
   width: 37%;
-  height: 100px;
+  height: 15%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_2C_2 {
+  top: 54%;
+  left: 18%;
+  width: 3%;
+  height: 4%;
   padding: 0;
   z-index: 9999999;
 }
@@ -1689,7 +1717,7 @@ button {
   top: 58%;
   left: 25%;
   width: 14%;
-  height: 150px;
+  height: 23%;
   padding: 0;
   z-index: 9999999;
 }
@@ -1699,6 +1727,15 @@ button {
   left: 43%;
   width: 10%;
   height: 33%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3C_4 {
+  top: 39%;
+  left: 43%;
+  width: 4%;
+  height: 5%;
   padding: 0;
   z-index: 9999999;
 }
@@ -1732,11 +1769,29 @@ button {
     z-index: 9999999;
 }
 
+.plans_container .b6_6_3A_7 {
+    top: 68%;
+    left: 43%;
+    width: 4%;
+    height: 8%;
+    padding: 0;
+    z-index: 9999999;
+}
+
 .plans_container .b6_6_4_8 {
   top: 10%;
   left: 43%;
   width: 10%;
   height: 58%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_4A_8 {
+  top: 13%;
+  left: 43%;
+  width: 4%;
+  height: 8%;
   padding: 0;
   z-index: 9999999;
 }
@@ -1759,11 +1814,38 @@ button {
   z-index: 9999999;
 }
 
+.plans_container .b6_6_5A_10 {
+  top: 12%;
+  left: 17%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_5W_10 {
+  top: 35%;
+  left: 26%;
+  width: 2%;
+  height: 3%;
+  padding: 0;
+  z-index: 9999999;
+}
+
 .plans_container .b6_6_6_11 {
   top: 70%;
   left: 15%;
   width: 28%;
   height: 27%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_6A_11 {
+  top: 70%;
+  left: 24%;
+  width: 5%;
+  height: 3%;
   padding: 0;
   z-index: 9999999;
 }
@@ -1779,6 +1861,42 @@ button {
   z-index: 9999999;
 }
 
+.plans_container .b6_6_1A_12 {
+  top: 69%;
+  left: 44%;
+  width: 2%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1C_12 {
+  top: 59%;
+  left: 52%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1D_12 {
+  top: 58%;
+  left: 73%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1W_12 {
+  top: 59%;
+  left: 40%;
+  width: 2%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
 .plans_container .b6_6_2_13 {
   top: 43%;
   left: 15%;
@@ -1788,11 +1906,29 @@ button {
   z-index: 9999999;
 }
 
+.plans_container .b6_6_2C_13 {
+    top: 54%;
+    left: 18%;
+    width: 3%;
+    height: 5%;
+    padding: 0;
+    z-index: 9999999;
+}
+
 .plans_container .b6_6_3_14 {
   top: 10%;
   left: 43%;
   width: 10%;
   height: 34%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3C_14 {
+  top: 39%;
+  left: 43%;
+  width: 4%;
+  height: 4%;
   padding: 0;
   z-index: 9999999;
 }
@@ -1826,6 +1962,15 @@ button {
     z-index: 9999999;
 }
 
+.plans_container .b6_6_3A_17 {
+  top: 68%;
+  left: 43%;
+  width: 4%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
 .plans_container .b6_6_4_18 {
   top: 9%;
   left: 43%;
@@ -1833,6 +1978,16 @@ button {
   height: 57%;
   padding: 0;
   z-index: 9999999;
+}
+
+.plans_container .b6_6_4A_18 {
+  top: 12%;
+  left: 43%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+
 }
 
 .plans_container .b6_6_4_2_18 {
@@ -1853,6 +2008,25 @@ button {
   z-index: 9999999;
 }
 
+.plans_container .b6_6_5A_19 {
+  top: 12%;
+  left: 17%;
+  width: 3%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_5W_19 {
+  top: 34%;
+  left: 26%;
+  width: 3%;
+  height: 3%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
 .plans_container .b6_6_6_20 {
   top: 63%;
   left: 15%;
@@ -1860,6 +2034,15 @@ button {
   height: 33%;
   padding: 0;
   z-index: 9999999;
+}
+
+.plans_container .b6_6_6A_20 {
+   top: 69%;
+    left: 24%;
+    width: 4%;
+    height: 3%;
+    padding: 0;
+    z-index: 9999999;
 }
 
 .plans_container .b6_6_6_2_20 {
@@ -1882,6 +2065,42 @@ button {
     z-index: 9999999;
 }
 
+.plans_container .b6_6_1D_21 {
+  top: 59%;
+  left: 73%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1C_21 {
+  top: 59%;
+  left: 52%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1A_21 {
+  top: 69%;
+  left: 44%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1W_21 {
+  top: 59%;
+  left: 40%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
 .plans_container .b6_6_2_22 {
   top: 43%;
   left: 15%;
@@ -1891,11 +2110,30 @@ button {
   z-index: 9999999;
 }
 
+.plans_container .b6_6_2C_22 {
+  top: 54%;
+  left: 18%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
 .plans_container .b6_6_3_23 {
   top: 10%;
   left: 43%;
   width: 9%;
   height: 33%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3C_23 {
+  top: 40%;
+  left: 43%;
+  width: 4%;
+  height: 3%;
   padding: 0;
   z-index: 9999999;
 }
@@ -1919,11 +2157,29 @@ button {
     z-index: 9999999;
   }
 
+  .plans_container .b6_6_3A_25 {
+    top: 69%;
+    left: 43%;
+    width: 4%;
+    height: 8%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
   .plans_container .b6_6_4_26 {
     top: 10%;
     left: 43%;
     width: 9%;
     height: 55%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_4A_26 {
+    top: 13%;
+    left: 43%;
+    width: 4%;
+    height: 8%;
     padding: 0;
     z-index: 9999999;
   }
@@ -1946,11 +2202,38 @@ button {
     z-index: 9999999;
   }
 
+  .plans_container .b6_6_5A_27 {
+    top: 13%;
+    left: 17%;
+    width: 4%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_5W_27 {
+    top: 35%;
+    left: 26%;
+    width: 3%;
+    height: 3%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
   .plans_container .b6_6_6_28 {
     top: 68%;
     left: 15%;
     width: 13%;
     height: 28%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_6A_28 {
+    top: 69%;
+    left: 24%;
+    width: 4%;
+    height: 4%;
     padding: 0;
     z-index: 9999999;
   }
@@ -1975,11 +2258,56 @@ button {
     z-index: 9999999;
   }
 
+  .plans_container .b6_6_1D_29{
+    top: 59%;
+    left: 73%;
+    width: 3%;
+    height: 7%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1C_29{
+    top: 59%;
+    left: 52%;
+    width: 2%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1A_29{
+    top: 69%;
+    left: 44%;
+    width: 2%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1W_29{
+    top: 59%;
+    left: 40%;
+    width: 2%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
   .plans_container .b6_6_2_30 {
     top: 43%;
     left: 15%;
     width: 37%;
     height: 16%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_2C_30 {
+    top: 54%;
+    left: 18%;
+    width: 3%;
+    height: 5%;
     padding: 0;
     z-index: 9999999;
   }
@@ -1991,6 +2319,15 @@ button {
     height: 33%;
     padding: 0;
     z-index: 9999999;
+  }
+
+  .plans_container .b6_6_3C_31 {
+    top: 40%;
+  left: 43%;
+  width: 4%;
+  height: 3%;
+  padding: 0;
+  z-index: 9999999;
   }
 
   .plans_container .b6_6_6_32 {
@@ -2009,6 +2346,15 @@ button {
     left: 43%;
     width: 9%;
     height: 30%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_3A_33 {
+    top: 70%;
+    left: 44%;
+    width: 3%;
+    height: 8%;
     padding: 0;
     z-index: 9999999;
   }
@@ -2067,11 +2413,57 @@ button {
     z-index: 9999999;
   }
 
+  .plans_container .b6_6_1D_37{
+    top: 79%;
+    left: 71%;
+    width: 3%;
+    height: 7%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1C_37{
+    top: 79%;
+    left: 47%;
+    width: 5%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+
+  }
+  
+  .plans_container .b6_6_1A_37{
+    top: 90%;
+    left: 42%;
+    width: 2%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1W_37{
+    top: 80%;
+    left: 39%;
+    width: 2%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
   .plans_container .b6_6_2_38 {
     top: 64%;
     left: 13%;
     width: 38%;
     height: 16%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_2C_38 {
+    top: 75%;
+    left: 16%;
+    width: 3%;
+    height: 5%;
     padding: 0;
     z-index: 9999999;
   }
@@ -2084,6 +2476,25 @@ button {
     z-index: 9999999;
   }
 
+  .plans_container .b6_6_3A_39 {
+    top: 14%;
+    left: 42%;
+    width: 4%;
+    height: 8%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_3C_39 {
+    top: 60%;
+    left: 42%;
+    width: 4%;
+    height: 4%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+
   /* start L05 */
 
 .plans_container .b6_6_1_40 {
@@ -2091,6 +2502,42 @@ button {
     left: 39%;
     width: 39%;
     height: 16%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_1D_40{
+    top: 79%;
+    left: 71%;
+    width: 3%;
+    height: 7%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1C_40{
+    top: 79%;
+    left: 50%;
+    width: 2%;
+    height: 7%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1A_40{
+    top: 90%;
+    left: 42%;
+    width: 2%;
+    height: 6%;
+    padding: 0;
+    z-index: 9999999;
+  }
+  
+  .plans_container .b6_6_1W_40{
+    top: 80%;
+    left: 39%;
+    width: 2%;
+    height: 6%;
     padding: 0;
     z-index: 9999999;
   }
@@ -2103,11 +2550,39 @@ button {
     padding: 0;
     z-index: 9999999;
   }
+
+  .plans_container .b6_6_2C_41 {
+    top: 75%;
+    left: 16%;
+    width: 3%;
+    height: 5%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
   .plans_container .b6_6_3_42 {
     top: 8%;
     left: 42%;
     width: 9%;
     height: 56%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_3A_42 {
+    top: 14%;
+    left: 42%;
+    width: 4%;
+    height: 8%;
+    padding: 0;
+    z-index: 9999999;
+  }
+
+  .plans_container .b6_6_3C_42 {
+    top: 60%;
+    left: 42%;
+    width: 4%;
+    height: 4%;
     padding: 0;
     z-index: 9999999;
   }
