@@ -736,6 +736,233 @@ export class NewRequestComponent implements OnInit {
     'B2.5-E'
   ]
 
+  // B6 DRWAING CO-ORDINATES
+
+  B6L00A = [
+    'B6.1',
+    'B6.2',
+    'B6.3',
+    'B6.6',
+    'B6.T'
+  ];
+
+  B6L00B = [
+    'B6.3',
+    'B6.4',
+    'B6.5',
+    'B6.6'
+  ];
+
+  B6L01A = [
+    'B6.1',
+    'B6.2',
+    'B6.3',
+    'B6.6'
+  ];
+
+  B6L01B = [
+    'B6.3',
+    'B6.4',
+    'B6.5',
+    'B6.6'
+  ];
+
+  B6L02A = [
+    'B6.1',
+    'B6.2',
+    'B6.3',
+    'B6.6'
+  ];
+
+  B6L02B = [
+    'B6.3',
+    'B6.4',
+    'B6.5',
+    'B6.6'
+  ];
+
+  B6L03A = [
+    'B6.1',
+    'B6.2',
+    'B6.3',
+    'B6.6'
+  ];
+
+  B6L03B = [
+    'B6.3',
+    'B6.4',
+    'B6.5',
+    'B6.6'
+  ];
+
+  B6L04 = [
+    'B6.1',
+    'B6.2',
+    'B6.3',
+ 
+  ];
+
+  B6L05 = [
+    'B6.1',
+    'B6.2',
+    'B6.3',
+  ];
+
+  B6LK1A = [
+    'B6.1',
+    'B6.2',
+    'B6.3',
+    'B6.6'
+  ];
+
+  B6LK1B = [
+    'B6.3',
+    'B6.5',
+    'B6.6',
+  ];
+
+    // B8 DRWAING CO-ORDINATES
+
+    B8L00 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.4',
+      'B8.T',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.3A',
+      'B8.3C'
+   
+    ];
+
+    B8L01 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.4',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.3A',
+      'B8.3C'
+   
+    ];
+    B8L02 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.4',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.2C',
+      'B8.3A',
+      'B8.3C'
+     
+    ];
+
+    B8L03 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.2C',
+      'B8.3A',
+      'B8.3C'
+    ];
+
+    B8L04 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.2C',
+      'B8.3A',
+      'B8.3C'
+   
+    ];
+    B8L05 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.2C',
+      'B8.3A',
+      'B8.3C'
+   
+   
+    ];
+
+    B8L06 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.2C',
+      'B8.3A',
+      'B8.3C'
+   
+    ];
+
+    B8L07 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+      'B8.2C',
+      'B8.3A',
+      'B8.3C'
+    ];
+
+    B8L08 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+      'B8.3A',
+      'B8.3C',
+      'B8.2C',
+      'B8.1A',
+      'B8.1B',
+      'B8.1E',
+      'B8.1Waste',
+   
+    ];
+
+    B8L09 = [
+      'B8.1',
+      'B8.2',
+      'B8.3',
+   
+    ];
+
+    B8LK1 = [
+      'B8.1',
+      'B8.2',
+      'B8.T',
+   
+   
+    ];
+
   ngOnInit(): void {
 
     // console.log(this.L000)
@@ -960,7 +1187,7 @@ export class NewRequestComponent implements OnInit {
         "LTA",
       ]; 
     }
-    else {
+    else if (event == '10') {
       console.log("B2")
       this.floors = [
         "L00",
@@ -972,6 +1199,39 @@ export class NewRequestComponent implements OnInit {
         "L06",
         "L07",
         "L08",
+        "LK1"
+      ];
+    }
+    else if (event == '11') {
+      console.log("B6")
+      this.floors = [
+        "L00A",
+        "L00B",
+        "L01A",
+        "L01B",
+        "L02A",
+        "L02B",
+        "L03A",
+        "L03B",
+        "L04",
+        "L05",
+        "LK1A",
+        "LK1B"
+      ];
+    }
+    else{
+      console.log("B8")
+      this.floors = [
+        "L00",
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "L05",
+        "L06",
+        "L07",
+        "L08",
+        "L09",
         "LK1"
       ];
     }
@@ -1038,7 +1298,7 @@ export class NewRequestComponent implements OnInit {
           break;
       }
     }
-    else {
+    else if (this.selectedbuilding == '10') {
         console.log("B2 Drwaing")
       switch (event) {
         case "LK1":
@@ -1085,7 +1345,118 @@ export class NewRequestComponent implements OnInit {
           break;
       }
     }
+
+    else if (this.selectedbuilding == '11') {
+      console.log("B6 Drwaing")
+    switch (event) {
+      case "L00A":
+        this.planType = "L00A";
+        this.pdfSrc = "assets/images/plans/B6_L00A.pdf";
+        break;
+      case "L00B":
+        this.planType = "L00B";
+        this.pdfSrc = "assets/images/plans/B6_L00B.pdf";
+        break;
+      case "L01A":
+        this.planType = "L01A";
+        this.pdfSrc = "assets/images/plans/B6_L01A.pdf";
+        break;
+      case "L01B":
+        this.planType = "L01B";
+        this.pdfSrc = "assets/images/plans/B6_L01B.pdf";
+        break;
+      case "L02A":
+        this.planType = "L02A";
+        this.pdfSrc = "assets/images/plans/B6_L02A.pdf";
+        break;
+      case "L02B":
+        this.planType = "L02B";
+        this.pdfSrc = "assets/images/plans/B6_L02B.pdf";
+        break;
+      case "L03A":
+        this.planType = "L03A";
+        this.pdfSrc = "assets/images/plans/B6_L03A.pdf";
+        break;
+      case "L03B":
+        this.planType = "L03B";
+        this.pdfSrc = "assets/images/plans/B6_L03B.pdf";
+        break;
+      case "L04":
+        this.planType = "L04";
+        this.pdfSrc = "assets/images/plans/B6_L04.pdf";
+        break;
+      case "L05":
+        this.planType = "L05";
+        this.pdfSrc = "assets/images/plans/B6_L05.pdf";
+        break;
+        case "LK1A":
+          this.planType = "LK1A";
+          this.pdfSrc = "assets/images/plans/B6_LK1A.pdf";
+          break;
+          case "LK1B":
+            this.planType = "LK1B";
+            this.pdfSrc = "assets/images/plans/B6_LK1B.pdf";
+            break;
+
+      default:
+        break;
+    }
+  }
+
+  else {
+    console.log("B8 Drwaing")
+  switch (event) {
+    case "L00":
+      this.planType = "L00";
+      this.pdfSrc = "assets/images/plans/B8_L00.pdf";
+      break;
+    case "L01":
+      this.planType = "L01";
+      this.pdfSrc = "assets/images/plans/B8_L01.pdf";
+      break;
+    case "L02":
+      this.planType = "L02";
+      this.pdfSrc = "assets/images/plans/B8_L02.pdf";
+      break;
+    case "L03":
+      this.planType = "L03";
+      this.pdfSrc = "assets/images/plans/B8_L03.pdf";
+      break;
+    case "L04":
+      this.planType = "L04";
+      this.pdfSrc = "assets/images/plans/B8_L04.pdf";
+      break;
+    case "L05":
+      this.planType = "L05";
+      this.pdfSrc = "assets/images/plans/B8_L05.pdf";
+      break;
+    case "L06":
+      this.planType = "L06";
+      this.pdfSrc = "assets/images/plans/B8_L06.pdf";
+      break;
+    case "L07":
+      this.planType = "L07";
+      this.pdfSrc = "assets/images/plans/B8_L07.pdf";
+      break;
+    case "L08":
+      this.planType = "L08";
+      this.pdfSrc = "assets/images/plans/B8_L08.pdf";
+      break;
+      case "L09":
+        this.planType = "L09";
+        this.pdfSrc = "assets/images/plans/B8_L09.pdf";
+        break;
+
+        case "LK1":
+          this.planType = "LK1";
+          this.pdfSrc = "assets/images/plans/B8_LK1.pdf";
+          break;
     
+
+    default:
+      break;
+  }
+}
 
     // this.spinner = true;
     this.selectedfloor = event;
@@ -1164,7 +1535,7 @@ export class NewRequestComponent implements OnInit {
         break;
       }
     }
-    else {
+    else if (this.selectedbuilding == '10') {
       switch(this.FloorMain) {
         case "LK1": 
           this.FloorOrdinates = this.B2LK1 ;
@@ -1207,6 +1578,108 @@ export class NewRequestComponent implements OnInit {
         case "L08":
         this.FloorOrdinates = this.B2L08;
         break;
+      }
+    }
+    else if (this.selectedbuilding == '11') {
+      switch(this.FloorMain) {
+        case "L00A": 
+          this.FloorOrdinates = this.B6L00A ;
+          // Testing
+          // console.log(this.FloorOrdinates, "tessssst");
+        break;
+  
+        case "L00B":
+          this.FloorOrdinates = this.B6L00B;
+          break;
+        
+        case "L01A":
+        this.FloorOrdinates = this.B6L01A;
+        break;
+  
+        case "L01B":
+        this.FloorOrdinates = this.B6L01B;
+        break;
+  
+        case "L02A":
+        this.FloorOrdinates = this.B6L02A;
+        break;
+  
+        case "L02B":
+        this.FloorOrdinates = this.B6L02B;
+        break;
+  
+        case "L03A":
+        this.FloorOrdinates = this.B6L03A;
+        break;
+  
+        case "L03B":
+        this.FloorOrdinates = this.B6L03B;
+        break;
+  
+        case "L04":
+        this.FloorOrdinates = this.B6L04;
+        break;
+  
+        case "L05":
+        this.FloorOrdinates = this.B6L05;
+        break;
+
+        case "LK1A":
+          this.FloorOrdinates = this.B6LK1A;
+          break;
+
+          case "LK1B":
+            this.FloorOrdinates = this.B6LK1B;
+            break;
+      }
+    }
+    else {
+      switch(this.FloorMain) {
+        case "L00": 
+          this.FloorOrdinates = this.B8L00 ;
+          // Testing
+          // console.log(this.FloorOrdinates, "tessssst");
+        break;
+  
+        case "L01":
+          this.FloorOrdinates = this.B8L01;
+          break;
+        
+        case "L02":
+        this.FloorOrdinates = this.B8L02;
+        break;
+  
+        case "L03":
+        this.FloorOrdinates = this.B8L03;
+        break;
+  
+        case "L04":
+        this.FloorOrdinates = this.B8L04;
+        break;
+  
+        case "L05":
+        this.FloorOrdinates = this.B8L05;
+        break;
+  
+        case "L06":
+        this.FloorOrdinates = this.B8L06;
+        break;
+  
+        case "L07":
+        this.FloorOrdinates = this.B8L07;
+        break;
+  
+        case "L08":
+        this.FloorOrdinates = this.B8L08;
+        break;
+  
+        case "L09":
+        this.FloorOrdinates = this.B8L09;
+        break;
+        case "LK1":
+          this.FloorOrdinates = this.B8LK1;
+          break;
+
       }
     }
     
