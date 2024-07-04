@@ -2679,6 +2679,10 @@
           <span class="tooltiptext">B6.6</span>
         </button>
 
+        <button (click)="onFloorPlan('B6.6')" class="plan_effect b6_6_6_1_24">
+          <span class="tooltiptext">B6.6</span>
+        </button>
+
       </ng-container>
     </ng-template>
 
@@ -2907,10 +2911,170 @@
       </ng-container>
     </ng-template>
 
+    <!-- B6 L06 -->
+    <ng-template #thirtyten>
+      <ng-container *ngIf="planType == 'L06' && selectedbuilding == '11';else thirtyeleven">
+        <button (click)="onFloorPlan('B6.1')" class="plan_effect b6_6_1_50">
+          <span class="tooltiptext">B6.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1A')" class="plan_effect b6_6_1A_51 sub_btn">
+          <span class="tooltiptext">B6.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1C')" class="plan_effect b6_6_1C_52 sub_btn">
+          <span class="tooltiptext">B6.1C</span>
+        </button>
+
+
+        <button (click)="onFloorPlan('B6.1D')" class="plan_effect b6_6_1D_53 sub_btn">
+          <span class="tooltiptext">B6.1D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1Waste')" class="plan_effect b6_6_1W_54 sub_btn">
+          <span class="tooltiptext">B6.1Waste</span>
+        </button>
+
+
+        <button (click)="onFloorPlan('B6.2')" class="plan_effect b6_6_2_55">
+          <span class="tooltiptext">B6.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.2C')" class="plan_effect b6_6_2C_56 sub_btn">
+          <span class="tooltiptext">B6.2C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3')" class="plan_effect b6_6_3_57">
+          <span class="tooltiptext">B6.3</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3A')" class="plan_effect b6_6_3A_58 sub_btn">
+          <span class="tooltiptext">B6.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3C')" class="plan_effect b6_6_3C_59 sub_btn">
+          <span class="tooltiptext">B6.3C</span>
+        </button>
+
+      </ng-container>
+    </ng-template>
+
+    <!-- B6 L07 -->
+    <ng-template #thirtyeleven>
+      <ng-container *ngIf="planType == 'L07' && selectedbuilding == '11';else thirtytweleve">
+        <button (click)="onFloorPlan('B6.1')" class="plan_effect b6_6_1_60">
+          <span class="tooltiptext">B6.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1A')" class="plan_effect b6_6_1A_61 sub_btn">
+          <span class="tooltiptext">B6.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1C')" class="plan_effect b6_6_1C_62 sub_btn">
+          <span class="tooltiptext">B6.1C</span>
+        </button>
+
+
+        <button (click)="onFloorPlan('B6.1D')" class="plan_effect b6_6_1D_63 sub_btn">
+          <span class="tooltiptext">B6.1D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.2')" class="plan_effect b6_6_2_64">
+          <span class="tooltiptext">B6.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.2C')" class="plan_effect b6_6_2C_65 sub_btn">
+          <span class="tooltiptext">B6.2C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3')" class="plan_effect b6_6_3_66">
+          <span class="tooltiptext">B6.3</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3A')" class="plan_effect b6_6_3A_67 sub_btn ">
+          <span class="tooltiptext">B6.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3C')" class="plan_effect b6_6_3C_68 sub_btn ">
+          <span class="tooltiptext">B6.3C</span>
+        </button>
+
+      </ng-container>
+    </ng-template>
+
+    <!-- B6 L08 -->
+
+    <ng-template #thirtytweleve>
+      <ng-container *ngIf="planType == 'L08' && selectedbuilding == '11';else thirtythirteen">
+        <button (click)="onFloorPlan('B6.1')" class="plan_effect b6_6_1_69">
+          <span class="tooltiptext">B6.1</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1A')" class="plan_effect b6_6_1A_70 sub_btn">
+          <span class="tooltiptext">B6.1A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1C')" class="plan_effect b6_6_1C_71 sub_btn">
+          <span class="tooltiptext">B6.1C</span>
+        </button>
+
+
+        <button (click)="onFloorPlan('B6.1D')" class="plan_effect b6_6_1D_72 sub_btn">
+          <span class="tooltiptext">B6.1D</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.1Waste')" class="plan_effect b6_6_1W_73 sub_btn">
+          <span class="tooltiptext">B6.1Waste</span>
+        </button>
+
+
+        <button (click)="onFloorPlan('B6.2')" class="plan_effect b6_6_2_74">
+          <span class="tooltiptext">B6.2</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.2C')" class="plan_effect b6_6_2C_75 sub_btn">
+          <span class="tooltiptext">B6.2C</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3')" class="plan_effect b6_6_3_76">
+          <span class="tooltiptext">B6.3</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3A')" class="plan_effect b6_6_3A_77 sub_btn ">
+          <span class="tooltiptext">B6.3A</span>
+        </button>
+
+        <button (click)="onFloorPlan('B6.3C')" class="plan_effect b6_6_3C_78 sub_btn ">
+          <span class="tooltiptext">B6.3C</span>
+        </button>
+
+      </ng-container>
+    </ng-template>
+
+    <!-- B6 L09 -->
+
+    <ng-template #thirtythirteen>
+      <ng-container *ngIf="planType == 'L09' && selectedbuilding == '11';else thirtyfourteen">
+        <button (click)="onFloorPlan('B6.1Roof')" class="plan_effect b6_6_1_79">
+          <span class="tooltiptext">B6.1 Roof</span>
+        </button>
+
+       <button (click)="onFloorPlan('B6.2Roof')" class="plan_effect b6_6_2_80">
+          <span class="tooltiptext">B6.2 Roof</span>
+        </button>
+
+       <button (click)="onFloorPlan('B6.3Roof')" class="plan_effect b6_6_3_81">
+          <span class="tooltiptext">B6.3 Roof</span>
+        </button>
+
+       
+
+      </ng-container>
+    </ng-template>
 
     <!-- B6 LK1A -->
-    <ng-template #thirtyten>
-      <ng-container *ngIf="planType == 'LK1A' && selectedbuilding == '11';else thirtyeleven">
+    <ng-template #thirtyfourteen>
+      <ng-container *ngIf="planType == 'LK1A' && selectedbuilding == '11';else thirtyfifteen">
         <button (click)="onFloorPlan('B6.1')" class="plan_effect b6_6_1_43">
           <span class="tooltiptext">B6.1</span>
         </button>
@@ -2934,8 +3098,8 @@
     </ng-template>
 
     <!-- B6 LK1B -->
-    <ng-template #thirtyeleven>
-      <ng-container *ngIf="planType == 'LK1B' && selectedbuilding == '11';else thirtytweleve">
+    <ng-template #thirtyfifteen>
+      <ng-container *ngIf="planType == 'LK1B' && selectedbuilding == '11';else thirtysixteen">
         <button (click)="onFloorPlan('B6.3')" class="plan_effect b6_6_3_47">
           <span class="tooltiptext">B6.3</span>
         </button>
