@@ -32,6 +32,7 @@
 
 .mat-dialog-container {
   padding: 0px !important;
+  /* width: 600px!important; */
 }
 
 .dialog-header {
@@ -47,8 +48,32 @@
 
 .egret-navy .mat-dialog-container {
   padding: 0px;
+  /* width: 600px!important; */
 }
 
 .close:hover {
   cursor: pointer;
+}
+
+/* .cdk-overlay-pane{
+  width: 600px!important;
+}
+
+.mat-dialog-container {
+  padding: 0px;
+  width: 600px!important;
+} */
+
+
+.hotwork-sub{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.time-picker-class{
+  display: flex;
+  /* display: flex; */
+    justify-content: space-between;
+    margin-top: 15px;
 }

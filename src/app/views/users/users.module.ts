@@ -66,7 +66,7 @@ import { DeleteCatDialogComponentComponent } from './delete-cat-dialog-component
     // MatDatepickerModule,
     // MatAutocompleteModule,
     // MatDividerModule,
-    // MatGridListModule,
+    MatGridListModule,
     // MatInputModule,
     // MatFormFieldModule,
     // MatIconModule,

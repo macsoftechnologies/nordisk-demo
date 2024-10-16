@@ -19,7 +19,7 @@
         </div> -->
         <div>
           <mat-label> Name: </mat-label>
-          <strong>Koge Hospital Project Team (KHPT)</strong>
+          <strong>Novo Nordisk Project Team</strong>
           <!-- <strong>{{ selected_site_name }}</strong> -->
         </div>
 
@@ -166,6 +166,17 @@
               </mat-form-field>
             </mat-grid-tile> -->
           </mat-grid-list>
+
+          <mat-grid-list cols="1" rowHeight="80px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>RAMS Number</mat-label>
+                <input matInput formControlName="RAMSNumber" placeholder="Activity" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+
         </div>
         <!-- <mat-grid-list cols="3" rowHeight="60px">
             <mat-grid-tile>
@@ -558,6 +569,7 @@
           </mat-grid-list> -->
 
         <div class="thirddiv">
+
           <mat-grid-list cols="2" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -595,7 +607,7 @@
             </mat-grid-tile>
           </mat-grid-list>
 
-          <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-list cols="1" rowHeight="100">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Hotwork</mat-label>
@@ -607,16 +619,293 @@
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
-            <mat-grid-tile>
+            <!-- <mat-grid-tile>
               <div class="cmsnum full-width" [hidden]="!ishotworkyes">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Certified Person</mat-label>
                   <input matInput formControlName="CertifiedPerson" placeholder="" />
                 </mat-form-field>
               </div>
-            </mat-grid-tile>
+            </mat-grid-tile> -->
           </mat-grid-list>
+          <mat-grid-list cols="1" rowHeight="600" *ngIf="ishotworkyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <mat-grid-list cols="2" rowHeight="70px">
+                  <mat-grid-tile>
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Name Of Fire Watcher</mat-label>
+                      <input matInput formControlName="fireWatcher" placeholder="" />
+                    </mat-form-field>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="full-width">
+                      <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Phone Number Of Fire Watcher</mat-label>
+                        <input matInput formControlName="fireWatcherNumber" placeholder="" />
+                      </mat-form-field>
+                    </div>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+                <div class="hotwork-sub">
+                  <label>Are there other tasks in progress in the area? </label>
+                  <mat-radio-group formControlName="floatLabel1">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are there other conditions that must be taken into account during the work? If Yes, note in
+                    "Other conditions" </label>
+                  <mat-radio-group formControlName="floatLabel2">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label> Is the lighting sufficiently and secured so that the work can be started? </label>
+                  <mat-radio-group formControlName="floatLabel3">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Have the team been informed about the spesific risks based on task?(RAMS training etc.)</label>
+                  <mat-radio-group formControlName="floatLabel4">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the work environment safety ensured? Have the necessary warning signs been placed? </label>
+                  <mat-radio-group formControlName="floatLabel5">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label> Have the team been informed about the course of action in emergencies? </label>
+                  <mat-radio-group formControlName="floatLabel6">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Should a fire watch be established?</label>
+                  <mat-radio-group formControlName="floatLabel7">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Does combustible materials need to be removed from the work area?</label>
+                  <mat-radio-group formControlName="floatLabel8">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Should safety measures implemented to stop sparks from splattering on a flooring or other
+                    surfaces?</label>
+                  <mat-radio-group formControlName="floatLabel9">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are fire extinguishers and fire blanket ready for use in the area ?</label>
+                  <mat-radio-group formControlName="floatLabel10">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <!-- new field added -->
+
+                <mat-grid-list cols="1" rowHeight="75px">
+                  <mat-grid-tile>
+                    <mat-form-field class="full-width" appearance="outline">
+                      <mat-label>Is there be any welding activitiy?</mat-label>
+                      <mat-select (selectionChange)="GetselectedNEWHOTWORKitem($event.value)"
+                        formControlName="NEWHOTWORK" name="NEWHOTWORK">
+                        <mat-option *ngFor="let newtech of NEWHOTWORKs" [value]="newtech.id">
+                          {{ newtech.NEWHOTWORKval }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </mat-grid-tile>
+                  <!-- <mat-grid-tile>
+              <div class="cmsnum full-width" [hidden]="!ishotworkyes">
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Certified Person</mat-label>
+                  <input matInput formControlName="CertifiedPerson" placeholder="" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile> -->
+
+                  <mat-grid-tile>
+                    <section class="cmsnum full-width" [hidden]="!isnewhotworkyes">
+                      <div class="hotwork-sub">
+                        <label>The people who will do heat treatment, had welder certificates?</label>
+                        <mat-radio-group formControlName="NEWHOTWORK1">
+                          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                          <mat-radio-button value="0">No</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+
+                      <div class="hotwork-sub">
+                        <label>Should air extraction be established? (Welding fumes and the like must be led directly
+                          into the open air)</label>
+                        <mat-radio-group formControlName="NEWHOTWORK2">
+                          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                          <mat-radio-button value="0">No</mat-radio-button>
+                        </mat-radio-group>
+                      </div>
+
+                    </section>
+                  </mat-grid-tile>
+
+                  <!-- <pre>Value:<br>{{RequestForm.value | json}}</pre> -->
+
+                </mat-grid-list>
+
+                <!-- close new added field -->
+
+              </section>
+            </mat-grid-tile>
+
+            <!-- <pre>Value:<br>{{RequestForm.value | json}}</pre> -->
+          </mat-grid-list>
+
+          <!-- new Fields Added -->
           <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Working on Electrical Systems </mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Working with Hazardous Substances/Chemicals </mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Pressure testing of equipment</mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Working at Height</mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Working in Confined Spaces</mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Working in ATEX Area</mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Securing Facilities (LOTO) </mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Excavation Works</mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Using Crane or Lifting</mat-label>
+                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
+                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
+                    {{ tech.LOTOPROCEDUREval }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+          </mat-grid-list>
+
+          <!-- ended new fields -->
+
+
+          <!-- <mat-grid-list cols="2" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Loto Procedure</mat-label>
@@ -649,6 +938,8 @@
               </mat-form-field>
             </mat-grid-tile>
 
+
+
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline" *ngIf="seditform">
                 <mat-label>Status</mat-label>
@@ -660,7 +951,7 @@
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
+          </mat-grid-list> -->
         </div>
         <!-- <mat-grid-list cols="2" rowHeight="70px"> -->
         <!-- <mat-grid-tile>
@@ -2545,8 +2836,8 @@
           <span class="tooltiptext">B6.1</span>
         </button>
 
-        <button (click)="onFloorPlan('B6.1A')" class="plan_effect b6_6_1A_12 sub_btn" >
-          <span class="tooltiptext">B6.1A</span> 
+        <button (click)="onFloorPlan('B6.1A')" class="plan_effect b6_6_1A_12 sub_btn">
+          <span class="tooltiptext">B6.1A</span>
         </button>
 
         <button (click)="onFloorPlan('B6.1C')" class="plan_effect b6_6_1C_12 sub_btn">
@@ -3059,15 +3350,15 @@
           <span class="tooltiptext">B6.1 Roof</span>
         </button>
 
-       <button (click)="onFloorPlan('B6.2Roof')" class="plan_effect b6_6_2_80">
+        <button (click)="onFloorPlan('B6.2Roof')" class="plan_effect b6_6_2_80">
           <span class="tooltiptext">B6.2 Roof</span>
         </button>
 
-       <button (click)="onFloorPlan('B6.3Roof')" class="plan_effect b6_6_3_81">
+        <button (click)="onFloorPlan('B6.3Roof')" class="plan_effect b6_6_3_81">
           <span class="tooltiptext">B6.3 Roof</span>
         </button>
 
-       
+
 
       </ng-container>
     </ng-template>
@@ -3138,7 +3429,7 @@
       <button (click)="onFloorPlan('B8.1Waste')" class="plan_effect b8_8_1W_1 sub_btn">
         <span class="tooltiptext">B8.1Waste</span>
       </button>
-    
+
 
       <button (click)="onFloorPlan('B8.2')" class="plan_effect b8_8_2_2">
         <span class="tooltiptext">B8.2</span>
@@ -3155,7 +3446,7 @@
       <button (click)="onFloorPlan('B8.3C')" class="plan_effect b8_8_3C_3 sub_btn">
         <span class="tooltiptext">B8.3</span>
       </button>
-   
+
 
       <button (click)="onFloorPlan('B8.4')" class="plan_effect b8_8_4_4">
         <span class="tooltiptext">B8.4</span>
@@ -3208,7 +3499,7 @@
         <button (click)="onFloorPlan('B8.1')" class="plan_effect b8_8_1_10">
           <span class="tooltiptext">B8.1</span>
         </button>
- 
+
         <button (click)="onFloorPlan('B8.1A')" class="plan_effect b8_8_1A_10 sub_btn">
           <span class="tooltiptext">B8.1A</span>
         </button>
@@ -3288,7 +3579,7 @@
         </button>
         <button (click)="onFloorPlan('B8.1A')" class="plan_effect b8_8_1A_17 sub_btn">
           <span class="tooltiptext">B8.1A</span>
-        </button>  
+        </button>
         <button (click)="onFloorPlan('B8.1B')" class="plan_effect b8_8_1B_17 sub_btn">
           <span class="tooltiptext">B8.1B</span>
         </button>
@@ -3521,10 +3812,59 @@
       </ng-container>
     </ng-template>
 
+    <!-- JG Zones -->
+
+    <ng-container *ngIf="planType == 'JG' && selectedbuilding == '13';">
+      <!-- sub button -->
+      <!-- <button (click)="onFloorPlan('Zone-1')" class="plan_effect zone-1">
+        <span class="tooltiptext">Zone-1</span>
+      </button>
+
+      <button (click)="onFloorPlan('Zone-2')" class="plan_effect zone-2">
+        <span class="tooltiptext">Zone-2</span>
+      </button>
+      <button (click)="onFloorPlan('Zone-3')" class="plan_effect zone-3">
+        <span class="tooltiptext">Zone-3</span>
+      </button>
+      <button (click)="onFloorPlan('Zone-4')" class="plan_effect zone-4">
+        <span class="tooltiptext">Zone-4</span>
+      </button> -->
+
+      <!-- new changes -->
+      <button class="plan_effect zone-1">
+        <input type="checkbox" class="plan_effect zone-1 checkbox-1" value="Zone-1" (click)="onFloorPlanNew($event, 'Zone-1')" />
+        <span class="tooltiptext">Zone-1</span>
+      </button>
+
+      <button class="plan_effect zone-2">
+        <input type="checkbox" class="plan_effect zone-2 checkbox-2" (click)="onFloorPlanNew($event, 'Zone-2')" />
+        <span class="tooltiptext">Zone-2</span>
+      </button>
+      <button class="plan_effect zone-3">
+        <input type="checkbox" class="plan_effect zone-3 checkbox-3" (click)="onFloorPlanNew($event, 'Zone-3')" />
+        <span class="tooltiptext">Zone-3</span>
+      </button>
+      <button class="plan_effect zone-4">
+        <input type="checkbox" class="plan_effect zone-4 checkbox-4" (click)="onFloorPlanNew($event, 'Zone-4')" />
+        <span class="tooltiptext">Zone-4</span>
+      </button>
+      <!-- end changes -->
+     
+    </ng-container>
     <pdf-viewer *ngIf="pdfSrc" [src]="pdfSrc" [original-size]="false" [zoom]="0.75"></pdf-viewer>
     <!-- style="display: block" -->
     <!-- [render-text]="true" -->
     <!-- (after-load-complete)="loadComplete($event)" -->
+
+    <div class="submit-btn">
+
+      <button class="butns-grp" mat-raised-button color="primary" (click)="onFloorPlan()" style="width: 100px!important;">
+        submit
+      </button>
+
+    </div>
+
+
   </div>
 </div>
 

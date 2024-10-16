@@ -33,6 +33,21 @@ export class RequestDto
     PermitNo:string;
     teamId:string;
     building_name: string;
+  tasks_in_progress_in_the_area: string;
+  account_during_the_work: any;
+  lighting_sufficiently: any;
+  spesific_risks_based_on_task: any;
+  work_environment_safety_ensured: any;
+  course_of_action_in_emergencies: any;
+  name_of_the_fire_watcher: any;
+  phone_number_of_fire_watcher: any;
+  fire_watch_establish: any;
+  combustible_material: any;
+  safety_measures: any;
+  extinguishers_and_fire_blanket: any;
+  welding_activitiy: any;
+  air_extraction_be_established: any;
+  heat_treatment: any;
 }
 
 

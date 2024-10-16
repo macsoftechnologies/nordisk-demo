@@ -83,6 +83,7 @@ export class NewRequestComponent implements OnInit {
   isnewrequestcreated: boolean = false;
   iscmsyes: boolean = false;
   ishotworkyes: boolean = false;
+  isnewhotworkyes: boolean = false;
   isLOTOPROCEDUREyes: boolean = false;
   RequestForm: FormGroup;
   beamimg: string = "";
@@ -111,7 +112,7 @@ export class NewRequestComponent implements OnInit {
   Teams: any[] = [];
   safetyprecdata: any[] = [];
   safetyList: any[] = [];
-
+  hotWorkHeight: number = 100;
   @ViewChild("badgeInput") badgeInput: ElementRef<HTMLInputElement>;
   @ViewChild("auto") matAutocomplete: MatAutocomplete;
   @ViewChild("roomInput") roomInput: ElementRef<HTMLInputElement>;
@@ -122,6 +123,7 @@ export class NewRequestComponent implements OnInit {
 
   SubContractors: any[] = [];
   TypeofActivites: any[] = [];
+  planSelectedBlocks: any[]=[];
 
   CMTs: any[] = [
     {
@@ -153,6 +155,16 @@ export class NewRequestComponent implements OnInit {
     {
       id: "0",
       HOTWORKval: "No",
+    },
+  ];
+  NEWHOTWORKs: any[] = [
+    {
+      id: "1",
+      NEWHOTWORKval: "Yes",
+    },
+    {
+      id: "0",
+      NEWHOTWORKval: "No",
     },
   ];
   LOTOPROCEDUREs: any[] = [
@@ -266,8 +278,22 @@ export class NewRequestComponent implements OnInit {
     Request_status: null,
     PermitNo: "1234",
     teamId: null,
-    building_name: null
-
+    building_name: null,
+    tasks_in_progress_in_the_area: null,
+    account_during_the_work: null,
+    lighting_sufficiently: null,
+    spesific_risks_based_on_task: null,
+    work_environment_safety_ensured: null,
+    course_of_action_in_emergencies: null,
+    name_of_the_fire_watcher: null,
+    phone_number_of_fire_watcher: null,
+    fire_watch_establish: null,
+    combustible_material: null,
+    safety_measures: null,
+    extinguishers_and_fire_blanket: null,
+    welding_activitiy: null,
+    air_extraction_be_established: null,
+    heat_treatment: null
   };
 
   updaterequestdata: EditRequestDto = {
@@ -1059,6 +1085,14 @@ export class NewRequestComponent implements OnInit {
 
   ];
 
+  JGzones = [
+    'Zone-1',
+    'Zone-2',
+    'Zone-3',
+    'Zone-4',
+
+  ]
+
   ngOnInit(): void {
 
     // console.log(this.L000)
@@ -1108,6 +1142,22 @@ export class NewRequestComponent implements OnInit {
       Poweroff: ["", Validators.required],
       //Applicant: this.ApplicantControl,
       HOTWORK: ["", Validators.required],
+      RAMSNumber : ["", Validators.required],
+      fireWatcher : ["", Validators.required],
+      fireWatcherNumber: ["", Validators.required],
+      floatLabel1: ['', Validators.required],
+      floatLabel2: ['', Validators.required],
+      floatLabel3: ['', Validators.required],
+      floatLabel4: ['', Validators.required],
+      floatLabel5: ['', Validators.required],
+      floatLabel6: ['', Validators.required],
+      floatLabel7: ['', Validators.required],
+      floatLabel8: ['', Validators.required],
+      floatLabel9: ['', Validators.required],
+      floatLabel10: ['', Validators.required],
+      NEWHOTWORK: ['', Validators.required],
+      NEWHOTWORK1: ['', Validators.required],
+      NEWHOTWORK2: ['', Validators.required],
       LOTOPROCEDURE: ["", Validators.required],
       //AccesstoOtherRoom:this.AccesstoroomControl,
       //Keysneeded:this.KeysneedControl,
@@ -1241,7 +1291,7 @@ export class NewRequestComponent implements OnInit {
         this.Requestdata.Site_Id = x["site_id"];
         this.updaterequestdata.Site_Id = x["site_id"];
         this.RequestForm.controls["Site"].setValue(
-          "Koge Hospital Project Team (KHPT)"
+          "Novo Nordisk Project Team"
         );
         // this.RequestForm.controls["Site"].setValue(x["site_name"]);
       }
@@ -1319,7 +1369,7 @@ export class NewRequestComponent implements OnInit {
         "LK1B"
       ];
     }
-    else {
+    else if(event == '12') {
       console.log("B8")
       this.floors = [
         "L00",
@@ -1333,6 +1383,13 @@ export class NewRequestComponent implements OnInit {
         "L08",
         "L09",
         "LK1"
+      ];
+    }
+    else  {
+      console.log("JG")
+      this.floors = [
+        "JG",
+           
       ];
     }
     this.planType = null;
@@ -1519,7 +1576,7 @@ export class NewRequestComponent implements OnInit {
       }
     }
 
-    else {
+    else if (this.selectedbuilding == '12') {
       console.log("B8 Drwaing")
       switch (event) {
         case "L00":
@@ -1574,6 +1631,19 @@ export class NewRequestComponent implements OnInit {
       }
     }
 
+    else {
+      console.log("JG Drawings")
+      switch (event) {
+        case "JG":
+          this.planType = "JG";
+          this.pdfSrc = "assets/images/plans/JF.pdf";
+          break;
+
+        default:
+          break;
+      }
+    }
+
     // this.spinner = true;
     this.selectedfloor = event;
     this.Requestdata.Floor_Id = event;
@@ -1595,12 +1665,18 @@ export class NewRequestComponent implements OnInit {
     this.name = "Room";
   }
 
-  onFloorPlan(planVal: string): void {
-    console.log(planVal);
+  onFloorPlanNew(event, planValNew){
+    console.log(planValNew);
+    console.log("Event", event)
+    this.planSelectedBlocks.push(planValNew)
+    
+  }
+
+  onFloorPlan() {
     let currentdate = this.datePipe.transform(this.Reqdate, "yyyy-MM-dd");
     this.RequestForm.controls["Requestdate"].setValue(currentdate);
     this.RequestForm.controls["Companyname"].setValue(
-      "Koge Hospital Project Team (KHPT)"
+      "Novo Nordisk Project Team"
     );
 
     if (this.selectedbuilding == '9') {
@@ -1765,7 +1841,7 @@ export class NewRequestComponent implements OnInit {
           break;
       }
     }
-    else {
+    else if (this.selectedbuilding == '12') {
       switch (this.FloorMain) {
         case "L00":
           this.FloorOrdinates = this.B8L00;
@@ -1815,10 +1891,20 @@ export class NewRequestComponent implements OnInit {
       }
     }
 
-
-    this.RequestForm.controls["Room"].setValue([planVal]);
+    else {
+      switch (this.FloorMain) {
+        case "JG":
+          this.FloorOrdinates = this.JGzones;
+          // Testing
+          // console.log(this.FloorOrdinates, "tessssst");
+          break;
+    
+      }
+    }
+    console.log("block", this.planSelectedBlocks)
+    this.RequestForm.controls["Room"].setValue(this.planSelectedBlocks);
     this.isnewrequestcreated = true;
-    console.log(this.RequestForm.value);
+    console.log("form data", this.RequestForm.value);
   }
   Getselectedroomitem(event) {
     console.log(event);
@@ -1831,7 +1917,7 @@ export class NewRequestComponent implements OnInit {
     let currentdate = this.datePipe.transform(this.Reqdate, "yyyy-MM-dd");
     this.RequestForm.controls["Requestdate"].setValue(currentdate);
     this.RequestForm.controls["Companyname"].setValue(
-      "Koge Hospital Project Team (KHPT)"
+      "Novo Nordisk Project Team"
     );
     //this.RequestForm.controls['Status'].setValue('Active');
     this.isnewrequestcreated = true;
@@ -1879,9 +1965,18 @@ export class NewRequestComponent implements OnInit {
   }
   GetselectedHOTWORKitem(event) {
     if (event === "1") {
+      this.hotWorkHeight = 500;
       this.ishotworkyes = true;
     } else {
+      this.hotWorkHeight = 100;
       this.ishotworkyes = false;
+    }
+  }
+  GetselectedNEWHOTWORKitem(event) {
+    if (event === "1") {
+      this.isnewhotworkyes = true;
+    } else {
+      this.isnewhotworkyes = false;
     }
   }
   GetselectedLOTOPROCEDUREitem(event) {
@@ -1947,8 +2042,28 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.Tools = this.RequestForm.controls["Tools"].value;
     this.Requestdata.Machinery = this.RequestForm.controls["Machinery"].value;
     this.Requestdata.Hot_work = this.RequestForm.controls["HOTWORK"].value;
-    this.Requestdata.Certified_Person =
-      this.RequestForm.controls["CertifiedPerson"].value;
+    
+    this.Requestdata.name_of_the_fire_watcher = this.RequestForm.controls["fireWatcher"].value;
+    this.Requestdata.phone_number_of_fire_watcher = this.RequestForm.controls["fireWatcherNumber"].value;
+
+    this.Requestdata.tasks_in_progress_in_the_area = this.RequestForm.controls["floatLabel1"].value;
+    this.Requestdata.account_during_the_work = this.RequestForm.controls["floatLabel2"].value;
+    this.Requestdata.lighting_sufficiently = this.RequestForm.controls["floatLabel3"].value;
+    this.Requestdata.spesific_risks_based_on_task = this.RequestForm.controls["floatLabel4"].value;
+    this.Requestdata.work_environment_safety_ensured = this.RequestForm.controls["floatLabel5"].value;
+    this.Requestdata.course_of_action_in_emergencies = this.RequestForm.controls["floatLabel6"].value;
+
+    this.Requestdata.fire_watch_establish = this.RequestForm.controls["floatLabel7"].value;
+    this.Requestdata.combustible_material = this.RequestForm.controls["floatLabel8"].value;
+    this.Requestdata.safety_measures = this.RequestForm.controls["floatLabel9"].value;
+    this.Requestdata.extinguishers_and_fire_blanket = this.RequestForm.controls["floatLabel10"].value;
+
+    this.Requestdata.welding_activitiy = this.RequestForm.controls["NEWHOTWORK"].value;
+    this.Requestdata.heat_treatment = this.RequestForm.controls["NEWHOTWORK1"].value;
+    this.Requestdata.air_extraction_be_established = this.RequestForm.controls["NEWHOTWORK2"].value;
+
+    // this.Requestdata.Certified_Person =
+    //   this.RequestForm.controls["CertifiedPerson"].value;
     this.Requestdata.LOTO_Procedure =
       this.RequestForm.controls["LOTOPROCEDURE"].value;
     this.Requestdata.LOTO_Number =

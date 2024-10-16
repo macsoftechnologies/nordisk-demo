@@ -788,6 +788,7 @@ export class ListRequestComponent implements OnInit {
           StatusChangeDialogComponent,
           {
             disableClose: false,
+            width: '600px',
             data: { title: title, payload: row, type: type },
           }
         );

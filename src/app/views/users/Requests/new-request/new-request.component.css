@@ -37,8 +37,8 @@
 }
 .plans_container .plan_effect:hover {
   opacity: 0.5;
-  background: #ff0;
-  box-shadow: 0 2px 10px #ff0;
+  /* background: #ff0;
+  box-shadow: 0 2px 10px #ff0; */
 }
 .plans_container .plan_effect {
   position: absolute;
@@ -3881,4 +3881,70 @@ button {
   padding: 0;
   z-index: 9999999;
 
+}
+
+.plans_container .zone-1 {
+  top: 15%;
+  left: 36%;
+  width: 9%;
+  height: 12%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .checkbox-1{
+  height: 30px;
+  width: 30px;
+}
+
+.plans_container .zone-2 {
+  top: 26%;
+  left: 36%;
+  width: 9%;
+  height: 12%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .checkbox-2{
+  height: 30px;
+  width: 30px;
+}
+
+.plans_container .zone-3 {
+  top: 37%;
+  left: 36%;
+  width: 9%;
+  height: 14%;
+  padding: 0;
+  z-index: 9999999;
+}
+.plans_container .checkbox-3{
+  height: 30px;
+  width: 30px;
+}
+.plans_container .zone-4 {
+  top: 48%;
+  left: 36%;
+  width: 9%;
+  height: 13%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .checkbox-4{
+  height: 30px;
+  width: 30px;
+}
+
+.hotwork-sub{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.submit-btn{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
