@@ -1,9 +1,9 @@
 <div [hidden]="isnewrequestcreated">
   <mat-card class="example-card">
-    <mat-card-header>
+    <!-- <mat-card-header>
       <mat-card-title>{{ name }}</mat-card-title>
     </mat-card-header>
-    <mat-divider></mat-divider>
+    <mat-divider></mat-divider> -->
 
     <mat-card-content class="card-content">
       <div>
@@ -18,8 +18,8 @@
           </mat-form-field>
         </div> -->
         <div>
-          <mat-label> Name: </mat-label>
-          <strong>Novo Nordisk Project Team</strong>
+          <mat-label>Project Name: </mat-label>
+          <strong>M3 South</strong>
           <!-- <strong>{{ selected_site_name }}</strong> -->
         </div>
 
@@ -96,13 +96,13 @@
           <mat-grid-list cols="3" rowHeight="80px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Company</mat-label>
+                <mat-label>Project Name</mat-label>
                 <input matInput readonly formControlName="Companyname" placeholder="Company Name" />
               </mat-form-field>
             </mat-grid-tile>
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline" *ngIf="!issubcontr">
-                <mat-label>SubContractor</mat-label>
+                <mat-label>Contractor</mat-label>
                 <mat-select formControlName="SubContractor" name="CMT"
                   (selectionChange)="Getselectedsubcntrsteams($event.value)">
                   <mat-option *ngFor="let tech of SubContractors" [value]="tech.id">
@@ -111,12 +111,19 @@
                 </mat-select>
               </mat-form-field>
               <mat-form-field class="full-width" appearance="outline" *ngIf="issubcontr">
-                <mat-label>SubContractor</mat-label>
+                <mat-label>Contractor</mat-label>
                 <input matInput readonly formControlName="SubContractorname" placeholder="SubContractor Name" />
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Sub Contractor</mat-label>
+                <input matInput formControlName="newSubContractor" placeholder="Sub Contractor" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <!-- <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Teams</mat-label>
                 <mat-select formControlName="Team" name="Team" (selectionChange)="GetEmployees($event.value)">
@@ -126,7 +133,7 @@
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-            </mat-grid-tile>
+            </mat-grid-tile> -->
           </mat-grid-list>
           <mat-grid-list cols="2" rowHeight="80px">
             <mat-grid-tile>
@@ -167,11 +174,18 @@
             </mat-grid-tile> -->
           </mat-grid-list>
 
-          <mat-grid-list cols="1" rowHeight="80px">
+          <mat-grid-list cols="2" rowHeight="80px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>RAMS Number</mat-label>
                 <input matInput formControlName="RAMSNumber" placeholder="Activity" />
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>RAMS file Attached</mat-label>
+                <input matInput formControlName="RAMSFileAttach" placeholder="Activity" />
               </mat-form-field>
             </mat-grid-tile>
 
@@ -570,7 +584,7 @@
 
         <div class="thirddiv">
 
-          <mat-grid-list cols="2" rowHeight="100px">
+          <!-- <mat-grid-list cols="2" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Crane Requested</mat-label>
@@ -589,23 +603,75 @@
                 </mat-form-field>
               </div>
             </mat-grid-tile>
-          </mat-grid-list>
-          <mat-grid-list cols="1" rowHeight="100px">
+          </mat-grid-list> -->
+          <mat-grid-list cols="2" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Tools</mat-label>
+                <mat-label>Tools Used</mat-label>
                 <textarea class="textarea" matInput formControlName="Tools" placeholder="Tools...."></textarea>
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list>
-          <mat-grid-list cols="1" rowHeight="100px">
+
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Machinery</mat-label>
+                <mat-label>Machinery Used</mat-label>
                 <textarea class="textarea" matInput formControlName="Machinery" placeholder="machinery...."></textarea>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
+
+          <!-- new commom points -->
+
+          <div class="hotwork-sub">
+            <label>Can you confirm that your works are not affecting with other contractors working in this area before
+              starting the work?</label>
+            <mat-radio-group formControlName="floatLabel11">
+              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button value="0">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="hotwork-sub">
+            <label>Are there other conditions that must be taken into account during the work? If Yes, note in "Other
+              conditions"</label>
+            <mat-radio-group formControlName="floatLabel12">
+              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button value="0">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="hotwork-sub">
+            <label>Can you confirm that there will be enough work lighting to begin the work?</label>
+            <mat-radio-group formControlName="floatLabel13">
+              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button value="0">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="hotwork-sub">
+            <label>Have the team been informed about the spesific risks based on task?(RAMS training etc.)</label>
+            <mat-radio-group formControlName="floatLabel14">
+              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button value="0">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="hotwork-sub">
+            <label>Is the work environment safety ensured? Have the necessary warning signs been placed?</label>
+            <mat-radio-group formControlName="floatLabel15">
+              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button value="0">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <div class="hotwork-sub">
+            <label>Have the team been informed about the course of action in emergencies?</label>
+            <mat-radio-group formControlName="floatLabel16">
+              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button value="0">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <!-- end new common points -->
 
           <mat-grid-list cols="1" rowHeight="100">
             <mat-grid-tile>
@@ -788,49 +854,270 @@
           </mat-grid-list>
 
           <!-- new Fields Added -->
-          <mat-grid-list cols="2" rowHeight="100px">
+
+          <!-- electrical work -->
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Working on Electrical Systems </mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedElectricalitem($event.value)" formControlName="electricalSystem" name="electricalSystem">
+                  <mat-option *ngFor="let tech of ELECTRICAL" [value]="tech.id">
+                    {{ tech.ELECTRICALval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
+          </mat-grid-list>
 
+          <mat-grid-list cols="1" rowHeight="300" *ngIf="iselectricalyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Is the responsible for the area informed?</label>
+                  <mat-radio-group formControlName="floatLabel17">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Check if the board is de-energized - is it de-energized?</label>
+                  <mat-radio-group formControlName="floatLabel18">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Secure the area against reconnection using LOTO (Lock-out/Tag-out) with at least a craftsman's padlock.</label>
+                  <mat-radio-group formControlName="floatLabel19">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label> do a risk assessment </label>
+                  <mat-radio-group formControlName="floatLabel20">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Secure the area against reconnection using LOTO (Lock-out/Tag-out) with at least a craftsman's padlock.</label>
+                  <mat-radio-group formControlName="floatLabel21">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Do appliances/devices that run on electricity have isulation?</label>
+                  <mat-radio-group formControlName="floatLabel22">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Does the people who will work with energised systems, had electrician certification?</label>
+                  <mat-radio-group formControlName="floatLabel23">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+          
+              </section>
+            </mat-grid-tile>
+
+            <!-- <pre>Value:<br>{{RequestForm.value | json}}</pre> -->
+          </mat-grid-list>
+          
+          <!-- end electrical work -->
+
+          <!-- HAZARDOUS start -->
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Working with Hazardous Substances/Chemicals </mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedHazardousitem($event.value)" formControlName="HAZARDOUS" name="HAZARDOUS">
+                  <mat-option *ngFor="let tech of HAZARDOUS" [value]="tech.id">
+                    {{ tech.HAZARDOUSval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
-
           </mat-grid-list>
 
-          <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-list cols="1" rowHeight="400" *ngIf="ishazardousyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Relevant MAL-codes and safety datasheets for hazardous medias have been presented?</label>
+                  <mat-radio-group formControlName="floatLabel24">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is MSDS (Material Safety Data Sheet) submitted?</label>
+                  <mat-radio-group formControlName="floatLabel25">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Has the use of protective equipment been taken into account - and are they present?</label>
+                  <mat-radio-group formControlName="floatLabel26">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Has the use of ventilation been taken into acount?</label>
+                  <mat-radio-group formControlName="floatLabel27">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label> Will the hazardaus substances affect people outside the working area? (fumes)</label>
+                  <mat-radio-group formControlName="floatLabel28">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are there means for safe storage and disposal? Is it mapped on the site plan (in case of large amount or long term storage)</label>
+                  <mat-radio-group formControlName="floatLabel29">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Does the spill kits are in place and reachable in case there is a leaking? </label>
+                  <mat-radio-group formControlName="floatLabel30">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is RAMS (Risk assessment and Method statement) covering chemichal risk assessment for working with the substance?</label>
+                  <mat-radio-group formControlName="floatLabel31">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+          
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+          <!-- HAZARDOUS ends -->
+
+          <!-- testing start -->
+
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Pressure testing of equipment</mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedTestingitem($event.value)" formControlName="TESTINGs" name="TESTINGs">
+                  <mat-option *ngFor="let tech of TESTINGs" [value]="tech.id">
+                    {{ tech.TESTINGsval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
+          </mat-grid-list>
 
+          <mat-grid-list cols="1" rowHeight="300" *ngIf="istestingyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Has there been an agreement on the transfer of plant/equipment for pressure testing?</label>
+                  <mat-radio-group formControlName="floatLabel32">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the area drained?</label>
+                  <mat-radio-group formControlName="floatLabel33">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the area depressurised?</label>
+                  <mat-radio-group formControlName="floatLabel34">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the area flushed and cleaned?</label>
+                  <mat-radio-group formControlName="floatLabel35">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the tank/area/container secured and back in normal condition?</label>
+                  <mat-radio-group formControlName="floatLabel36">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the system free from for dust, chips and water?</label>
+                  <mat-radio-group formControlName="floatLabel37">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is there a LOTO plan submitted?</label>
+                  <mat-radio-group formControlName="floatLabel38">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+         
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+          <!-- testing ends -->
+
+          <!-- height start -->
+
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Working at Height</mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedHeightsitem($event.value)" formControlName="WORKHEIGHT" name="WORKHEIGHT">
+                  <mat-option *ngFor="let tech of WORKHEIGHT" [value]="tech.id">
+                    {{ tech.WORKHEIGHTval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -838,24 +1125,210 @@
 
           </mat-grid-list>
 
-          <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-list cols="1" rowHeight="500" *ngIf="isHeightsyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Are suitable anchor points are in place for lanyard attachments?</label>
+                  <mat-radio-group formControlName="floatLabel39">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>In case of emergency is there a rescue plan in place?</label>
+                  <mat-radio-group formControlName="floatLabel40">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Have the work been planned and coordinated to avoid hazards like (falling objects/materials onto the other workers ,interference  between the machines etc.)</label>
+                  <mat-radio-group formControlName="floatLabel41">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Have the team had certified working at height training? </label>
+                  <mat-radio-group formControlName="floatLabel42">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Will this work be carried out by, and under the supervision of personnel who have recieved '' Working at Height'' training?</label>
+                  <mat-radio-group formControlName="floatLabel43">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Full body harness with shock absorbing & twin lanyard provided?</label>
+                  <mat-radio-group formControlName="floatLabel44">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are the working at height equipments (Safety harness and lanyard) has inspected and suitable to carry out the task? </label>
+                  <mat-radio-group formControlName="floatLabel45">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Horizonal or vertical life line systems in place?</label>
+                  <mat-radio-group formControlName="floatLabel46">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Are all tools are secured from falling from height? </label>
+                  <mat-radio-group formControlName="floatLabel47">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Have protective meassures for dropped objects been established? (lanyards, demarkated working area, nets)?</label>
+                  <mat-radio-group formControlName="floatLabel48">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Have proper and safe accces and egress been provided?</label>
+                  <mat-radio-group formControlName="floatLabel49">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Are the weather conditions acceptable?</label>
+                  <mat-radio-group formControlName="floatLabel50">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+         
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+
+          <!-- height ends -->
+
+          <!-- CONFINED SPACE START -->
+
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Working in Confined Spaces</mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedConfinedSpacesitem($event.value)" formControlName="CONFINEDSPACE" name="CONFINEDSPACE">
+                  <mat-option *ngFor="let tech of CONFINEDSPACEs" [value]="tech.id">
+                    {{ tech.CONFINEDSPACEval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-grid-list cols="1" rowHeight="300" *ngIf="isConfinedsyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Is the tank/container cleaned so that the works can take place without risk from vapours, gases etc.?</label>
+                  <mat-radio-group formControlName="floatLabel51">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are oxygen measurement and LEL measurement done before starting the work?</label>
+                  <mat-radio-group formControlName="floatLabel52">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are the container and all equipment on the container, including agitator properly secured?</label>
+                  <mat-radio-group formControlName="floatLabel53">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are there safe entry and exit conditions? (e.g. ladder)</label>
+                  <mat-radio-group formControlName="floatLabel54">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are means of communication for emergency rescue determined?(Siren, radio or telephone options for emergency rescue?)</label>
+                  <mat-radio-group formControlName="floatLabel55">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are rescue equipments are in place and ready?</label>
+                  <mat-radio-group formControlName="floatLabel56">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is space and ventilation adequate?</label>
+                  <mat-radio-group formControlName="floatLabel57">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is an oxygen meter provided for the work?</label>
+                  <mat-radio-group formControlName="floatLabel58">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                        
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+           <!-- CONFINED SPACE ENDS -->
+
+           <!-- ATEXAREA START -->
+
+          <mat-grid-list cols="1" rowHeight="100px">
 
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Working in ATEX Area</mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedAtexAreaitem($event.value)" formControlName="ATEXAREA" name="ATEX AREA">
+                  <mat-option *ngFor="let tech of ATEXAREA" [value]="tech.id">
+                    {{ tech.ATEXAREAval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -863,24 +1336,150 @@
 
           </mat-grid-list>
 
-          <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-list cols="1" rowHeight="200" *ngIf="isAtexAreayes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Is the EX-area downgraded?</label>
+                  <mat-radio-group formControlName="floatLabel59">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Atmospheric tester has been calibrated and is within it's validity date?</label>
+                  <mat-radio-group formControlName="floatLabel60">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Does the flammable materials have been removed from the work area?</label>
+                  <mat-radio-group formControlName="floatLabel61">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are all potential explosive gas release points, including connections, pumps, tanks and other equipment has been identified?</label>
+                  <mat-radio-group formControlName="floatLabel62">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is an oxygen meter proveded for the work?</label>
+                  <mat-radio-group formControlName="floatLabel63">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+              
+                        
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+          <!-- ATEXAREA ENDS -->
+
+          <!-- FACILITIES LOTO start -->
+
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Securing Facilities (LOTO) </mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedFacilitiesitem($event.value)" formControlName="FACILITIESLOTO" name="FACILITIES LOTO">
+                  <mat-option *ngFor="let tech of FACILITIESLOTO" [value]="tech.id">
+                    {{ tech.FACILITIESLOTOval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
+          </mat-grid-list>
 
+          <mat-grid-list cols="1" rowHeight="300" *ngIf="isFacilitiesLotoyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Is the area secured against reconnection using LOTO (Lock-out/Tag-out) with at least a craftsman's padlock.</label>
+                  <mat-radio-group formControlName="floatLabel64">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the system depressurised?</label>
+                  <mat-radio-group formControlName="floatLabel65">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the system drained?</label>
+                  <mat-radio-group formControlName="floatLabel66">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the system in passive, pause, stop, remote stop, local stop or other?</label>
+                  <mat-radio-group formControlName="floatLabel67">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Does the appliances/devices that run on electricity have isulation? </label>
+                  <mat-radio-group formControlName="floatLabel68">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are flammable materials/boxes or anything else removed, covered or secured?</label>
+                  <mat-radio-group formControlName="floatLabel69">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Does the people who will work with energised systems, had electrician certification?</label>
+                  <mat-radio-group formControlName="floatLabel70">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              
+                        
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+          <!-- FACILITIES LOTO ends -->
+
+          <!-- Excavation Works Start -->
+
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Excavation Works</mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedExcavationWorksitem($event.value)" formControlName="ExcavationWorks" name="Excavation Works">
+                  <mat-option *ngFor="let tech of ExcavationWorks" [value]="tech.id">
+                    {{ tech.ExcavationWorksval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
@@ -888,19 +1487,178 @@
 
           </mat-grid-list>
 
-          <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-list cols="1" rowHeight="400" *ngIf="isExcavationWorksyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Is the excavation are segregated (1 meter from edge with hard barriers or 2 meters with soft barriers) before the work begins?</label>
+                  <mat-radio-group formControlName="floatLabel71">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Has the digging permit been obtained in accordance with Danish regulations and NN standards?</label>
+                  <mat-radio-group formControlName="floatLabel72">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Does excavation requires shoring? </label>
+                  <mat-radio-group formControlName="floatLabel73">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is the sloping correct in relation to the depth of the dig as per Danish regulations?</label>
+                  <mat-radio-group formControlName="floatLabel74">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Have proper and safe access and egress been provided? </label>
+                  <mat-radio-group formControlName="floatLabel75">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are correctly positioned ladders or correctly sloped stairways accessible?</label>
+                  <mat-radio-group formControlName="floatLabel76">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Does all machines have valid inspection dates?</label>
+                  <mat-radio-group formControlName="floatLabel77">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Have clearly marked drawings been submitted?</label>
+                  <mat-radio-group formControlName="floatLabel78">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Are the underground areas cleared from all electrical, piping and other services?</label>
+                  <mat-radio-group formControlName="floatLabel79">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              
+                        
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+           <!-- Excavation Works ends -->
+
+           <!-- Crane Lifting start -->
+
+          <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Using Crane or Lifting</mat-label>
-                <mat-select formControlName="LOTOPROCEDURE" name="LOTO PROCEDURE">
-                  <mat-option *ngFor="let tech of LOTOPROCEDUREs" [value]="tech.id">
-                    {{ tech.LOTOPROCEDUREval }}
+                <mat-select (selectionChange)="GetselectedCraneLiftingitem($event.value)" formControlName="CraneLifting" name="Crane Lifting">
+                  <mat-option *ngFor="let tech of CraneLifting" [value]="tech.id">
+                    {{ tech.CraneLiftingval }}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
 
           </mat-grid-list>
+
+          <mat-grid-list cols="1" rowHeight="300" *ngIf="isCraneLiftingyes">
+            <mat-grid-tile>
+              <section class="cmsnum full-width">
+                <div class="hotwork-sub">
+                  <label>Is there an appointed person in charge of the lifting/crane operation?</label>
+                  <mat-radio-group formControlName="floatLabel80">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Are the details of load (dimensions, SWL) and the loading/unloading requirements provided from vendor or supplier?</label>
+                  <mat-radio-group formControlName="floatLabel81">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is lift plan submitted?</label>
+                  <mat-radio-group formControlName="floatLabel82">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Has the correct crane/lifting equipment as stated in the lift plan been supplied and inspected?</label>
+                  <mat-radio-group formControlName="floatLabel83">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Do the crane operators have the legal required certificates?</label>
+                  <mat-radio-group formControlName="floatLabel84">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Is laydown area suitable and prepared for lifting?</label>
+                  <mat-radio-group formControlName="floatLabel85">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="hotwork-sub">
+                  <label>Is the entire area of the lifting task fenced off?</label>
+                  <mat-radio-group formControlName="floatLabel86">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+
+                <div class="hotwork-sub">
+                  <label>Have all overhead risks (cables, adjacent structures etc) been identifed and suitable precautions implemented?</label>
+                  <mat-radio-group formControlName="floatLabel87">
+                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button value="0">No</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+              
+                        
+              </section>
+            </mat-grid-tile>
+
+       
+          </mat-grid-list>
+
+          <!-- Crane Lifting ends -->
 
           <!-- ended new fields -->
 
@@ -1191,6 +1949,46 @@
             </mat-grid-tile> -->
           </mat-grid-list>
 
+
+
+          <section class="cmsnum">
+
+            <div class="hotwork-sub">
+              <label>The following protective equipment must be used during the execution of the task</label>
+              
+            </div>
+
+            <div class="protect-sec">
+
+            <div class="protect-equip">
+              <label class="protect-label">Visable Clothing</label>
+              <mat-radio-group formControlName="VisableClothing">
+                <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <div class="protect-equip">
+              <label class="protect-label">Safety Shoes</label>
+              <mat-radio-group formControlName="SafetyShoes">
+                <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+            <div class="protect-equip">
+              <label class="protect-label">Helmet</label>
+              <mat-radio-group formControlName="Helmet">
+                <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+
+          </div>
+        
+                    
+          </section>
+
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -1199,7 +1997,7 @@
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
-          <mat-grid-list cols="1" rowHeight="100px">
+          <!-- <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Badge No.s Of Workers</mat-label>
@@ -1207,7 +2005,7 @@
                   <mat-option *ngFor="let e of BADGENUMBERS" [value]="e.badgeId">{{ e.badgeId }}</mat-option>
                 </mat-select>
               </mat-form-field>
-            </mat-grid-tile>
+            </mat-grid-tile> -->
             <!-- <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-chip-list #chipList aria-label="Badg selection">
@@ -1227,7 +2025,7 @@
                 </mat-autocomplete>
               </mat-form-field>
             </mat-grid-tile> -->
-          </mat-grid-list>
+          <!-- </mat-grid-list> -->
           <mat-grid-list cols="1" rowHeight="100px">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
@@ -1308,6 +2106,14 @@
             </mat-grid-tile>
   
           </mat-grid-list> -->
+          <div class="mandatory">
+            <mat-checkbox class="mandatory-label" formControlName="mandatoryCheck" [ngClass]="{'invalid-checkbox': RequestForm.get('mandatoryCheck')?.invalid && RequestForm.get('mandatoryCheck')?.touched}">As agreed mandatory fields must be added.</mat-checkbox>
+            <div *ngIf="RequestForm.get('mandatoryCheck')?.invalid && RequestForm.get('mandatoryCheck')?.touched">
+              <p class="error-message">You must agree to proceed</p>
+            </div>
+            
+            <!-- {{RequestForm.get("mandatoryCheck").value}} -->
+          </div>
       </form>
     </mat-card-content>
   </mat-card>
@@ -3832,7 +4638,8 @@
 
       <!-- new changes -->
       <button class="plan_effect zone-1">
-        <input type="checkbox" class="plan_effect zone-1 checkbox-1" value="Zone-1" (click)="onFloorPlanNew($event, 'Zone-1')" />
+        <input type="checkbox" class="plan_effect zone-1 checkbox-1" value="Zone-1"
+          (click)="onFloorPlanNew($event, 'Zone-1')" />
         <span class="tooltiptext">Zone-1</span>
       </button>
 
@@ -3849,7 +4656,7 @@
         <span class="tooltiptext">Zone-4</span>
       </button>
       <!-- end changes -->
-     
+
     </ng-container>
     <pdf-viewer *ngIf="pdfSrc" [src]="pdfSrc" [original-size]="false" [zoom]="0.75"></pdf-viewer>
     <!-- style="display: block" -->
@@ -3858,7 +4665,8 @@
 
     <div class="submit-btn">
 
-      <button class="butns-grp" mat-raised-button color="primary" (click)="onFloorPlan()" style="width: 100px!important;">
+      <button class="butns-grp" mat-raised-button color="primary" (click)="onFloorPlan()"
+        style="width: 100px!important;">
         submit
       </button>
 

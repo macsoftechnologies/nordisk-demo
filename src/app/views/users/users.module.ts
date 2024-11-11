@@ -51,9 +51,10 @@ import { CategoryComponent } from './categories/category/category.component';
 import { NotificationLogsComponent } from './notification-logs/notification-logs.component';
 import { CatDialogComponent } from './cat-dialog/cat-dialog.component';
 import { DeleteCatDialogComponentComponent } from './delete-cat-dialog-component/delete-cat-dialog-component.component';
+import { LogsHistoryComponent } from './logs-history/logs-history.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent, CatDialogComponent, DeleteCatDialogComponentComponent],
+  declarations: [DashboardComponent, NewRequestComponent, ListRequestComponent, NotificationsComponent, PlansComponent, ListPopupComponent, ListPlansComponent, RequestSaveOptionsDialogComponent, EditRequestComponent, CopyRequestComponent, StatusChangeDialogComponent, DocsComponent, CategoryComponent, NotificationLogsComponent, CatDialogComponent, DeleteCatDialogComponentComponent, LogsHistoryComponent],
   imports: [
     CommonModule,
     jqxChartModule,

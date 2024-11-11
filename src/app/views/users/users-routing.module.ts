@@ -9,6 +9,7 @@ import { ListPlansComponent } from './plans/list-plans/list-plans.component';
 import { UserRoleGuard } from 'app/shared/guards/user-role.guard';
 import { config } from 'config';
 import { DocsComponent } from './docs/docs.component';
+import { LogsHistoryComponent } from './logs-history/logs-history.component';
 
 export const usersRoutes: Routes = [
   {
@@ -50,6 +51,11 @@ export const usersRoutes: Routes = [
         path: "notifications",
         component:NotificationsComponent,
         data: { title: "", breadcrumb: "notifications",roles: config.authRoles.subcontractor }
+      },
+      {
+        path: "log-history",
+        component:LogsHistoryComponent,
+        data: { title: "", breadcrumb: "log-history",roles: config.authRoles.subcontractor }
       },
       {
         path: "mydocs",

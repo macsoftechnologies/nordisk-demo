@@ -7,6 +7,7 @@
   width: 35% !important;
   padding: 0px !important;
 }
+
 .card-content {
   padding: 30px;
 }
@@ -15,31 +16,39 @@
   width: 100%;
   padding-right: 70px;
 }
+
 .butns {
   margin: 50px;
   float: right;
 }
+
 .butns-grp {
   margin-right: 20px;
 }
+
 .butns-grp-back {
   padding: 10px;
 }
+
 .img-sty {
   width: 500px;
 }
+
 .img-div-sty {
   /* text-align: center; */
   /* background-color: red; */
 }
+
 .plans_container {
   position: relative;
 }
+
 .plans_container .plan_effect:hover {
   opacity: 0.5;
   /* background: #ff0;
   box-shadow: 0 2px 10px #ff0; */
 }
+
 .plans_container .plan_effect {
   position: absolute;
   border: none;
@@ -53,126 +62,147 @@
   width: 24.5%;
   height: 4rem;
 }
+
 .plans_container .k_b_1_2 {
   left: 38.5%;
   top: 53.6%;
   width: 9.5%;
   height: 5.5rem;
 }
+
 .plans_container .k_b_1_3 {
   left: 31.5%;
   top: 41%;
   width: 24.5%;
   height: 5rem;
 }
+
 .plans_container .k_b_1_4 {
   left: 43%;
   top: 79%;
   width: 3%;
   height: 4.3rem;
 }
+
 .plans_container .k_b_1_4_1 {
   left: 46%;
   top: 68%;
   width: 6.6%;
   height: 8.8rem;
 }
+
 .plans_container .k_b_1_4_2 {
   left: 52.5%;
   top: 84%;
   width: 2%;
   height: 1.2rem;
 }
+
 .plans_container .five_b_1_1 {
   left: 48%;
   top: 52%;
   width: 25%;
   height: 5rem;
 }
+
 .plans_container .five_b_1_2 {
   left: 31.2%;
   top: 42.9%;
   width: 24.6%;
   height: 10%;
 }
+
 .plans_container .five_b_1_3 {
   left: 50%;
   top: 6%;
   width: 6%;
   height: 37%;
 }
+
 .plans_container .zero_b_1_1 {
   left: 46%;
   top: 52%;
   width: 23%;
   height: 10%;
 }
+
 .plans_container .zero_b_1_2 {
   left: 31%;
   top: 42%;
   width: 23%;
   height: 10%;
 }
+
 .plans_container .zero_b_1_3 {
   left: 48%;
   top: 11%;
   width: 6%;
   height: 31%;
 }
+
 .plans_container .zero_b_1_4 {
   left: 31%;
   top: 12%;
   width: 6%;
   height: 30%;
 }
+
 .plans_container .zero_b_1_5 {
   left: 36%;
   top: 13%;
   width: 12%;
   height: 10%;
 }
+
 .plans_container .one_b_1_1 {
   left: 48%;
   top: 53%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .one_b_1_2 {
   left: 31%;
   top: 43%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .one_b_1_3 {
   left: 50%;
   top: 8%;
   width: 6%;
   height: 35%;
 }
+
 .plans_container .one_b_1_4 {
   left: 31%;
   top: 10%;
   width: 6%;
   height: 33%;
 }
+
 .plans_container .one_b_1_5 {
   left: 36%;
   top: 11%;
   width: 14%;
   height: 11%;
 }
+
 .plans_container .two_b_1_1 {
   left: 48%;
   top: 53%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .two_b_1_2 {
   left: 31%;
   top: 43%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .two_b_1_3 {
   left: 50%;
   top: 8%;
@@ -213,30 +243,35 @@
   width: 25%;
   height: 11%;
 }
+
 .plans_container .three_b_1_2 {
   left: 31%;
   top: 43%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .three_b_1_3 {
   left: 50%;
   top: 8%;
   width: 6%;
   height: 35%;
 }
+
 .plans_container .six_b_1_1 {
   left: 48%;
   top: 53%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .six_b_1_2 {
   left: 31%;
   top: 43%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .six_b_1_3 {
   left: 50%;
   top: 6%;
@@ -250,30 +285,35 @@
   width: 25%;
   height: 11%;
 }
+
 .plans_container .seven_b_1_2 {
   left: 31%;
   top: 43%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .seven_b_1_3 {
   left: 50%;
   top: 6%;
   width: 6%;
   height: 37%;
 }
+
 .plans_container .eight_b_1_1 {
   left: 48%;
   top: 53%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .eight_b_1_2 {
   left: 31%;
   top: 43%;
   width: 25%;
   height: 11%;
 }
+
 .plans_container .eight_b_1_3 {
   left: 50%;
   top: 6%;
@@ -1067,6 +1107,7 @@
   background-color: rgba(0, 0, 0, 0.02);
   margin-bottom: 10px;
 }
+
 .chipsbox-height {
   /* height: 60px !important; */
 }
@@ -1081,16 +1122,19 @@
   position: absolute;
   z-index: 1;
 }
+
 input {
   position: relative !important;
   background: transparent;
   border: none;
   /* background-color: red; */
 }
+
 button {
   width: 200px;
   height: 50px;
 }
+
 .btn-sty {
   /* background-color: red; 
   left: 118px;
@@ -1677,21 +1721,21 @@ button {
 }
 
 .plans_container .b6_6_1A_1 {
-    top: 69%;
-    left: 44%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
+  top: 69%;
+  left: 44%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b6_6_1W_1 {
-    top: 59%;
-    left: 40%;
-    width: 2%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
+  top: 59%;
+  left: 40%;
+  width: 2%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 
@@ -1761,21 +1805,21 @@ button {
 /* STARTS B6-L00B */
 
 .plans_container .b6_6_3_7 {
-    top: 68%;
-    left: 43%;
-    width: 12%;
-    height: 29%;
-    padding: 0;
-    z-index: 9999999;
+  top: 68%;
+  left: 43%;
+  width: 12%;
+  height: 29%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b6_6_3A_7 {
-    top: 68%;
-    left: 43%;
-    width: 4%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
+  top: 68%;
+  left: 43%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b6_6_4_8 {
@@ -1907,12 +1951,12 @@ button {
 }
 
 .plans_container .b6_6_2C_13 {
-    top: 54%;
-    left: 18%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
+  top: 54%;
+  left: 18%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b6_6_3_14 {
@@ -1954,12 +1998,12 @@ button {
 /* STARTS L01B */
 
 .plans_container .b6_6_3_17 {
-    top: 65%;
-    left: 44%;
-    width: 9%;
-    height: 30%;
-    padding: 0;
-    z-index: 9999999;
+  top: 65%;
+  left: 44%;
+  width: 9%;
+  height: 30%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b6_6_3A_17 {
@@ -2037,32 +2081,32 @@ button {
 }
 
 .plans_container .b6_6_6A_20 {
-   top: 69%;
-    left: 24%;
-    width: 4%;
-    height: 3%;
-    padding: 0;
-    z-index: 9999999;
+  top: 69%;
+  left: 24%;
+  width: 4%;
+  height: 3%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b6_6_6_2_20 {
-    top: 69%;
-    left: 27%;
-    width: 17%;
-    height: 21%;
-    padding: 0;
-    z-index: 9999999;
+  top: 69%;
+  left: 27%;
+  width: 17%;
+  height: 21%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 /* start L02A */
 
 .plans_container .b6_6_1_21 {
-    top: 58%;
-    left: 40%;
-    width: 39%;
-    height: 17%;
-    padding: 0;
-    z-index: 9999999;
+  top: 58%;
+  left: 40%;
+  width: 39%;
+  height: 17%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b6_6_1D_21 {
@@ -2137,466 +2181,470 @@ button {
   padding: 0;
   z-index: 9999999;
 }
-  .plans_container .b6_6_6_24 {
-    top: 10%;
-    left: 15%;
-    width: 14%;
-    height: 33%;
-    padding: 0;
-    z-index: 9999999;
-  }
 
-  .plans_container .b6_6_6_1_24 {
-    top: 10%;
-    left: 28%;
-    width: 16%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_6_24 {
+  top: 10%;
+  left: 15%;
+  width: 14%;
+  height: 33%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  /* <!-- start B6 L02B --> */
+.plans_container .b6_6_6_1_24 {
+  top: 10%;
+  left: 28%;
+  width: 16%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_3_25 {
-    top: 66%;
-    left: 43%;
-    width: 9%;
-    height: 30%;
-    padding: 0;
-    z-index: 9999999;
-  }
+/* <!-- start B6 L02B --> */
 
-  .plans_container .b6_6_3A_25 {
-    top: 69%;
-    left: 43%;
-    width: 4%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_3_25 {
+  top: 66%;
+  left: 43%;
+  width: 9%;
+  height: 30%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_4_26 {
-    top: 10%;
-    left: 43%;
-    width: 9%;
-    height: 55%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_3A_25 {
+  top: 69%;
+  left: 43%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_4A_26 {
-    top: 13%;
-    left: 43%;
-    width: 4%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_4_26 {
+  top: 10%;
+  left: 43%;
+  width: 9%;
+  height: 55%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_4_2_26 {
-    top: 17%;
-    left: 28%;
-    width: 16%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_4A_26 {
+  top: 13%;
+  left: 43%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_5_27 {
-    top: 10%;
-    left: 15%;
-    width: 13%;
-    height: 58%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_4_2_26 {
+  top: 17%;
+  left: 28%;
+  width: 16%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_5A_27 {
-    top: 13%;
-    left: 17%;
-    width: 4%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_5_27 {
+  top: 10%;
+  left: 15%;
+  width: 13%;
+  height: 58%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_5W_27 {
-    top: 35%;
-    left: 26%;
-    width: 3%;
-    height: 3%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_5A_27 {
+  top: 13%;
+  left: 17%;
+  width: 4%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_6_28 {
-    top: 68%;
-    left: 15%;
-    width: 13%;
-    height: 28%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_5W_27 {
+  top: 35%;
+  left: 26%;
+  width: 3%;
+  height: 3%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_6A_28 {
-    top: 69%;
-    left: 24%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_6_28 {
+  top: 68%;
+  left: 15%;
+  width: 13%;
+  height: 28%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_6_2_28 {
-    top: 69%;
-    left: 28%;
-    width: 15%;
-    height: 11%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_6A_28 {
+  top: 69%;
+  left: 24%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-   /* <!-- start B6 L03A --> */
+.plans_container .b6_6_6_2_28 {
+  top: 69%;
+  left: 28%;
+  width: 15%;
+  height: 11%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-   .plans_container .b6_6_1_29 {
-    top: 58%;
-    left: 40%;
-    width: 39%;
-    height: 17%;
-    padding: 0;
-    z-index: 9999999;
-  }
+/* <!-- start B6 L03A --> */
 
-  .plans_container .b6_6_1D_29{
-    top: 59%;
-    left: 73%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1C_29{
-    top: 59%;
-    left: 52%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1A_29{
-    top: 69%;
-    left: 44%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1W_29{
-    top: 59%;
-    left: 40%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1_29 {
+  top: 58%;
+  left: 40%;
+  width: 39%;
+  height: 17%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_2_30 {
-    top: 43%;
-    left: 15%;
-    width: 37%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1D_29 {
+  top: 59%;
+  left: 73%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_2C_30 {
-    top: 54%;
-    left: 18%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1C_29 {
+  top: 59%;
+  left: 52%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_3_31 {
-    top: 10%;
-    left: 43%;
-    width: 9%;
-    height: 33%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1A_29 {
+  top: 69%;
+  left: 44%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_3C_31 {
-    top: 40%;
+.plans_container .b6_6_1W_29 {
+  top: 59%;
+  left: 40%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_2_30 {
+  top: 43%;
+  left: 15%;
+  width: 37%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_2C_30 {
+  top: 54%;
+  left: 18%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3_31 {
+  top: 10%;
+  left: 43%;
+  width: 9%;
+  height: 33%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3C_31 {
+  top: 40%;
   left: 43%;
   width: 4%;
   height: 3%;
   padding: 0;
   z-index: 9999999;
-  }
+}
 
-  .plans_container .b6_6_6_32 {
-    top: 10%;
-    left: 15%;
-    width: 13%;
-    height: 33%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_6_32 {
+  top: 10%;
+  left: 15%;
+  width: 13%;
+  height: 33%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  /* start L03B */
+/* start L03B */
 
-  .plans_container .b6_6_3_33 {
-    top: 68%;
-    left: 43%;
-    width: 9%;
-    height: 30%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_3_33 {
+  top: 68%;
+  left: 43%;
+  width: 9%;
+  height: 30%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_3A_33 {
-    top: 70%;
-    left: 44%;
-    width: 3%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_3A_33 {
+  top: 70%;
+  left: 44%;
+  width: 3%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_4_34 {
-    top: 12%;
-    left: 43%;
-    width: 9%;
-    height: 55%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  .plans_container .b6_6_4_2_34 {
-    top: 19%;
-    left: 28%;
-    width: 16%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  .plans_container .b6_6_5_35 {
-    top: 12%;
-    left: 15%;
-    width: 13%;
-    height: 59%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_4_34 {
+  top: 12%;
+  left: 43%;
+  width: 9%;
+  height: 55%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_6_36 {
-    top: 72%;
-    left: 15%;
-    width: 13%;
-    height: 27%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_4_2_34 {
+  top: 19%;
+  left: 28%;
+  width: 16%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_6_2_36 {
-    top: 72%;
-    left: 28%;
-    width: 15%;
-    height: 11%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_5_35 {
+  top: 12%;
+  left: 15%;
+  width: 13%;
+  height: 59%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  /* starts L04 */
+.plans_container .b6_6_6_36 {
+  top: 72%;
+  left: 15%;
+  width: 13%;
+  height: 27%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_1_37 {
-    top: 79%;
-    left: 39%;
-    width: 39%;
-    height: 17%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_6_2_36 {
+  top: 72%;
+  left: 28%;
+  width: 15%;
+  height: 11%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_1D_37{
-    top: 79%;
-    left: 71%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1C_37{
-    top: 79%;
-    left: 47%;
-    width: 5%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
+/* starts L04 */
 
-  }
-  
-  .plans_container .b6_6_1A_37{
-    top: 90%;
-    left: 42%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1W_37{
-    top: 80%;
-    left: 39%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1_37 {
+  top: 79%;
+  left: 39%;
+  width: 39%;
+  height: 17%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_2_38 {
-    top: 64%;
-    left: 13%;
-    width: 38%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1D_37 {
+  top: 79%;
+  left: 71%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_2C_38 {
-    top: 75%;
-    left: 16%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  .plans_container .b6_6_3_39 {
-    top: 8%;
-    left: 42%;
-    width: 9%;
-    height: 56%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1C_37 {
+  top: 79%;
+  left: 47%;
+  width: 5%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 
-  .plans_container .b6_6_3A_39 {
-    top: 14%;
-    left: 42%;
-    width: 4%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
+}
 
-  .plans_container .b6_6_3C_39 {
-    top: 60%;
-    left: 42%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1A_37 {
+  top: 90%;
+  left: 42%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1W_37 {
+  top: 80%;
+  left: 39%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_2_38 {
+  top: 64%;
+  left: 13%;
+  width: 38%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_2C_38 {
+  top: 75%;
+  left: 16%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3_39 {
+  top: 8%;
+  left: 42%;
+  width: 9%;
+  height: 56%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3A_39 {
+  top: 14%;
+  left: 42%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3C_39 {
+  top: 60%;
+  left: 42%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
 
 
-  /* start L05 */
+/* start L05 */
 
 .plans_container .b6_6_1_40 {
-    top: 79%;
-    left: 39%;
-    width: 39%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+  top: 79%;
+  left: 39%;
+  width: 39%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_1D_40{
-    top: 79%;
-    left: 71%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1C_40{
-    top: 79%;
-    left: 50%;
-    width: 2%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1A_40{
-    top: 90%;
-    left: 42%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1W_40{
-    top: 80%;
-    left: 39%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1D_40 {
+  top: 79%;
+  left: 71%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_2_41 {
-    top: 64%;
-    left: 13%;
-    width: 38%;
-    height: 15%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1C_40 {
+  top: 79%;
+  left: 50%;
+  width: 2%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_2C_41 {
-    top: 75%;
-    left: 16%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1A_40 {
+  top: 90%;
+  left: 42%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_3_42 {
-    top: 8%;
-    left: 42%;
-    width: 9%;
-    height: 56%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1W_40 {
+  top: 80%;
+  left: 39%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_3A_42 {
-    top: 14%;
-    left: 42%;
-    width: 4%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_2_41 {
+  top: 64%;
+  left: 13%;
+  width: 38%;
+  height: 15%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_3C_42 {
-    top: 60%;
-    left: 42%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_2C_41 {
+  top: 75%;
+  left: 16%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  /* start L06 */
+.plans_container .b6_6_3_42 {
+  top: 8%;
+  left: 42%;
+  width: 9%;
+  height: 56%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3A_42 {
+  top: 14%;
+  left: 42%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3C_42 {
+  top: 60%;
+  left: 42%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* start L06 */
 
 .plans_container .b6_6_1_50 {
   top: 79%;
@@ -2607,7 +2655,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1D_53{
+.plans_container .b6_6_1D_53 {
   top: 79%;
   left: 71%;
   width: 3%;
@@ -2616,7 +2664,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1C_52{
+.plans_container .b6_6_1C_52 {
   top: 79%;
   left: 50%;
   width: 2%;
@@ -2625,7 +2673,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1A_51{
+.plans_container .b6_6_1A_51 {
   top: 90%;
   left: 42%;
   width: 2%;
@@ -2634,7 +2682,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1W_54{
+.plans_container .b6_6_1W_54 {
   top: 80%;
   left: 39%;
   width: 2%;
@@ -2688,91 +2736,91 @@ button {
   z-index: 9999999;
 }
 
-  /* start L07 */
+/* start L07 */
 
-  .plans_container .b6_6_1_60 {
-    top: 79%;
-    left: 39%;
-    width: 39%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1D_63{
-    top: 79%;
-    left: 71%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1C_62{
-    top: 79%;
-    left: 50%;
-    width: 2%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_1A_61{
-    top: 90%;
-    left: 42%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_2_64 {
-    top: 64%;
-    left: 13%;
-    width: 38%;
-    height: 15%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_2C_65 {
-    top: 75%;
-    left: 16%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_3_66 {
-    top: 8%;
-    left: 42%;
-    width: 9%;
-    height: 56%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_3A_67 {
-    top: 14%;
-    left: 42%;
-    width: 4%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_3C_68 {
-    top: 60%;
-    left: 42%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1_60 {
+  top: 79%;
+  left: 39%;
+  width: 39%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1D_63 {
+  top: 79%;
+  left: 71%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1C_62 {
+  top: 79%;
+  left: 50%;
+  width: 2%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_1A_61 {
+  top: 90%;
+  left: 42%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_2_64 {
+  top: 64%;
+  left: 13%;
+  width: 38%;
+  height: 15%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_2C_65 {
+  top: 75%;
+  left: 16%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3_66 {
+  top: 8%;
+  left: 42%;
+  width: 9%;
+  height: 56%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3A_67 {
+  top: 14%;
+  left: 42%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b6_6_3C_68 {
+  top: 60%;
+  left: 42%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
 
 
-   /* start L08 */
+/* start L08 */
 
 .plans_container .b6_6_1_69 {
   top: 79%;
@@ -2783,7 +2831,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1D_72{
+.plans_container .b6_6_1D_72 {
   top: 79%;
   left: 71%;
   width: 3%;
@@ -2792,7 +2840,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1C_71{
+.plans_container .b6_6_1C_71 {
   top: 79%;
   left: 50%;
   width: 2%;
@@ -2801,7 +2849,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1A_70{
+.plans_container .b6_6_1A_70 {
   top: 90%;
   left: 42%;
   width: 2%;
@@ -2810,7 +2858,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b6_6_1W_73{
+.plans_container .b6_6_1W_73 {
   top: 80%;
   left: 39%;
   width: 2%;
@@ -2865,508 +2913,509 @@ button {
 }
 
 
-  /* start L09 */
+/* start L09 */
 
-  .plans_container .b6_6_1_79 {
-    top: 79%;
-    left: 39%;
-    width: 39%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b6_6_2_80 {
-    top: 64%;
-    left: 13%;
-    width: 38%;
-    height: 15%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
- 
-  .plans_container .b6_6_3_81 {
-    top: 8%;
-    left: 42%;
-    width: 9%;
-    height: 56%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
- 
-  /* start LK1A */
+.plans_container .b6_6_1_79 {
+  top: 79%;
+  left: 39%;
+  width: 39%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b6_6_1_43 {
-    top: 59%;
-    left: 25%;
-    width: 54%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b6_6_2_44 {
-    top: 43%;
-    left: 14%;
-    width: 38%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  .plans_container .b6_6_3_45 {
-    top: 10%;
-    left: 43%;
-    width: 9%;
-    height: 33%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b6_6_6_46 {
-    top: 10%;
-    left: 15%;
-    width: 14%;
-    height: 33%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b6_6_6_2_46 {
-    top: 10%;
-    left: 28%;
-    width: 16%;
-    height: 10%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  /* START LK1B */
-
-  .plans_container .b6_6_3_47 {
-    top: 66%;
-    left: 43%;
-    width: 9%;
-    height: 30%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b6_6_5_48 {
-    top: 10%;
-    left: 15%;
-    width: 14%;
-    height: 60%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b6_6_6_49 {
-    top: 69%;
-    left: 15%;
-    width: 29%;
-    height: 27%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_2_80 {
+  top: 64%;
+  left: 13%;
+  width: 38%;
+  height: 15%;
+  padding: 0;
+  z-index: 9999999;
+}
 
 
-  /* START B8 L00 */
-
-  .plans_container .b8_8_1_1 {
-    top: 71%;
-    left: 44%;
-    width: 39%;
-    height: 14%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b8_8_1A_1{
-    top: 70%;
-    left: 78%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1B_1{
-    top: 70%;
-    left: 55%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1E_1{
-    top: 80%;
-    left: 48%;
-    width: 2%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1W_1{
-    top: 70%;
-    left: 44%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
- 
-
-  .plans_container .b8_8_2_2 {
-    top: 55%;
-    left: 19%;
-    width: 29%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b8_8_3_3 {
-    top: 5%;
-    left: 48%;
-    width: 8%;
-    height: 65%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b8_8_3A_3{
-    top: 4%;
-    left: 52%;
-    width: 4%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_3C_3{
-    top: 51%;
-    left: 47%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_3_81 {
+  top: 8%;
+  left: 42%;
+  width: 9%;
+  height: 56%;
+  padding: 0;
+  z-index: 9999999;
+}
 
 
-  .plans_container .b8_8_4_4 {
-    top: 7%;
-    left: 56%;
-    width: 17%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+/* start LK1A */
 
-  .plans_container .b8_8_T_5 {
-    top: 70%;
-    left: 29%;
-    width: 15%;
-    height: 15%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_1_43 {
+  top: 59%;
+  left: 25%;
+  width: 54%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  /* START B8 LO1 */
+.plans_container .b6_6_2_44 {
+  top: 43%;
+  left: 14%;
+  width: 38%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_1_6 {
-    top: 70%;
-    left: 44%;
-    width: 39%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_3_45 {
+  top: 10%;
+  left: 43%;
+  width: 9%;
+  height: 33%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_1A_6{
-    top: 70%;
-    left: 78%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1B_6{
-    top: 70%;
-    left: 55%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1E_6{
-    top: 80%;
-    left: 47%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1W_6{
-    top: 70%;
-    left: 44%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_6_46 {
+  top: 10%;
+  left: 15%;
+  width: 14%;
+  height: 33%;
+  padding: 0;
+  z-index: 9999999;
+}
 
+.plans_container .b6_6_6_2_46 {
+  top: 10%;
+  left: 28%;
+  width: 16%;
+  height: 10%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_2_7 {
-    top: 54%;
-    left: 28%;
-    width: 20%;
-    height: 17%;
-    padding: 0;
-    z-index: 9999999;
-  }
+/* START LK1B */
 
-  .plans_container .b8_8_3_8 {
-    top: 4%;
-    left: 47%;
-    width: 9%;
-    height: 67%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_3_47 {
+  top: 66%;
+  left: 43%;
+  width: 9%;
+  height: 30%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_3A_8{
-    top: 5%;
-    left: 53%;
-    width: 3%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_3C_8{
-    top: 51%;
-    left: 47%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
+.plans_container .b6_6_5_48 {
+  top: 10%;
+  left: 15%;
+  width: 14%;
+  height: 60%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_4_9 {
-    top: 7%;
-    left: 56%;
-    width: 17%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  /* START L02 */
-
-  .plans_container .b8_8_1_10 {
-    top: 70%;
-    left: 44%;
-    width: 39%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
-
-  .plans_container .b8_8_1A_10 {
-    top: 70%;
-    left: 78%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1B_10 {
-    top: 70%;
-    left: 55%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1E_10 {
-    top: 80%;
-    left: 48%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1W_10 {
-    top: 70%;
-    left: 44%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b6_6_6_49 {
+  top: 69%;
+  left: 15%;
+  width: 29%;
+  height: 27%;
+  padding: 0;
+  z-index: 9999999;
+}
 
 
-  .plans_container .b8_8_2_11 {
-    top: 54%;
-    left: 19%;
-    width: 29%;
-    height: 17%;
-    padding: 0;
-    z-index: 9999999;
-  }
+/* START B8 L00 */
 
-  .plans_container .b8_8_2C_11 {
-    top: 66%;
-    left: 24%;
-    width: 3%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b8_8_1_1 {
+  top: 71%;
+  left: 44%;
+  width: 39%;
+  height: 14%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_3_12 {
-    top: 4%;
-    left: 47%;
-    width: 9%;
-    height: 67%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b8_8_1A_1 {
+  top: 70%;
+  left: 78%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_4_13 {
-    top: 7%;
-    left: 56%;
-    width: 17%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b8_8_1B_1 {
+  top: 70%;
+  left: 55%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_3A_12{
-    top: 5%;
-    left: 53%;
-    width: 3%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_3C_12{
-    top: 51%;
-    left: 47%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  /* START L03 */
+.plans_container .b8_8_1E_1 {
+  top: 80%;
+  left: 48%;
+  width: 2%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_1_14 {
-    top: 70%;
-    left: 44%;
-    width: 39%;
-    height: 16%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b8_8_1W_1 {
+  top: 70%;
+  left: 44%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_1A_14 {
-    top: 70%;
-    left: 78%;
-    width: 3%;
-    height: 5%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1B_14 {
-    top: 70%;
-    left: 55%;
-    width: 3%;
-    height: 7%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1E_14 {
-    top: 80%;
-    left: 48%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_1W_14 {
-    top: 70%;
-    left: 44%;
-    width: 2%;
-    height: 6%;
-    padding: 0;
-    z-index: 9999999;
-  }
 
-  .plans_container .b8_8_2_15 {
-    top: 54%;
-    left: 19%;
-    width: 29%;
-    height: 17%;
-    padding: 0;
-    z-index: 9999999;
-  }
 
-  .plans_container .b8_8_2C_15 {
-    top: 66%;
-    left: 24%;
-    width: 3%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b8_8_2_2 {
+  top: 55%;
+  left: 19%;
+  width: 29%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_3_16 {
-    top: 4%;
-    left: 47%;
-    width: 9%;
-    height: 67%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b8_8_3_3 {
+  top: 5%;
+  left: 48%;
+  width: 8%;
+  height: 65%;
+  padding: 0;
+  z-index: 9999999;
+}
 
-  .plans_container .b8_8_3A_16{
-    top: 5%;
-    left: 53%;
-    width: 3%;
-    height: 8%;
-    padding: 0;
-    z-index: 9999999;
-  }
-  
-  .plans_container .b8_8_3C_16{
-    top: 51%;
-    left: 47%;
-    width: 4%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
-  }
+.plans_container .b8_8_3A_3 {
+  top: 4%;
+  left: 52%;
+  width: 4%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
 
- /* START L04 */
+.plans_container .b8_8_3C_3 {
+  top: 51%;
+  left: 47%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
 
- .plans_container .b8_8_1_17 {
+
+.plans_container .b8_8_4_4 {
+  top: 7%;
+  left: 56%;
+  width: 17%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_T_5 {
+  top: 70%;
+  left: 29%;
+  width: 15%;
+  height: 15%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* START B8 LO1 */
+
+.plans_container .b8_8_1_6 {
+  top: 70%;
+  left: 44%;
+  width: 39%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1A_6 {
+  top: 70%;
+  left: 78%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1B_6 {
+  top: 70%;
+  left: 55%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1E_6 {
+  top: 80%;
+  left: 47%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1W_6 {
+  top: 70%;
+  left: 44%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
+.plans_container .b8_8_2_7 {
+  top: 54%;
+  left: 28%;
+  width: 20%;
+  height: 17%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3_8 {
+  top: 4%;
+  left: 47%;
+  width: 9%;
+  height: 67%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3A_8 {
+  top: 5%;
+  left: 53%;
+  width: 3%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3C_8 {
+  top: 51%;
+  left: 47%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
+.plans_container .b8_8_4_9 {
+  top: 7%;
+  left: 56%;
+  width: 17%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* START L02 */
+
+.plans_container .b8_8_1_10 {
+  top: 70%;
+  left: 44%;
+  width: 39%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1A_10 {
+  top: 70%;
+  left: 78%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1B_10 {
+  top: 70%;
+  left: 55%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1E_10 {
+  top: 80%;
+  left: 48%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1W_10 {
+  top: 70%;
+  left: 44%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+
+.plans_container .b8_8_2_11 {
+  top: 54%;
+  left: 19%;
+  width: 29%;
+  height: 17%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_2C_11 {
+  top: 66%;
+  left: 24%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3_12 {
+  top: 4%;
+  left: 47%;
+  width: 9%;
+  height: 67%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_4_13 {
+  top: 7%;
+  left: 56%;
+  width: 17%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3A_12 {
+  top: 5%;
+  left: 53%;
+  width: 3%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3C_12 {
+  top: 51%;
+  left: 47%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* START L03 */
+
+.plans_container .b8_8_1_14 {
+  top: 70%;
+  left: 44%;
+  width: 39%;
+  height: 16%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1A_14 {
+  top: 70%;
+  left: 78%;
+  width: 3%;
+  height: 5%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1B_14 {
+  top: 70%;
+  left: 55%;
+  width: 3%;
+  height: 7%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1E_14 {
+  top: 80%;
+  left: 48%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_1W_14 {
+  top: 70%;
+  left: 44%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_2_15 {
+  top: 54%;
+  left: 19%;
+  width: 29%;
+  height: 17%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_2C_15 {
+  top: 66%;
+  left: 24%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3_16 {
+  top: 4%;
+  left: 47%;
+  width: 9%;
+  height: 67%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3A_16 {
+  top: 5%;
+  left: 53%;
+  width: 3%;
+  height: 8%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+.plans_container .b8_8_3C_16 {
+  top: 51%;
+  left: 47%;
+  width: 4%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
+}
+
+/* START L04 */
+
+.plans_container .b8_8_1_17 {
   top: 76%;
   left: 43%;
   width: 39%;
@@ -3377,38 +3426,38 @@ button {
 
 .plans_container .b8_8_1A_17 {
   top: 76%;
-   left: 77%;
-   width: 3%;
-   height: 4%;
-   padding: 0;
-   z-index: 9999999;
+  left: 77%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1B_17 {
- top: 76%;
- left: 55%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 55%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1E_17 {
- top: 86%;
- left: 47%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 86%;
+  left: 47%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1W_17 {
- top: 76%;
- left: 43%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 43%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_2_18 {
@@ -3438,7 +3487,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3A_19{
+.plans_container .b8_8_3A_19 {
   top: 10%;
   left: 52%;
   width: 3%;
@@ -3447,7 +3496,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3C_19{
+.plans_container .b8_8_3C_19 {
   top: 57%;
   left: 46%;
   width: 4%;
@@ -3470,38 +3519,38 @@ button {
 
 .plans_container .b8_8_1A_20 {
   top: 76%;
-   left: 77%;
-   width: 3%;
-   height: 4%;
-   padding: 0;
-   z-index: 9999999;
+  left: 77%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1B_20 {
- top: 76%;
- left: 55%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 55%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1E_20 {
- top: 86%;
- left: 47%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 86%;
+  left: 47%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1W_20 {
- top: 76%;
- left: 43%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 43%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 
@@ -3532,7 +3581,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3A_22{
+.plans_container .b8_8_3A_22 {
   top: 10%;
   left: 52%;
   width: 3%;
@@ -3541,7 +3590,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3C_22{
+.plans_container .b8_8_3C_22 {
   top: 57%;
   left: 46%;
   width: 4%;
@@ -3564,38 +3613,38 @@ button {
 
 .plans_container .b8_8_1A_23 {
   top: 76%;
-   left: 77%;
-   width: 3%;
-   height: 4%;
-   padding: 0;
-   z-index: 9999999;
+  left: 77%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1B_23 {
- top: 76%;
- left: 55%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 55%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1E_23 {
- top: 86%;
- left: 47%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 86%;
+  left: 47%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1W_23 {
- top: 76%;
- left: 43%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 43%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 
@@ -3616,6 +3665,7 @@ button {
   padding: 0;
   z-index: 9999999;
 }
+
 .plans_container .b8_8_3_25 {
   top: 5%;
   left: 46%;
@@ -3625,7 +3675,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3A_25{
+.plans_container .b8_8_3A_25 {
   top: 10%;
   left: 52%;
   width: 3%;
@@ -3634,7 +3684,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3C_25{
+.plans_container .b8_8_3C_25 {
   top: 57%;
   left: 46%;
   width: 4%;
@@ -3656,38 +3706,38 @@ button {
 
 .plans_container .b8_8_1A_26 {
   top: 76%;
-   left: 77%;
-   width: 3%;
-   height: 4%;
-   padding: 0;
-   z-index: 9999999;
+  left: 77%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1B_26 {
- top: 76%;
- left: 55%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 55%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1E_26 {
- top: 86%;
- left: 47%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 86%;
+  left: 47%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1W_26 {
- top: 76%;
- left: 43%;
- width: 2%;
- height: 6%;
- padding: 0;
- z-index: 9999999;
+  top: 76%;
+  left: 43%;
+  width: 2%;
+  height: 6%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_2_27 {
@@ -3698,6 +3748,7 @@ button {
   padding: 0;
   z-index: 9999999;
 }
+
 .plans_container .b8_8_2C_27 {
   top: 72%;
   left: 23%;
@@ -3706,6 +3757,7 @@ button {
   padding: 0;
   z-index: 9999999;
 }
+
 .plans_container .b8_8_3_28 {
   top: 5%;
   left: 46%;
@@ -3714,7 +3766,8 @@ button {
   padding: 0;
   z-index: 9999999;
 }
-.plans_container .b8_8_3A_28{
+
+.plans_container .b8_8_3A_28 {
   top: 10%;
   left: 52%;
   width: 3%;
@@ -3723,7 +3776,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3C_28{
+.plans_container .b8_8_3C_28 {
   top: 57%;
   left: 46%;
   width: 4%;
@@ -3744,12 +3797,12 @@ button {
 }
 
 .plans_container .b8_8_1A_29 {
-   top: 76%;
-    left: 77%;
-    width: 3%;
-    height: 4%;
-    padding: 0;
-    z-index: 9999999;
+  top: 76%;
+  left: 77%;
+  width: 3%;
+  height: 4%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_1B_29 {
@@ -3806,7 +3859,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3A_31{
+.plans_container .b8_8_3A_31 {
   top: 10%;
   left: 52%;
   width: 3%;
@@ -3815,7 +3868,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .b8_8_3C_31{
+.plans_container .b8_8_3C_31 {
   top: 57%;
   left: 46%;
   width: 4%;
@@ -3866,11 +3919,11 @@ button {
 
 .plans_container .b8_8_2_36 {
   top: 54%;
-    left: 19%;
-    width: 38%;
-    height: 10%;
-    padding: 0;
-    z-index: 9999999;
+  left: 19%;
+  width: 38%;
+  height: 10%;
+  padding: 0;
+  z-index: 9999999;
 }
 
 .plans_container .b8_8_T_37 {
@@ -3892,7 +3945,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .checkbox-1{
+.plans_container .checkbox-1 {
   height: 30px;
   width: 30px;
 }
@@ -3906,7 +3959,7 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .checkbox-2{
+.plans_container .checkbox-2 {
   height: 30px;
   width: 30px;
 }
@@ -3919,10 +3972,12 @@ button {
   padding: 0;
   z-index: 9999999;
 }
-.plans_container .checkbox-3{
+
+.plans_container .checkbox-3 {
   height: 30px;
   width: 30px;
 }
+
 .plans_container .zone-4 {
   top: 48%;
   left: 36%;
@@ -3932,19 +3987,58 @@ button {
   z-index: 9999999;
 }
 
-.plans_container .checkbox-4{
+.plans_container .checkbox-4 {
   height: 30px;
   width: 30px;
 }
 
-.hotwork-sub{
+.hotwork-sub {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2px;
+  margin-bottom: 15px;
+  padding: 0px 10px;
 }
 
-.submit-btn{
+.submit-btn {
   position: absolute;
   bottom: 0px;
   right: 0px;
+}
+
+.protect-sec {
+  display: flex;
+  justify-content: space-around;
+}
+
+.protect-label {
+  margin-right: 30px;
+}
+
+.protect-equip {
+  margin: 10px 0px;
+}
+
+.mandatory {
+  display: flex;
+  margin-top: 20px;
+}
+
+.mandatory-label {
+  width: 22px;
+}
+
+.mandatory-text {
+  margin-left: 10px;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.invalid-checkbox.mat-checkbox .mat-checkbox-frame {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-top: 24px;
 }

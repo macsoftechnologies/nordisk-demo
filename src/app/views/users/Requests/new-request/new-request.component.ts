@@ -84,6 +84,15 @@ export class NewRequestComponent implements OnInit {
   iscmsyes: boolean = false;
   ishotworkyes: boolean = false;
   isnewhotworkyes: boolean = false;
+  iselectricalyes: boolean = false;
+  ishazardousyes: boolean = false;
+  istestingyes: boolean = false;
+  isHeightsyes: boolean = false;
+  isConfinedsyes: boolean = false;
+  isAtexAreayes: boolean = false;
+  isFacilitiesLotoyes: boolean = false;
+  isExcavationWorksyes: boolean = false;
+  isCraneLiftingyes: boolean = false;
   isLOTOPROCEDUREyes: boolean = false;
   RequestForm: FormGroup;
   beamimg: string = "";
@@ -113,6 +122,15 @@ export class NewRequestComponent implements OnInit {
   safetyprecdata: any[] = [];
   safetyList: any[] = [];
   hotWorkHeight: number = 100;
+  electricalHeight: number = 100;
+  hazardousHeight: number = 100;
+  testingHeight: number = 100;
+  HeightsHeight: number = 100;
+  ConfinedsHeight: number = 100;
+  AtexAreaHeight: number = 100;
+  FacilitiesLotoHeight: number = 100;
+  ExcavationWorksHeight: number = 100;
+  CraneLiftingHeight: number = 100;
   @ViewChild("badgeInput") badgeInput: ElementRef<HTMLInputElement>;
   @ViewChild("auto") matAutocomplete: MatAutocomplete;
   @ViewChild("roomInput") roomInput: ElementRef<HTMLInputElement>;
@@ -123,7 +141,7 @@ export class NewRequestComponent implements OnInit {
 
   SubContractors: any[] = [];
   TypeofActivites: any[] = [];
-  planSelectedBlocks: any[]=[];
+  planSelectedBlocks: any[] = [];
 
   CMTs: any[] = [
     {
@@ -167,6 +185,105 @@ export class NewRequestComponent implements OnInit {
       NEWHOTWORKval: "No",
     },
   ];
+  ELECTRICAL: any[] = [
+    {
+      id: "1",
+      ELECTRICALval: "Yes",
+    },
+    {
+      id: "0",
+      ELECTRICALval: "No",
+    },
+  ];
+
+  HAZARDOUS: any[] = [
+    {
+      id: "1",
+      HAZARDOUSval: "Yes",
+    },
+    {
+      id: "0",
+      HAZARDOUSval: "No",
+    },
+  ];
+
+  TESTINGs: any[] = [
+    {
+      id: "1",
+      TESTINGsval: "Yes",
+    },
+    {
+      id: "0",
+      TESTINGsval: "No",
+    },
+  ];
+
+  WORKHEIGHT: any[] = [
+    {
+      id: "1",
+      WORKHEIGHTval: "Yes",
+    },
+    {
+      id: "0",
+      WORKHEIGHTval: "No",
+    },
+  ];
+
+  CONFINEDSPACEs: any[] = [
+    {
+      id: "1",
+      CONFINEDSPACEval: "Yes",
+    },
+    {
+      id: "0",
+      CONFINEDSPACEval: "No",
+    },
+  ];
+
+  ATEXAREA: any[] = [
+    {
+      id: "1",
+      ATEXAREAval: "Yes",
+    },
+    {
+      id: "0",
+      ATEXAREAval: "No",
+    },
+  ];
+
+  FACILITIESLOTO: any[] = [
+    {
+      id: "1",
+      FACILITIESLOTOval: "Yes",
+    },
+    {
+      id: "0",
+      FACILITIESLOTOval: "No",
+    },
+  ];
+
+  ExcavationWorks: any[] = [
+    {
+      id: "1",
+      ExcavationWorksval: "Yes",
+    },
+    {
+      id: "0",
+      ExcavationWorksval: "No",
+    },
+  ];
+
+  CraneLifting: any[] = [
+    {
+      id: "1",
+      CraneLiftingval: "Yes",
+    },
+    {
+      id: "0",
+      CraneLiftingval: "No",
+    },
+  ];
+
   LOTOPROCEDUREs: any[] = [
     {
       id: "1",
@@ -293,7 +410,97 @@ export class NewRequestComponent implements OnInit {
     extinguishers_and_fire_blanket: null,
     welding_activitiy: null,
     air_extraction_be_established: null,
-    heat_treatment: null
+    heat_treatment: null,
+    new_sub_contractor: null,
+    affecting_other_contractors: null,
+    other_conditions: null,
+    lighting_begin_work: null,
+    specific_risks: null,
+    environment_ensured: null,
+    course_of_action: null,
+    working_on_electrical_system: null,
+    responsible_for_the_informed: null,
+    de_energized: null,
+    if_no_loto: null,
+    do_risk_assessment: null,
+    if_yes_loto: null,
+    electrician_certification: null,
+    electricity_have_isulation: null,
+    working_hazardious_substen: null,
+    relevant_mal: null,
+    msds: null,
+    equipment_taken_account: null,
+    ventilation: null,
+    hazardaus_substances: null,
+    storage_and_disposal: null,
+    reachable_case: null,
+    checical_risk_assessment: null,
+    pressure_tesing_of_equipment: null,
+    transfer_of_palnt: null,
+    area_drained: null,
+    area_depressurised: null,
+    area_flused: null,
+    tank_area_container: null,
+    system_free_for_dust: null,
+    loto_plan_submitted: null,
+    working_at_height: null,
+    segragated_demarkated: null,
+    lanyard_attachments: null,
+    rescue_plan: null,
+    avoid_hazards: null,
+    height_training: null,
+    supervision: null,
+    shock_absorbing: null,
+    height_equipments: null,
+    vertical_life: null,
+    secured_falling: null,
+    dropped_objects: null,
+    safe_acces: null,
+    weather_acceptable: null,
+    working_confined_spaces: null,
+    vapours_gases: null,
+    lel_measurement: null,
+    all_equipment: null,
+    exit_conditions: null,
+    communication_emergency: null,
+    rescue_equipments: null,
+    space_ventilation: null,
+    oxygen_meter: null,
+    work_in_atex_area: null,
+    ex_area_downgraded: null,
+    atmospheric_tester: null,
+    flammable_materials: null,
+    potential_explosive: null,
+    oxygen_meter_confined_spaces: null,
+    securing_facilities: null,
+    loto_facilities: null,
+    system_depressurised: null,
+    passive_pause_other: null,
+    electricity_have_insulation: null,
+    covered_or_secured: null,
+    excavation_works: null,
+    excavation_segregated: null,
+    nn_standards: null,
+    danish_regulation: null,
+    safe_access_and_egress: null,
+    correctly_sloped: null,
+    inspection_dates: null,
+    marked_drawings: null,
+    underground_areas_cleared: null,
+    using_cranes_or_lifting: null,
+    appointed_person: null,
+    vendor_supplier: null,
+    lift_plan: null,
+    supplied_and_inspected: null,
+    legal_required_certificates: null,
+    prapared_lifting: null,
+    lifting_task_fenced: null,
+    overhead_risks: null,
+    visible_clothing: null,
+    safety_shoes: null,
+    helmet: null,
+
+
   };
 
   updaterequestdata: EditRequestDto = {
@@ -333,7 +540,111 @@ export class NewRequestComponent implements OnInit {
     Special_Instructions: null,
     Safety_Precautions: null,
     teamId: null,
-    createdTime: null
+    createdTime: null,
+
+     name_of_the_fire_watcher: null,
+  phone_number_of_fire_watcher: null,
+  tasks_in_progress_in_the_area: null,
+  account_during_the_work: null,
+  lighting_sufficiently: null,
+  spesific_risks_based_on_task: null,
+  work_environment_safety_ensured: null,
+  course_of_action_in_emergencies: null,
+  fire_watch_establish: null,
+  combustible_material: null,
+  extinguishers_and_fire_blanket: null,
+  safety_measures: null,
+  welding_activitiy: null,
+  heat_treatment: null,
+  air_extraction_be_established: null,
+  new_sub_contractor: null,
+  affecting_other_contractors: null,
+  other_conditions: null,
+  lighting_begin_work: null,
+  specific_risks: null,
+  environment_ensured: null,
+  course_of_action: null,
+  working_on_electrical_system: null,
+  responsible_for_the_informed: null,
+  de_energized: null,
+  if_no_loto: null,
+  do_risk_assessment: null,
+  if_yes_loto: null,
+  electricity_have_isulation: null,
+  electrician_certification: null,
+  working_hazardious_substen: null,
+  relevant_mal: null,
+  msds: null,
+  ventilation: null,
+  equipment_taken_account: null,
+  hazardaus_substances: null,
+  storage_and_disposal: null,
+  reachable_case: null,
+  checical_risk_assessment: null,
+  pressure_tesing_of_equipment: null,
+  transfer_of_palnt: null,
+  area_drained: null,
+  area_depressurised: null,
+  area_flused: null,
+  tank_area_container: null,
+  system_free_for_dust: null,
+  loto_plan_submitted: null,
+  working_at_height: null,
+  segragated_demarkated: null,
+  lanyard_attachments: null,
+  rescue_plan: null,
+  avoid_hazards: null,
+  height_training: null,
+  supervision: null,
+  shock_absorbing: null,
+  vertical_life: null,
+  height_equipments: null,
+  secured_falling: null,
+  dropped_objects: null,
+  safe_acces: null,
+  weather_acceptable: null,
+  working_confined_spaces: null,
+  vapours_gases: null,
+  lel_measurement: null,
+  all_equipment: null,
+  exit_conditions: null,
+  communication_emergency: null,
+  rescue_equipments: null,
+  space_ventilation: null,
+  oxygen_meter: null,
+  work_in_atex_area: null,
+  ex_area_downgraded: null,
+  atmospheric_tester: null,
+  flammable_materials: null,
+  potential_explosive: null,
+  oxygen_meter_confined_spaces: null,
+  securing_facilities: null,
+  loto_facilities: null,
+  system_depressurised: null,
+  passive_pause_other: null,
+  covered_or_secured: null,
+  excavation_works: null,
+  excavation_segregated: null,
+  nn_standards: null,
+  danish_regulation: null,
+  safe_access_and_egress: null,
+  correctly_sloped: null,
+  inspection_dates: null,
+  marked_drawings: null,
+  underground_areas_cleared: null,
+  using_cranes_or_lifting: null,
+  appointed_person: null,
+  vendor_supplier: null,
+  lift_plan: null,
+  supplied_and_inspected: null,
+  legal_required_certificates: null,
+  prapared_lifting: null,
+  lifting_task_fenced: null,
+  overhead_risks: null,
+  visible_clothing: null,
+  safety_shoes: null,
+  helmet: null,
+
   };
 
   userdata: any = {};
@@ -1142,8 +1453,8 @@ export class NewRequestComponent implements OnInit {
       Poweroff: ["", Validators.required],
       //Applicant: this.ApplicantControl,
       HOTWORK: ["", Validators.required],
-      RAMSNumber : ["", Validators.required],
-      fireWatcher : ["", Validators.required],
+      RAMSNumber: ["", Validators.required],
+      fireWatcher: ["", Validators.required],
       fireWatcherNumber: ["", Validators.required],
       floatLabel1: ['', Validators.required],
       floatLabel2: ['', Validators.required],
@@ -1159,6 +1470,120 @@ export class NewRequestComponent implements OnInit {
       NEWHOTWORK1: ['', Validators.required],
       NEWHOTWORK2: ['', Validators.required],
       LOTOPROCEDURE: ["", Validators.required],
+      // new formControl added
+      newSubContractor: ["", Validators.required],
+      RAMSFileAttach: ["", Validators.required],
+      floatLabel11: ['', Validators.required],
+      floatLabel12: ['', Validators.required],
+      floatLabel13: ['', Validators.required],
+      floatLabel14: ['', Validators.required],
+      floatLabel15: ['', Validators.required],
+      floatLabel16: ['', Validators.required],
+      // electrial system form controls
+      electricalSystem: ['', Validators.required],
+      floatLabel17: ['', Validators.required],
+      floatLabel18: ['', Validators.required],
+      floatLabel19: ['', Validators.required],
+      floatLabel20: ['', Validators.required],
+      floatLabel21: ['', Validators.required],
+      floatLabel22: ['', Validators.required],
+      floatLabel23: ['', Validators.required],
+
+      // HAZARDOUS start
+      HAZARDOUS: ['', Validators.required],
+      floatLabel24: ['', Validators.required],
+      floatLabel25: ['', Validators.required],
+      floatLabel26: ['', Validators.required],
+      floatLabel27: ['', Validators.required],
+      floatLabel28: ['', Validators.required],
+      floatLabel29: ['', Validators.required],
+      floatLabel30: ['', Validators.required],
+      floatLabel31: ['', Validators.required],
+
+
+      //  <!-- testing start -->
+
+      TESTINGs: ['', Validators.required],
+      floatLabel32: ['', Validators.required],
+      floatLabel33: ['', Validators.required],
+      floatLabel34: ['', Validators.required],
+      floatLabel35: ['', Validators.required],
+      floatLabel36: ['', Validators.required],
+      floatLabel37: ['', Validators.required],
+      floatLabel38: ['', Validators.required],
+
+      // <!-- height start -->
+      WORKHEIGHT: ['', Validators.required],
+      floatLabel39: ['', Validators.required],
+      floatLabel40: ['', Validators.required],
+      floatLabel41: ['', Validators.required],
+      floatLabel42: ['', Validators.required],
+      floatLabel43: ['', Validators.required],
+      floatLabel44: ['', Validators.required],
+      floatLabel45: ['', Validators.required],
+      floatLabel46: ['', Validators.required],
+      floatLabel47: ['', Validators.required],
+      floatLabel48: ['', Validators.required],
+      floatLabel49: ['', Validators.required],
+      floatLabel50: ['', Validators.required],
+      // CONFINED SPACE
+      CONFINEDSPACE: ['', Validators.required],
+      floatLabel51: ['', Validators.required],
+      floatLabel52: ['', Validators.required],
+      floatLabel53: ['', Validators.required],
+      floatLabel54: ['', Validators.required],
+      floatLabel55: ['', Validators.required],
+      floatLabel56: ['', Validators.required],
+      floatLabel57: ['', Validators.required],
+      floatLabel58: ['', Validators.required],
+
+      // <!-- ATEXAREA START -->
+      ATEXAREA: ['', Validators.required],
+      floatLabel59: ['', Validators.required],
+      floatLabel60: ['', Validators.required],
+      floatLabel61: ['', Validators.required],
+      floatLabel62: ['', Validators.required],
+      floatLabel63: ['', Validators.required],
+
+      // <!-- FACILITIES LOTO start -->
+      FACILITIESLOTO: ['', Validators.required],
+      floatLabel64: ['', Validators.required],
+      floatLabel65: ['', Validators.required],
+      floatLabel66: ['', Validators.required],
+      floatLabel67: ['', Validators.required],
+      floatLabel68: ['', Validators.required],
+      floatLabel69: ['', Validators.required],
+      floatLabel70: ['', Validators.required],
+      // <!-- FACILITIES LOTO end -->
+
+      // <!-- Excavation Works Start -->
+      ExcavationWorks: ['', Validators.required],
+      floatLabel71: ['', Validators.required],
+      floatLabel72: ['', Validators.required],
+      floatLabel73: ['', Validators.required],
+      floatLabel74: ['', Validators.required],
+      floatLabel75: ['', Validators.required],
+      floatLabel76: ['', Validators.required],
+      floatLabel77: ['', Validators.required],
+      floatLabel78: ['', Validators.required],
+      floatLabel79: ['', Validators.required],
+
+      // <!-- Crane Lifting start -->
+      CraneLifting: ['', Validators.required],
+      floatLabel80: ['', Validators.required],
+      floatLabel81: ['', Validators.required],
+      floatLabel82: ['', Validators.required],
+      floatLabel83: ['', Validators.required],
+      floatLabel84: ['', Validators.required],
+      floatLabel85: ['', Validators.required],
+      floatLabel86: ['', Validators.required],
+      floatLabel87: ['', Validators.required],
+
+      VisableClothing: ['', Validators.required],
+      SafetyShoes: ['', Validators.required],
+      Helmet: ['', Validators.required],
+      mandatoryCheck: ["", Validators.required],
+
       //AccesstoOtherRoom:this.AccesstoroomControl,
       //Keysneeded:this.KeysneedControl,
 
@@ -1291,7 +1716,7 @@ export class NewRequestComponent implements OnInit {
         this.Requestdata.Site_Id = x["site_id"];
         this.updaterequestdata.Site_Id = x["site_id"];
         this.RequestForm.controls["Site"].setValue(
-          "Novo Nordisk Project Team"
+          "M3 South"
         );
         // this.RequestForm.controls["Site"].setValue(x["site_name"]);
       }
@@ -1369,7 +1794,7 @@ export class NewRequestComponent implements OnInit {
         "LK1B"
       ];
     }
-    else if(event == '12') {
+    else if (event == '12') {
       console.log("B8")
       this.floors = [
         "L00",
@@ -1385,11 +1810,11 @@ export class NewRequestComponent implements OnInit {
         "LK1"
       ];
     }
-    else  {
+    else {
       console.log("JG")
       this.floors = [
         "JG",
-           
+
       ];
     }
     this.planType = null;
@@ -1665,18 +2090,18 @@ export class NewRequestComponent implements OnInit {
     this.name = "Room";
   }
 
-  onFloorPlanNew(event, planValNew){
+  onFloorPlanNew(event, planValNew) {
     console.log(planValNew);
     console.log("Event", event)
     this.planSelectedBlocks.push(planValNew)
-    
+
   }
 
   onFloorPlan() {
     let currentdate = this.datePipe.transform(this.Reqdate, "yyyy-MM-dd");
     this.RequestForm.controls["Requestdate"].setValue(currentdate);
     this.RequestForm.controls["Companyname"].setValue(
-      "Novo Nordisk Project Team"
+      "M3 South"
     );
 
     if (this.selectedbuilding == '9') {
@@ -1819,7 +2244,7 @@ export class NewRequestComponent implements OnInit {
         case "L06":
           this.FloorOrdinates = this.B6L06;
           break;
-          
+
         case "L07":
           this.FloorOrdinates = this.B6L07;
           break;
@@ -1898,7 +2323,7 @@ export class NewRequestComponent implements OnInit {
           // Testing
           // console.log(this.FloorOrdinates, "tessssst");
           break;
-    
+
       }
     }
     console.log("block", this.planSelectedBlocks)
@@ -1979,6 +2404,98 @@ export class NewRequestComponent implements OnInit {
       this.isnewhotworkyes = false;
     }
   }
+
+  GetselectedElectricalitem(event) {
+    if (event === "1") {
+      this.electricalHeight = 500;
+      this.iselectricalyes = true;
+    } else {
+      this.electricalHeight = 100;
+      this.iselectricalyes = false;
+    }
+  }
+
+  GetselectedHazardousitem(event) {
+    if (event === "1") {
+      this.hazardousHeight = 500;
+      this.ishazardousyes = true;
+    } else {
+      this.hazardousHeight = 100;
+      this.ishazardousyes = false;
+    }
+  }
+
+  GetselectedTestingitem(event) {
+    if (event === "1") {
+      this.testingHeight = 500;
+      this.istestingyes = true;
+    } else {
+      this.testingHeight = 100;
+      this.istestingyes = false;
+    }
+  }
+
+  GetselectedHeightsitem(event) {
+    if (event === "1") {
+      this.HeightsHeight = 500;
+      this.isHeightsyes = true;
+    } else {
+      this.HeightsHeight = 100;
+      this.isHeightsyes = false;
+    }
+  }
+
+  GetselectedConfinedSpacesitem(event) {
+    if (event === "1") {
+      this.ConfinedsHeight = 500;
+      this.isConfinedsyes = true;
+    } else {
+      this.ConfinedsHeight = 100;
+      this.isConfinedsyes = false;
+    }
+  }
+
+  GetselectedAtexAreaitem(event) {
+    if (event === "1") {
+      this.AtexAreaHeight = 500;
+      this.isAtexAreayes = true;
+    } else {
+      this.AtexAreaHeight = 100;
+      this.isAtexAreayes = false;
+    }
+  }
+
+
+  GetselectedFacilitiesitem(event) {
+    if (event === "1") {
+      this.FacilitiesLotoHeight = 500;
+      this.isFacilitiesLotoyes = true;
+    } else {
+      this.FacilitiesLotoHeight = 100;
+      this.isFacilitiesLotoyes = false;
+    }
+  }
+
+  GetselectedExcavationWorksitem(event) {
+    if (event === "1") {
+      this.ExcavationWorksHeight = 500;
+      this.isExcavationWorksyes = true;
+    } else {
+      this.ExcavationWorksHeight = 100;
+      this.isExcavationWorksyes = false;
+    }
+  }
+
+  GetselectedCraneLiftingitem(event) {
+    if (event === "1") {
+      this.CraneLiftingHeight = 500;
+      this.isCraneLiftingyes = true;
+    } else {
+      this.CraneLiftingHeight = 100;
+      this.isCraneLiftingyes = false;
+    }
+  }
+
   GetselectedLOTOPROCEDUREitem(event) {
     if (event === "1") {
       this.isLOTOPROCEDUREyes = true;
@@ -2042,7 +2559,7 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.Tools = this.RequestForm.controls["Tools"].value;
     this.Requestdata.Machinery = this.RequestForm.controls["Machinery"].value;
     this.Requestdata.Hot_work = this.RequestForm.controls["HOTWORK"].value;
-    
+
     this.Requestdata.name_of_the_fire_watcher = this.RequestForm.controls["fireWatcher"].value;
     this.Requestdata.phone_number_of_fire_watcher = this.RequestForm.controls["fireWatcherNumber"].value;
 
@@ -2061,6 +2578,126 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.welding_activitiy = this.RequestForm.controls["NEWHOTWORK"].value;
     this.Requestdata.heat_treatment = this.RequestForm.controls["NEWHOTWORK1"].value;
     this.Requestdata.air_extraction_be_established = this.RequestForm.controls["NEWHOTWORK2"].value;
+
+    // new fields added
+    this.Requestdata.new_sub_contractor = this.RequestForm.controls["NEWHOTWORK2"].value;
+    this.Requestdata.affecting_other_contractors = this.RequestForm.controls["floatLabel11"].value;
+    this.Requestdata.other_conditions = this.RequestForm.controls["floatLabel12"].value;
+    this.Requestdata.lighting_begin_work = this.RequestForm.controls["floatLabel13"].value;
+    this.Requestdata.specific_risks = this.RequestForm.controls["floatLabel14"].value;
+    this.Requestdata.environment_ensured = this.RequestForm.controls["floatLabel15"].value;
+    this.Requestdata.course_of_action = this.RequestForm.controls["floatLabel16"].value;
+    // electrical system
+    this.Requestdata.working_on_electrical_system = this.RequestForm.controls["electricalSystem"].value;
+    this.Requestdata.responsible_for_the_informed = this.RequestForm.controls["floatLabel17"].value;
+    this.Requestdata.de_energized = this.RequestForm.controls["floatLabel18"].value;
+    this.Requestdata.if_no_loto = this.RequestForm.controls["floatLabel19"].value;
+    this.Requestdata.do_risk_assessment = this.RequestForm.controls["floatLabel20"].value;
+    this.Requestdata.if_yes_loto = this.RequestForm.controls["floatLabel21"].value;
+    this.Requestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel22"].value;
+    this.Requestdata.electrician_certification = this.RequestForm.controls["floatLabel23"].value;
+
+    // working_hazardious
+
+    this.Requestdata.working_hazardious_substen = this.RequestForm.controls["HAZARDOUS"].value;
+    this.Requestdata.relevant_mal = this.RequestForm.controls["floatLabel24"].value;
+    this.Requestdata.msds = this.RequestForm.controls["floatLabel25"].value;
+    this.Requestdata.equipment_taken_account = this.RequestForm.controls["floatLabel26"].value;
+    this.Requestdata.ventilation = this.RequestForm.controls["floatLabel27"].value;
+    this.Requestdata.hazardaus_substances = this.RequestForm.controls["floatLabel28"].value;
+    this.Requestdata.storage_and_disposal = this.RequestForm.controls["floatLabel29"].value;
+    this.Requestdata.reachable_case = this.RequestForm.controls["floatLabel30"].value;
+    this.Requestdata.checical_risk_assessment = this.RequestForm.controls["floatLabel31"].value;
+
+    //  <!-- testing start -->
+
+    this.Requestdata.pressure_tesing_of_equipment = this.RequestForm.controls["TESTINGs"].value;
+    this.Requestdata.transfer_of_palnt = this.RequestForm.controls["floatLabel32"].value;
+    this.Requestdata.area_drained = this.RequestForm.controls["floatLabel33"].value;
+    this.Requestdata.area_depressurised = this.RequestForm.controls["floatLabel34"].value;
+    this.Requestdata.area_flused = this.RequestForm.controls["floatLabel35"].value;
+    this.Requestdata.tank_area_container = this.RequestForm.controls["floatLabel36"].value;
+    this.Requestdata.system_free_for_dust = this.RequestForm.controls["floatLabel37"].value;
+    this.Requestdata.loto_plan_submitted = this.RequestForm.controls["floatLabel38"].value;
+
+    // <!-- height start -->
+
+    this.Requestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
+    this.Requestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
+    this.Requestdata.lanyard_attachments = this.RequestForm.controls["floatLabel40"].value;
+    this.Requestdata.rescue_plan = this.RequestForm.controls["floatLabel41"].value;
+    this.Requestdata.avoid_hazards = this.RequestForm.controls["floatLabel42"].value;
+    this.Requestdata.height_training = this.RequestForm.controls["floatLabel43"].value;
+    this.Requestdata.supervision = this.RequestForm.controls["floatLabel44"].value;
+    this.Requestdata.shock_absorbing = this.RequestForm.controls["floatLabel45"].value;
+    this.Requestdata.height_equipments = this.RequestForm.controls["floatLabel46"].value;
+    this.Requestdata.vertical_life = this.RequestForm.controls["floatLabel47"].value;
+    this.Requestdata.secured_falling = this.RequestForm.controls["floatLabel48"].value;
+    this.Requestdata.dropped_objects = this.RequestForm.controls["floatLabel49"].value;
+    this.Requestdata.safe_acces = this.RequestForm.controls["floatLabel50"].value;
+    // this.Requestdata.weather_acceptable = this.RequestForm.controls["floatLabel88"].value;
+
+    // working_confined_spaces
+
+    this.Requestdata.working_confined_spaces = this.RequestForm.controls["CONFINEDSPACE"].value;
+    this.Requestdata.vapours_gases = this.RequestForm.controls["floatLabel51"].value;
+    this.Requestdata.lel_measurement = this.RequestForm.controls["floatLabel52"].value;
+    this.Requestdata.all_equipment = this.RequestForm.controls["floatLabel53"].value;
+    this.Requestdata.exit_conditions = this.RequestForm.controls["floatLabel54"].value;
+    this.Requestdata.communication_emergency = this.RequestForm.controls["floatLabel55"].value;
+    this.Requestdata.rescue_equipments = this.RequestForm.controls["floatLabel56"].value;
+    this.Requestdata.space_ventilation = this.RequestForm.controls["floatLabel57"].value;
+    this.Requestdata.oxygen_meter = this.RequestForm.controls["floatLabel58"].value;
+
+    // work_in_atex_area
+
+    this.Requestdata.work_in_atex_area = this.RequestForm.controls["ATEXAREA"].value;
+    this.Requestdata.ex_area_downgraded = this.RequestForm.controls["floatLabel59"].value;
+    this.Requestdata.atmospheric_tester = this.RequestForm.controls["floatLabel60"].value;
+    this.Requestdata.flammable_materials = this.RequestForm.controls["floatLabel61"].value;
+    this.Requestdata.potential_explosive = this.RequestForm.controls["floatLabel62"].value;
+    this.Requestdata.oxygen_meter_confined_spaces = this.RequestForm.controls["floatLabel63"].value;
+
+    // <!-- FACILITIES LOTO start -->
+
+    this.Requestdata.securing_facilities = this.RequestForm.controls["FACILITIESLOTO"].value;
+    this.Requestdata.loto_facilities = this.RequestForm.controls["floatLabel64"].value;
+    this.Requestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
+    this.Requestdata.passive_pause_other = this.RequestForm.controls["floatLabel66"].value;
+    this.Requestdata.electricity_have_insulation = this.RequestForm.controls["floatLabel67"].value;
+    this.Requestdata.covered_or_secured = this.RequestForm.controls["floatLabel68"].value;
+    this.Requestdata.electrician_certification = this.RequestForm.controls["floatLabel69"].value;
+    // this.Requestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
+
+    // excavation_works
+
+    this.Requestdata.excavation_works = this.RequestForm.controls["ExcavationWorks"].value;
+    this.Requestdata.excavation_segregated = this.RequestForm.controls["floatLabel71"].value;
+    this.Requestdata.nn_standards = this.RequestForm.controls["floatLabel72"].value;
+    this.Requestdata.danish_regulation = this.RequestForm.controls["floatLabel73"].value;
+    this.Requestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel74"].value;
+    this.Requestdata.correctly_sloped = this.RequestForm.controls["floatLabel75"].value;
+    this.Requestdata.inspection_dates = this.RequestForm.controls["floatLabel76"].value;
+    this.Requestdata.marked_drawings = this.RequestForm.controls["floatLabel77"].value;
+    this.Requestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel78"].value;
+    // this.Requestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel79"].value;
+
+    // using_cranes_or_lifting
+
+    this.Requestdata.using_cranes_or_lifting = this.RequestForm.controls["CraneLifting"].value;
+    this.Requestdata.appointed_person = this.RequestForm.controls["floatLabel80"].value;
+    this.Requestdata.vendor_supplier = this.RequestForm.controls["floatLabel81"].value;
+    this.Requestdata.lift_plan = this.RequestForm.controls["floatLabel82"].value;
+    this.Requestdata.supplied_and_inspected = this.RequestForm.controls["floatLabel83"].value;
+    this.Requestdata.legal_required_certificates = this.RequestForm.controls["floatLabel84"].value;
+    this.Requestdata.prapared_lifting = this.RequestForm.controls["floatLabel85"].value;
+    this.Requestdata.lifting_task_fenced = this.RequestForm.controls["floatLabel86"].value;
+    this.Requestdata.overhead_risks = this.RequestForm.controls["floatLabel87"].value;
+
+
+    this.Requestdata.visible_clothing = this.RequestForm.controls["VisableClothing"].value;
+    this.Requestdata.safety_shoes = this.RequestForm.controls["SafetyShoes"].value;
+    this.Requestdata.helmet = this.RequestForm.controls["Helmet"].value;
 
     // this.Requestdata.Certified_Person =
     //   this.RequestForm.controls["CertifiedPerson"].value;
@@ -2173,6 +2810,147 @@ export class NewRequestComponent implements OnInit {
       this.RequestForm.controls["LOTOPROCEDURE"].value;
     this.updaterequestdata.LOTO_Number =
       this.RequestForm.controls["LOTONumber"].value;
+
+    // new fields add
+
+    this.updaterequestdata.name_of_the_fire_watcher = this.RequestForm.controls["fireWatcher"].value;
+    this.updaterequestdata.phone_number_of_fire_watcher = this.RequestForm.controls["fireWatcherNumber"].value;
+
+    this.updaterequestdata.tasks_in_progress_in_the_area = this.RequestForm.controls["floatLabel1"].value;
+    this.updaterequestdata.account_during_the_work = this.RequestForm.controls["floatLabel2"].value;
+    this.updaterequestdata.lighting_sufficiently = this.RequestForm.controls["floatLabel3"].value;
+    this.updaterequestdata.spesific_risks_based_on_task = this.RequestForm.controls["floatLabel4"].value;
+    this.updaterequestdata.work_environment_safety_ensured = this.RequestForm.controls["floatLabel5"].value;
+    this.updaterequestdata.course_of_action_in_emergencies = this.RequestForm.controls["floatLabel6"].value;
+
+    this.updaterequestdata.fire_watch_establish = this.RequestForm.controls["floatLabel7"].value;
+    this.updaterequestdata.combustible_material = this.RequestForm.controls["floatLabel8"].value;
+    this.updaterequestdata.safety_measures = this.RequestForm.controls["floatLabel9"].value;
+    this.updaterequestdata.extinguishers_and_fire_blanket = this.RequestForm.controls["floatLabel10"].value;
+
+    this.updaterequestdata.welding_activitiy = this.RequestForm.controls["NEWHOTWORK"].value;
+    this.updaterequestdata.heat_treatment = this.RequestForm.controls["NEWHOTWORK1"].value;
+    this.updaterequestdata.air_extraction_be_established = this.RequestForm.controls["NEWHOTWORK2"].value;
+
+    // new fields added
+    this.updaterequestdata.new_sub_contractor = this.RequestForm.controls["NEWHOTWORK2"].value;
+    this.updaterequestdata.affecting_other_contractors = this.RequestForm.controls["floatLabel11"].value;
+    this.updaterequestdata.other_conditions = this.RequestForm.controls["floatLabel12"].value;
+    this.updaterequestdata.lighting_begin_work = this.RequestForm.controls["floatLabel13"].value;
+    this.updaterequestdata.specific_risks = this.RequestForm.controls["floatLabel14"].value;
+    this.updaterequestdata.environment_ensured = this.RequestForm.controls["floatLabel15"].value;
+    this.updaterequestdata.course_of_action = this.RequestForm.controls["floatLabel16"].value;
+    // electrical system
+    this.updaterequestdata.working_on_electrical_system = this.RequestForm.controls["electricalSystem"].value;
+    this.updaterequestdata.responsible_for_the_informed = this.RequestForm.controls["floatLabel17"].value;
+    this.updaterequestdata.de_energized = this.RequestForm.controls["floatLabel18"].value;
+    this.updaterequestdata.if_no_loto = this.RequestForm.controls["floatLabel19"].value;
+    this.updaterequestdata.do_risk_assessment = this.RequestForm.controls["floatLabel20"].value;
+    this.updaterequestdata.if_yes_loto = this.RequestForm.controls["floatLabel21"].value;
+    this.updaterequestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel22"].value;
+    this.updaterequestdata.electrician_certification = this.RequestForm.controls["floatLabel23"].value;
+
+    // working_hazardious
+
+    this.updaterequestdata.working_hazardious_substen = this.RequestForm.controls["HAZARDOUS"].value;
+    this.updaterequestdata.relevant_mal = this.RequestForm.controls["floatLabel24"].value;
+    this.updaterequestdata.msds = this.RequestForm.controls["floatLabel25"].value;
+    this.updaterequestdata.equipment_taken_account = this.RequestForm.controls["floatLabel26"].value;
+    this.updaterequestdata.ventilation = this.RequestForm.controls["floatLabel27"].value;
+    this.updaterequestdata.hazardaus_substances = this.RequestForm.controls["floatLabel28"].value;
+    this.updaterequestdata.storage_and_disposal = this.RequestForm.controls["floatLabel29"].value;
+    this.updaterequestdata.reachable_case = this.RequestForm.controls["floatLabel30"].value;
+    this.updaterequestdata.checical_risk_assessment = this.RequestForm.controls["floatLabel31"].value;
+
+    //  <!-- testing start -->
+
+    this.updaterequestdata.pressure_tesing_of_equipment = this.RequestForm.controls["TESTINGs"].value;
+    this.updaterequestdata.transfer_of_palnt = this.RequestForm.controls["floatLabel32"].value;
+    this.updaterequestdata.area_drained = this.RequestForm.controls["floatLabel33"].value;
+    this.updaterequestdata.area_depressurised = this.RequestForm.controls["floatLabel34"].value;
+    this.updaterequestdata.area_flused = this.RequestForm.controls["floatLabel35"].value;
+    this.updaterequestdata.tank_area_container = this.RequestForm.controls["floatLabel36"].value;
+    this.updaterequestdata.system_free_for_dust = this.RequestForm.controls["floatLabel37"].value;
+    this.updaterequestdata.loto_plan_submitted = this.RequestForm.controls["floatLabel38"].value;
+
+    // <!-- height start -->
+
+    this.updaterequestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
+    this.updaterequestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
+    this.updaterequestdata.lanyard_attachments = this.RequestForm.controls["floatLabel40"].value;
+    this.updaterequestdata.rescue_plan = this.RequestForm.controls["floatLabel41"].value;
+    this.updaterequestdata.avoid_hazards = this.RequestForm.controls["floatLabel42"].value;
+    this.updaterequestdata.height_training = this.RequestForm.controls["floatLabel43"].value;
+    this.updaterequestdata.supervision = this.RequestForm.controls["floatLabel44"].value;
+    this.updaterequestdata.shock_absorbing = this.RequestForm.controls["floatLabel45"].value;
+    this.updaterequestdata.height_equipments = this.RequestForm.controls["floatLabel46"].value;
+    this.updaterequestdata.vertical_life = this.RequestForm.controls["floatLabel47"].value;
+    this.updaterequestdata.secured_falling = this.RequestForm.controls["floatLabel48"].value;
+    this.updaterequestdata.dropped_objects = this.RequestForm.controls["floatLabel49"].value;
+    this.updaterequestdata.safe_acces = this.RequestForm.controls["floatLabel50"].value;
+    this.updaterequestdata.weather_acceptable = this.RequestForm.controls["floatLabel88"].value;
+
+    // working_confined_spaces
+
+    this.updaterequestdata.working_confined_spaces = this.RequestForm.controls["CONFINEDSPACE"].value;
+    this.updaterequestdata.vapours_gases = this.RequestForm.controls["floatLabel51"].value;
+    this.updaterequestdata.lel_measurement = this.RequestForm.controls["floatLabel52"].value;
+    this.updaterequestdata.all_equipment = this.RequestForm.controls["floatLabel53"].value;
+    this.updaterequestdata.exit_conditions = this.RequestForm.controls["floatLabel54"].value;
+    this.updaterequestdata.communication_emergency = this.RequestForm.controls["floatLabel55"].value;
+    this.updaterequestdata.rescue_equipments = this.RequestForm.controls["floatLabel56"].value;
+    this.updaterequestdata.space_ventilation = this.RequestForm.controls["floatLabel57"].value;
+    this.updaterequestdata.oxygen_meter = this.RequestForm.controls["floatLabel58"].value;
+
+    // work_in_atex_area
+
+    this.updaterequestdata.work_in_atex_area = this.RequestForm.controls["ATEXAREA"].value;
+    this.updaterequestdata.ex_area_downgraded = this.RequestForm.controls["floatLabel59"].value;
+    this.updaterequestdata.atmospheric_tester = this.RequestForm.controls["floatLabel60"].value;
+    this.updaterequestdata.flammable_materials = this.RequestForm.controls["floatLabel61"].value;
+    this.updaterequestdata.potential_explosive = this.RequestForm.controls["floatLabel62"].value;
+    this.updaterequestdata.oxygen_meter_confined_spaces = this.RequestForm.controls["floatLabel63"].value;
+
+    // <!-- FACILITIES LOTO start -->
+
+    this.updaterequestdata.securing_facilities = this.RequestForm.controls["FACILITIESLOTO"].value;
+    this.updaterequestdata.loto_facilities = this.RequestForm.controls["floatLabel64"].value;
+    this.updaterequestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
+    this.updaterequestdata.passive_pause_other = this.RequestForm.controls["floatLabel66"].value;
+    this.updaterequestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel67"].value;
+    this.updaterequestdata.covered_or_secured = this.RequestForm.controls["floatLabel68"].value;
+    this.updaterequestdata.electrician_certification = this.RequestForm.controls["floatLabel69"].value;
+    // this.updaterequestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
+
+    // excavation_works
+
+    this.updaterequestdata.excavation_works = this.RequestForm.controls["ExcavationWorks"].value;
+    this.updaterequestdata.excavation_segregated = this.RequestForm.controls["floatLabel71"].value;
+    this.updaterequestdata.nn_standards = this.RequestForm.controls["floatLabel72"].value;
+    this.updaterequestdata.danish_regulation = this.RequestForm.controls["floatLabel73"].value;
+    this.updaterequestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel74"].value;
+    this.updaterequestdata.correctly_sloped = this.RequestForm.controls["floatLabel75"].value;
+    this.updaterequestdata.inspection_dates = this.RequestForm.controls["floatLabel76"].value;
+    this.updaterequestdata.marked_drawings = this.RequestForm.controls["floatLabel77"].value;
+    this.updaterequestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel78"].value;
+    // this.updaterequestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel79"].value;
+
+    // using_cranes_or_lifting
+
+    this.updaterequestdata.using_cranes_or_lifting = this.RequestForm.controls["CraneLifting"].value;
+    this.updaterequestdata.appointed_person = this.RequestForm.controls["floatLabel80"].value;
+    this.updaterequestdata.vendor_supplier = this.RequestForm.controls["floatLabel81"].value;
+    this.updaterequestdata.lift_plan = this.RequestForm.controls["floatLabel82"].value;
+    this.updaterequestdata.supplied_and_inspected = this.RequestForm.controls["floatLabel83"].value;
+    this.updaterequestdata.legal_required_certificates = this.RequestForm.controls["floatLabel84"].value;
+    this.updaterequestdata.prapared_lifting = this.RequestForm.controls["floatLabel85"].value;
+    this.updaterequestdata.lifting_task_fenced = this.RequestForm.controls["floatLabel86"].value;
+    this.updaterequestdata.overhead_risks = this.RequestForm.controls["floatLabel87"].value;
+
+
+    this.updaterequestdata.visible_clothing = this.RequestForm.controls["VisableClothing"].value;
+    this.updaterequestdata.safety_shoes = this.RequestForm.controls["SafetyShoes"].value;
+    this.updaterequestdata.helmet = this.RequestForm.controls["Helmet"].value;
 
     this.updaterequestdata.Power_Off_Required =
       this.RequestForm.controls["Poweroff"].value;
@@ -2294,30 +3072,35 @@ export class NewRequestComponent implements OnInit {
   }
 
   openPopUp() {
-    let title =
-      "Submitted Method Statement and Risk assessment for this activity";
+    this.RequestForm.get("mandatoryCheck").markAsTouched();
+    console.log(this.RequestForm.get("mandatoryCheck").valid, this.RequestForm.get("mandatoryCheck").value)
+    if (this.RequestForm.get("mandatoryCheck").valid) {
+      let title =
+        "Can you confirm the RAMS for this work is approved by ConM?";
 
-    let dialogRef: MatDialogRef<any> = this.dialog.open(
-      RequestSaveOptionsDialogComponent,
-      {
-        width: "500px",
-        height: "200px",
-        disableClose: false,
-        data: { title: title, listitemsstatus: false },
-      }
-    );
-    dialogRef.afterClosed().subscribe((result) => {
-      this.RequestForm.controls["Status"].setValue(result.data);
+      let dialogRef: MatDialogRef<any> = this.dialog.open(
+        RequestSaveOptionsDialogComponent,
+        {
+          width: "500px",
+          height: "200px",
+          disableClose: false,
+          data: { title: title, listitemsstatus: false },
+        }
+      );
+      dialogRef.afterClosed().subscribe((result) => {
+        this.RequestForm.controls["Status"].setValue(result.data);
 
-      this.Requestdata.Request_status = result.data;
-      this.CreateRequest();
-      //this.userservices.RequestLists.push(this.RequestForm.value);
-    });
+        this.Requestdata.Request_status = result.data;
+        this.CreateRequest();
+        //this.userservices.RequestLists.push(this.RequestForm.value);
+      });
+    }
   }
 
   openPopUpForDrafToHold() {
+
     let title =
-      "Submitted Method Statement and Risk assessment for this activity";
+      "Can you confirm the RAMS for this work is approved by ConM?";
 
     let dialogRef: MatDialogRef<any> = this.dialog.open(
       RequestSaveOptionsDialogComponent,

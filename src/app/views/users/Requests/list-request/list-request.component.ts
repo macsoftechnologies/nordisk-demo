@@ -258,7 +258,7 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {    
-
+    
     let testing = [1,2,3]
 
     this.dummyArray = testing.filter((item) =>  {
@@ -364,7 +364,7 @@ export class ListRequestComponent implements OnInit {
           this.paginationCount = res[1].count;
           console.log(this.paginationCount);
         } else if (this.userdata['role'] == 'Department') {
-          this.IsNotSubCntr = true;
+          this.IsNotSubCntr = false;
           this.items = res[0]['data'];
           this.isoperator = true;
           var filteritems = [];

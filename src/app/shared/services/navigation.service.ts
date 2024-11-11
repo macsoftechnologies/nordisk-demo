@@ -242,14 +242,14 @@ export class NavigationService {
       ]
     },
     {
-      name: "Subcontractors",
+      name: "Contractors",
       type: "dropDown",
-      tooltip: "Subcontractors",
+      tooltip: "Contractors",
       icon: "event", 
       state: "",
       sub: [
-        { name: "Sub Contractors", state: "admin/sub-contractors", icon: "fa fa-plus-square"},
-        { name: "Sub Contractors List", state: "admin/subcontractors-list", icon: "fa fa-plus-square"},
+        { name: "Contractors", state: "admin/sub-contractors", icon: "fa fa-plus-square"},
+        { name: "Contractors List", state: "admin/subcontractors-list", icon: "fa fa-plus-square"},
       ]
     },
     {
@@ -263,18 +263,18 @@ export class NavigationService {
         { name: "List Employees", state: "admin/listemployee", icon: "list" }
       ]
     },
-    {
-      name: "Teams",
-      type: "dropDown",
-      tooltip: "Team",
-      icon: "event", 
-      state: "",
-      sub: [
-        { name: "Team", state: "admin/Team", icon: "fa fa-plus-square"},
-        { name: "List Teams", state: "admin/list-team", icon: "list" }
+    // {
+    //   name: "Teams",
+    //   type: "dropDown",
+    //   tooltip: "Team",
+    //   icon: "event", 
+    //   state: "",
+    //   sub: [
+    //     { name: "Team", state: "admin/Team", icon: "fa fa-plus-square"},
+    //     { name: "List Teams", state: "admin/list-team", icon: "list" }
        
-      ]
-    },
+    //   ]
+    // },
     {
       name: "Request",
       type: "dropDown",
@@ -306,13 +306,13 @@ export class NavigationService {
       state: "user/plans"
     },
    
-    {
-      name: "Docs",
-      type: "link",
-      tooltip: "Mydocs",
-      icon: "notifications", 
-      state: "user/mydocs"
-    },
+    // {
+    //   name: "Docs",
+    //   type: "link",
+    //   tooltip: "Mydocs",
+    //   icon: "notifications", 
+    //   state: "user/mydocs"
+    // },
     {
       name: "Settings",
       type: "dropDown",
@@ -352,6 +352,14 @@ export class NavigationService {
       icon: "notifications", 
       state: "user/notifications"
     },
+    {
+      name: "Logs-Histoy",
+      type: "link",
+      tooltip: "Notifications",
+      icon: "notifications", 
+      state: "user/log-history"
+    },
+
   ];
   UsericonMenu: IMenuItem[] = [
     {
