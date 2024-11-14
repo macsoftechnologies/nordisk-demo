@@ -39,7 +39,8 @@ export class EmployeeComponent implements OnInit {
     [
       { name: "Select Type" },
       { name: "Department" },
-      { name: "Subcontractor" },
+      // { name: "Subcontractor" },
+      { name: "Contractor" },
       { name: "Observer" }
     ];
   useraccess: boolean = false;

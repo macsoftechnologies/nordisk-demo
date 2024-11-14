@@ -277,9 +277,23 @@
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column name="Permit number " [flexGrow]="1" [width]="60">
+      <ngx-datatable-column name="Permit number " [flexGrow]="1" [width]="80">
         <ng-template let-row="row" ngx-datatable-cell-template>
           {{ row?.PermitNo }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="HRA'S" [flexGrow]="1" [width]="200">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <img src="assets/images/logos/HotWorks.png" alt="" *ngIf="row?.Hot_work == 1" class="logo-img" />
+          <img src="assets/images/logos/ElectricalSystems.png" alt="" *ngIf="row?.working_on_electrical_system == 1" class="logo-img"/>
+          <img src="assets/images/logos/substanceChemical.png" alt="" *ngIf="row?.working_hazardious_substen == 1" class="logo-img"/>
+          <img src="assets/images/logos/testingequipment.png" alt="" *ngIf="row?.pressure_tesing_of_equipment == 1" class="logo-img"/>
+          <img src="assets/images/logos/WorkingAtHight.png" alt="" *ngIf="row?.working_at_height == 1" class="logo-img"/>
+          <img src="assets/images/logos/ConfinedSpace.png" alt="" *ngIf="row?.working_confined_spaces == 1" class="logo-img"/>
+          <img src="assets/images/logos/ATEXarea.png" alt="" *ngIf="row?.work_in_atex_area == 1" class="logo-img"/>
+          <img src="assets/images/logos/SecuringFacilities.png" alt="" *ngIf="row?.securing_facilities == 1" class="logo-img"/>
+          <img src="assets/images/logos/ExcavationWorks.png" alt="" *ngIf="row?.excavation_works == 1" class="logo-img"/>
+          <img src="assets/images/logos/Craneslifting.png" alt="" *ngIf="row?.using_cranes_or_lifting == 1" class="logo-img"/>
         </ng-template>
       </ngx-datatable-column>
       <ngx-datatable-column name="Activity" [flexGrow]="1" [width]="50">

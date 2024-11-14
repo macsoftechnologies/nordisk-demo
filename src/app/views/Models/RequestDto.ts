@@ -137,6 +137,7 @@ export class RequestDto
   visible_clothing: any;
   safety_shoes: any;
   helmet: any;
+//   descriptActivity: any;
 
 
 }
@@ -283,6 +284,7 @@ export class EditRequestDto
   visible_clothing: any;
   safety_shoes: any;
   helmet: any;
+//   descriptActivity: any;
 }
 
 export class DeleteRequestDto

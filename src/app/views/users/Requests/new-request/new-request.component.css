@@ -4010,6 +4010,15 @@ button {
   justify-content: space-around;
 }
 
+.mandatory-title{
+  font-size: 20px;
+}
+
+.PPE-title{
+  font-size: 20px;
+  margin-top: 22px;
+}
+
 .protect-label {
   margin-right: 30px;
 }
@@ -4039,6 +4048,31 @@ button {
 
 .error-message {
   color: red;
-  font-size: 16px;
-  margin-top: 24px;
+  font-size: 14px;
+  /* margin-top: 24px; */
+}
+/* .form-control16.is-invalid .mat-radio-outer-circle{
+  border-color: red;
+  font-size: 14px;
+
+} */
+
+.PPE-sec{
+  display: flex;
+  justify-content: space-around;
+}
+
+.ppe-label{
+  margin: 5px 0px;
+}
+
+.ppe-radio{
+  margin: 5px 0px 10px 0px;
+}
+
+.hra-img{
+  width: 70px!important;
+}
+.hra-img-sec{
+  height: calc(85px)!important;
 }
