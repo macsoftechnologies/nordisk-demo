@@ -47,7 +47,7 @@ export class RequestService {
     return this.http.post<any>(environment.API_URL + 'request/readLogs.php',id);
   }
 
-  public CreateNewRequest(req:RequestDto): Observable<any> {
+  public CreateNewRequest(req): Observable<any> {
     return this.http.post<any>(environment.API_URL + 'request/create.php', req);
   }
   public UpdateRequest(req:EditRequestDto): Observable<any> {

@@ -138,7 +138,7 @@ export class RequestDto
   safety_shoes: any;
   helmet: any;
 //   descriptActivity: any;
-
+rams_file: any;
 
 }
 

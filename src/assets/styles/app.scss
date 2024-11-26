@@ -60,4 +60,6 @@
 // Open _views.scss and remove unnecessary view related files
 @import "scss/views/views";
 
-
+.main-section .ng2-pdf-viewer-container {
+    overflow-x: inherit !important;
+}

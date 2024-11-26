@@ -157,18 +157,80 @@ export class ListRequestComponent implements OnInit {
   //   })
   // }
 
-  getFloors = [
-    'LK1',
-    'L00',
-    'L01',
-    'L02',
-    'L03',
-    'L04',
-    'L05',
-    'L06',
-    'L07',
-    'L08',
-    'LTA',
+  // getFloors = [
+  //   'LK1',
+  //   'L00',
+  //   'L01',
+  //   'L02',
+  //   'L03',
+  //   'L04',
+  //   'L05',
+  //   'L06',
+  //   'L07',
+  //   'L08',
+  //   'LTA',
+  // ];
+
+    getFloors = [
+    "External Areas",
+    "JF - Ground Floor",
+    "JF - 1st Floor",
+    "JF- 2nd Floor",
+    "JF - Roof Plan",
+  ];
+
+  getHras = [
+    {
+      "label": "Hotwork",
+      "value": 1,
+      "key": "Hot_work"
+    },
+    {
+      "label": "Electrical Systems",
+      "value": 1,
+      "key": "working_on_electrical_system",
+    },
+    {
+      "label": "Hazardous Substances/Chemicals",
+      "value": 1,
+      "key": "working_hazardious_substen"
+    },
+    {
+      "label": "Pressure testing of equipment",
+      "value": 1,
+      "key": "pressure_tesing_of_equipment"
+    },
+    {
+      "label": "Working At Height",
+      "value": 1,
+      "key": "working_at_height"
+    },
+    {
+      "label": "Confined Spaces",
+      "value": 1,
+      "key": "working_confined_spaces"
+    },
+    {
+      "label": "Working in ATEX Area",
+      "value": 1,
+      "key": "work_in_atex_area"
+    },
+    {
+      "label": "Securing Facilities (LOTO)",
+      "value": 1,
+      "key":"securing_facilities"
+    },
+    {
+      "label": "Excavation Works",
+      "value": 1,
+      "key": "excavation_works"
+    },
+    {
+      "label": "Using Crane or Lifting",
+      "value": 1,
+      "key": "using_cranes_or_lifting"
+    },
+    
   ];
 
   Typeofactivitys: any[] = [];
@@ -299,6 +361,7 @@ export class ListRequestComponent implements OnInit {
       Site: ['', Validators.required],
       Building: ['', Validators.required],
       Level: ['', Validators.required],
+      Hras: ['',]
     });
   }
   ngOnDestroy() {
@@ -554,6 +617,12 @@ export class ListRequestComponent implements OnInit {
     if (todate != null) {
       this.SearchRequest.toDate = todate;
     }
+    if (this.RequestlistForm.get("Hras").value.length > 0){
+      this.RequestlistForm.get("Hras").value.forEach(item =>{
+        this.SearchRequest[item.key] = item.value.toString()
+      })
+    }
+
 
     // this.SearchRequest = {
     //   Start : start,

@@ -4010,11 +4010,11 @@ button {
   justify-content: space-around;
 }
 
-.mandatory-title{
+.mandatory-title {
   font-size: 20px;
 }
 
-.PPE-title{
+.PPE-title {
   font-size: 20px;
   margin-top: 22px;
 }
@@ -4051,28 +4051,312 @@ button {
   font-size: 14px;
   /* margin-top: 24px; */
 }
+
 /* .form-control16.is-invalid .mat-radio-outer-circle{
   border-color: red;
   font-size: 14px;
 
 } */
 
-.PPE-sec{
+.PPE-sec {
   display: flex;
   justify-content: space-around;
 }
 
-.ppe-label{
+.ppe-label {
   margin: 5px 0px;
 }
 
-.ppe-radio{
+.ppe-radio {
   margin: 5px 0px 10px 0px;
 }
 
-.hra-img{
-  width: 70px!important;
+.hra-img {
+  width: 70px !important;
 }
-.hra-img-sec{
-  height: calc(85px)!important;
+
+.hra-img-sec {
+  height: calc(85px) !important;
 }
+
+/* new Css */
+/* ground-floor */
+.jf-ground-zoneA {
+  position: absolute;
+  top: 22%;
+  right: 16%;
+  z-index: 9999;
+  height: 161px;
+  width: 85px;
+}
+/* 
+.jf-ground-zoneA:hover {
+  background-color: #71b238;
+} */
+
+.jf-ground-zoneB {
+  position: absolute;
+  top: 21%;
+  right: 23%;
+  z-index: 9999;
+  height: 46px;
+  width: 309px;
+}
+
+.jf-ground-zoneC {
+  position: absolute;
+  top: 44%;
+  right: 23%;
+  z-index: 9999;
+  height: 91px;
+  width: 309px;
+}
+
+.jf-ground-zoneD {
+  position: absolute;
+  top: 21%;
+  left: 31%;
+  z-index: 9999;
+  height: 45px;
+  width: 290px;
+}
+
+.jf-ground-zoneE {
+  position: absolute;
+    top: 36%;
+    left: 31%;
+    z-index: 9999;
+    height: 115px;
+    width: 275px;
+}
+
+.jf-ground-zoneF1 {
+  position: absolute;
+  top: 23%;
+  left: 26%;
+  z-index: 9999;
+  height: 161px;
+  width: 65px;
+}
+.jf-ground-zoneF2 {
+  position: absolute;
+    top: 20%;
+    left: 16%;
+    z-index: 9999;
+    height: 161px;
+    width: 126px;
+}
+/* end ground floor */
+
+/* first floor */
+
+.jf-first-zoneA {
+  position: absolute;
+  top: 22%;
+  right: 16%;
+  z-index: 9999;
+  height: 161px;
+  width: 85px;
+}
+/* 
+.jf-first-zoneA:hover {
+  background-color: #71b238;
+} */
+
+.jf-first-zoneB {
+  position: absolute;
+  top: 21%;
+  right: 23%;
+  z-index: 9999;
+  height: 46px;
+  width: 309px;
+}
+
+.jf-first-zoneC {
+  position: absolute;
+  top: 44%;
+  right: 23%;
+  z-index: 9999;
+  height: 91px;
+  width: 309px;
+}
+
+.jf-first-zoneD {
+  position: absolute;
+  top: 21%;
+  left: 31%;
+  z-index: 9999;
+  height: 45px;
+  width: 290px;
+}
+
+.jf-first-zoneE {
+  position: absolute;
+    top: 36%;
+    left: 31%;
+    z-index: 9999;
+    height: 115px;
+    width: 275px;
+}
+
+.jf-first-zoneF1 {
+  position: absolute;
+  top: 23%;
+  left: 26%;
+  z-index: 9999;
+  height: 161px;
+  width: 65px;
+}
+.jf-first-zoneF2 {
+  position: absolute;
+    top: 20%;
+    left: 16%;
+    z-index: 9999;
+    height: 161px;
+    width: 126px;
+}
+
+/* end first floor */
+
+
+/* second floor */
+
+.jf-second-zoneA {
+  position: absolute;
+  top: 22%;
+  right: 16%;
+  z-index: 9999;
+  height: 161px;
+  width: 85px;
+}
+/* 
+.jf-second-zoneA:hover {
+  background-color: #71b238;
+} */
+
+.jf-second-zoneB {
+  position: absolute;
+  top: 21%;
+  right: 23%;
+  z-index: 9999;
+  height: 46px;
+  width: 309px;
+}
+
+.jf-second-zoneC {
+  position: absolute;
+  top: 44%;
+  right: 23%;
+  z-index: 9999;
+  height: 91px;
+  width: 309px;
+}
+
+.jf-second-zoneD {
+  position: absolute;
+  top: 21%;
+  left: 31%;
+  z-index: 9999;
+  height: 45px;
+  width: 290px;
+}
+
+.jf-second-zoneE {
+  position: absolute;
+    top: 36%;
+    left: 31%;
+    z-index: 9999;
+    height: 115px;
+    width: 275px;
+}
+
+.jf-second-zoneF1 {
+  position: absolute;
+  top: 23%;
+  left: 26%;
+  z-index: 9999;
+  height: 161px;
+  width: 65px;
+}
+.jf-second-zoneF2 {
+  position: absolute;
+    top: 20%;
+    left: 16%;
+    z-index: 9999;
+    height: 161px;
+    width: 126px;
+}
+
+/* end second floor */
+
+
+/* Roof floor */
+
+.jf-Roof-zoneA {
+  position: absolute;
+  top: 22%;
+  right: 16%;
+  z-index: 9999;
+  height: 161px;
+  width: 85px;
+}
+/* 
+.jf-Roof-zoneA:hover {
+  background-color: #71b238;
+} */
+
+.jf-Roof-zoneB {
+  position: absolute;
+  top: 21%;
+  right: 23%;
+  z-index: 9999;
+  height: 46px;
+  width: 309px;
+}
+
+.jf-Roof-zoneC {
+  position: absolute;
+  top: 44%;
+  right: 23%;
+  z-index: 9999;
+  height: 91px;
+  width: 309px;
+}
+
+.jf-Roof-zoneD {
+  position: absolute;
+  top: 21%;
+  left: 31%;
+  z-index: 9999;
+  height: 45px;
+  width: 290px;
+}
+
+.jf-Roof-zoneE {
+  position: absolute;
+    top: 36%;
+    left: 31%;
+    z-index: 9999;
+    height: 115px;
+    width: 275px;
+}
+
+.jf-Roof-zoneF1 {
+  position: absolute;
+  top: 23%;
+  left: 26%;
+  z-index: 9999;
+  height: 161px;
+  width: 65px;
+}
+.jf-Roof-zoneF2 {
+  position: absolute;
+    top: 20%;
+    left: 16%;
+    z-index: 9999;
+    height: 161px;
+    width: 126px;
+}
+
+/* end Roof floor */
+

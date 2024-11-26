@@ -4,30 +4,110 @@
         <!-- <div *ngIf='items.length>0'>
         <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
       </div> -->
-        <ngx-datatable id="content" #content class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'"
-            [headerHeight]="50" [footerHeight]="50" [scrollbarH]="true" [limit]="10" [rowHeight]="50">
-            <ngx-datatable-column name="Id" [flexGrow]="1" class="coulm-cur">
-                <ng-template let-row="row" ngx-datatable-cell-template>
-                    {{ row?.id }}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="User Name" [flexGrow]="1">
-                <ng-template let-row="row" ngx-datatable-cell-template>
-                    {{ row?.username }}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="Created Time" [flexGrow]="1">
-                <ng-template let-row="row" ngx-datatable-cell-template>
-                    {{ row?.createdTime }}
-                </ng-template>
-            </ngx-datatable-column>
-            <ngx-datatable-column name="Request Type" [flexGrow]="1">
-                <ng-template let-row="row" ngx-datatable-cell-template>
-                    {{ row?.requestType }}
-                </ng-template>
-            </ngx-datatable-column>
+     <!-- ngx data table used to be there -->
+     <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
+     [footerHeight]="50" [scrollbarH]="true" [limit]="30" [rowHeight]="50">
+     <ngx-datatable-column [width]="10" *ngIf="isoperator">
+       <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+         let-selectFn="selectFn">
+         <!-- <span class="span-sty span-apprv" color="primary">Approvedd</span>
+         <span class="span-sty span-rejc" color="primary">Rejected</span> -->
 
-        </ngx-datatable>
+
+       </ng-template>
+       <!-- <ng-template [width]="50" class="chcks-sty" ngx-datatable-cell-template let-value="value"
+         let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn" let-row="row">
+         <input [width]="50" type="checkbox" [checked]="isSelected" *ngIf="row.Request_status == 'Hold'"
+           (change)="onCheckboxChangeFn($event)" />
+       </ng-template> -->
+     </ngx-datatable-column>
+
+     <ngx-datatable-column name="Permit number " [flexGrow]="1" [width]="80">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.PermitNo }}
+       </ng-template>
+     </ngx-datatable-column>
+     <ngx-datatable-column name="HRA'S" [flexGrow]="1" [width]="200">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         <img src="assets/images/logos/HotWorks.png" alt="" *ngIf="row?.Hot_work == 1" class="logo-img" />
+         <img src="assets/images/logos/ElectricalSystems.png" alt="" *ngIf="row?.working_on_electrical_system == 1"
+           class="logo-img" />
+         <img src="assets/images/logos/substanceChemical.png" alt="" *ngIf="row?.working_hazardious_substen == 1"
+           class="logo-img" />
+         <img src="assets/images/logos/testingequipment.png" alt="" *ngIf="row?.pressure_tesing_of_equipment == 1"
+           class="logo-img" />
+         <img src="assets/images/logos/WorkingAtHight.png" alt="" *ngIf="row?.working_at_height == 1"
+           class="logo-img" />
+         <img src="assets/images/logos/ConfinedSpace.png" alt="" *ngIf="row?.working_confined_spaces == 1"
+           class="logo-img" />
+         <img src="assets/images/logos/ATEXarea.png" alt="" *ngIf="row?.work_in_atex_area == 1" class="logo-img" />
+         <img src="assets/images/logos/SecuringFacilities.png" alt="" *ngIf="row?.securing_facilities == 1"
+           class="logo-img" />
+         <img src="assets/images/logos/ExcavationWorks.png" alt="" *ngIf="row?.excavation_works == 1"
+           class="logo-img" />
+         <img src="assets/images/logos/Craneslifting.png" alt="" *ngIf="row?.using_cranes_or_lifting == 1"
+           class="logo-img" />
+       </ng-template>
+     </ngx-datatable-column>
+     <ngx-datatable-column name="Activity" [flexGrow]="1" [width]="50">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.Activity }}
+       </ng-template>
+     </ngx-datatable-column>
+
+     <ngx-datatable-column name="Sub-contractor" [flexGrow]="1" [width]="50">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.subContractorName }}
+       </ng-template>
+     </ngx-datatable-column>
+
+     <ngx-datatable-column name="Building" [flexGrow]="1" [width]="20">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.building_name }}
+       </ng-template>
+     </ngx-datatable-column>
+
+     <ngx-datatable-column name="Area" [flexGrow]="1" [width]="50">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.Room_Nos }}
+       </ng-template>
+     </ngx-datatable-column>
+
+     <ngx-datatable-column name="Level" [flexGrow]="1" [width]="20">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.Room_Type }}
+       </ng-template>
+     </ngx-datatable-column>
+
+     <ngx-datatable-column name="Working Date" [flexGrow]="1" [width]="50">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.Working_Date | date: "mediumDate" }}
+       </ng-template>
+     </ngx-datatable-column>
+     <ngx-datatable-column name="Time" [flexGrow]="1" [width]="50">
+       <ng-template let-row="row" ngx-datatable-cell-template>
+         {{ row?.Start_Time }} - {{ row?.End_Time }}
+       </ng-template>
+     </ngx-datatable-column>
+
+
+     <ngx-datatable-footer>
+       <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize"
+         let-selectedCount="selectedCount" let-curPage="curPage" let-offset="offset">
+         <div style="padding: 5px 10px">
+           <!-- <div>
+             Selected {{Countresult.length}} of {{(rowCount>
+             (curPage*pageSize))?(curPage*pageSize):(rowCount)}} /
+             {{paginationCount}} records.
+           </div> -->
+         </div>
+         <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'"
+           [pagerPreviousIcon]="'datatable-icon-prev'" [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
+           [size]="pageSize" [count]="paginationCount" (change)="onPagination($event)">
+         </datatable-pager>
+       </ng-template>
+     </ngx-datatable-footer>
+   </ngx-datatable>
     </mat-card-content>
 </mat-card>
 

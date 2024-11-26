@@ -70,12 +70,8 @@
       <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
-            <mat-label>SubContractor</mat-label>
-            <mat-select
-              formControlName="Contractor"
-              name="Company"
-              [disabled]="!IsNotSubCntr"
-            >
+            <mat-label>Contractor</mat-label>
+            <mat-select formControlName="Contractor" name="Company" [disabled]="!IsNotSubCntr">
               <mat-option>None</mat-option>
               <mat-option *ngFor="let loc of Contractors" [value]="loc.id">
                 {{ loc.subContractorName }}
@@ -110,34 +106,18 @@
         <mat-grid-tile>
           <mat-form-field class="datepikr full-width" appearance="outline">
             <mat-label>Working Date (from)</mat-label>
-            <input
-              matInput
-              [min]="minDate"
-              formControlName="WorkingDateFrom"
-              [max]="maxDate"
-              [matDatepicker]="fspicker"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="fspicker"
-            ></mat-datepicker-toggle>
+            <input matInput [min]="minDate" formControlName="WorkingDateFrom" [max]="maxDate"
+              [matDatepicker]="fspicker" />
+            <mat-datepicker-toggle matSuffix [for]="fspicker"></mat-datepicker-toggle>
             <mat-datepicker #fspicker></mat-datepicker>
           </mat-form-field>
         </mat-grid-tile>
         <mat-grid-tile>
           <mat-form-field class="datepikr full-width" appearance="outline">
             <mat-label>Working Date (to)</mat-label>
-            <input
-              matInput
-              [min]="minDate"
-              formControlName="WorkingDateTo"
-              [max]="maxDate"
-              [matDatepicker]="tspicker"
-            />
-            <mat-datepicker-toggle
-              matSuffix
-              [for]="tspicker"
-            ></mat-datepicker-toggle>
+            <input matInput [min]="minDate" formControlName="WorkingDateTo" [max]="maxDate"
+              [matDatepicker]="tspicker" />
+            <mat-datepicker-toggle matSuffix [for]="tspicker"></mat-datepicker-toggle>
             <mat-datepicker #tspicker></mat-datepicker>
           </mat-form-field>
         </mat-grid-tile>
@@ -153,11 +133,7 @@
         <mat-grid-tile>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Permit number </mat-label>
-            <input
-              matInput
-              formControlName="Permitnumber"
-              placeholder="Permit number"
-            />
+            <input matInput formControlName="Permitnumber" placeholder="Permit number" />
           </mat-form-field>
         </mat-grid-tile>
       </mat-grid-list>
@@ -174,15 +150,28 @@
             </mat-select>
           </mat-form-field>
         </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>HRA'S</mat-label>
+            <mat-select formControlName="Hras" name="Hras" [multiple]="true">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let hras of getHras" [value]="hras">
+                {{ hras.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <!-- {{RequestlistForm.get("Hras").value | json}} -->
+
       </mat-grid-list>
+
+
+
     </form>
     <div class="butns-grp">
-      <button
-        style="margin-right: 5px"
-        mat-raised-button
-        color="primary"
-        (click)="search($event)"
-      >
+      <button style="margin-right: 5px" mat-raised-button color="primary" (click)="search($event)">
         <mat-icon>search</mat-icon>Search
       </button>
       <button mat-raised-button color="primary" (click)="Reset()">Reset</button>
@@ -196,26 +185,15 @@
       <button class="download_btn_sty" mat-raised-button color="primary" (click)="exportToExcel()">Download</button>
     </div> -->
     <div *ngIf="isoperator">
-      <button
-        mat-raised-button
-        class="span-apprv"
-        (click)="statuschange('Approved')"
-      >
+      <button mat-raised-button class="span-apprv" (click)="statuschange('Approved')">
         Approved
       </button>
-      <button
-        mat-raised-button
-        class="span-rejc"
-        (click)="statuschange('Rejected')"
-      >
+      <button mat-raised-button class="span-rejc" (click)="statuschange('Rejected')">
         Rejected
       </button>
       <mat-form-field appearance="outline" *ngIf="selected.length > 0">
         <mat-label>Edit</mat-label>
-        <mat-select
-          name="editmult"
-          (selectionChange)="Getselected($event.value)"
-        >
+        <mat-select name="editmult" (selectionChange)="Getselected($event.value)">
           <mat-option value="none">None</mat-option>
           <mat-option value="Time"> Time </mat-option>
           <mat-option value="safetyPrecaution"> Safety Precaution </mat-option>
@@ -225,55 +203,23 @@
     </div>
 
     <!-- ngx data table used to be there -->
-    <ngx-datatable
-      class="material ml-0 mr-0"
-      [rows]="items"
-      [columnMode]="'force'"
-      [headerHeight]="70"
-      [footerHeight]="50"
-      [scrollbarH]="true"
-      [limit]="30"
-      [rowHeight]="50"
-      (select)="onSelect($event)"
-      [selected]="selected"
-      [selectionType]="SelectionType.checkbox"
-      #table
-    >
+    <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
+      [footerHeight]="50" [scrollbarH]="true" [limit]="30" [rowHeight]="50" (select)="onSelect($event)"
+      [selected]="selected" [selectionType]="SelectionType.checkbox" #table>
       <ngx-datatable-column [width]="10" *ngIf="isoperator">
-        <ng-template
-        
-          ngx-datatable-header-template
-          let-value="value"
-          let-allRowsSelected="allRowsSelected"
-          let-selectFn="selectFn"
-        >
+        <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+          let-selectFn="selectFn">
           <!-- <span class="span-sty span-apprv" color="primary">Approvedd</span>
           <span class="span-sty span-rejc" color="primary">Rejected</span> -->
 
           <div>
-            <input
-              type="checkbox"
-              [checked]="allRowsSelected"
-              (change)="selectFn(!allRowsSelected)"
-            />
+            <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" />
           </div>
         </ng-template>
-        <ng-template
-        [width]="50"
-          class="chcks-sty"
-          ngx-datatable-cell-template
-          let-value="value"
-          let-isSelected="isSelected"
-          let-onCheckboxChangeFn="onCheckboxChangeFn"
-          let-row="row"
-        >
-          <input
-          [width]="50"
-            type="checkbox"
-            [checked]="isSelected"
-            *ngIf="row.Request_status == 'Hold'"
-            (change)="onCheckboxChangeFn($event)"
-          />
+        <ng-template [width]="50" class="chcks-sty" ngx-datatable-cell-template let-value="value"
+          let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn" let-row="row">
+          <input [width]="50" type="checkbox" [checked]="isSelected" *ngIf="row.Request_status == 'Hold'"
+            (change)="onCheckboxChangeFn($event)" />
         </ng-template>
       </ngx-datatable-column>
 
@@ -285,15 +231,23 @@
       <ngx-datatable-column name="HRA'S" [flexGrow]="1" [width]="200">
         <ng-template let-row="row" ngx-datatable-cell-template>
           <img src="assets/images/logos/HotWorks.png" alt="" *ngIf="row?.Hot_work == 1" class="logo-img" />
-          <img src="assets/images/logos/ElectricalSystems.png" alt="" *ngIf="row?.working_on_electrical_system == 1" class="logo-img"/>
-          <img src="assets/images/logos/substanceChemical.png" alt="" *ngIf="row?.working_hazardious_substen == 1" class="logo-img"/>
-          <img src="assets/images/logos/testingequipment.png" alt="" *ngIf="row?.pressure_tesing_of_equipment == 1" class="logo-img"/>
-          <img src="assets/images/logos/WorkingAtHight.png" alt="" *ngIf="row?.working_at_height == 1" class="logo-img"/>
-          <img src="assets/images/logos/ConfinedSpace.png" alt="" *ngIf="row?.working_confined_spaces == 1" class="logo-img"/>
-          <img src="assets/images/logos/ATEXarea.png" alt="" *ngIf="row?.work_in_atex_area == 1" class="logo-img"/>
-          <img src="assets/images/logos/SecuringFacilities.png" alt="" *ngIf="row?.securing_facilities == 1" class="logo-img"/>
-          <img src="assets/images/logos/ExcavationWorks.png" alt="" *ngIf="row?.excavation_works == 1" class="logo-img"/>
-          <img src="assets/images/logos/Craneslifting.png" alt="" *ngIf="row?.using_cranes_or_lifting == 1" class="logo-img"/>
+          <img src="assets/images/logos/ElectricalSystems.png" alt="" *ngIf="row?.working_on_electrical_system == 1"
+            class="logo-img" />
+          <img src="assets/images/logos/substanceChemical.png" alt="" *ngIf="row?.working_hazardious_substen == 1"
+            class="logo-img" />
+          <img src="assets/images/logos/testingequipment.png" alt="" *ngIf="row?.pressure_tesing_of_equipment == 1"
+            class="logo-img" />
+          <img src="assets/images/logos/WorkingAtHight.png" alt="" *ngIf="row?.working_at_height == 1"
+            class="logo-img" />
+          <img src="assets/images/logos/ConfinedSpace.png" alt="" *ngIf="row?.working_confined_spaces == 1"
+            class="logo-img" />
+          <img src="assets/images/logos/ATEXarea.png" alt="" *ngIf="row?.work_in_atex_area == 1" class="logo-img" />
+          <img src="assets/images/logos/SecuringFacilities.png" alt="" *ngIf="row?.securing_facilities == 1"
+            class="logo-img" />
+          <img src="assets/images/logos/ExcavationWorks.png" alt="" *ngIf="row?.excavation_works == 1"
+            class="logo-img" />
+          <img src="assets/images/logos/Craneslifting.png" alt="" *ngIf="row?.using_cranes_or_lifting == 1"
+            class="logo-img" />
         </ng-template>
       </ngx-datatable-column>
       <ngx-datatable-column name="Activity" [flexGrow]="1" [width]="50">
@@ -338,127 +292,65 @@
       </ngx-datatable-column>
       <ngx-datatable-column name="Status" [flexGrow]="1" [width]="50">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-chip
-            mat-sm-chip
-            [color]="'primary'"
-            (click)="EditDraft(row)"
-            *ngIf="
+          <mat-chip mat-sm-chip [color]="'primary'" (click)="EditDraft(row)" *ngIf="
               row.Request_status != 'Hold' &&
               row.Request_status != 'Approved' &&
               row.Request_status != 'Opened' &&
               row.Request_status != 'Closed'
-            "
-          >
+            ">
             {{ row?.Request_status }}
           </mat-chip>
-          <mat-chip
-            mat-sm-chip
-            [color]="'primary'"
-            *ngIf="row.Request_status == 'Closed'"
-          >
+          <mat-chip mat-sm-chip [color]="'primary'" *ngIf="row.Request_status == 'Closed'">
             {{ row?.Request_status }}
           </mat-chip>
-          <mat-chip
-            mat-sm-chip
-            class="hold-sty"
-            [color]="'primary'"
-            (click)="ChangeStausbysubcontractor(row, 'Opened')"
-            *ngIf="row.Request_status == 'Approved'"
-            >{{ row?.Request_status }}
+          <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row, 'Opened')"
+            *ngIf="row.Request_status == 'Approved'">{{ row?.Request_status }}
           </mat-chip>
-          <mat-chip
-            mat-sm-chip
-            class="hold-sty"
-            [color]="'primary'"
-            (click)="ChangeStausbysubcontractor(row, 'Closed')"
-            *ngIf="row.Request_status == 'Opened'"
-            >{{ row?.Request_status }}
+          <mat-chip mat-sm-chip class="hold-sty" [color]="'primary'" (click)="ChangeStausbysubcontractor(row, 'Closed')"
+            *ngIf="row.Request_status == 'Opened'">{{ row?.Request_status }}
           </mat-chip>
-          <mat-chip
-            class="hold-sty"
-            mat-sm-chip
-            [color]="'primary'"
-            *ngIf="row.Request_status == 'Hold' && isoperator"
-            (click)="ChangeStaus(row)"
-            >{{ row?.Request_status }}</mat-chip
-          >
-          <mat-chip
-            mat-sm-chip
-            [color]="'primary'"
-            *ngIf="row.Request_status == 'Hold' && !isoperator"
-          >
-            {{ row?.Request_status }}</mat-chip
-          >
+          <mat-chip class="hold-sty" mat-sm-chip [color]="'primary'" *ngIf="row.Request_status == 'Hold' && isoperator"
+            (click)="ChangeStaus(row)">{{ row?.Request_status }}</mat-chip>
+          <mat-chip mat-sm-chip [color]="'primary'" *ngIf="row.Request_status == 'Hold' && !isoperator">
+            {{ row?.Request_status }}</mat-chip>
         </ng-template>
       </ngx-datatable-column>
 
       <ngx-datatable-column name="Operations" [flexGrow]="1">
         <ng-template let-row="row" ngx-datatable-cell-template>
-          <mat-icon
-            (click)="Editrow(row)"
-            class="icons-sty"
-            *ngIf="isoperator && row.Request_status != 'Closed' && (this.userdata['role'] !== 'Observer')" 
-            (click)="Editrow(row)"
-            >edit</mat-icon
-          >
+          <mat-icon (click)="Editrow(row)" class="icons-sty"
+            *ngIf="isoperator && row.Request_status != 'Closed' && (this.userdata['role'] !== 'Observer')"
+            (click)="Editrow(row)">edit</mat-icon>
           <mat-icon class="icons-sty">
-            <a
-              href="https://beam.safesiteworks.com/navodemoproject/newbeam/index.php?PermitNo={{
+            <a href="https://beam.safesiteworks.com/navodemoproject/newbeam/index.php?PermitNo={{
                 row?.PermitNo
-              }}"
-              target="_blank"
-              >visibility</a
-            ></mat-icon
-          >
-          <mat-icon
-            (click)="CopyRequest(row, 'Hold')"
-            class="icons-sty"
-            *ngIf="
+              }}" target="_blank">visibility</a></mat-icon>
+          <mat-icon (click)="CopyRequest(row, 'Hold')" class="icons-sty" *ngIf="
              (row.Request_status == 'Hold' ||
               row.Request_status == 'Approved' ||
               row.Request_status == 'Rejected') && (this.userdata['role'] !== 'Observer')
-            "
-            >content_copy
+            ">content_copy
           </mat-icon>
-          <mat-icon
-            (click)="CopyRequest(row, 'Closed')"
-            class="icons-sty"
-            *ngIf="row.Request_status == 'Closed' && isoperator && (this.userdata['role'] !== 'Observer')"
-            >content_copy</mat-icon
-          >
-          <mat-icon
-            (click)="Deleterequest(row)"
-            class="icons-sty"
-            *ngIf="IsNotSubCntr && (this.userdata['role'] !== 'Observer')"
-            >delete</mat-icon
-          >
+          <mat-icon (click)="CopyRequest(row, 'Closed')" class="icons-sty"
+            *ngIf="row.Request_status == 'Closed' && isoperator && (this.userdata['role'] !== 'Observer')">content_copy</mat-icon>
+          <mat-icon (click)="Deleterequest(row)" class="icons-sty"
+            *ngIf="IsNotSubCntr && (this.userdata['role'] !== 'Observer')">delete</mat-icon>
         </ng-template>
       </ngx-datatable-column>
       <ngx-datatable-footer>
-        <ng-template 
-          ngx-datatable-footer-template 
-          let-rowCount="rowCount"
-          let-pageSize="pageSize"
-          let-selectedCount="selectedCount"
-          let-curPage="curPage"
-          let-offset="offset">
+        <ng-template ngx-datatable-footer-template let-rowCount="rowCount" let-pageSize="pageSize"
+          let-selectedCount="selectedCount" let-curPage="curPage" let-offset="offset">
           <div style="padding: 5px 10px">
             <div>
-              Selected {{Countresult.length}} of {{(rowCount> 
-                (curPage*pageSize))?(curPage*pageSize):(rowCount)}} /
-                {{paginationCount}} records.
+              Selected {{Countresult.length}} of {{(rowCount>
+              (curPage*pageSize))?(curPage*pageSize):(rowCount)}} /
+              {{paginationCount}} records.
             </div>
           </div>
-          <datatable-pager
-          [pagerLeftArrowIcon]="'datatable-icon-left'"
-          [pagerRightArrowIcon]="'datatable-icon-right'"
-          [pagerPreviousIcon]="'datatable-icon-prev'"
-          [pagerNextIcon]="'datatable-icon-skip'"
-          [page]="curPage"
-          [size]="pageSize"
-          [count]="paginationCount"
-          (change)="onPagination($event)">
-           </datatable-pager>
+          <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'" [pagerRightArrowIcon]="'datatable-icon-right'"
+            [pagerPreviousIcon]="'datatable-icon-prev'" [pagerNextIcon]="'datatable-icon-skip'" [page]="curPage"
+            [size]="pageSize" [count]="paginationCount" (change)="onPagination($event)">
+          </datatable-pager>
         </ng-template>
       </ngx-datatable-footer>
     </ngx-datatable>
@@ -466,8 +358,5 @@
 </mat-card>
 
 <div class="loading-indicator" *ngIf="spinner">
-  <mat-progress-spinner
-    mode="indeterminate"
-    color="accent"
-  ></mat-progress-spinner>
+  <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
 </div>

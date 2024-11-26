@@ -41,6 +41,7 @@ import { TeamService } from "app/shared/services/team.service";
 import { TeamsBySubId } from "app/views/Models/TeamsDto";
 import { number } from "ngx-custom-validators/src/app/number/validator";
 import { config } from "config";
+import { RequestBuildingModelComponent } from "app/views/Models/request-building-model/request-building-model.component";
 
 @Component({
   selector: "app-new-request",
@@ -83,7 +84,7 @@ export class NewRequestComponent implements OnInit {
   isnewrequestcreated: boolean = false;
   iscmsyes: boolean = false;
   ishotworkyes: boolean = false;
-  // isOtherConditionyes: boolean = false;
+  isOtherConditionyes: boolean = false;
   isnewhotworkyes: boolean = false;
   iselectricalyes: boolean = false;
   ishazardousyes: boolean = false;
@@ -123,7 +124,7 @@ export class NewRequestComponent implements OnInit {
   safetyprecdata: any[] = [];
   safetyList: any[] = [];
   hotWorkHeight: number = 100;
-  // otherConditionHeight: number = 100;
+  otherConditionHeight: number = 100;
   electricalHeight: number = 100;
   hazardousHeight: number = 100;
   testingHeight: number = 100;
@@ -144,6 +145,8 @@ export class NewRequestComponent implements OnInit {
   SubContractors: any[] = [];
   TypeofActivites: any[] = [];
   planSelectedBlocks: any[] = [];
+
+  blocks: any[] = [];
 
   CMTs: any[] = [
     {
@@ -501,6 +504,8 @@ export class NewRequestComponent implements OnInit {
     visible_clothing: null,
     safety_shoes: null,
     helmet: null,
+
+    rams_file: null,
     // descriptActivity: null,
 
 
@@ -1407,6 +1412,12 @@ export class NewRequestComponent implements OnInit {
 
   ]
 
+  JFGroundFloorZones = [
+    'ZONE A',
+    'ZONE B',
+
+  ]
+
   ngOnInit(): void {
 
     // console.log(this.L000)
@@ -1592,6 +1603,7 @@ export class NewRequestComponent implements OnInit {
 
       Room: [null, Validators.required],
       SubContractorname: [""],
+      rams_file: ["",]
       //Departconfs:this.departconfControl,
       //RequiredDocument:this.RequiredDocumentControl
     });
@@ -1816,11 +1828,18 @@ export class NewRequestComponent implements OnInit {
     else if (event == '13') {
       console.log("JG")
       this.floors = [
-        "JG",
+        // "JG",
         "JF - Ground Floor",
         "JF - 1st Floor",
         "JF- 2nd Floor",
         "JF - Roof Plan",
+      ];
+    }
+    else if (event == '14') {
+      console.log("JG")
+      this.floors = [
+        "External Areas",
+
       ];
     }
     this.planType = null;
@@ -2072,18 +2091,54 @@ export class NewRequestComponent implements OnInit {
         case "JF - Ground Floor":
           this.planType = "JF - Ground Floor";
           this.pdfSrc = "assets/images/plans/JF/JF-GroundFloor.pdf";
+          this.blocks = [
+            { name: "ZONE A", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneA.pdf", className: 'jf-ground-zoneA', planType: 'JF - Ground Floor' },
+            { name: "ZONE B", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneB.pdf", className: 'jf-ground-zoneB', planType: 'JF - Ground Floor' },
+            { name: "ZONE C", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneC.pdf", className: 'jf-ground-zoneC', planType: 'JF - Ground Floor' },
+            { name: "ZONE D", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneD.pdf", className: 'jf-ground-zoneD', planType: 'JF - Ground Floor' },
+            { name: "ZONE E", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneE.pdf", className: 'jf-ground-zoneE', planType: 'JF - Ground Floor' },
+            { name: "ZONE F1", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneF1.pdf", className: 'jf-ground-zoneF1', planType: 'JF - Ground Floor' },
+            { name: "ZONE F2", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneF2.pdf", className: 'jf-ground-zoneF2', planType: 'JF - Ground Floor' }
+          ]
           break;
         case "JF - 1st Floor":
           this.planType = "JF - 1st Floor";
           this.pdfSrc = "assets/images/plans/JF/JF-1stFloor.pdf";
+          this.blocks = [
+            { name: "ZONE A", pdfSrc: "assets/images/plans/JF/JF-FirstFloor/JF-FirstFloor-ZoneA.pdf", className: 'jf-first-zoneA', planType: "JF - 1st Floor" },
+            { name: "ZONE B", pdfSrc: "assets/images/plans/JF/JF-FirstFloor/JF-FirstFloor-ZoneB.pdf", className: 'jf-first-zoneB', planType: "JF - 1st Floor" },
+            { name: "ZONE C", pdfSrc: "assets/images/plans/JF/JF-FirstFloor/JF-FirstFloor-ZoneC.pdf", className: 'jf-first-zoneC', planType: "JF - 1st Floor" },
+            { name: "ZONE D", pdfSrc: "assets/images/plans/JF/JF-FirstFloor/JF-FirstFloor-ZoneD.pdf", className: 'jf-first-zoneD', planType: "JF - 1st Floor" },
+            { name: "ZONE E", pdfSrc: "assets/images/plans/JF/JF-FirstFloor/JF-FirstFloor-ZoneE.pdf", className: 'jf-first-zoneE', planType: "JF - 1st Floor" },
+            { name: "ZONE F1", pdfSrc: "assets/images/plans/JF/JF-FirstFloor/JF-FirstFloor-ZoneF1.pdf", className: 'jf-first-zoneF1', planType: "JF - 1st Floor" },
+            { name: "ZONE F2", pdfSrc: "assets/images/plans/JF/JF-FirstFloor/JF-FirstFloor-ZoneF2.pdf", className: 'jf-first-zoneF2', planType: "JF - 1st Floor" }
+          ]
           break;
         case "JF- 2nd Floor":
           this.planType = "JF- 2nd Floor";
           this.pdfSrc = "assets/images/plans/JF/JF-2ndFloor.pdf";
+          this.blocks = [
+            { name: "ZONE A", pdfSrc: "assets/images/plans/JF/JF-SecondFloor/JF-SecondFloor-ZoneA.pdf", className: 'jf-second-zoneA', planType: "JF- 2nd Floor" },
+            { name: "ZONE B", pdfSrc: "assets/images/plans/JF/JF-SecondFloor/JF-SecondFloor-ZoneB.pdf", className: 'jf-second-zoneB', planType: "JF- 2nd Floor" },
+            { name: "ZONE C", pdfSrc: "assets/images/plans/JF/JF-SecondFloor/JF-SecondFloor-ZoneC.pdf", className: 'jf-second-zoneC', planType: "JF- 2nd Floor" },
+            { name: "ZONE D", pdfSrc: "assets/images/plans/JF/JF-SecondFloor/JF-SecondFloor-ZoneD.pdf", className: 'jf-second-zoneD', planType: "JF- 2nd Floor" },
+            { name: "ZONE E", pdfSrc: "assets/images/plans/JF/JF-SecondFloor/JF-SecondFloor-ZoneE.pdf", className: 'jf-second-zoneE', planType: "JF- 2nd Floor" },
+            { name: "ZONE F1", pdfSrc: "assets/images/plans/JF/JF-SecondFloor/JF-SecondFloor-ZoneF1.pdf", className: 'jf-second-zoneF1', planType: "JF- 2nd Floor" },
+            { name: "ZONE F2", pdfSrc: "assets/images/plans/JF/JF-SecondFloor/JF-SecondFloor-ZoneF2.pdf", className: 'jf-second-zoneF2', planType: "JF- 2nd Floor" }
+          ]
           break;
         case "JF - Roof Plan":
           this.planType = "JF - Roof Plan";
           this.pdfSrc = "assets/images/plans/JF/JF-RoofPlan.pdf";
+          this.blocks = [
+            { name: "ZONE A", pdfSrc: "assets/images/plans/JF/JF-RoofFloor/JF-Roof-ZoneA.pdf", className: 'jf-Roof-zoneA', planType: "JF - Roof Plan" },
+            { name: "ZONE B", pdfSrc: "assets/images/plans/JF/JF-RoofFloor/JF-Roof-ZoneB.pdf", className: 'jf-Roof-zoneB', planType: "JF - Roof Plan" },
+            { name: "ZONE C", pdfSrc: "assets/images/plans/JF/JF-RoofFloor/JF-Roof-ZoneC.pdf", className: 'jf-Roof-zoneC', planType: "JF - Roof Plan" },
+            { name: "ZONE D", pdfSrc: "assets/images/plans/JF/JF-RoofFloor/JF-Roof-ZoneD.pdf", className: 'jf-Roof-zoneD', planType: "JF - Roof Plan" },
+            { name: "ZONE E", pdfSrc: "assets/images/plans/JF/JF-RoofFloor/JF-Roof-ZoneE.pdf", className: 'jf-Roof-zoneE', planType: "JF - Roof Plan" },
+            { name: "ZONE F1", pdfSrc: "assets/images/plans/JF/JF-RoofFloor/JF-Roof-ZoneF1.pdf", className: 'jf-Roof-zoneF1', planType: "JF - Roof Plan" },
+            { name: "ZONE F2", pdfSrc: "assets/images/plans/JF/JF-RoofFloor/JF-Roof-ZoneF2.pdf", className: 'jf-Roof-zoneF2', planType: "JF - Roof Plan" }
+          ]
           break;
 
         default:
@@ -2125,6 +2180,19 @@ export class NewRequestComponent implements OnInit {
     this.RequestForm.controls["Companyname"].setValue(
       "M3 South"
     );
+    // let blocks = this.selectFloorBlocks.map(item =>  {
+    //   item.selectedBlock.forEach(element => {
+    //     element.value
+    //   })
+    // })
+    // console.log(blocks, "blocks")
+    let blocks = this.selectFloorBlocks.reduce((acc, item) => {
+      const values = item.selectedBlock.filter(element => element.isSelected).map(element => element.value);;
+      console.log(values, "values")
+      return acc.concat(values);
+
+    }, []);
+    console.log(blocks, "blocks");
 
     if (this.selectedbuilding == '9') {
       switch (this.FloorMain) {
@@ -2348,8 +2416,9 @@ export class NewRequestComponent implements OnInit {
 
       }
     }
-    console.log("block", this.planSelectedBlocks)
-    this.RequestForm.controls["Room"].setValue(this.planSelectedBlocks);
+    // console.log("block", this.planSelectedBlocks)
+    // this.RequestForm.controls["Room"].setValue(this.planSelectedBlocks);
+    this.RequestForm.controls["Room"].setValue(blocks);
     this.isnewrequestcreated = true;
     console.log("form data", this.RequestForm.value);
   }
@@ -2420,16 +2489,16 @@ export class NewRequestComponent implements OnInit {
     }
   }
 
-  // GetselectedOtherCondition(event){
-  //   console.log("other", event)
-  //   if (event === "1") {
-  //     this.otherConditionHeight = 500;
-  //     this.isOtherConditionyes = true;
-  //   } else {
-  //     this.otherConditionHeight = 100;
-  //     this.isOtherConditionyes = false;
-  //   }
-  // }
+  GetselectedOtherCondition(event) {
+    console.log("other", event.target.value)
+    if (event === "1") {
+      this.otherConditionHeight = 500;
+      this.isOtherConditionyes = true;
+    } else {
+      this.otherConditionHeight = 100;
+      this.isOtherConditionyes = false;
+    }
+  }
   GetselectedNEWHOTWORKitem(event) {
     if (event === "1") {
       this.isnewhotworkyes = true;
@@ -2749,7 +2818,17 @@ export class NewRequestComponent implements OnInit {
       this.RequestForm.controls["BADGENUMBER"].value.toString();
     console.log("Requestdata", this.Requestdata)
 
-    this.requestsserivies.CreateNewRequest(this.Requestdata).subscribe(
+    this.Requestdata.rams_file = this.RequestForm.controls["rams_file"].value;
+
+    let formData = new FormData();
+
+    for (const [key, value] of Object.entries(this.Requestdata)) {
+      formData.append(key, value as string); // Ensure values are strings if needed
+    }
+
+    formData.append("rams_file", JSON.stringify(this.Requestdata.rams_file))
+
+    this.requestsserivies.CreateNewRequest(formData).subscribe(
       (res) => {
         this.spinner = false;
         this.openSnackBar("Request Created Successfully");
@@ -3934,6 +4013,57 @@ export class NewRequestComponent implements OnInit {
     }
     this.RequestForm.updateValueAndValidity();
   }
+
+  // blocks : {};
+
+  openDialog(floor, i) {
+    console.log(floor, i)
+    const dialogRef = this.dialog.open(RequestBuildingModelComponent, {
+      data: {
+        floor: floor,
+        selectFloorBlocks: this.selectFloorBlocks
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result, 'result');
+      if (result) {
+        let index = this.selectFloorBlocks.findIndex(item => (item.floorName == result.floorName) && (item.planType == result.planType))
+        if (index != -1) {
+          this.selectFloorBlocks.splice(index, 1, result);
+        } else {
+          this.selectFloorBlocks.push(result);
+        }
+      }
+      // this.selectFloorBlocks.push(result)
+      console.log(this.selectFloorBlocks)
+    });
+  }
+
+  selectFloorBlocks: Array<any> = [];
+  images: any[] = [];
+  // isimguploaded: boolean = false;
+  // base64Images: any[] = [];
+
+  csvInputChange(e) {
+    for (var i = 0; i < e.target.files.length; i++) {
+      this.images.push(e.target.files[i]);
+      var reader = new FileReader();
+
+      reader.onload = this._handleReaderLoaded.bind(this);
+      reader.readAsDataURL(e.target.files[i]);
+      // this.isimguploaded = true;
+      const formData = new FormData();
+      formData.append('file', e.target.files[i]); // Append file
+      this.RequestForm.controls["rams_file"].setValue(formData);
+      console.log(reader, "reader")
+    }
+  }
+  _handleReaderLoaded(e) {
+    let reader = e.target;
+    console.log(reader, "reader")
+    // this.base64Images.push(reader.result);
+  }
+
 }
 
 

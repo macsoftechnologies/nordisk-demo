@@ -212,12 +212,25 @@
               </mat-form-field>
             </mat-grid-tile>
 
-            <!-- <mat-grid-tile>
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>RAMS file Attached</mat-label>
-                <input matInput formControlName="RAMSFileAttach" placeholder="Activity" />
-              </mat-form-field>
-            </mat-grid-tile> -->
+            <mat-grid-tile>
+              <div class="upload-div-sty">
+                <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)"
+                  accept=".pdf" />
+                <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add RAMS Files</button>
+              </div>
+
+              <!-- <div class="mat-card save-btn-sty" *ngIf="isimguploaded">
+                <div class="card-body">
+                  <mat-grid-list cols="3" rowHeight="110px">
+                    <mat-grid-tile *ngFor="let img of base64Images" class="img-div-dty">
+                      <img [src]="img">
+                    </mat-grid-tile>
+                  </mat-grid-list>
+                </div>
+              </div> -->
+
+
+            </mat-grid-tile>
 
           </mat-grid-list>
 
@@ -429,9 +442,15 @@
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Area</mat-label>
                 <mat-select formControlName="Room" [multiple]="true">
-                  <mat-option *ngFor="let item of FloorOrdinates" [value]="item">
+                  <mat-optgroup *ngFor="let group of selectFloorBlocks" [label]="group.floorName" [disabled]="group.disabled">
+                    <mat-option *ngFor="let selectedBlockItem of group.selectedBlock" [value]="selectedBlockItem.value">
+                      {{selectedBlockItem.value}}
+                    </mat-option>
+                  </mat-optgroup>
+
+                  <!-- <mat-option *ngFor="let item of blocks" [value]="item">
                     {{item}}
-                  </mat-option>
+                  </mat-option> -->
                 </mat-select>
               </mat-form-field>
             </mat-grid-tile>
@@ -714,16 +733,16 @@
               </mat-error>
             </mat-radio-group>
           </div>
-
-          <!-- <mat-grid-list cols="1" rowHeight="100px" *ngIf="isOtherConditionyes">
+          
+          <mat-grid-list cols="1" rowHeight="100px" *ngIf="RequestForm.get('floatLabel12').value== '1'">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Note the Other Condition</mat-label>
                 <input matInput formControlName="fireWatcher" placeholder="Note the Other Condition" />
               </mat-form-field>
             </mat-grid-tile>
-          </mat-grid-list> -->
-          
+          </mat-grid-list>
+
 
           <div class="hotwork-sub">
             <label>Can you confirm that there will be enough work lighting to begin the work?</label>
@@ -974,7 +993,8 @@
                   <mat-grid-tile>
                     <mat-form-field class="full-width" appearance="outline">
                       <mat-label>Is there be any welding activitiy?</mat-label>
-                      <mat-select (selectionChange)="GetselectedNEWHOTWORKitem($event.value);setAndRemoveValidators($event.value,'Is there be any welding activitiy?')"
+                      <mat-select
+                        (selectionChange)="GetselectedNEWHOTWORKitem($event.value);setAndRemoveValidators($event.value,'Is there be any welding activitiy?')"
                         formControlName="NEWHOTWORK" name="NEWHOTWORK"
                         [class.is-invalid]="RequestForm.get('NEWHOTWORK').invalid && RequestForm.get('NEWHOTWORK').touched">
                         <mat-option *ngFor="let newtech of NEWHOTWORKs" [value]="newtech.id">
@@ -1941,7 +1961,7 @@
             </mat-grid-tile>
             <mat-grid-tile colspan="7">
               <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Securing Facilities (LOTO) </mat-label>
+                <mat-label>Securing Facilities (LOTO)</mat-label>
                 <mat-select
                   (selectionChange)="GetselectedFacilitiesitem($event.value);setAndRemoveValidators($event.value,'Securing Facilities (LOTO)')"
                   formControlName="FACILITIESLOTO" name="FACILITIES LOTO"
@@ -2074,7 +2094,7 @@
             <mat-grid-tile colspan="1" class="hra-img-sec">
               <img src="assets/images/logos/ExcavationWorks.png" alt="HotWorks Logo" class="hra-img" />
             </mat-grid-tile>
-            <mat-grid-tile colspan="7"> 
+            <mat-grid-tile colspan="7">
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Excavation Works</mat-label>
                 <mat-select
@@ -5482,6 +5502,12 @@
       <!-- end changes -->
 
     </ng-container>
+
+    <ng-container *ngFor="let block of blocks; let i = index">
+      <button [className]="block.className" mat-button (click)="openDialog(block, i)"></button>
+    </ng-container>
+
+
     <pdf-viewer *ngIf="pdfSrc" [src]="pdfSrc" [original-size]="false" [zoom]="0.75"></pdf-viewer>
     <!-- style="display: block" -->
     <!-- [render-text]="true" -->

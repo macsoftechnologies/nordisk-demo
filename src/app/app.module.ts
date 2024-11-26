@@ -16,7 +16,7 @@ import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
 import { rootRouterConfig } from './app.routing';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -31,6 +31,7 @@ import {
   OwlDateTimeModule, 
   OwlNativeDateTimeModule 
 } from 'ng-pick-datetime';
+import { RequestBuildingModelComponent } from './views/Models/request-building-model/request-building-model.component';
 
 
 
@@ -53,6 +54,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     SharedMaterialModule,
     PerfectScrollbarModule,
+    PdfViewerModule,
  
     TranslateModule.forRoot({
       loader: {
@@ -64,7 +66,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
-  declarations: [AppComponent, ChangepasswordComponent],
+  declarations: [AppComponent, ChangepasswordComponent, RequestBuildingModelComponent],
   providers: [
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },

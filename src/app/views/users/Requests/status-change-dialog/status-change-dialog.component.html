@@ -11,6 +11,36 @@
 
 <div mat-dialog-actions *ngIf="type=='operartor'">
 
+  <ng-container *ngIf="updaterequestdata.Hot_work == 1">
+    <form>
+      <mat-grid-list cols="2" rowHeight="80px">
+        <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Name of Fire Watcher</mat-label>
+            <input matInput />
+            <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
+              [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
+            <mat-error class="error-message"
+              *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
+              Name of Fire Watcher</mat-error> -->
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Phone Number of Fire Watcher</mat-label>
+            <input matInput />
+            <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
+              [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
+            <mat-error class="error-message"
+              *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
+              Phone Number of Fire Watcher</mat-error> -->
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </ng-container>
+
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
     (click)="Changestatus('Approved')">Approve</button>
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
