@@ -183,52 +183,62 @@ export class ListRequestComponent implements OnInit {
     {
       "label": "Hotwork",
       "value": 1,
-      "key": "Hot_work"
+      "key": "Hot_work",
+      "image": "assets/images/logos/HotWorks.png"
     },
     {
       "label": "Electrical Systems",
       "value": 1,
       "key": "working_on_electrical_system",
+       "image": "assets/images/logos/ElectricalSystems.png"
     },
     {
       "label": "Hazardous Substances/Chemicals",
       "value": 1,
-      "key": "working_hazardious_substen"
+      "key": "working_hazardious_substen",
+      "image": "assets/images/logos/substanceChemical.png"
     },
     {
       "label": "Pressure testing of equipment",
       "value": 1,
-      "key": "pressure_tesing_of_equipment"
+      "key": "pressure_tesing_of_equipment",
+      "image": "assets/images/logos/testingequipment.png"
     },
     {
       "label": "Working At Height",
       "value": 1,
-      "key": "working_at_height"
+      "key": "working_at_height",
+      "image": "assets/images/logos/WorkingAtHight.png"
     },
     {
       "label": "Confined Spaces",
       "value": 1,
-      "key": "working_confined_spaces"
+      "key": "working_confined_spaces",
+      "image": "assets/images/logos/ConfinedSpace.png"
     },
     {
       "label": "Working in ATEX Area",
       "value": 1,
-      "key": "work_in_atex_area"
+      "key": "work_in_atex_area",
+      "image": "assets/images/logos/ATEXarea.png"
     },
     {
       "label": "Securing Facilities (LOTO)",
       "value": 1,
-      "key":"securing_facilities"
+      "key":"securing_facilities",
+      "image": "assets/images/logos/SecuringFacilities.png"
     },
     {
       "label": "Excavation Works",
       "value": 1,
-      "key": "excavation_works"
+      "key": "excavation_works",
+      "image": "assets/images/logos/ExcavationWorks.png"
     },
     {
       "label": "Using Crane or Lifting",
       "value": 1,
-      "key": "using_cranes_or_lifting"
+      "key": "using_cranes_or_lifting",
+      "image": "assets/images/logos/Craneslifting.png"
     },
     
   ];

@@ -1130,10 +1130,10 @@ input {
   /* background-color: red; */
 }
 
-button {
+/* button {
   width: 200px;
   height: 50px;
-}
+} */
 
 .btn-sty {
   /* background-color: red; 
@@ -4360,3 +4360,61 @@ button {
 
 /* end Roof floor */
 
+/* external areas */
+
+.external-areas-je{
+  position: absolute;
+  top: 4%;
+  left: 25%;
+  z-index: 9999;
+  height: 100px;
+  width: 389px;
+}
+.external-areas-jf{
+  position: absolute;
+    top: 22%;
+    left: 24%;
+    z-index: 9999;
+    height: 385px;
+    width: 155px;
+}
+.external-areas-jg{
+    position: absolute;
+    top: 19%;
+    left: 38%;
+    z-index: 9999;
+    height: 410px;
+    width: 200px;
+}
+.external-areas-jh-jx-js{
+  position: absolute;
+  bottom: 14%;
+  left: 24%;
+  z-index: 9999;
+  height: 116px;
+  width: 360px;
+}
+.external-areas-jj{
+  position: absolute;
+    top: 6%;
+    right: 37%;
+    z-index: 9999;
+    height: 190px;
+    width: 82px;
+}
+.external-areas-welfare{
+  position: absolute;
+  bottom: 14%;
+  left: 15%;
+  z-index: 9999;
+  height: 250px;
+  width: 85px;
+}
+.external-areas-mp{
+  position: absolute;
+  bottom: 28%;
+  right: 27%;
+  z-index: 9999;
+  height: 130px;
+  width: 220px;
+}

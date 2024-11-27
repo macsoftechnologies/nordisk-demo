@@ -269,5 +269,1226 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {width: 40px;height: 40px;}
     right: -7%;
 }
 
+/* **ground floor zone-D** */
+
+.zoneD-1{
+    position: absolute;
+    top: 56%;
+    z-index: 9999;
+    left: 46px;
+}
+.zoneD-2{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    left: 10%;
+}
+.zoneD-3{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    left: 20%;
+}
+.zoneD-4{
+    position: absolute;
+    bottom: 5%;
+    z-index: 9999;
+    left: 15%;
+}
+.zoneD-5{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    left: 28%;
+}
+
+.zoneD-6{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    left: 36%;
+}
+.zoneD-7{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 55%;
+}
+.zoneD-8{
+    position: absolute;
+    bottom: 10%;
+    z-index: 9999;
+    left: 56%;
+}
+.zoneD-9{
+    position: absolute;
+    bottom: 20%;
+    z-index: 9999;
+    right: 27%;
+}
+.zoneD-10{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 15%;
+}
+.zoneD-11{
+    position: absolute;
+    top: 68%;
+    z-index: 9999;
+    right: 15%;
+}
+
+.zoneD-12{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: 8%;
+}
+.zoneD-13{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    right: 8%;
+}
+.zoneD-14{
+    position: absolute;
+    top: 61%;
+    z-index: 9999;
+    right: 2%;
+}
+.zoneD-15{
+    position: absolute;
+    top: 47%;
+    z-index: 9999;
+    right: -4%;
+}
+.zoneD-16{
+    position: absolute;
+    bottom: 5%;
+    z-index: 9999;
+    right: -2%;
+}
+.zoneD-17{
+    position: absolute;
+    top: 59%;
+    z-index: 9999;
+    right: -8%;
+}
+
+.zoneD-18{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: -11%;
+}
+.zoneD-19{
+    position: absolute;
+    top: 53%;
+    z-index: 9999;
+    right: -11%;
+}
+
+.zoneD-20{
+    position: absolute;
+    top: 60%;
+    z-index: 9999;
+    right: -11%;
+}
+.zoneD-21{
+    position: absolute;
+    top: 70%;
+    z-index: 9999;
+    right: -11%;
+}
+
+/* **ground floor zone-E** */
+
+.zoneE-1{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    left: 60px;
+}
+.zoneE-2{
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    left: 6%;
+}
+
+.zoneE-3{
+    position: absolute;
+    top: 13%;
+    z-index: 9999;
+    left: 21%;
+}
+.zoneE-4{
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 22%;
+}
+.zoneE-5{
+    position: absolute;
+    top: 7%;
+    z-index: 9999;
+    left: 32%;
+}
+.zoneE-6{
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    left: 32%;
+}
+.zoneE-7    {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 32%;
+}
+.zoneE-8    {
+    position: absolute;
+    top: 13%;
+    z-index: 9999;
+    left: 37%;
+}
+.zoneE-9    {
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    left: 37%;
+}
+.zoneE-10   {
+    position: absolute;
+    top: 8%;
+    z-index: 9999;
+    left: 50%;
+}
+.zoneE-11   {
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    left: 50%;
+}
+.zoneE-12   {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 50%;
+
+}
+.zoneE-13   {
+    position: absolute;
+    top: 7%;
+    z-index: 9999;
+    right: 34%;
+}
+.zoneE-14   {
+    position: absolute;
+    top: 30%;
+    z-index: 9999;
+    right: 36%;
+}
+
+.zoneE-15  {
+    position: absolute;
+    top: 30%;
+    z-index: 9999;
+    right: 22%;
+}
+
+.zoneE-16 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 37%;
+}
+.zoneE-17  {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 33%;
+}
+.zoneE-18  {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 26%;
+}
+.zoneE-19  {
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: 18%;
+}
+.zoneE-20  {
+    position: absolute;
+    top: 48%;
+    z-index: 9999;
+    right: 18%;
+}
+
+.zoneE-21 {
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    right: 8%;
+}
+.zoneE-22 {
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    right: -5%;
+}
+.zoneE-23 {
+    position: absolute;
+    top: 75%;
+    z-index: 9999;
+    left: 4%;
+}
+.zoneE-24 {
+    position: absolute;
+    top: 75%;
+    z-index: 9999;
+    left: 23%;
+}
+.zoneE-25 {
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    left: 45%;
+}
+.zoneE-26 {
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    right: 40%;
+}
+.zoneE-27 {
+    position: absolute;
+    top: 75%;
+    z-index: 9999;
+    right: 22%;
+
+}
+.zoneE-28 {
+    position: absolute;
+    top: 76%;
+    z-index: 9999;
+    right: 15%;
+}
+.zoneE-29 {
+    position: absolute;
+    top: 76%;
+    z-index: 9999;
+    right: 5%;
+}
+.zoneE-30 {
+    position: absolute;
+    top: 76%;
+    z-index: 9999;
+    right: -12%;
+}
 
 
+/* **ground floor ZONE F1** */
+
+.zoneF1-1{
+    position: absolute;
+    top: 14%;
+    z-index: 9999;
+    left: 13px;
+}
+.zoneF1-2{
+    position: absolute;
+    top: 21%;
+    z-index: 9999;
+    left: 15px;
+}
+.zoneF1-3{
+    position: absolute;
+    top: 28%;
+    z-index: 9999;
+    left: 15px;
+}
+.zoneF1-4{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    left: 55%;
+}
+.zoneF1-5{
+    position: absolute;
+    top: 42%;
+    z-index: 9999;
+    left: 43%;
+}
+.zoneF1-6{
+    position: absolute;
+    bottom: 32%;
+    z-index: 9999;
+    left: 44%;
+}
+.zoneF1-7{
+    position: absolute;
+    bottom: 19%;
+    z-index: 9999;
+    left: 5%;
+}
+.zoneF1-8{
+    position: absolute;
+    bottom: 21%;
+    z-index: 9999;
+    left: 54%;
+}
+
+/* **ground floor ZONE F2** */
+
+.zoneF2-1{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    left: 25%;
+}
+
+.zoneF2-2{
+    position: absolute;
+    top: 25%;
+    z-index: 9999;
+    left: 25%;
+}
+
+.zoneF2-3{
+    position: absolute;
+    top: 39%;
+    z-index: 9999;
+    left: 22%;
+}
+
+.zoneF2-4{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 33%;
+}
+
+.zoneF2-5{
+    position: absolute;
+    top: 58%;
+    z-index: 9999;
+    left: 26%;
+}
+.zoneF2-6{
+    position: absolute;
+    bottom: 20%;
+    z-index: 9999;
+    left: 26%;
+}
+.zoneF2-7{
+    position: absolute;
+    bottom: 14%;
+    z-index: 9999;
+    left: 26%;
+}
+
+.zoneF2-8{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    right: 1%;
+}
+
+.zoneF2-9{
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 74%;
+}
+
+.zoneF2-10{
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    right: 17%;
+}
+.zoneF2-11{
+    position: absolute;
+    top: 48%;
+    z-index: 9999;
+    right: 17%;
+}
+.zoneF2-12{
+    position: absolute;
+    bottom: 17%;
+    z-index: 9999;
+    right: 11%;
+}
+/* **JF - 1st Floor ZONE A** */
+
+.first-zoneA-1{
+    position: absolute;
+    top: 16%;
+    z-index: 9999;
+    left: 40%;
+}
+.first-zoneA-2{
+    position: absolute;
+    top: 30%;
+    z-index: 9999;
+    left: 20%;
+}
+.first-zoneA-3{
+    position: absolute;
+    bottom: 30%;
+    z-index: 9999;
+    left: 20%;
+}
+
+/* **JF - 1st Floor ZONE B** */
+
+
+.first-zoneB-1{
+    position: absolute;
+    top: 41%;
+    z-index: 9999;
+    left: 2%;
+}
+
+.first-zoneB-2{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    left: 6%;
+}
+.first-zoneB-3{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 7%;
+}
+.first-zoneB-4{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 22%;
+}
+.first-zoneB-5{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 38%;
+}
+.first-zoneB-6{
+    position: absolute;
+    top: 34%;
+    z-index: 9999;
+    left: 46%;
+}
+.first-zoneB-7{
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    left: 53%;
+}
+.first-zoneB-8{
+    position: absolute;
+    top: 42%;
+    z-index: 9999;
+    left: 57%;
+}
+
+.first-zoneB-9{
+    position: absolute;
+    top: 29%;
+    z-index: 9999;
+    left: 61%;
+}
+.first-zoneB-10{
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    left: 61%;
+}
+.first-zoneB-11{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 61%;
+}
+.first-zoneB-12{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    left: 61%;
+}
+.first-zoneB-13{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 26%;
+}
+.first-zoneB-14{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 15%;
+}
+.first-zoneB-15{
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 19%;
+}
+
+.first-zoneB-16{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: -3%;
+}
+.first-zoneB-17{
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: -4%;
+}
+
+.first-zoneB-18{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: -13%;
+}
+
+.first-zoneB-19{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    right: -14%;
+} 
+
+.first-zoneB-20{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: -20%;
+}
+
+.first-zoneB-21{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    right: -22%;
+} 
+
+/* **JF - 1st Floor ZONE C** */
+
+
+.first-zoneC-1{
+    position: absolute;
+    top: 6%;
+    z-index: 9999;
+    left: 50%;
+}
+
+.first-zoneC-2{
+    position: absolute;
+    top: 28%;
+    z-index: 9999;
+    left: 53%;
+}
+
+
+/* **JF - 1st Floor ZONE D** */
+
+.first-zoneD-1{
+    position: absolute;
+    top: 57%;
+    z-index: 9999;
+    left: 5%;
+}
+
+.first-zoneD-2{
+    position: absolute;
+    top: 48%;
+    z-index: 9999;
+    left: 12%;
+}
+
+.first-zoneD-3{
+    position: absolute;
+    top: 48%;
+    z-index: 9999;
+    left: 19%;
+}
+
+.first-zoneD-4{
+    position: absolute;
+    top: 82%;
+    z-index: 9999;
+    left: 23%;
+}
+
+.first-zoneD-5{
+    position: absolute;
+    top: 50%;
+    z-index: 9999;
+    left: 28%;
+}
+.first-zoneD-6{
+    position: absolute;
+    top: 70%;
+    z-index: 9999;
+    left: 28%;
+}
+.first-zoneD-7{
+    position: absolute;
+    top: 53%;
+    z-index: 9999;
+    left: 39%;
+}
+.first-zoneD-8{
+    position: absolute;
+    top: 53%;
+    z-index: 9999;
+    left: 55%;
+}
+
+.first-zoneD-9{
+    position: absolute;
+    top: 58%;
+    z-index: 9999;
+    right: 31%;
+}
+.first-zoneD-10{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    right: 27%;
+}
+.first-zoneD-11{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    right: 21%;
+}
+.first-zoneD-12{
+    position: absolute;
+    top: 42%;
+    z-index: 9999;
+    right: 14%;
+}
+.first-zoneD-13{
+    position: absolute;
+    top: 67%;
+    z-index: 9999;
+    right: 14%;
+}
+.first-zoneD-14{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    right: 5%;
+}
+.first-zoneD-15{
+    position: absolute;
+    top: 54%;
+    z-index: 9999;
+    right: -4%;
+}
+.first-zoneD-16{
+    position: absolute;
+    bottom: 7%;
+    z-index: 9999;
+    right: 2%;
+}
+.first-zoneD-17{
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    right: -10%;
+}
+
+.first-zoneD-18{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: -13%;
+}
+.first-zoneD-19{
+    position: absolute;
+    top: 61%;
+    z-index: 9999;
+    right: -14%;
+}
+.first-zoneD-20{
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    right: -14%;
+}
+
+/* **JF - 1st Floor ZONE E** */
+
+.first-zoneE-1{
+    position: absolute;
+    top: 2%;
+    z-index: 9999;
+    right: 29%;
+}
+
+.first-zoneE-2{
+    position: absolute;
+    top: 14%;
+    z-index: 9999;
+    right: 36%;
+}
+
+.first-zoneE-3{
+    position: absolute;
+    top: 20%;
+    z-index: 9999;
+    right: 23%;
+}
+
+/* **JF - 1st Floor ZONE F1** */
+
+.first-zoneF1-1{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    right: 28%;
+}
+.first-zoneF1-2{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 70%;
+}
+.first-zoneF1-3{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 20%;
+}
+.first-zoneF1-4{
+    position: absolute;
+    bottom: 27%;
+    z-index: 9999;
+    right: 76%;
+}
+
+/* **JF - 1st Floor ZONE F2** */
+
+.first-zoneF2-1{
+    position: absolute;
+    top: 15%;
+    z-index: 9999;
+    left: 26%;
+}
+.first-zoneF2-2{
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    left: 26%;
+}
+.first-zoneF2-3{
+    position: absolute;
+    bottom: 20%;
+    z-index: 9999;
+    left: 27%;
+}
+.first-zoneF2-4{
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    left: 35%;
+}
+.first-zoneF2-5{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    left: 48%;
+}
+.first-zoneF2-6{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    left: 72%;
+}
+.first-zoneF2-7{
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+   right: 5%;
+}
+.first-zoneF2-8{
+    position: absolute;
+    top: 27%;
+    z-index: 9999;
+    right: 45%;
+}
+.first-zoneF2-9{
+    position: absolute;
+    top: 35%;
+    z-index: 9999;
+    right: 46%;
+}
+.first-zoneF2-10{
+    position: absolute;
+    top: 38%;
+    z-index: 9999;
+    right: 19%;
+}
+
+.first-zoneF2-11{
+    position: absolute;
+    top: 51%;
+    z-index: 9999;
+    right: 43%;
+}
+.first-zoneF2-12{
+    position: absolute;
+    top: 59%;
+    z-index: 9999;
+    right: 54%;
+}
+.first-zoneF2-13{
+    position: absolute;
+    top: 60%;
+    z-index: 9999;
+    right: 20%;
+}
+.first-zoneF2-14{
+    position: absolute;
+    top: 60%;
+    z-index: 9999;
+    right: 3%;
+}
+.first-zoneF2-15{
+    position: absolute;
+    bottom: 21%;
+    z-index: 9999;
+    right: 43%;
+}
+
+/* **JF- 2nd Floor ZONE A** */
+
+.second-zoneA{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    left: 33%;
+}
+
+/* **JF- 2nd Floor ZONE B** */
+
+.second-zoneB-1{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    left: 2%;
+}
+.second-zoneB-2{
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    left: 7%;
+}
+.second-zoneB-3{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 28%;
+}
+.second-zoneB-4{
+    position: absolute;
+    top: 63%;
+    z-index: 9999;
+    left: 55%;
+}
+.second-zoneB-5{
+    position: absolute;
+    top: 43%;
+    z-index: 9999;
+    right: 35%;
+}
+.second-zoneB-6{
+    position: absolute;
+    top: 43%;
+    z-index: 9999;
+    right: 10%;
+}
+.second-zoneB-7{
+    position: absolute;
+    top: 53%;
+    z-index: 9999;
+    right: -12%;
+}
+.second-zoneB-8{
+    position: absolute;
+    top: 53%;
+    z-index: 9999;
+    right: -18%;
+}
+
+/* **JF- 2nd Floor ZONE C** */
+
+.second-zoneC-1{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 18%;
+}
+
+.second-zoneC-2{
+    position: absolute;
+    top: 4%;
+    z-index: 9999;
+    right: -3%;
+}
+
+/* **JF- 2nd Floor ZONE D** */
+
+.second-zoneD-1{
+    position: absolute;
+    top: 54%;
+    z-index: 9999;
+    left: 4%;
+}
+.second-zoneD-2{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 23%;
+}
+.second-zoneD-3{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 54%;
+}
+.second-zoneD-4{
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 5%;
+}
+.second-zoneD-5{
+    position: absolute;
+    top: 65%;
+    z-index: 9999;
+    left: 55%;
+}
+.second-zoneD-6{
+    position: absolute;
+    top: 60%;
+    z-index: 9999;
+    right: -14%;
+
+}
+/* **JF- 2nd Floor ZONE E** */
+
+.second-zoneE-1{
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: 13%;
+}
+
+/* **JF- 2nd Floor ZONE F1** */
+
+.second-zoneF1-1{
+    position: absolute;
+    top: 25%;
+    z-index: 9999;
+    right: 42%;
+}
+
+.second-zoneF1-2{
+    position: absolute;
+    top: 46%;
+    z-index: 9999;
+    right: 25%;
+}
+.second-zoneF1-3{
+    position: absolute;
+    bottom: 26%;
+    z-index: 9999;
+    left: 13%;
+}
+.second-zoneF1-4{
+    position: absolute;
+    bottom: 27%;
+    z-index: 9999;
+    right: 51%;
+}
+.second-zoneF1-5{
+    position: absolute;
+    bottom: 19%;
+    z-index: 9999;
+    right: 34%;
+}
+
+/* **JF- 2nd Floor ZONE F2** */
+
+.second-zoneF2-1{
+    position: absolute;
+    top: 15%;
+    z-index: 9999;
+    left: 23%;
+}
+.second-zoneF2-2{
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    left: 22%;
+}
+.second-zoneF2-3{
+    position: absolute;
+    top: 15%;
+    z-index: 9999;
+    right: 10%;
+}
+.second-zoneF2-4{
+    position: absolute;
+    top: 24%;
+    z-index: 9999;
+    right: 18%;
+}
+.second-zoneF2-5{
+    position: absolute;
+    top: 47%;
+    z-index: 9999;
+    right: 19%;
+}
+.second-zoneF2-6{
+    position: absolute;
+    top: 60%;
+    z-index: 9999;
+    right: 46%;
+}
+.second-zoneF2-7{
+    position: absolute;
+    top: 66%;
+    z-index: 9999;
+    left: 22%;
+}
+.second-zoneF2-8{
+    position: absolute;
+    bottom: 30%;
+    z-index: 9999;
+    left: 38%;
+}
+.second-zoneF2-9{
+    position: absolute;
+    bottom: 19%;
+    z-index: 9999;
+    left: 22%;
+}
+.second-zoneF2-10{
+    position: absolute;
+    bottom: 12%;
+    z-index: 9999;
+    left: 24%;
+}
+.second-zoneF2-11{
+    position: absolute;
+    bottom: 19%;
+    z-index: 9999;
+    left: 37%;
+}
+.second-zoneF2-12{
+    position: absolute;
+    bottom: 22%;
+    z-index: 9999;
+    left: 50%;
+}
+.second-zoneF2-13{
+    position: absolute;
+    bottom: 12%;
+    z-index: 9999;
+    left: 49%;
+}
+.second-zoneF2-14{
+    position: absolute;
+    bottom: 19%;
+    z-index: 9999;
+    right: 13%;
+}
+.second-zoneF2-15{
+    position: absolute;
+    bottom: 12%;
+    z-index: 9999;
+    right: 6%;
+}
+
+/* **JF - Roof Plan ZONE A** */
+
+.roof-zoneA{
+    position: absolute;
+    bottom: 42%;
+    z-index: 9999;
+    right: 45%;
+}
+
+/* **JF - Roof Plan ZONE B** */
+
+.roof-zoneB{
+    position: absolute;
+    bottom: 31%;
+    z-index: 9999;
+    right: 3%;
+}
+.roof-zoneB-1{
+    position: absolute;
+    bottom: 40%;
+    z-index: 9999;
+    right: -4%;
+}
+
+/* **JF - Roof Plan ZONE C** */
+
+.roof-zoneC{
+    position: absolute;
+    bottom: 38%;
+    z-index: 9999;
+    right: 36%;
+}
+
+/* **JF - Roof Plan ZONE D** */
+
+.roof-zoneD{
+    position: absolute;
+    bottom: 18%;
+    z-index: 9999;
+    right: 33%;
+}
+
+/* **JF - Roof Plan ZONE E** */
+
+.roof-zoneE{
+    position: absolute;
+    bottom: 66%;
+    z-index: 9999;
+    right: 52%;
+}
+
+/* **JF - Roof Plan ZONE F1** */
+
+.roof-zoneF1{
+    position: absolute;
+    bottom: 43%;
+    z-index: 9999;
+    right: 32%;
+}
+
+/* **JF - Roof Plan ZONE F1** */
+
+.roof-zoneF2{
+    position: absolute;
+    bottom: 46%;
+    z-index: 9999;
+    right: 42%;
+}

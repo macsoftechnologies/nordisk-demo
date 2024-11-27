@@ -2146,6 +2146,30 @@ export class NewRequestComponent implements OnInit {
       }
     }
 
+    else if (this.selectedbuilding == '14') {
+      console.log("JG Drawings")
+      switch (event) {
+        case "External Areas":
+          this.planType = "External Areas";
+          this.pdfSrc = "assets/images/plans/externalAreas/ExternalAreas.pdf";
+          this.blocks = [
+            {name: "CM", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/CM.pdf", className: 'external-areas-cm', planType: 'External Areas'},
+            {name: "JE", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JE.pdf", className: 'external-areas-je', planType: 'External Areas'},
+            {name: "JF", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JF.pdf", className: 'external-areas-jf', planType: 'External Areas'},
+            {name: "JG", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JG.pdf", className: 'external-areas-jg', planType: 'External Areas'},
+            {name: "JH-JX-JS", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JH-JX-JS.pdf", className: 'external-areas-jh-jx-js', planType: 'External Areas'},
+            {name: "JJ", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JJ.pdf", className: 'external-areas-jj', planType: 'External Areas'},
+            {name: "MP", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/MP.pdf", className: 'external-areas-mp', planType: 'External Areas'},
+            {name: "NH3-KF-MF", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/NH3-KF-MF.pdf", className: 'external-areas-nh3-kf-mf', planType: 'External Areas'},
+            {name: "Roads", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/Roads.pdf", className: 'external-areas-roads', planType: 'External Areas'},
+            {name: "Welfare", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/Welfare.pdf", className: 'external-areas-welfare', planType: 'External Areas'}
+          ]
+          break;
+        default:
+          break;
+      }
+    }
+
     // this.spinner = true;
     this.selectedfloor = event;
     this.Requestdata.Floor_Id = event;
@@ -3804,7 +3828,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   setAndRemoveValidators(value, control) {
-    console.log(value, control)
+    // console.log(value, control)
     if (value == 1) {
       if (control == 'Hotwork') {
         this.RequestForm.get('floatLabel1').setValidators([Validators.required]);
@@ -3830,7 +3854,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel22').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel23').setValidators([Validators.required]);
       } else if (control == 'Working with Hazardous Substances/Chemicals') {
-        console.log("123")
+        // console.log("123")
         this.RequestForm.get('floatLabel24').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel25').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel26').setValidators([Validators.required]);
@@ -3937,7 +3961,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel22').clearValidators();
         this.RequestForm.get('floatLabel23').clearValidators();
       } else if (control == 'Working with Hazardous Substances/Chemicals') {
-        console.log("456")
+        // console.log("456")
         this.RequestForm.get('floatLabel24').clearValidators();
         this.RequestForm.get('floatLabel25').clearValidators();
         this.RequestForm.get('floatLabel26').clearValidators();
@@ -4017,7 +4041,7 @@ export class NewRequestComponent implements OnInit {
   // blocks : {};
 
   openDialog(floor, i) {
-    console.log(floor, i)
+    // console.log(floor, i)
     const dialogRef = this.dialog.open(RequestBuildingModelComponent, {
       data: {
         floor: floor,
@@ -4025,7 +4049,7 @@ export class NewRequestComponent implements OnInit {
       }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result, 'result');
+      // console.log(result, 'result');
       if (result) {
         let index = this.selectFloorBlocks.findIndex(item => (item.floorName == result.floorName) && (item.planType == result.planType))
         if (index != -1) {
@@ -4035,7 +4059,7 @@ export class NewRequestComponent implements OnInit {
         }
       }
       // this.selectFloorBlocks.push(result)
-      console.log(this.selectFloorBlocks)
+      // console.log(this.selectFloorBlocks)
     });
   }
 
@@ -4055,12 +4079,12 @@ export class NewRequestComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', e.target.files[i]); // Append file
       this.RequestForm.controls["rams_file"].setValue(formData);
-      console.log(reader, "reader")
+      // console.log(reader, "reader")
     }
   }
   _handleReaderLoaded(e) {
     let reader = e.target;
-    console.log(reader, "reader")
+    // console.log(reader, "reader")
     // this.base64Images.push(reader.result);
   }
 

@@ -156,8 +156,9 @@
             <mat-label>HRA'S</mat-label>
             <mat-select formControlName="Hras" name="Hras" [multiple]="true">
               <mat-option>None</mat-option>
-              <mat-option *ngFor="let hras of getHras" [value]="hras">
-                {{ hras.label }}
+              <mat-option *ngFor="let hras of getHras" [value]="hras" class="hras-text">
+                <div class="hras-content"> <img src="{{BaseUrl}}{{hras?.image}}" class="hras-image"> {{ hras.label }}
+                </div>
               </mat-option>
             </mat-select>
           </mat-form-field>

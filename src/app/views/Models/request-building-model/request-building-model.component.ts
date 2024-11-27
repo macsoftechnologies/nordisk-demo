@@ -438,37 +438,37 @@ export class RequestBuildingModelComponent implements OnInit {
         },
         {
           value: 'S.532',
-          className: "zoneE-16",
+          className: "zoneE-15",
           isSelected: false
         },
         {
           value: 'S.534',
-          className: "zoneE-17",
+          className: "zoneE-16",
           isSelected: false
         },
         {
           value: 'S.536',
-          className: "zoneE-18",
+          className: "zoneE-17",
           isSelected: false
         },
         {
           value: 'S.537',
-          className: "zoneE-19",
+          className: "zoneE-18",
           isSelected: false
         },
         {
           value: 'S.539',
-          className: "zoneE-20",
+          className: "zoneE-19",
           isSelected: false
         },
         {
           value: 'S.538',
-          className: "zoneE-21",
+          className: "zoneE-20",
           isSelected: false
         },
         {
           value: 'PAU-311-02',
-          className: "zoneE-22",
+          className: "zoneE-21",
           isSelected: false
         },
         {
@@ -742,49 +742,49 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "first-zoneB-13",
           isSelected: false
         },
+        // {
+        //   value: 'TR01.S',
+        //   className: "first-zoneB-14",
+        //   isSelected: false
+        // },
         {
-          value: 'TR01.S',
+          value: '1.208',
           className: "first-zoneB-14",
           isSelected: false
         },
         {
-          value: '1.208',
+          value: '1.552',
           className: "first-zoneB-15",
           isSelected: false
         },
         {
-          value: '1.552',
+          value: '1.206',
           className: "first-zoneB-16",
           isSelected: false
         },
         {
-          value: '1.206',
+          value: '1.550',
           className: "first-zoneB-17",
           isSelected: false
         },
         {
-          value: '1.550',
+          value: 'TR01.1',
           className: "first-zoneB-18",
           isSelected: false
         },
         {
-          value: 'TR01.1',
+          value: '1.204',
           className: "first-zoneB-19",
           isSelected: false
         },
         {
-          value: '1.204',
+          value: 'EL01.1',
           className: "first-zoneB-20",
           isSelected: false
         },
         {
-          value: 'EL01.1',
-          className: "first-zoneB-21",
-          isSelected: false
-        },
-        {
           value: '1.202',
-          className: "first-zoneB-22",
+          className: "first-zoneB-21",
           isSelected: false
         }
 
@@ -1197,7 +1197,6 @@ export class RequestBuildingModelComponent implements OnInit {
           isSelected : false
         }
         
-      
       ]
       if (selectedBlockData) {
         if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {

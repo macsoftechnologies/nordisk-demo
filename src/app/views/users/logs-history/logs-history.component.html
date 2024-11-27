@@ -7,46 +7,9 @@
      <!-- ngx data table used to be there -->
      <ngx-datatable class="material ml-0 mr-0" [rows]="items" [columnMode]="'force'" [headerHeight]="70"
      [footerHeight]="50" [scrollbarH]="true" [limit]="30" [rowHeight]="50">
-     <ngx-datatable-column [width]="10" *ngIf="isoperator">
-       <ng-template ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
-         let-selectFn="selectFn">
-         <!-- <span class="span-sty span-apprv" color="primary">Approvedd</span>
-         <span class="span-sty span-rejc" color="primary">Rejected</span> -->
-
-
-       </ng-template>
-       <!-- <ng-template [width]="50" class="chcks-sty" ngx-datatable-cell-template let-value="value"
-         let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn" let-row="row">
-         <input [width]="50" type="checkbox" [checked]="isSelected" *ngIf="row.Request_status == 'Hold'"
-           (change)="onCheckboxChangeFn($event)" />
-       </ng-template> -->
-     </ngx-datatable-column>
-
      <ngx-datatable-column name="Permit number " [flexGrow]="1" [width]="80">
        <ng-template let-row="row" ngx-datatable-cell-template>
          {{ row?.PermitNo }}
-       </ng-template>
-     </ngx-datatable-column>
-     <ngx-datatable-column name="HRA'S" [flexGrow]="1" [width]="200">
-       <ng-template let-row="row" ngx-datatable-cell-template>
-         <img src="assets/images/logos/HotWorks.png" alt="" *ngIf="row?.Hot_work == 1" class="logo-img" />
-         <img src="assets/images/logos/ElectricalSystems.png" alt="" *ngIf="row?.working_on_electrical_system == 1"
-           class="logo-img" />
-         <img src="assets/images/logos/substanceChemical.png" alt="" *ngIf="row?.working_hazardious_substen == 1"
-           class="logo-img" />
-         <img src="assets/images/logos/testingequipment.png" alt="" *ngIf="row?.pressure_tesing_of_equipment == 1"
-           class="logo-img" />
-         <img src="assets/images/logos/WorkingAtHight.png" alt="" *ngIf="row?.working_at_height == 1"
-           class="logo-img" />
-         <img src="assets/images/logos/ConfinedSpace.png" alt="" *ngIf="row?.working_confined_spaces == 1"
-           class="logo-img" />
-         <img src="assets/images/logos/ATEXarea.png" alt="" *ngIf="row?.work_in_atex_area == 1" class="logo-img" />
-         <img src="assets/images/logos/SecuringFacilities.png" alt="" *ngIf="row?.securing_facilities == 1"
-           class="logo-img" />
-         <img src="assets/images/logos/ExcavationWorks.png" alt="" *ngIf="row?.excavation_works == 1"
-           class="logo-img" />
-         <img src="assets/images/logos/Craneslifting.png" alt="" *ngIf="row?.using_cranes_or_lifting == 1"
-           class="logo-img" />
        </ng-template>
      </ngx-datatable-column>
      <ngx-datatable-column name="Activity" [flexGrow]="1" [width]="50">
@@ -84,11 +47,11 @@
          {{ row?.Working_Date | date: "mediumDate" }}
        </ng-template>
      </ngx-datatable-column>
-     <ngx-datatable-column name="Time" [flexGrow]="1" [width]="50">
+     <!-- <ngx-datatable-column name="Time" [flexGrow]="1" [width]="50">
        <ng-template let-row="row" ngx-datatable-cell-template>
          {{ row?.Start_Time }} - {{ row?.End_Time }}
        </ng-template>
-     </ngx-datatable-column>
+     </ngx-datatable-column> -->
 
 
      <ngx-datatable-footer>
