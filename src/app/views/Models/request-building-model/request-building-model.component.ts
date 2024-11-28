@@ -1476,6 +1476,582 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+    else if (this.data.floor.name == 'JE' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area JE/1',
+          className: "external-areas-je-1",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/2',
+          className: "external-areas-je-2",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/3',
+          className: "external-areas-je-3",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/4',
+          className: "external-areas-je-4",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/5',
+          className: "external-areas-je-5",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/6',
+          className: "external-areas-je-6",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/7',
+          className: "external-areas-je-7",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/8',
+          className: "external-areas-je-8",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/9',
+          className: "external-areas-je-9",
+          isSelected: false
+          },
+          {
+          value: 'Area JE/10',
+          className: "external-areas-je-10",
+          isSelected: false
+          },
+          {
+          value: 'JE-Zone 1',
+          className: "external-areas-je-11",
+          isSelected: false
+          },
+          {
+          value: 'JE-Zone 2',
+          className: "external-areas-je-12",
+          isSelected: false
+          },
+          {
+          value: 'JE-Zone 3',
+          className: "external-areas-je-13",
+          isSelected: false
+          },
+          {
+          value: 'JE-Zone 4',
+          className: "external-areas-je-14",
+          isSelected: false
+          },
+        
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'JF' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area JF/2',
+          className: "external-areas-jf-1",
+          isSelected: false
+          },
+          {
+          value: 'Area JF/3',
+          className: "external-areas-jf-2",
+          isSelected: false
+          },
+          {
+          value: 'Area JF/4',
+          className: "external-areas-jf-3",
+          isSelected: false
+          },
+          {
+          value: 'Area JF/5',
+          className: "external-areas-jf-4",
+          isSelected: false
+          },
+          {
+          value: 'Area JF/6',
+          className: "external-areas-jf-5",
+          isSelected: false
+          },
+          {
+          value: 'Area JF/7',
+          className: "external-areas-jf-6",
+          isSelected: false
+          },
+          {
+          value: 'Area JF/8',
+          className: "external-areas-jf-7",
+          isSelected: false
+          },
+                  
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'JG' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area JG/3',
+          className: "external-areas-jg-1",
+          isSelected: false
+          },
+          
+          {
+          value: 'Area JG/4',
+          className: "external-areas-jg-2",
+          isSelected: false
+          },
+          {
+          value: 'Area JG/5',
+          className: "external-areas-jg-3",
+          isSelected: false
+          },
+          {
+          value: 'Area JG/6',
+          className: "external-areas-jg-4",
+          isSelected: false
+          },
+          {
+          value: 'Area JG/7',
+          className: "external-areas-jg-5",
+          isSelected: false
+          },
+          {
+          value: 'Area JG/8',
+          className: "external-areas-jg-6",
+          isSelected: false
+          },
+          {
+          value: 'Area JG/9',
+          className: "external-areas-jg-7",
+          isSelected: false
+          },
+          {
+          value: 'Area JG/10',
+          className: "external-areas-jg-8",
+          isSelected: false
+          },
+                  
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'JH-JX-JS' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area N2/1',
+          className: "external-areas-jh-jx-js-1",
+          isSelected: false
+          },
+          
+          {
+          value: 'Area N2/2',
+          className: "external-areas-jh-jx-js-2",
+          isSelected: false
+          },
+          
+          {
+          value: 'Area JH/1',
+          className: "external-areas-jh-jx-js-3",
+          isSelected: false
+          },
+          {
+          value: 'Area JH/2',
+          className: "external-areas-jh-jx-js-4",
+          isSelected: false
+          },
+          {
+          value: 'Area JH/3',
+          className: "external-areas-jh-jx-js-5",
+          isSelected: false
+          },
+          {
+          value: 'Area JH/4',
+          className: "external-areas-jh-jx-js-6",
+          isSelected: false
+          },
+          {
+          value: 'Area JH/5',
+          className: "external-areas-jh-jx-js-7",
+          isSelected: false
+          },
+          {
+          value: 'Area JX/1',
+          className: "external-areas-jh-jx-js-8",
+          isSelected: false
+          },
+          {
+          value: 'Area JX/2',
+          className: "external-areas-jh-jx-js-9",
+          isSelected: false
+          },
+          {
+          value: 'Area JX/3',
+          className: "external-areas-jh-jx-js-10",
+          isSelected: false
+          }
+              
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'JJ' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area JJ/1',
+          className: "external-areas-jj-1",
+          isSelected: false
+          },
+          
+          {
+          value: 'Area JJ/2',
+          className: "external-areas-jj-2",
+          isSelected: false
+          },
+          
+          {
+          value: 'Area JJ/3',
+          className: "external-areas-jj-3",
+          isSelected: false
+          },
+          
+          {
+          value: 'JJ-Zone 1',
+          className: "external-areas-jj-4",
+          isSelected: false
+          },
+          
+          {
+          value: 'JJ-Zone 2',
+          className: "external-areas-jj-5",
+          isSelected: false
+          }
+                 
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'MP' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area MP/1',
+          className: "external-areas-mp-1",
+          isSelected: false
+          },
+          {
+          value: 'Area MP/2',
+          className: "external-areas-mp-2",
+          isSelected: false
+          },
+          {
+          value: 'Area MP/3',
+          className: "external-areas-mp-3",
+          isSelected: false
+          },
+          {
+          value: 'Area MP/4',
+          className: "external-areas-mp-4",
+          isSelected: false
+          },
+          {
+          value: 'Area MP/5',
+          className: "external-areas-mp-5",
+          isSelected: false
+          }
+                    
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'NH3-KF-MF' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area MF/1',
+          className: "external-areas-nh3-kf-mf-1",
+          isSelected: false
+          },
+          
+          {
+          value: 'Area MF/2',
+          className: "external-areas-nh3-kf-mf-2",
+          isSelected: false
+          },
+          
+          {
+          value: 'Area NH3/1',
+          className: "external-areas-nh3-kf-mf-3",
+          isSelected: false
+          },
+          {
+          value: 'Area NH3/2',
+          className: "external-areas-nh3-kf-mf-4",
+          isSelected: false
+          },
+          {
+          value: 'Area KF/0',
+          className: "external-areas-nh3-kf-mf-5",
+          isSelected: false
+          },
+          {
+          value: 'Area KF/1',
+          className: "external-areas-nh3-kf-mf-6",
+          isSelected: false
+          },
+          {
+          value: 'Area KF/2',
+          className: "external-areas-nh3-kf-mf-7",
+          isSelected: false
+          },
+          {
+          value: 'Area KF/3',
+          className: "external-areas-nh3-kf-mf-8",
+          isSelected: false
+          },
+          {
+          value: 'Area KF/4',
+          className: "external-areas-nh3-kf-mf-9",
+          isSelected: false
+          }
+                        
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Roads' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Road JF-North/1',
+          className: "external-areas-roads-1",
+          isSelected: false
+          },
+          {
+          value: 'Road JF-North/2',
+          className: "external-areas-roads-2",
+          isSelected: false
+          },
+          {
+          value: 'Road JF-West',
+          className: "external-areas-roads-3",
+          isSelected: false
+          },
+          {
+          value: 'Road JG-West',
+          className: "external-areas-roads-4",
+          isSelected: false
+          },
+          {
+          value: 'Junction JF',
+          className: "external-areas-roads-5",
+          isSelected: false
+          },
+          {
+          value: 'Road JF-South',
+          className: "external-areas-roads-6",
+          isSelected: false
+          },
+          {
+          value: 'Junction JH',
+          className: "external-areas-roads-7",
+          isSelected: false
+          },
+          
+          {
+          value: 'Road JG-South',
+          className: "external-areas-roads-8",
+          isSelected: false
+          },
+          {
+          value: 'Bus Stop',
+          className: "external-areas-roads-9",
+          isSelected: false
+          },
+          {
+          value: 'Road JH-South',
+          className: "external-areas-roads-10",
+          isSelected: false
+          },
+          {
+          value: 'Junction JX',
+          className: "external-areas-roads-11",
+          isSelected: false
+          },
+          {
+          value: 'Road JG-East',
+          className: "external-areas-roads-12",
+          isSelected: false
+          },
+          
+          {
+          value: 'Road MR-West',
+          className: "external-areas-roads-13",
+          isSelected: false
+          },
+          {
+          value: 'Road MR-South',
+          className: "external-areas-roads-14",
+          isSelected: false
+          },
+          {
+          value: 'Road MP-South',
+          className: "external-areas-roads-15",
+          isSelected: false
+          },
+          
+          {
+          value: 'Junction KF',
+          className: "external-areas-roads-16",
+          isSelected: false
+          },
+          {
+          value: 'Road KF',
+          className: "external-areas-roads-17",
+          isSelected: false
+          },
+          {
+          value: 'Road MR-East',
+          className: "external-areas-roads-18",
+          isSelected: false
+          }
+                         
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'Welfare' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area WFC/3',
+          className: "external-areas-welfare-1",
+          isSelected: false
+          },
+          {
+          value: 'Area WFC/1',
+          className: "external-areas-welfare-2",
+          isSelected: false
+          },
+          {
+          value: 'Area WFC/2',
+          className: "external-areas-welfare-3",
+          isSelected: false
+          }              
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+    else if (this.data.floor.name == 'CM' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area CM/1',
+          className: "external-areas-cm-1",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/2',
+          className: "external-areas-cm-2",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/3',
+          className: "external-areas-cm-3",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/4',
+          className: "external-areas-cm-4",
+          isSelected: false
+          },
+          {
+          value: 'Area JF/5',
+          className: "external-areas-cm-5",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/6',
+          className: "external-areas-cm-6",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/7',
+          className: "external-areas-cm-7",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/8',
+          className: "external-areas-cm-8",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/9',
+          className: "external-areas-cm-9",
+          isSelected: false
+          },
+          {
+          value: 'Area CM/10',
+          className: "external-areas-cm-10",
+          isSelected: false
+          },
+                       
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
 
 
 

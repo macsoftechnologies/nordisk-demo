@@ -4396,7 +4396,7 @@ input {
 }
 .external-areas-jj{
   position: absolute;
-    top: 6%;
+    top: 3%;
     right: 37%;
     z-index: 9999;
     height: 190px;
@@ -4417,4 +4417,28 @@ input {
   z-index: 9999;
   height: 130px;
   width: 220px;
+}
+.external-areas-nh3-kf-mf{
+  position: absolute;
+    top: 6%;
+    right: 17%;
+    z-index: 9999;
+    height: 445px;
+    width: 85px;
+}
+.external-areas-cm{
+  position: absolute;
+  top: 11%;
+  left: 17%;
+  z-index: 9999;
+  height: 346px;
+  width: 0px;
+}
+.external-areas-roads{
+  position: absolute;
+  top: 11%;
+  left: 20%;
+  z-index: 9999;
+  height: 485px;
+  /* width: -87px; */
 }
