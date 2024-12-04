@@ -32,6 +32,8 @@ import {
   OwlNativeDateTimeModule 
 } from 'ng-pick-datetime';
 import { RequestBuildingModelComponent } from './views/Models/request-building-model/request-building-model.component';
+import { LogHistoryModelComponent } from './views/Models/log-history-model/log-history-model.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -55,6 +57,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SharedMaterialModule,
     PerfectScrollbarModule,
     PdfViewerModule,
+    NgxDatatableModule,
  
     TranslateModule.forRoot({
       loader: {
@@ -66,7 +69,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     InMemoryWebApiModule.forRoot(InMemoryDataService, { passThruUnknownUrl: true}),
     RouterModule.forRoot(rootRouterConfig, { useHash: true })
   ],
-  declarations: [AppComponent, ChangepasswordComponent, RequestBuildingModelComponent],
+  declarations: [AppComponent, ChangepasswordComponent, RequestBuildingModelComponent, LogHistoryModelComponent],
   providers: [
     { provide: ErrorHandler, useClass: ErrorHandlerService },
     { provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig },

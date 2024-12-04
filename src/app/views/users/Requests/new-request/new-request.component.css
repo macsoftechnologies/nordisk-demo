@@ -4428,17 +4428,21 @@ input {
 }
 .external-areas-cm{
   position: absolute;
-  top: 11%;
-  left: 17%;
-  z-index: 9999;
-  height: 346px;
-  width: 0px;
+    top: 11%;
+    left: 20%;
+    z-index: 9999;
+    height: 346px;
+    width: 0px;
+    min-width: 25px;
+    padding: 0px;
 }
 .external-areas-roads{
   position: absolute;
   top: 11%;
-  left: 20%;
+  left: 22%;
   z-index: 9999;
   height: 485px;
-  /* width: -87px; */
+  width: 0px;
+  min-width: 20px;
+  padding: 0px;
 }

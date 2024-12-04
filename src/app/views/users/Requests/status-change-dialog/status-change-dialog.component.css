@@ -77,3 +77,12 @@
     justify-content: space-between;
     margin-top: 15px;
 }
+
+.close-icons{
+  margin-left: 20px;
+  border: 2px solid #10174c;
+}
+/* .header-title-icon{
+  margin-bottom: 10px;
+  border-bottom: 2px solid;
+} */

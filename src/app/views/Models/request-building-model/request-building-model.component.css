@@ -1492,3 +1492,621 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {width: 40px;height: 40px;}
     z-index: 9999;
     right: 42%;
 }
+
+
+/* **CM - external-areas-cm** */
+
+.external-areas-cm-1{
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 11%;
+}
+
+.external-areas-cm-2{
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 10%;
+}
+
+.external-areas-cm-3{
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 12%;
+}
+.external-areas-cm-4{
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 12%;
+}
+
+.external-areas-cm-5{
+    position: absolute;
+    bottom: 30%;
+    z-index: 9999;
+    left: 14%;
+}
+.external-areas-cm-6{
+    position: absolute;
+    bottom: 7%;
+    z-index: 9999;
+    left: 15%;
+}
+
+.external-areas-cm-7{
+    position: absolute;
+    bottom: 3%;
+    z-index: 9999;
+    left: 35%;
+}
+.external-areas-cm-8{
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: -5%;
+}
+.external-areas-cm-9{
+    position: absolute;
+    bottom: 22%;
+    z-index: 9999;
+    right: -89%;
+}
+.external-areas-cm-10{
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -140%;
+}
+
+/* **JF - external-areas-jf** */
+
+.external-areas-jf-1{
+    position: absolute;
+    top: 20%;
+    z-index: 9999;
+    left: 84%;
+}
+
+.external-areas-jf-2{
+    position: absolute;
+    top: 49.8%;
+    z-index: 9999;
+    right: 10%;
+}
+.external-areas-jf-3{
+    position: absolute;
+    bottom: 18.8%;
+    z-index: 9999;
+    right: 10%;
+}
+.external-areas-jf-4{
+    position: absolute;
+    bottom: 7.6%;
+    z-index: 9999;
+    right: 35%;
+}
+
+.external-areas-jf-5{
+    position: absolute;
+    bottom: 18%;
+    z-index: 9999;
+    left: 21%;
+}
+
+.external-areas-jf-6{
+    position: absolute;
+    bottom: 48.8%;
+    z-index: 9999;
+    left: 22%;
+}
+.external-areas-jf-7{
+    position: absolute;
+    top: 21.5%;
+    z-index: 9999;
+    left: 21%;
+}
+/* **JG - external-areas-jg** */
+
+.external-areas-jg-1{
+    position: absolute;
+    top: 19.5%;
+    right: 10%;
+    z-index: 9999;
+}
+.external-areas-jg-2{
+    position: absolute;
+    top: 48.5%;
+    z-index: 9999;
+    right: 10%;
+}
+
+.external-areas-jg-3{
+    position: absolute;
+    bottom: 14.5%;
+    z-index: 9999;
+    right: 10.5%;
+}
+
+.external-areas-jg-4{
+    position: absolute;
+    position: absolute;
+    bottom: 3.3%;
+    z-index: 9999;
+    right: 21.5%;
+}
+.external-areas-jg-5{
+    position: absolute;
+    bottom: 3.3%;
+    z-index: 9999;
+    right: 52.5%;
+}
+.external-areas-jg-6{
+    position: absolute;
+    bottom: 8.3%;
+    z-index: 9999;
+    left: 9%;
+}
+
+.external-areas-jg-7{
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    z-index: 9999;
+}
+.external-areas-jg-8{
+    position: absolute;
+    top: 22%;
+    z-index: 9999;
+    left: 8%;
+}
+
+/* **JH-JX-JS - external-areas-jh-jx-js** */
+
+
+.external-areas-jh-jx-js-1{
+    position: absolute;
+    top: 9.5%;
+    left: 17%;
+    z-index: 9999;
+}
+
+.external-areas-jh-jx-js-2{
+    position: absolute;
+    top: 81%;
+    left: 23%;
+    z-index: 9999;
+}
+
+.external-areas-jh-jx-js-3{
+    position: absolute;
+    top: 12.5%;
+    left: 41%;
+    z-index: 9999;
+}
+
+.external-areas-jh-jx-js-4{
+    position: absolute;
+    top: 11.5%;
+    left: 86%;
+    z-index: 9999;
+}
+.external-areas-jh-jx-js-5{
+    position: absolute;
+    top: 49%;
+    left: 52%;
+    z-index: 9999;
+}
+
+.external-areas-jh-jx-js-6{
+    position: absolute;
+    top: 68%;
+    left: 54%;
+    z-index: 9999;
+}
+.external-areas-jh-jx-js-7{
+    position: absolute;
+    top: 62%;
+    left: 86%;
+    z-index: 9999;
+}
+
+.external-areas-jh-jx-js-8{
+    position: absolute;
+    top: 15%;
+    right: -6%;
+    z-index: 9999;
+}
+.external-areas-jh-jx-js-9{
+    position: absolute;
+    top: 29%;
+    right: -32%;
+    z-index: 9999;
+
+}
+.external-areas-jh-jx-js-10{
+    position: absolute;
+    top: 50%;
+    right: -6%;
+    z-index: 9999;
+}
+
+/* **JJ - external-areas-jj** */
+
+.external-areas-jj-1{
+    position: absolute;
+    top: 17%;
+    left: 35%;
+    z-index: 9999;
+}
+.external-areas-jj-2{
+    position: absolute;
+    top: 39%;
+    left: 72%;
+    z-index: 9999;
+}
+.external-areas-jj-3{
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+    z-index: 9999;
+}
+.external-areas-jj-4{
+    position: absolute;
+    top: 39%;
+    left: 34%;
+    z-index: 9999;
+}
+.external-areas-jj-5{
+    position: absolute;
+    top: 69%;
+    left: 34%;
+    z-index: 9999;
+}
+
+/* **MP - external-areas-mp** */
+
+.external-areas-mp-1{
+    position: absolute;
+    z-index: 9999;
+    top: 10%;
+    left: 39%;
+}
+.external-areas-mp-2{
+    position: absolute;
+    top: 27%;
+    right: 12%;
+    z-index: 9999;
+}
+.external-areas-mp-3{
+    position: absolute;
+    z-index: 9999;
+    top: 61%;
+    left: 42%;
+}
+.external-areas-mp-4{
+    position: absolute;
+    top: 32%;
+    left: 4%;
+    z-index: 9999;
+}
+.external-areas-mp-5{
+    position: absolute;
+    top: 81%;
+    left: 32%;
+    z-index: 9999;
+}
+
+
+
+/* **NH3-KF-MF - external-areas-nh3-kf-mf** */
+
+.external-areas-nh3-kf-mf-1{
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 68%;
+}
+
+.external-areas-nh3-kf-mf-2{
+    position: absolute;
+    z-index: 9999;
+    top: 11%;
+    left: 17%;
+}
+.external-areas-nh3-kf-mf-3{
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 39%;
+}
+.external-areas-nh3-kf-mf-4{
+    position: absolute;
+    z-index: 9999;
+    bottom: 57%;
+    left: 35%;
+
+}
+.external-areas-nh3-kf-mf-5{
+    position: absolute;
+    z-index: 9999;
+    bottom: 30%;
+    left: 34%;
+}
+.external-areas-nh3-kf-mf-6{
+    position: absolute;
+    z-index: 9999;
+    bottom: 31%;
+    right: 19%;
+}
+
+.external-areas-nh3-kf-mf-7{
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 55%;
+}
+
+.external-areas-nh3-kf-mf-8{
+    position: absolute;
+    z-index: 9999;
+    bottom: 23%;
+    left: 37%;
+}
+
+.external-areas-nh3-kf-mf-9{
+    position: absolute;
+    z-index: 9999;
+    bottom: 43%;
+    left: 35%;
+}
+
+
+
+/* **Roads - external-areas-Roads** */
+
+.external-areas-roads-1{
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 28%;
+}
+.external-areas-roads-2{
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 71%;
+}
+
+.external-areas-roads-3{
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 76%;
+}
+
+.external-areas-roads-4{
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 16%;
+}
+
+.external-areas-roads-5{
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 17%;
+}
+
+.external-areas-roads-6{
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 53%;
+}
+
+.external-areas-roads-7{
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: 16%;
+}
+.external-areas-roads-8{
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: -3%;
+}
+
+.external-areas-roads-9{
+    position: absolute;
+    z-index: 9999;
+    bottom: 15%;
+    left: 19%;
+}
+
+.external-areas-roads-10{
+    position: absolute;
+    z-index: 9999;
+    bottom: 10%;
+    left: 79%;
+}
+.external-areas-roads-11{
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -63%;
+}
+
+.external-areas-roads-12{
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: -55%;
+}
+
+.external-areas-roads-13{
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: -87%;
+}
+
+.external-areas-roads-14{
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -90%;
+
+}
+.external-areas-roads-15{
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -93%;
+}
+
+.external-areas-roads-16{
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -143%;
+}
+
+.external-areas-roads-17{
+    position: absolute;
+    z-index: 9999;
+    top: 43%;
+    right: -162%;
+}
+.external-areas-roads-18{
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    right: -143%;
+}
+
+/* **Welfare - external-areas-Welfare** */
+
+.external-areas-welfare-1{
+    position: absolute;
+    z-index: 9999;
+    top: 6%;
+    left: 34%;
+}
+.external-areas-welfare-2{
+    position: absolute;
+    z-index: 9999;
+    top: 44%;
+    left: 27%;
+}
+.external-areas-welfare-3{
+    position: absolute;
+    z-index: 9999;
+    bottom: 8%;
+    left: 32%;
+}
+
+/* / *JE - external-areas-je* / */
+
+.external-areas-je-1{
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    left: 12%;
+}
+
+.external-areas-je-2{
+    position: absolute;
+    z-index: 9999;
+    top: 12%;
+    left: 4.6%;
+}
+
+.external-areas-je-3{
+    position: absolute;
+    z-index: 9999;
+    top: 5.5%;
+    left: 15%;
+}
+.external-areas-je-4{
+    position: absolute;
+    z-index: 9999;
+    top: 5.5%;
+    left: 46%;
+}
+.external-areas-je-5{
+    position: absolute;
+    z-index: 9999;
+    top: 5.5%;
+    right: 18%;
+}
+.external-areas-je-6{
+    position: absolute;
+    z-index: 9999;
+    top: 5.5%;
+    right: -15%;
+}
+.external-areas-je-7{
+    position: absolute;
+    z-index: 9999;
+    top: 25.5%;
+    right: -38.5%;
+}
+.external-areas-je-8{
+    position: absolute;
+    z-index: 9999;
+    top: 30.5%;
+    right: -27.5%;
+}
+.external-areas-je-9{
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    left: 51%;
+}
+
+.external-areas-je-10{
+    position: absolute;
+    z-index: 9999;
+    top: 37%;
+    right: -39.5%;
+}
+
+.external-areas-je-11{
+    position: absolute;
+    z-index: 9999;
+    bottom: 14.5%;
+    right: -40%;
+}
+
+.external-areas-je-12{
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    left: 13%;
+}
+
+.external-areas-je-13{
+    position: absolute;
+    z-index: 9999;
+    top: 18.5%;
+    left: 34%;
+}
+
+.external-areas-je-14{
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    left: 56%;
+}
+
+.external-areas-je-15{
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: -25.5%;
+}

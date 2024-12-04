@@ -156,19 +156,27 @@ export class PlansComponent implements OnInit {
     // var sunday = new Date(current.setDate(weekend));
   }
 
+  // getFloors = [
+  //   'LK1',
+  //   'L00',
+  //   'L01',
+  //   'L02',
+  //   'L03',
+  //   'L04',
+  //   'L05',
+  //   'L06',
+  //   'L07',
+  //   'L08',
+  //   'LTA'    
+  // ]
+
   getFloors = [
-    'LK1',
-    'L00',
-    'L01',
-    'L02',
-    'L03',
-    'L04',
-    'L05',
-    'L06',
-    'L07',
-    'L08',
-    'LTA'    
-  ]
+    "External Areas",
+    "JF - Ground Floor",
+    "JF - 1st Floor",
+    "JF- 2nd Floor",
+    "JF - Roof Plan",
+  ];
 
 
   Getselectedyear(event) {

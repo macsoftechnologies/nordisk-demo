@@ -243,6 +243,39 @@ export class ListRequestComponent implements OnInit {
     
   ];
 
+  getTaskSpecific = [
+    {
+      "label": "SpecificGloves",
+      "value": 1,
+      "key": "specific_gloves",
+      "image": "assets/images/safetyIcons/SpecificGloves.png"
+    },
+    {
+      "label": "Eye Protection",
+      "value": 1,
+      "key": "eye_protection",
+       "image": "assets/images/safetyIcons/Eyeprotection.png"
+    },
+    {
+      "label": "Fall Protection",
+      "value": 1,
+      "key": "fall_protection",
+      "image": "assets/images/safetyIcons/Fallprotection.png"
+    },
+    {
+      "label": "Hearing Protection",
+      "value": 1,
+      "key": "hearing_protection",
+      "image": "assets/images/safetyIcons/Hearingprotection.png"
+    },
+    {
+      "label": "Respiratory Protection",
+      "value": 1,
+      "key": "respiratory_protection",
+      "image": "assets/images/safetyIcons/Respiratoryprotection.png"
+    },
+ ];
+
   Typeofactivitys: any[] = [];
   Status: any[] = [
     {
@@ -371,7 +404,9 @@ export class ListRequestComponent implements OnInit {
       Site: ['', Validators.required],
       Building: ['', Validators.required],
       Level: ['', Validators.required],
-      Hras: ['',]
+      Hras: ['',],
+      TaskSpecific:['',]
+
     });
   }
   ngOnDestroy() {
@@ -579,6 +614,10 @@ export class ListRequestComponent implements OnInit {
   }
 
   search(event) {
+    // this.SearchRequest = null;
+    Object.keys(this.SearchRequest).forEach((key) => {
+      this.SearchRequest[key] = null;
+    });
     console.log("inSearh",this.currentPage);
     console.log("in search value", this.startValue);
     this.api = 'SearchRequest';
@@ -629,6 +668,13 @@ export class ListRequestComponent implements OnInit {
     }
     if (this.RequestlistForm.get("Hras").value.length > 0){
       this.RequestlistForm.get("Hras").value.forEach(item =>{
+
+        this.SearchRequest[item.key] = item.value.toString()
+      })
+    }
+    if (this.RequestlistForm.get("TaskSpecific").value.length > 0){
+      this.RequestlistForm.get("TaskSpecific").value.forEach(item =>{
+        console.log("item", item)
         this.SearchRequest[item.key] = item.value.toString()
       })
     }
@@ -807,8 +853,8 @@ export class ListRequestComponent implements OnInit {
     let dialogRef: MatDialogRef<any> = this.dialog.open(
       StatusChangeDialogComponent,
       {
-        width: '300px',
-        height: '150px',
+        width: '600px',
+        height: '300px',
         disableClose: false,
         data: {
           title: title,
@@ -1098,6 +1144,9 @@ export class ListRequestComponent implements OnInit {
     this.RequestlistForm.reset();
     this.SearchRequest.fromDate = null;
     this.SearchRequest.toDate = null;
+    Object.keys(this.SearchRequest).forEach((key) => {
+      this.SearchRequest[key] = null;
+    });
     this.ngOnInit();
   }
   selectFn(info) {

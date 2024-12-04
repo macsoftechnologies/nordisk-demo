@@ -1530,23 +1530,28 @@ export class RequestBuildingModelComponent implements OnInit {
           isSelected: false
           },
           {
-          value: 'JE-Zone 1',
-          className: "external-areas-je-11",
-          isSelected: false
+            value: 'Area JE/11',
+            className: "external-areas-je-11",
+            isSelected: false
           },
           {
-          value: 'JE-Zone 2',
+          value: 'JE-Zone 1',
           className: "external-areas-je-12",
           isSelected: false
           },
           {
-          value: 'JE-Zone 3',
+          value: 'JE-Zone 2',
           className: "external-areas-je-13",
           isSelected: false
           },
           {
-          value: 'JE-Zone 4',
+          value: 'JE-Zone 3',
           className: "external-areas-je-14",
+          isSelected: false
+          },
+          {
+          value: 'JE-Zone 4',
+          className: "external-areas-je-15",
           isSelected: false
           },
         
@@ -1658,6 +1663,7 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
     else if (this.data.floor.name == 'JH-JX-JS' && this.data.floor.planType == 'External Areas') {
 
       this.floorBlock = [
@@ -1800,6 +1806,7 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
     else if (this.data.floor.name == 'NH3-KF-MF' && this.data.floor.planType == 'External Areas') {
 
       this.floorBlock = [
@@ -1859,6 +1866,8 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
+
     else if (this.data.floor.name == 'Roads' && this.data.floor.planType == 'External Areas') {
 
       this.floorBlock = [
@@ -1964,6 +1973,7 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
     else if (this.data.floor.name == 'Welfare' && this.data.floor.planType == 'External Areas') {
 
       this.floorBlock = [
@@ -1990,6 +2000,7 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
     else if (this.data.floor.name == 'CM' && this.data.floor.planType == 'External Areas') {
 
       this.floorBlock = [
@@ -2052,8 +2063,6 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
-
-
 
     // console.log(this.data);
   }

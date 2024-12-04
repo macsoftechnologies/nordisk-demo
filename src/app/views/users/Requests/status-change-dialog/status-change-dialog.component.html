@@ -1,22 +1,28 @@
-<div mat-dialog-content class="dialog-header">
-  <h3>Change the Status</h3>
-   <!-- <h3>This activity has been  coordinated and approved by ConM/Site HSE.</h3> -->
+<div mat-dialog-content>
+  <!-- <h3>Change the Status</h3> -->
+   <h3 class="header-title-icon">This activity has been  coordinated and approved by ConM/Site HSE.     <span class="material-icons close close-icons" mat-dialog-close>
+    close
+  </span></h3>
 
-  <div>
-    <span class="material-icons close" mat-dialog-close>
-      close
-    </span>
-  </div>
-
-</div>
-
-<div mat-dialog-actions *ngIf="type=='operartor'">
+  <mat-grid-list cols="2" rowHeight="80px">
+    <mat-grid-tile>
+      <mat-form-field class="full-width">
+        <mat-label>ConM initials</mat-label>
+        <input matInput />
+        <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
+          [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
+        <mat-error class="error-message"
+          *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
+          Name of Fire Watcher</mat-error> -->
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
 
   <ng-container *ngIf="updaterequestdata.Hot_work == 1">
     <form>
       <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
+          <mat-form-field class="full-width">
             <mat-label>Name of Fire Watcher</mat-label>
             <input matInput />
             <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
@@ -28,7 +34,7 @@
         </mat-grid-tile>
 
         <mat-grid-tile>
-          <mat-form-field class="full-width" appearance="outline">
+          <mat-form-field class="full-width">
             <mat-label>Phone Number of Fire Watcher</mat-label>
             <input matInput />
             <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
@@ -41,6 +47,9 @@
       </mat-grid-list>
     </form>
   </ng-container>
+</div>
+
+<div mat-dialog-actions *ngIf="type=='operartor'">
 
   <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
     (click)="Changestatus('Approved')">Approve</button>

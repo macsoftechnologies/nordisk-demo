@@ -168,6 +168,25 @@
 
       </mat-grid-list>
 
+      <mat-grid-list cols="2" rowHeight="80px">
+        
+        <mat-grid-tile>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Task Specific PPE</mat-label>
+            <mat-select formControlName="TaskSpecific" name="TaskSpecific" [multiple]="true">
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let getTaskSpecificValues of getTaskSpecific" [value]="getTaskSpecificValues" class="hras-text">
+                <div class="hras-content"> <img src="{{BaseUrl}}{{getTaskSpecificValues?.image}}" class="hras-image"> {{ getTaskSpecificValues.label }}
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <!-- {{RequestlistForm.get("TaskSpecific").value | json}} -->
+
+      </mat-grid-list>
+
 
 
     </form>

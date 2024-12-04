@@ -137,8 +137,17 @@ export class RequestDto
   visible_clothing: any;
   safety_shoes: any;
   helmet: any;
-//   descriptActivity: any;
+  description_of_activity : any;
 rams_file: any;
+specific_gloves: any;
+eye_protection: any;
+fall_protection: any;
+hearing_protection: any;
+respiratory_protection: any;
+other_ppe: any;
+other_conditions_input: any;
+  rams_number: any;
+  people_electrician_certification: any;
 
 }
 
@@ -165,7 +174,7 @@ export class EditRequestDto
     Crane_Number:string;
     Tools:string;
     Machinery:string;
-    Hot_work:string;
+    Hot_work:number;
     Certified_Person:string;
     LOTO_Procedure:string;
     LOTO_Number:string;
@@ -284,7 +293,16 @@ export class EditRequestDto
   visible_clothing: any;
   safety_shoes: any;
   helmet: any;
-//   descriptActivity: any;
+  rams_file: any;
+  description_of_activity: any;
+  specific_gloves: any;
+  eye_protection: any;
+  fall_protection: any;
+  hearing_protection: any;
+  respiratory_protection: any;
+  other_ppe: any;
+  other_conditions_input: any;
+  people_electrician_certification: any;
 }
 
 export class DeleteRequestDto

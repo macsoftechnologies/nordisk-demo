@@ -157,6 +157,16 @@ export class StatusChangeDialogComponent implements OnInit {
     visible_clothing: null,
     safety_shoes: null,
     helmet: null,
+    rams_file: null,
+    description_of_activity: null,
+    specific_gloves: null,
+    eye_protection: null,
+    fall_protection: null,
+    hearing_protection: null,
+    respiratory_protection: null,
+    other_ppe: null,
+    other_conditions_input: null,
+    people_electrician_certification: null,
   };
   images: any[] = [];
   base64Images: any[] = [];
@@ -262,7 +272,14 @@ export class StatusChangeDialogComponent implements OnInit {
       this.updaterequestdata.Request_status = statusdata;
       this.updaterequestdata.createdTime = this.CurrenttimeNow;
       console.log(this.updaterequestdata, "test data");
-      this.requestdataservice.UpdateRequest(this.updaterequestdata).subscribe(
+
+      let formData = new FormData();
+
+      for (const [key, value] of Object.entries(this.updaterequestdata)) {
+        formData.append(key, value); // Ensure values are strings if needed
+      }
+
+      this.requestdataservice.UpdateRequest(formData as unknown as EditRequestDto).subscribe(
         (x) => {
           if(x.status == 200){
             this.openSnackBar("Request Status Updated Successfully");

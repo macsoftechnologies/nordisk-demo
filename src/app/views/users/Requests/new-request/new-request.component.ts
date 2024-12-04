@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from "@angular/core";
 import {
   FormControl,
   FormGroupDirective,
@@ -172,11 +172,11 @@ export class NewRequestComponent implements OnInit {
 
   HOTWORKs: any[] = [
     {
-      id: "1",
+      id: 1,
       HOTWORKval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       HOTWORKval: "No",
     },
   ];
@@ -280,11 +280,11 @@ export class NewRequestComponent implements OnInit {
 
   CraneLifting: any[] = [
     {
-      id: "1",
+      id: 1,
       CraneLiftingval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       CraneLiftingval: "No",
     },
   ];
@@ -506,8 +506,16 @@ export class NewRequestComponent implements OnInit {
     helmet: null,
 
     rams_file: null,
-    // descriptActivity: null,
-
+    description_of_activity: null,
+    specific_gloves: null,
+    eye_protection: null,
+    fall_protection: null,
+    hearing_protection: null,
+    respiratory_protection: null,
+    other_ppe: null,
+    other_conditions_input: null,
+    rams_number: null,
+    people_electrician_certification: null,
 
   };
 
@@ -652,7 +660,16 @@ export class NewRequestComponent implements OnInit {
     visible_clothing: null,
     safety_shoes: null,
     helmet: null,
-    // descriptActivity: null,
+    rams_file: null,
+    description_of_activity: null,
+    specific_gloves: null,
+    eye_protection: null,
+    fall_protection: null,
+    hearing_protection: null,
+    respiratory_protection: null,
+    other_ppe: null,
+    other_conditions_input: null,
+    people_electrician_certification: null,
   };
 
   userdata: any = {};
@@ -673,7 +690,8 @@ export class NewRequestComponent implements OnInit {
     private jwtauth: JwtAuthService,
     private typeactservice: ActivityService,
     private safetyservice: SafetyprecautionService,
-    private teamservices: TeamService
+    private teamservices: TeamService,
+    private cdr: ChangeDetectorRef
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
@@ -1597,7 +1615,16 @@ export class NewRequestComponent implements OnInit {
       SafetyShoes: [''],
       Helmet: [''],
       // mandatoryCheck: ["", Validators.required],
-      descriptActivity: ["", Validators.required],
+      descriptActivity: [""],
+      other_conditions_input: ["", Validators.required],
+      specific_gloves: ["", Validators.required],
+      eye_protection: ["", Validators.required],
+      fall_protection: ["", Validators.required],
+      hearing_protection: ["", Validators.required],
+      respiratory_protection: ["", Validators.required],
+      other_ppe: ["", Validators.required],
+
+
       //AccesstoOtherRoom:this.AccesstoroomControl,
       //Keysneeded:this.KeysneedControl,
 
@@ -1619,6 +1646,7 @@ export class NewRequestComponent implements OnInit {
       this.typeactservice.GetAllActivites(),
       this.safetyservice.GetSafetyprecautions()
     ).subscribe((res) => {
+      console.log(res, "res11")
       this.spinner = false;
       this.selectedsite = res[0]["data"][1]["site_id"];
       this.selected_site_name = res[0]["data"][1]["site_name"];
@@ -2472,8 +2500,8 @@ export class NewRequestComponent implements OnInit {
   Getselectedsubcntrsteams(event) {
     this.TeamsSubDto.subcontId = event;
     this.teamservices.GetAllTeamsBySubId(this.TeamsSubDto).subscribe((res) => {
-      this.Teams = res["data"];
-      if (this.editform == true) {
+      this.Teams = res["data"] || [];
+      if (this.editform == true && this.Teams.length > 0)  {
         this.Teams.forEach((x) => {
           if (x["id"] == this.data["payload"]["teamId"]) {
             this.RequestForm.controls["Team"].setValue(x["id"]);
@@ -2504,7 +2532,7 @@ export class NewRequestComponent implements OnInit {
     }
   }
   GetselectedHOTWORKitem(event) {
-    if (event === "1") {
+    if (event === 1) {
       this.hotWorkHeight = 500;
       this.ishotworkyes = true;
     } else {
@@ -2613,7 +2641,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedCraneLiftingitem(event) {
-    if (event === "1") {
+    if (event === 1) {
       this.CraneLiftingHeight = 500;
       this.isCraneLiftingyes = true;
     } else {
@@ -2685,6 +2713,8 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.Tools = this.RequestForm.controls["Tools"].value;
     this.Requestdata.Machinery = this.RequestForm.controls["Machinery"].value;
     this.Requestdata.Hot_work = this.RequestForm.controls["HOTWORK"].value;
+
+    this.Requestdata.rams_number = this.RequestForm.controls["RAMSNumber"].value;
 
     this.Requestdata.name_of_the_fire_watcher = this.RequestForm.controls["fireWatcher"].value;
     this.Requestdata.phone_number_of_fire_watcher = this.RequestForm.controls["fireWatcherNumber"].value;
@@ -2792,7 +2822,7 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.passive_pause_other = this.RequestForm.controls["floatLabel66"].value;
     this.Requestdata.electricity_have_insulation = this.RequestForm.controls["floatLabel67"].value;
     this.Requestdata.covered_or_secured = this.RequestForm.controls["floatLabel68"].value;
-    this.Requestdata.electrician_certification = this.RequestForm.controls["floatLabel69"].value;
+    this.Requestdata.people_electrician_certification = this.RequestForm.controls["floatLabel69"].value;
     // this.Requestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
 
     // excavation_works
@@ -2824,6 +2854,17 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.visible_clothing = this.RequestForm.controls["VisableClothing"].value;
     this.Requestdata.safety_shoes = this.RequestForm.controls["SafetyShoes"].value;
     this.Requestdata.helmet = this.RequestForm.controls["Helmet"].value;
+
+    this.Requestdata.new_sub_contractor = this.RequestForm.controls["newSubContractor"].value;
+
+    this.Requestdata.description_of_activity = this.RequestForm.controls["descriptActivity"].value;
+    this.Requestdata.specific_gloves = this.RequestForm.controls["specific_gloves"].value;
+    this.Requestdata.eye_protection = this.RequestForm.controls["eye_protection"].value;
+    this.Requestdata.fall_protection = this.RequestForm.controls["fall_protection"].value;
+    this.Requestdata.hearing_protection = this.RequestForm.controls["hearing_protection"].value;
+    this.Requestdata.respiratory_protection = this.RequestForm.controls["respiratory_protection"].value;
+    this.Requestdata.other_ppe = this.RequestForm.controls["other_ppe"].value;
+    this.Requestdata.other_conditions_input = this.RequestForm.controls["other_conditions_input"].value;
 
     // this.Requestdata.Certified_Person =
     //   this.RequestForm.controls["CertifiedPerson"].value;
@@ -3087,6 +3128,15 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.visible_clothing = this.RequestForm.controls["VisableClothing"].value;
     this.updaterequestdata.safety_shoes = this.RequestForm.controls["SafetyShoes"].value;
     this.updaterequestdata.helmet = this.RequestForm.controls["Helmet"].value;
+
+    this.updaterequestdata.description_of_activity = this.RequestForm.controls["descriptActivity"].value;
+    this.updaterequestdata.specific_gloves = this.RequestForm.controls["specific_gloves"].value;
+    this.updaterequestdata.eye_protection = this.RequestForm.controls["eye_protection"].value;
+    this.updaterequestdata.fall_protection = this.RequestForm.controls["fall_protection"].value;
+    this.updaterequestdata.hearing_protection = this.RequestForm.controls["hearing_protection"].value;
+    this.updaterequestdata.respiratory_protection = this.RequestForm.controls["respiratory_protection"].value;
+    this.updaterequestdata.other_ppe = this.RequestForm.controls["other_ppe"].value;
+    this.updaterequestdata.other_conditions_input = this.RequestForm.controls["other_conditions_input"].value;
 
     this.updaterequestdata.Power_Off_Required =
       this.RequestForm.controls["Poweroff"].value;
@@ -3398,7 +3448,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   EditFormDataBinding(data) {
-    console.log(data);
+    console.log(data, "editdata");
     this.RequestForm.controls["Team"].setValue(this.data["teamId"]);
 
     var roomarrstr = [];
@@ -3546,9 +3596,7 @@ export class NewRequestComponent implements OnInit {
     );
     this.RequestForm.controls["Site"].setValue(data["Site_Id"]);
     this.RequestForm.controls["Activity"].setValue(data["Activity"]);
-    this.RequestForm.controls["TypeActivity"].setValue(
-      data["Type_Of_Activity_Id"]
-    );
+    this.RequestForm.controls["TypeActivity"].setValue(Number(data["Type_Of_Activity_Id"]));
     this.RequestForm.controls["Building"].setValue(data["building_name"]);
     // this.RequestForm.controls["CMTdata"].setValue(data["Crane_Requested"]);
     this.RequestForm.controls["CmtValue"].setValue(data["Crane_Number"]);
@@ -3613,6 +3661,34 @@ export class NewRequestComponent implements OnInit {
     this.RequestForm.controls["peopleinvalidcount"].setValue(
       data["Number_Of_Workers"]
     );
+    this.RequestForm.controls["newSubContractor"].setValue(data["new_sub_contractor"]);
+    // console.log(typeof data["affecting_other_contractors"]);
+    this.RequestForm.controls["floatLabel11"].setValue(data["affecting_other_contractors"]);
+    this.RequestForm.controls["floatLabel12"].setValue(data["other_conditions"]);
+    this.RequestForm.controls["other_conditions_input"].setValue(data["other_conditions_input"]);
+    this.RequestForm.controls["floatLabel13"].setValue(data["lighting_begin_work"]);
+    this.RequestForm.controls["floatLabel14"].setValue(data["specific_risks"]);
+    this.RequestForm.controls["floatLabel15"].setValue(data["environment_ensured"]);
+    this.RequestForm.controls["floatLabel16"].setValue(data["course_of_action"]);
+
+    // this.RequestForm.controls["floatLabel11"].setValue(1);
+    // this.RequestForm.patchValue({ floatLabel11: 1 });
+    this.RequestForm.controls["descriptActivity"].setValue(data["description_of_activity"]);
+    this.RequestForm.controls["RAMSNumber"].setValue(data["rams_number"]);
+    this.RequestForm.controls["other_ppe"].setValue(data["other_ppe"]);
+    // GetselectedHOTWORKitem()
+    
+    this.RequestForm.controls["CraneLifting"].setValue(data["using_cranes_or_lifting"]);
+
+
+    this.RequestForm.controls["specific_gloves"].setValue(data["specific_gloves"]);
+    this.RequestForm.controls["eye_protection"].setValue(data["eye_protection"]);
+    this.RequestForm.controls["fall_protection"].setValue(data["fall_protection"]);
+    this.RequestForm.controls["hearing_protection"].setValue(data["hearing_protection"]);
+    this.RequestForm.controls["respiratory_protection"].setValue(data["respiratory_protection"]);    
+
+    this.cdr.detectChanges(); // Force update
+
     if (data["Crane_Requested"] === "1") {
       this.iscmsyes = true;
       //this.RequestForm.controls['CmtValue'].setValue(data["CmtValue"]);
@@ -3620,11 +3696,18 @@ export class NewRequestComponent implements OnInit {
       this.iscmsyes = false;
     }
 
-    if (data["Hot_work"] === "1") {
+    if (data["Hot_work"] === 1) {
       this.ishotworkyes = true;
     } else {
       this.ishotworkyes = false;
     }
+
+    if (data["using_cranes_or_lifting"] === 1) {
+      this.isCraneLiftingyes = true;
+    } else {
+      this.isCraneLiftingyes = false;
+    }
+  
 
     if (data["LOTO_Procedure"] === "1") {
       this.isLOTOPROCEDUREyes = true;
@@ -3927,6 +4010,9 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel85').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel86').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel87').setValidators([Validators.required]);
+      } else if (control == 'Are there other conditions that'){
+        // console.log("floatLabel12", control)
+        this.RequestForm.get('other_conditions_input').setValidators([Validators.required]);
       }
       // control.setValidators([Validators.required]);
     }
@@ -4033,6 +4119,9 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel85').clearValidators();
         this.RequestForm.get('floatLabel86').clearValidators();
         this.RequestForm.get('floatLabel87').clearValidators();
+      } else if (control == 'Are there other conditions that'){
+        // console.log("floatLabel12", control)
+        this.RequestForm.get('other_conditions_input').clearValidators();;
       }
     }
     this.RequestForm.updateValueAndValidity();
@@ -4064,13 +4153,14 @@ export class NewRequestComponent implements OnInit {
   }
 
   selectFloorBlocks: Array<any> = [];
-  images: any[] = [];
+  images:any;
   // isimguploaded: boolean = false;
   // base64Images: any[] = [];
 
   csvInputChange(e) {
     for (var i = 0; i < e.target.files.length; i++) {
-      this.images.push(e.target.files[i]);
+      this.images =e.target.files[i];
+      console.log(e.target.files[i]);
       var reader = new FileReader();
 
       reader.onload = this._handleReaderLoaded.bind(this);

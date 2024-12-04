@@ -121,6 +121,7 @@
               </mat-form-field>
             </mat-grid-tile>
             <!-- {{RequestForm.get('newSubContractor').invalid && RequestForm.get('newSubContractor').touched}} -->
+            {{RequestForm.get('newSubContractor').value}}
             <mat-grid-tile>
               <mat-form-field class="full-width form-group" appearance="outline">
                 <mat-label>Sub Contractor</mat-label>
@@ -217,6 +218,7 @@
                 <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)"
                   accept=".pdf" />
                 <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add RAMS Files</button>
+                <span>{{images?.name}}</span>
               </div>
 
               <!-- <div class="mat-card save-btn-sty" *ngIf="isimguploaded">
@@ -246,7 +248,7 @@
               </mat-form-field>
             </mat-grid-tile>
 
-
+            <!-- {{RequestForm.get('descriptActivity').value}} -->
           </mat-grid-list>
 
         </div>
@@ -707,13 +709,14 @@
           <!-- new commom points -->
 
           <div class="hotwork-sub">
+            <!-- {{RequestForm.get('floatLabel11').value}} -->
             <label>Can you confirm that your works are not affecting with other contractors working in this area before
               starting the work?</label>
             <mat-radio-group formControlName="floatLabel11"
               [class.is-invalid]="RequestForm.get('floatLabel11').invalid && RequestForm.get('floatLabel11').touched">
-              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="2">N/A</mat-radio-button>
+              <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="2">N/A</mat-radio-button>
               <mat-error class="error-message"
                 *ngIf="RequestForm.get('floatLabel11').invalid && RequestForm.get('floatLabel11').touched">Please Select
               </mat-error>
@@ -721,13 +724,13 @@
           </div>
 
           <div class="hotwork-sub">
-            <label>Are there other conditions that must be taken into account during the work? If Yes, note in "Other
-              conditions"</label>
-            <mat-radio-group formControlName="floatLabel12"
+            <label>Are there other conditions that must be taken into account during the work? If Yes, note in 'Other
+              conditions'</label>
+            <mat-radio-group formControlName="floatLabel12"  (change)="setAndRemoveValidators($event.value,'Are there other conditions that')"
               [class.is-invalid]="RequestForm.get('floatLabel12').invalid && RequestForm.get('floatLabel12').touched">
-              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="2">N/A</mat-radio-button>
+              <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="2">N/A</mat-radio-button>
               <mat-error class="error-message"
                 *ngIf="RequestForm.get('floatLabel12').invalid && RequestForm.get('floatLabel12').touched">Please Select
               </mat-error>
@@ -738,7 +741,11 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Note the Other Condition</mat-label>
-                <input matInput formControlName="fireWatcher" placeholder="Note the Other Condition" />
+                <input matInput formControlName="other_conditions_input" placeholder="Note the Other Condition"
+                [class.is-invalid]="RequestForm.get('other_conditions_input').invalid && RequestForm.get('other_conditions_input').touched" />
+                <mat-error class="error-message"
+                *ngIf="RequestForm.get('other_conditions_input').invalid && RequestForm.get('other_conditions_input').touched">Please
+                Enter Other Condition</mat-error>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -748,9 +755,9 @@
             <label>Can you confirm that there will be enough work lighting to begin the work?</label>
             <mat-radio-group formControlName="floatLabel13"
               [class.is-invalid]="RequestForm.get('floatLabel13').invalid && RequestForm.get('floatLabel13').touched">
-              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="2">N/A</mat-radio-button>
+              <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="2">N/A</mat-radio-button>
               <mat-error class="error-message"
                 *ngIf="RequestForm.get('floatLabel13').invalid && RequestForm.get('floatLabel13').touched">Please Select
               </mat-error>
@@ -761,9 +768,9 @@
             <label>Have the team been informed about the spesific risks based on task?(RAMS training etc.)</label>
             <mat-radio-group formControlName="floatLabel14"
               [class.is-invalid]="RequestForm.get('floatLabel14').invalid && RequestForm.get('floatLabel14').touched">
-              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="2">N/A</mat-radio-button>
+              <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="2">N/A</mat-radio-button>
               <mat-error class="error-message"
                 *ngIf="RequestForm.get('floatLabel14').invalid && RequestForm.get('floatLabel14').touched">Please Select
               </mat-error>
@@ -774,22 +781,23 @@
             <label>Is the work environment safety ensured? Have the necessary warning signs been placed?</label>
             <mat-radio-group formControlName="floatLabel15"
               [class.is-invalid]="RequestForm.get('floatLabel15').invalid && RequestForm.get('floatLabel15').touched">
-              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="2">N/A</mat-radio-button>
+              <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="2">N/A</mat-radio-button>
               <mat-error class="error-message"
                 *ngIf="RequestForm.get('floatLabel15').invalid && RequestForm.get('floatLabel15').touched">Please Select
               </mat-error>
             </mat-radio-group>
           </div>
+          <!-- {{RequestForm.get('floatLabel16').value}} -->
           <div class="hotwork-sub">
             <label>Have the team been informed about the course of action in emergencies?</label>
             <mat-radio-group formControlName="floatLabel16"
               [class.is-invalid]="RequestForm.get('floatLabel16').invalid && RequestForm.get('floatLabel16').touched"
               class="form-control">
-              <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-              <mat-radio-button value="2">N/A</mat-radio-button>
+              <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+              <mat-radio-button [value]="2">N/A</mat-radio-button>
               <mat-error class="error-message"
                 *ngIf="RequestForm.get('floatLabel16').invalid && RequestForm.get('floatLabel16').touched">Please Select
               </mat-error>
@@ -2722,9 +2730,9 @@
 
                 </div>
                 <div class="ppe-radio">
-                  <mat-radio-group formControlName="VisableClothing">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
+                  <mat-radio-group formControlName="specific_gloves">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
               </div>
@@ -2737,9 +2745,9 @@
 
                 </div>
                 <div class="ppe-radio">
-                  <mat-radio-group formControlName="VisableClothing">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
+                  <mat-radio-group formControlName="eye_protection">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
               </div>
@@ -2752,9 +2760,9 @@
 
                 </div>
                 <div class="ppe-radio">
-                  <mat-radio-group formControlName="VisableClothing">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
+                  <mat-radio-group formControlName="fall_protection">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
               </div>
@@ -2767,9 +2775,9 @@
 
                 </div>
                 <div class="ppe-radio">
-                  <mat-radio-group formControlName="VisableClothing">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
+                  <mat-radio-group formControlName="hearing_protection">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
               </div>
@@ -2783,11 +2791,12 @@
 
                 </div>
                 <div class="ppe-radio">
-                  <mat-radio-group formControlName="VisableClothing">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
+                  <mat-radio-group formControlName="respiratory_protection">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No</mat-radio-button>
                   </mat-radio-group>
                 </div>
+                <!-- {{RequestForm.get('respiratory_protection').value}} -->
               </div>
 
             </div>
@@ -2826,9 +2835,10 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Other PPE</mat-label>
-                <input matInput formControlName="peopleinvalidcount" placeholder="Other PPE" />
+                <input matInput formControlName="other_ppe" placeholder="Other PPE" />
               </mat-form-field>
             </mat-grid-tile>
+            <!-- {{RequestForm.get('other_ppe').value}} -->
           </mat-grid-list>
 
           <mat-grid-list cols="1" rowHeight="100px">
