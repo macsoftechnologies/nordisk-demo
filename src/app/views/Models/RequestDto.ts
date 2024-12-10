@@ -303,6 +303,11 @@ export class EditRequestDto
   other_ppe: any;
   other_conditions_input: any;
   people_electrician_certification: any;
+  ConM_initials: any;
+  ConM_initials1: any
+  electricity_have_insulation: any;
+  name_of_the_fire_watcher1: any;
+  phone_number_of_fire_watcher1: any;
 }
 
 export class DeleteRequestDto

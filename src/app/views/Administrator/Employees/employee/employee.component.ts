@@ -39,8 +39,8 @@ export class EmployeeComponent implements OnInit {
     [
       { name: "Select Type" },
       { name: "Department" },
-      // { name: "Subcontractor" },
-      { name: "Contractor" },
+      { name: "Subcontractor" },
+      // { name: "Contractor" },
       { name: "Observer" }
     ];
   useraccess: boolean = false;
@@ -286,6 +286,7 @@ export class EmployeeComponent implements OnInit {
 
   radioChange(event) {
     if (event.value === 'Subcontractor') {
+      console.log(event)
       this.selectedradioval = "Subcontractor";
       this.IsObserver = true;
       this.Depart = true;
@@ -296,7 +297,7 @@ export class EmployeeComponent implements OnInit {
       this.IsObserver = true;
       this.Depart = true;
       this.SubContact = true;
-      this.Company = 'KHPT'
+      this.Company = 'M3 South'
     }
     else if (event.value === 'Observer') {
       this.selectedradioval = "Observer";

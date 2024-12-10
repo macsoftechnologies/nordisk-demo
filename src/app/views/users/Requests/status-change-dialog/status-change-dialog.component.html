@@ -1,52 +1,55 @@
 <div mat-dialog-content>
-  <!-- <h3>Change the Status</h3> -->
-   <h3 class="header-title-icon">This activity has been  coordinated and approved by ConM/Site HSE.     <span class="material-icons close close-icons" mat-dialog-close>
-    close
-  </span></h3>
+  <div class="model-header">
+  <h3 *ngIf="requestDatas=='Opened' " class="change_Status">Change the Status</h3>
+  <h3 *ngIf="requestDatas=='Approved' || requestDatas == 'Hold'" class="header-title-icon">This activity has been coordinated and approved by ConM/Site HSE. </h3>
+  <span
+      class="material-icons close close-icons" mat-dialog-close>
+      close
+    </span>
+  </div>
 
-  <mat-grid-list cols="2" rowHeight="80px">
-    <mat-grid-tile>
-      <mat-form-field class="full-width">
-        <mat-label>ConM initials</mat-label>
-        <input matInput />
-        <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
-          [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
-        <mat-error class="error-message"
-          *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
-          Name of Fire Watcher</mat-error> -->
-      </mat-form-field>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <form [formGroup]="statusApprovedForm">
 
-  <ng-container *ngIf="updaterequestdata.Hot_work == 1">
-    <form>
-      <mat-grid-list cols="2" rowHeight="80px">
-        <mat-grid-tile>
-          <mat-form-field class="full-width">
-            <mat-label>Name of Fire Watcher</mat-label>
-            <input matInput />
-            <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
+    <mat-grid-list cols="2" rowHeight="80px" *ngIf="type=='operartor' && requestDatas == 'Hold' ">
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>ConM initials</mat-label>
+          <input matInput  formControlName = "ConM_initials" />
+
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
+      <form>
+        <mat-grid-list cols="2" rowHeight="80px">
+          <mat-grid-tile>
+            <mat-form-field class="full-width">
+              <mat-label>Name of Fire Watcher</mat-label>
+              <input matInput formControlName="name_of_the_fire_watcher1"/>
+              <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
               [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
             <mat-error class="error-message"
               *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
               Name of Fire Watcher</mat-error> -->
-          </mat-form-field>
-        </mat-grid-tile>
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <mat-grid-tile>
-          <mat-form-field class="full-width">
-            <mat-label>Phone Number of Fire Watcher</mat-label>
-            <input matInput />
-            <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
+          <mat-grid-tile>
+            <mat-form-field class="full-width">
+              <mat-label>Phone Number of Fire Watcher</mat-label>
+              <input matInput formControlName="phone_number_of_fire_watcher1" />
+              <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
               [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
             <mat-error class="error-message"
               *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
               Phone Number of Fire Watcher</mat-error> -->
-          </mat-form-field>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </form>
-  </ng-container>
+            </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </ng-container>
+  </form>
 </div>
 
 <div mat-dialog-actions *ngIf="type=='operartor'">
@@ -59,9 +62,21 @@
 
 
 <div *ngIf="type=='Opened' && !isclose">
+
+  <form [formGroup]="statusOpenForm">
+
+  <mat-grid-list cols="2">
+    <mat-grid-tile>
+      <mat-form-field class="full-width">
+        <mat-label>The person responsible for this work</mat-label>
+        <input matInput formControlName="ConM_initials1" />
+
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
+  </form>
+
   <ng-container *ngIf="updaterequestdata.Hot_work == 1">
-
-
     <div mat-dialog-content>
       <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->
       <div class="upload-div-sty">
@@ -85,7 +100,7 @@
 
   </ng-container>
 
- <div mat-dialog-actions>
+  <div mat-dialog-actions>
     <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
       (click)="Changestatus('Opened')">Open</button>
     <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
@@ -96,39 +111,41 @@
 
 <div class="" *ngIf="type=='Closed'">
   <ng-container *ngIf="updaterequestdata.Hot_work == 1">
-    <div class="hotwork-sub">
-      <label>Heat sources and sparkling tools were last used, state the time</label>
-      <mat-radio-group formControlName="floatLabel11">
-        <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-        <mat-radio-button value="0">No</mat-radio-button>
-      </mat-radio-group>
-    </div>
-
-    <div class="hotwork-sub">
-      <label>Are the workplace checked for glowing/smoldering objects?</label>
-      <mat-radio-group formControlName="floatLabel22">
-        <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-        <mat-radio-button value="0">No</mat-radio-button>
-      </mat-radio-group>
-    </div>
-
-    <div class="hotwork-sub">
-      <label>Are fire detectors back in active mode?</label>
-      <mat-radio-group formControlName="floatLabel33">
-        <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-        <mat-radio-button value="0">No</mat-radio-button>
-      </mat-radio-group>
-    </div>
-
-    <div class="time-picker-class">
-      <h4>Check after hot work:</h4>
-      <div class="cs-form">
-        <input type="time" class="form-control" value="10:05 AM" formControlName="floatLabel44" />
+    <form [formGroup]="statusUpdateForm">
+      <div class="hotwork-sub">
+        <label>Heat sources and sparkling tools were last used, state the time</label>
+        <mat-radio-group formControlName="h_heat_source">
+          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+          <mat-radio-button value="0">No</mat-radio-button>
+        </mat-radio-group>
       </div>
-      <div class="cs-form">
-        <input type="time" class="form-control" value="10:05 AM" formControlName="floatLabel55" />
+
+      <div class="hotwork-sub">
+        <label>Are the workplace checked for glowing/smoldering objects?</label>
+        <mat-radio-group formControlName="h_workplace_check">
+          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+          <mat-radio-button value="0">No</mat-radio-button>
+        </mat-radio-group>
       </div>
-    </div>
+
+      <div class="hotwork-sub">
+        <label>Are fire detectors back in active mode?</label>
+        <mat-radio-group formControlName="h_fire_detectors">
+          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
+          <mat-radio-button value="0">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="time-picker-class">
+        <h4>Check after hot work:</h4>
+        <div class="cs-form">
+          <input type="time" class="form-control" value="10:05 AM" formControlName="h_start_time" />
+        </div>
+        <div class="cs-form">
+          <input type="time" class="form-control" value="10:05 AM" formControlName="h_end_time" />
+        </div>
+      </div>
+    </form>
   </ng-container>
 
   <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->

@@ -63,15 +63,30 @@
                         <!-- <mat-radio-group formControlName="options">
                                 <mat-radio-button *ngFor="let tech of radiooptions" [value]="tech" (change)="radioChange($event)">{{tech}}</mat-radio-button>
                               </mat-radio-group> -->
-                        <mat-form-field class="full-width" appearance="outline">
+                        <!-- <mat-form-field class="full-width" appearance="outline">
                             <mat-label> Select Employee Type</mat-label>
                             <mat-select formControlName="options" name="options" (selectionChange)="radioChange($event)">
                                 <mat-option *ngFor="let tech of radiooptions" [value]="tech.name">
                                     {{tech.name}}
                                 </mat-option>
                             </mat-select>
-                        </mat-form-field>
+                        </mat-form-field> -->
 
+
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label> Select Employee Type</mat-label>
+                            <mat-select formControlName="options" name="options" (selectionChange)="radioChange($event)">
+                                <mat-option  value="Department">
+                                    Department
+                                </mat-option>
+                                <mat-option  value="Subcontractor">
+                                    Contractor
+                                </mat-option>
+                                <mat-option  value="Observer">
+                                    Observer
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
                     </mat-grid-tile>
                 </mat-grid-list>
@@ -91,7 +106,8 @@
                     <mat-grid-tile *ngIf="IsObserver">
                         <mat-form-field *ngIf="selectedradioval=='Subcontractor'" class="full-width"
                             appearance="outline">
-                            <mat-label> Select {{selectedradioval}}</mat-label>
+                            <!-- <mat-label> Select {{selectedradioval}}</mat-label> -->
+                            <mat-label> Select Contractor</mat-label>
                             <mat-select formControlName="subcontrid" name="SubContractor">
                                 <mat-option *ngFor="let tech of SubContractor" [value]="tech.id">
                                     {{tech.subContractorName}}

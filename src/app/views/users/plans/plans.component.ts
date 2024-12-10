@@ -121,7 +121,7 @@ export class PlansComponent implements OnInit {
     this.minDate = new Date(currentYear - 20, 0, 1);
     this.maxDate = new Date(currentYear + 1, 11, 31);
 
-    for (let i = 2000; i < 2030; i++) {
+    for (let i = 2024; i < 2030; i++) {
       this.Years.push(i);
     }
     this.subcontrservice.GetAllSubContractors().subscribe(res => {
@@ -201,7 +201,7 @@ export class PlansComponent implements OnInit {
     var dow = simple.getDay();
     var ISOweekStart = simple;
     if (dow <= 7) {
-      this.ListWeeks.push(this.datePipe.transform(ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1), 'yyyy/MM/dd') + "  -  " + this.datePipe.transform(ISOweekStart.setDate(simple.getDate() + 7 - simple.getDay()), 'yyyy/MM/dd'));
+      this.ListWeeks.push(this.datePipe.transform(ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1), 'yyyy/MM/dd') + "  -  " + this.datePipe.transform(ISOweekStart.setDate(simple.getDate() + 7 - simple.getDay()), 'yyyy/MM/dd') + ` ${w}` );
       // console.log(this.datePipe.transform(ISOweekStart.setDate(simple.getDate() - simple.getDay() + 1), 'yyyy-MM-dd'));
       // console.log(this.datePipe.transform(ISOweekStart.setDate(simple.getDate() + 7 - simple.getDay()), 'yyyy-MM-dd'));
     }

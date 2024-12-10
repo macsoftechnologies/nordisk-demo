@@ -10,6 +10,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
 import { config } from "config";
 import * as moment from 'moment';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-status-change-dialog",
@@ -167,6 +168,13 @@ export class StatusChangeDialogComponent implements OnInit {
     other_ppe: null,
     other_conditions_input: null,
     people_electrician_certification: null,
+    electricity_have_insulation: null,
+
+    ConM_initials: null,
+    ConM_initials1: null,
+    name_of_the_fire_watcher1: null,
+    phone_number_of_fire_watcher1: null,
+
   };
   images: any[] = [];
   base64Images: any[] = [];
@@ -186,6 +194,11 @@ export class StatusChangeDialogComponent implements OnInit {
   isimguploaded: boolean = false;
   spinner: boolean = false;
   CurrenttimeNow: string;
+  requestDatas: any;
+  statusUpdateForm: FormGroup;
+  statusApprovedForm: FormGroup;
+  statusOpenForm: FormGroup;
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private requestdataservice: RequestService,
@@ -193,12 +206,32 @@ export class StatusChangeDialogComponent implements OnInit {
     private authservice: JwtAuthService
   ) {
     this.userdata = this.authservice.getUser();
+    
+    this.statusUpdateForm = new FormGroup({
+      h_heat_source: new FormControl('',),
+      h_workplace_check: new FormControl('',),
+      h_fire_detectors: new FormControl('',),
+      h_start_time: new FormControl('',),
+      h_end_time: new FormControl('',),
+    }) 
+
+    this.statusApprovedForm = new FormGroup({
+      ConM_initials: new FormControl('',),
+      name_of_the_fire_watcher: new FormControl('',),
+      phone_number_of_fire_watcher: new FormControl('',),
+    })
+
+    this.statusOpenForm = new FormGroup({
+      ConM_initials1: new FormControl('',),
+    })
+
   }
 
   ngOnInit(): void {
     console.log("DATA", this.data)
     this.updaterequestdata.userId = this.userdata["id"];
     this.type = this.data["type"];
+    this.requestDatas = this.data["payload"]["Request_status"]
     this.updaterequestdata.teamId = this.data["payload"]["teamId"];
     this.updaterequestdata.Activity = this.data["payload"]["Activity"];
     this.updaterequestdata.Assign_Start_Time =
@@ -251,6 +284,141 @@ export class StatusChangeDialogComponent implements OnInit {
       this.data["payload"]["Type_Of_Activity_Id"];
     this.updaterequestdata.Working_Date = this.data["payload"]["Working_Date"];
     this.updaterequestdata.id = this.data["payload"]["id"];
+
+    // new keys added
+    
+    this.updaterequestdata.affecting_other_contractors = this.data["payload"]["affecting_other_contractors"];
+    this.updaterequestdata.other_conditions = this.data["payload"]["other_conditions"];
+    this.updaterequestdata.lighting_begin_work = this.data["payload"]["lighting_begin_work"];
+    this.updaterequestdata.specific_risks = this.data["payload"]["specific_risks"];
+    this.updaterequestdata.environment_ensured = this.data["payload"]["environment_ensured"];
+    this.updaterequestdata.course_of_action = this.data["payload"]["course_of_action"];
+
+
+    this.updaterequestdata.tasks_in_progress_in_the_area = this.data["payload"]["tasks_in_progress_in_the_area"];
+    this.updaterequestdata.lighting_sufficiently = this.data["payload"]["lighting_sufficiently"];
+    this.updaterequestdata.spesific_risks_based_on_task = this.data["payload"]["spesific_risks_based_on_task"];
+    this.updaterequestdata.work_environment_safety_ensured = this.data["payload"]["work_environment_safety_ensured"];
+    this.updaterequestdata.course_of_action_in_emergencies = this.data["payload"]["course_of_action_in_emergencies"];
+    this.updaterequestdata.fire_watch_establish = this.data["payload"]["fire_watch_establish"];
+    this.updaterequestdata.combustible_material = this.data["payload"]["combustible_material"];
+    this.updaterequestdata.safety_measures = this.data["payload"]["safety_measures"];
+    this.updaterequestdata.extinguishers_and_fire_blanket = this.data["payload"]["extinguishers_and_fire_blanket"];
+
+    this.updaterequestdata.welding_activitiy = this.data["payload"]["welding_activitiy"];
+    this.updaterequestdata.heat_treatment = this.data["payload"]["heat_treatment"];
+    this.updaterequestdata.air_extraction_be_established = this.data["payload"]["air_extraction_be_established"];
+
+
+    // electrical_system
+    this.updaterequestdata.working_on_electrical_system = this.data["payload"]["working_on_electrical_system"];
+    this.updaterequestdata.responsible_for_the_informed = this.data["payload"]["responsible_for_the_informed"];
+    this.updaterequestdata.de_energized = this.data["payload"]["de_energized"];
+    this.updaterequestdata.if_no_loto = this.data["payload"]["if_no_loto"];
+    this.updaterequestdata.do_risk_assessment = this.data["payload"]["do_risk_assessment"];
+    this.updaterequestdata.if_yes_loto = this.data["payload"]["if_yes_loto"];
+    this.updaterequestdata.electricity_have_isulation = this.data["payload"]["electricity_have_isulation"];
+    this.updaterequestdata.electrician_certification = this.data["payload"]["electrician_certification"];
+
+    // working_hazardious_substen
+    this.updaterequestdata.working_hazardious_substen = this.data["payload"]["working_hazardious_substen"];
+    this.updaterequestdata.relevant_mal = this.data["payload"]["relevant_mal"];
+    this.updaterequestdata.msds = this.data["payload"]["msds"];
+    this.updaterequestdata.equipment_taken_account = this.data["payload"]["equipment_taken_account"];
+    this.updaterequestdata.ventilation = this.data["payload"]["ventilation"];
+    this.updaterequestdata.hazardaus_substances = this.data["payload"]["hazardaus_substances"];
+    this.updaterequestdata.storage_and_disposal = this.data["payload"]["storage_and_disposal"];
+    this.updaterequestdata.reachable_case = this.data["payload"]["reachable_case"];
+    this.updaterequestdata.checical_risk_assessment = this.data["payload"]["checical_risk_assessment"];
+
+    // pressure_tesing_of_equipment
+    this.updaterequestdata.pressure_tesing_of_equipment = this.data["payload"]["pressure_tesing_of_equipment"];
+    this.updaterequestdata.transfer_of_palnt = this.data["payload"]["transfer_of_palnt"];
+    this.updaterequestdata.area_drained = this.data["payload"]["area_drained"];
+    this.updaterequestdata.area_depressurised = this.data["payload"]["area_depressurised"];
+    this.updaterequestdata.area_flused = this.data["payload"]["area_flused"];
+    this.updaterequestdata.tank_area_container = this.data["payload"]["tank_area_container"];
+    this.updaterequestdata.system_free_for_dust = this.data["payload"]["system_free_for_dust"];
+    this.updaterequestdata.loto_plan_submitted = this.data["payload"]["loto_plan_submitted"];
+
+     // <!-- height start -->
+    this.updaterequestdata.working_at_height = this.data["payload"]["working_at_height"];
+    this.updaterequestdata.lanyard_attachments = this.data["payload"]["lanyard_attachments"];
+    this.updaterequestdata.rescue_plan = this.data["payload"]["rescue_plan"];
+    this.updaterequestdata.avoid_hazards = this.data["payload"]["avoid_hazards"];
+    this.updaterequestdata.height_training = this.data["payload"]["height_training"];
+    this.updaterequestdata.supervision = this.data["payload"]["supervision"];
+    this.updaterequestdata.shock_absorbing = this.data["payload"]["shock_absorbing"];
+    this.updaterequestdata.height_equipments = this.data["payload"]["height_equipments"];
+    this.updaterequestdata.vertical_life = this.data["payload"]["vertical_life"];
+    this.updaterequestdata.secured_falling = this.data["payload"]["secured_falling"];
+    this.updaterequestdata.dropped_objects = this.data["payload"]["dropped_objects"];
+    this.updaterequestdata.safe_acces = this.data["payload"]["safe_acces"];
+    this.updaterequestdata.weather_acceptable = this.data["payload"]["weather_acceptable"];
+
+    // working_confined_spaces
+    this.updaterequestdata.working_confined_spaces = this.data["payload"]["working_confined_spaces"];
+    this.updaterequestdata.vapours_gases = this.data["payload"]["vapours_gases"];
+    this.updaterequestdata.lel_measurement = this.data["payload"]["lel_measurement"];
+    this.updaterequestdata.all_equipment = this.data["payload"]["all_equipment"];
+    this.updaterequestdata.exit_conditions = this.data["payload"]["exit_conditions"];
+    this.updaterequestdata.communication_emergency = this.data["payload"]["communication_emergency"];
+    this.updaterequestdata.rescue_equipments = this.data["payload"]["rescue_equipments"];
+    this.updaterequestdata.space_ventilation = this.data["payload"]["space_ventilation"];
+    this.updaterequestdata.oxygen_meter = this.data["payload"]["oxygen_meter"];
+
+     // work_in_atex_area
+
+    this.updaterequestdata.work_in_atex_area = this.data["payload"]["work_in_atex_area"];
+    this.updaterequestdata.ex_area_downgraded = this.data["payload"]["ex_area_downgraded"];
+    this.updaterequestdata.atmospheric_tester = this.data["payload"]["atmospheric_tester"];
+    this.updaterequestdata.flammable_materials = this.data["payload"]["flammable_materials"];
+    this.updaterequestdata.potential_explosive = this.data["payload"]["potential_explosive"];
+    this.updaterequestdata.oxygen_meter_confined_spaces = this.data["payload"]["oxygen_meter_confined_spaces"];
+
+    // <!-- FACILITIES LOTO start -->
+    this.updaterequestdata.securing_facilities = this.data["payload"]["securing_facilities"];
+    this.updaterequestdata.loto_facilities = this.data["payload"]["loto_facilities"];
+    this.updaterequestdata.system_depressurised = this.data["payload"]["system_depressurised"];
+    this.updaterequestdata.passive_pause_other = this.data["payload"]["passive_pause_other"];
+    this.updaterequestdata.electricity_have_insulation = this.data["payload"]["electricity_have_insulation"];
+    this.updaterequestdata.covered_or_secured = this.data["payload"]["covered_or_secured"];
+    this.updaterequestdata.people_electrician_certification = this.data["payload"]["people_electrician_certification"];
+ 
+    // excavation_works
+    this.updaterequestdata.excavation_works = this.data["payload"]["excavation_works"];
+    this.updaterequestdata.excavation_segregated = this.data["payload"]["excavation_segregated"];
+    this.updaterequestdata.nn_standards = this.data["payload"]["nn_standards"];
+    this.updaterequestdata.danish_regulation = this.data["payload"]["danish_regulation"];
+    this.updaterequestdata.safe_access_and_egress = this.data["payload"]["safe_access_and_egress"];
+    this.updaterequestdata.correctly_sloped = this.data["payload"]["correctly_sloped"];
+    this.updaterequestdata.inspection_dates = this.data["payload"]["inspection_dates"];
+    this.updaterequestdata.marked_drawings = this.data["payload"]["marked_drawings"];
+    this.updaterequestdata.underground_areas_cleared = this.data["payload"]["underground_areas_cleared"];
+
+    // using_cranes_or_lifting
+
+    this.updaterequestdata.using_cranes_or_lifting = this.data["payload"]["using_cranes_or_lifting"];
+    this.updaterequestdata.appointed_person = this.data["payload"]["appointed_person"];
+    this.updaterequestdata.vendor_supplier = this.data["payload"]["vendor_supplier"];
+    this.updaterequestdata.lift_plan = this.data["payload"]["lift_plan"];
+    this.updaterequestdata.supplied_and_inspected = this.data["payload"]["supplied_and_inspected"];
+    this.updaterequestdata.legal_required_certificates = this.data["payload"]["legal_required_certificates"];
+    this.updaterequestdata.prapared_lifting = this.data["payload"]["prapared_lifting"];
+    this.updaterequestdata.lifting_task_fenced = this.data["payload"]["lifting_task_fenced"];
+    this.updaterequestdata.overhead_risks = this.data["payload"]["overhead_risks"];
+
+    this.updaterequestdata.new_sub_contractor = this.data["payload"]["new_sub_contractor"];
+    this.updaterequestdata.description_of_activity = this.data["payload"]["description_of_activity"];
+    this.updaterequestdata.specific_gloves = this.data["payload"]["specific_gloves"];
+    this.updaterequestdata.eye_protection = this.data["payload"]["eye_protection"];
+    this.updaterequestdata.fall_protection = this.data["payload"]["fall_protection"];
+    this.updaterequestdata.hearing_protection = this.data["payload"]["hearing_protection"];
+    this.updaterequestdata.respiratory_protection = this.data["payload"]["respiratory_protection"];
+    this.updaterequestdata.other_ppe = this.data["payload"]["other_ppe"];
+    this.updaterequestdata.other_conditions_input = this.data["payload"]["other_conditions_input"];
+    this.updaterequestdata.rams_file = this.data["payload"]["rams_file"];
+
   }
 
   Changestatus(statusdata) {
@@ -273,6 +441,12 @@ export class StatusChangeDialogComponent implements OnInit {
       this.updaterequestdata.createdTime = this.CurrenttimeNow;
       console.log(this.updaterequestdata, "test data");
 
+      this.updaterequestdata.ConM_initials = this.statusApprovedForm.value.ConM_initials;
+      this.updaterequestdata.name_of_the_fire_watcher1 = this.statusApprovedForm.value.name_of_the_fire_watcher1;
+      this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusApprovedForm.value.phone_number_of_fire_watcher1;
+
+      this.updaterequestdata.ConM_initials1 = this.statusOpenForm.value.ConM_initials1;
+
       let formData = new FormData();
 
       for (const [key, value] of Object.entries(this.updaterequestdata)) {
@@ -283,7 +457,7 @@ export class StatusChangeDialogComponent implements OnInit {
         (x) => {
           if(x.status == 200){
             this.openSnackBar("Request Status Updated Successfully");
-            console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
+            // console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
             // window.location.reload();
             // this.ngOnInit();
           }
@@ -320,6 +494,8 @@ export class StatusChangeDialogComponent implements OnInit {
     this.Close_Request.Request_status = status;
     this.Close_Request.createdTime = this.CurrenttimeNow;
 
+    
+
     if (this.images.length > 0) {
       for (var i = 0; i < this.images.length; i++) {
         formData.append("Image[]", this.images[i]);
@@ -332,6 +508,14 @@ export class StatusChangeDialogComponent implements OnInit {
     formData.append("Request_status", this.Close_Request.Request_status);
     formData.append("userId", this.userdata["id"]);
     formData.append("createdTime", this.Close_Request.createdTime);
+
+    formData.append("h_heat_source", this.statusUpdateForm.value.h_heat_source);
+    formData.append("h_workplace_check", this.statusUpdateForm.value.h_workplace_check);
+    formData.append("h_fire_detectors", this.statusUpdateForm.value.h_fire_detectors);
+    formData.append("h_start_time", this.statusUpdateForm.value.h_start_time);
+    formData.append("h_end_time", this.statusUpdateForm.value.h_end_time);
+
+    console.log(this.statusUpdateForm,"form")
 
     this.requestdataservice.CloseRequest(formData).subscribe(
       (res) => {

@@ -121,7 +121,7 @@
               </mat-form-field>
             </mat-grid-tile>
             <!-- {{RequestForm.get('newSubContractor').invalid && RequestForm.get('newSubContractor').touched}} -->
-            {{RequestForm.get('newSubContractor').value}}
+            <!-- {{RequestForm.get('newSubContractor').value}} -->
             <mat-grid-tile>
               <mat-form-field class="full-width form-group" appearance="outline">
                 <mat-label>Sub Contractor</mat-label>
@@ -863,9 +863,9 @@
                   <label>Are there other tasks in progress in the area? </label>
                   <mat-radio-group formControlName="floatLabel1"
                     [class.is-invalid]="RequestForm.get('floatLabel1').invalid && RequestForm.get('floatLabel1').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel1').invalid && RequestForm.get('floatLabel1').touched">Please
                       Select
@@ -886,9 +886,9 @@
                   <label> Is the lighting sufficiently and secured so that the work can be started? </label>
                   <mat-radio-group formControlName="floatLabel3"
                     [class.is-invalid]="RequestForm.get('floatLabel3').invalid && RequestForm.get('floatLabel3').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel3').invalid && RequestForm.get('floatLabel3').touched">Please
                       Select
@@ -900,9 +900,9 @@
                   <label>Have the team been informed about the spesific risks based on task?(RAMS training etc.)</label>
                   <mat-radio-group formControlName="floatLabel4"
                     [class.is-invalid]="RequestForm.get('floatLabel4').invalid && RequestForm.get('floatLabel4').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel4').invalid && RequestForm.get('floatLabel4').touched">Please
                       Select
@@ -914,9 +914,9 @@
                   <label>Is the work environment safety ensured? Have the necessary warning signs been placed? </label>
                   <mat-radio-group formControlName="floatLabel5"
                     [class.is-invalid]="RequestForm.get('floatLabel5').invalid && RequestForm.get('floatLabel5').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel5').invalid && RequestForm.get('floatLabel5').touched">Please
                       Select
@@ -928,9 +928,9 @@
                   <label> Have the team been informed about the course of action in emergencies? </label>
                   <mat-radio-group formControlName="floatLabel6"
                     [class.is-invalid]="RequestForm.get('floatLabel6').invalid && RequestForm.get('floatLabel6').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel6').invalid && RequestForm.get('floatLabel6').touched">Please
                       Select
@@ -942,9 +942,9 @@
                   <label>Should a fire watch be established?</label>
                   <mat-radio-group formControlName="floatLabel7"
                     [class.is-invalid]="RequestForm.get('floatLabel7').invalid && RequestForm.get('floatLabel7').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel7').invalid && RequestForm.get('floatLabel7').touched">Please
                       Select
@@ -956,9 +956,9 @@
                   <label>Does combustible materials need to be removed from the work area?</label>
                   <mat-radio-group formControlName="floatLabel8"
                     [class.is-invalid]="RequestForm.get('floatLabel8').invalid && RequestForm.get('floatLabel8').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel8').invalid && RequestForm.get('floatLabel8').touched">Please
                       Select
@@ -971,9 +971,9 @@
                     surfaces?</label>
                   <mat-radio-group formControlName="floatLabel9"
                     [class.is-invalid]="RequestForm.get('floatLabel9').invalid && RequestForm.get('floatLabel9').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel9').invalid && RequestForm.get('floatLabel9').touched">Please
                       Select
@@ -985,9 +985,9 @@
                   <label>Are fire extinguishers and fire blanket ready for use in the area ?</label>
                   <mat-radio-group formControlName="floatLabel10"
                     [class.is-invalid]="RequestForm.get('floatLabel10').invalid && RequestForm.get('floatLabel10').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel10').invalid && RequestForm.get('floatLabel10').touched">Please
                       Select
@@ -1030,9 +1030,9 @@
                         <label>The people who will do heat treatment, had welder certificates?</label>
                         <mat-radio-group formControlName="NEWHOTWORK1"
                           [class.is-invalid]="RequestForm.get('NEWHOTWORK1').invalid && RequestForm.get('NEWHOTWORK1').touched">
-                          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                          <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                          <mat-radio-button value="2">N/A</mat-radio-button>
+                          <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                          <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                          <mat-radio-button [value]="2">N/A</mat-radio-button>
                           <mat-error class="error-message"
                             *ngIf="RequestForm.get('NEWHOTWORK1').invalid && RequestForm.get('NEWHOTWORK1').touched">Please
                             Select
@@ -1045,9 +1045,9 @@
                           into the open air)</label>
                         <mat-radio-group formControlName="NEWHOTWORK2"
                           [class.is-invalid]="RequestForm.get('NEWHOTWORK2').invalid && RequestForm.get('NEWHOTWORK2').touched">
-                          <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                          <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                          <mat-radio-button value="2">N/A</mat-radio-button>
+                          <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                          <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                          <mat-radio-button [value]="2">N/A</mat-radio-button>
                           <mat-error class="error-message"
                             *ngIf="RequestForm.get('NEWHOTWORK2').invalid && RequestForm.get('NEWHOTWORK2').touched">Please
                             Select
@@ -1058,7 +1058,7 @@
                     </section>
                   </mat-grid-tile>
 
-                  <!-- <pre>Value:<br>{{RequestForm.value | json}}</pre> -->
+                  <!-- <pre>Value:<br>{{RequestForm.[value] | json}}</pre> -->
 
                 </mat-grid-list>
 
@@ -1103,9 +1103,9 @@
                   <label>Is the responsible for the area informed?</label>
                   <mat-radio-group formControlName="floatLabel17"
                     [class.is-invalid]="RequestForm.get('floatLabel17').invalid && RequestForm.get('floatLabel17').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel17').invalid && RequestForm.get('floatLabel17').touched">Please
                       Select
@@ -1117,9 +1117,9 @@
                   <label>Check if the board is de-energized - is it de-energized?</label>
                   <mat-radio-group formControlName="floatLabel18"
                     [class.is-invalid]="RequestForm.get('floatLabel18').invalid && RequestForm.get('floatLabel18').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel18').invalid && RequestForm.get('floatLabel18').touched">Please
                       Select
@@ -1132,9 +1132,9 @@
                     padlock.</label>
                   <mat-radio-group formControlName="floatLabel19"
                     [class.is-invalid]="RequestForm.get('floatLabel19').invalid && RequestForm.get('floatLabel19').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel19').invalid && RequestForm.get('floatLabel19').touched">Please
                       Select
@@ -1146,9 +1146,9 @@
                   <label> do you have risk assessment done? </label>
                   <mat-radio-group formControlName="floatLabel20"
                     [class.is-invalid]="RequestForm.get('floatLabel20').invalid && RequestForm.get('floatLabel20').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel20').invalid && RequestForm.get('floatLabel20').touched">Please
                       Select
@@ -1161,9 +1161,9 @@
                     padlock.</label>
                   <mat-radio-group formControlName="floatLabel21"
                     [class.is-invalid]="RequestForm.get('floatLabel21').invalid && RequestForm.get('floatLabel21').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel21').invalid && RequestForm.get('floatLabel21').touched">Please
                       Select
@@ -1175,9 +1175,9 @@
                   <label>Do appliances/devices that run on electricity have isulation?</label>
                   <mat-radio-group formControlName="floatLabel22"
                     [class.is-invalid]="RequestForm.get('floatLabel22').invalid && RequestForm.get('floatLabel22').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel22').invalid && RequestForm.get('floatLabel22').touched">Please
                       Select
@@ -1189,9 +1189,9 @@
                   <label>Does the people who will work with energised systems, had electrician certification?</label>
                   <mat-radio-group formControlName="floatLabel23"
                     [class.is-invalid]="RequestForm.get('floatLabel23').invalid && RequestForm.get('floatLabel23').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel23').invalid && RequestForm.get('floatLabel23').touched">Please
                       Select
@@ -1203,7 +1203,7 @@
               </section>
             </mat-grid-tile>
 
-            <!-- <pre>Value:<br>{{RequestForm.value | json}}</pre> -->
+            <!-- <pre>Value:<br>{{RequestForm.[value] | json}}</pre> -->
           </mat-grid-list>
 
           <!-- end electrical work -->
@@ -1240,9 +1240,9 @@
                   <label>Relevant MAL-codes and safety datasheets for hazardous medias have been presented?</label>
                   <mat-radio-group formControlName="floatLabel24"
                     [class.is-invalid]="RequestForm.get('floatLabel24').invalid && RequestForm.get('floatLabel24').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel24').invalid && RequestForm.get('floatLabel24').touched">Please
                       Select
@@ -1254,9 +1254,9 @@
                   <label>Is MSDS (Material Safety Data Sheet) submitted?</label>
                   <mat-radio-group formControlName="floatLabel25"
                     [class.is-invalid]="RequestForm.get('floatLabel25').invalid && RequestForm.get('floatLabel25').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel25').invalid && RequestForm.get('floatLabel25').touched">Please
                       Select
@@ -1268,9 +1268,9 @@
                   <label>Has the use of protective equipment been taken into account - and are they present?</label>
                   <mat-radio-group formControlName="floatLabel26"
                     [class.is-invalid]="RequestForm.get('floatLabel26').invalid && RequestForm.get('floatLabel26').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel26').invalid && RequestForm.get('floatLabel26').touched">Please
                       Select
@@ -1282,9 +1282,9 @@
                   <label>Has the use of ventilation been taken into acount?</label>
                   <mat-radio-group formControlName="floatLabel27"
                     [class.is-invalid]="RequestForm.get('floatLabel27').invalid && RequestForm.get('floatLabel27').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel27').invalid && RequestForm.get('floatLabel27').touched">Please
                       Select
@@ -1296,9 +1296,9 @@
                   <label> Will the hazardaus substances affect people outside the working area? (fumes)</label>
                   <mat-radio-group formControlName="floatLabel28"
                     [class.is-invalid]="RequestForm.get('floatLabel28').invalid && RequestForm.get('floatLabel28').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel28').invalid && RequestForm.get('floatLabel28').touched">Please
                       Select
@@ -1311,9 +1311,9 @@
                     amount or long term storage)</label>
                   <mat-radio-group formControlName="floatLabel29"
                     [class.is-invalid]="RequestForm.get('floatLabel29').invalid && RequestForm.get('floatLabel29').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel29').invalid && RequestForm.get('floatLabel29').touched">Please
                       Select
@@ -1325,9 +1325,9 @@
                   <label>Does the spill kits are in place and reachable in case there is a leaking? </label>
                   <mat-radio-group formControlName="floatLabel30"
                     [class.is-invalid]="RequestForm.get('floatLabel30').invalid && RequestForm.get('floatLabel30').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel30').invalid && RequestForm.get('floatLabel30').touched">Please
                       Select
@@ -1340,9 +1340,9 @@
                     with the substance?</label>
                   <mat-radio-group formControlName="floatLabel31"
                     [class.is-invalid]="RequestForm.get('floatLabel31').invalid && RequestForm.get('floatLabel31').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel31').invalid && RequestForm.get('floatLabel31').touched">Please
                       Select
@@ -1392,9 +1392,9 @@
                   <label>Has there been an agreement on the transfer of plant/equipment for pressure testing?</label>
                   <mat-radio-group formControlName="floatLabel32"
                     [class.is-invalid]="RequestForm.get('floatLabel32').invalid && RequestForm.get('floatLabel32').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel32').invalid && RequestForm.get('floatLabel32').touched">Please
                       Select
@@ -1406,9 +1406,9 @@
                   <label>Is the area drained?</label>
                   <mat-radio-group formControlName="floatLabel33"
                     [class.is-invalid]="RequestForm.get('floatLabel33').invalid && RequestForm.get('floatLabel33').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel33').invalid && RequestForm.get('floatLabel33').touched">Please
                       Select
@@ -1420,9 +1420,9 @@
                   <label>Is the area depressurised?</label>
                   <mat-radio-group formControlName="floatLabel34"
                     [class.is-invalid]="RequestForm.get('floatLabel34').invalid && RequestForm.get('floatLabel34').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel34').invalid && RequestForm.get('floatLabel34').touched">Please
                       Select
@@ -1434,9 +1434,9 @@
                   <label>Is the area flushed and cleaned?</label>
                   <mat-radio-group formControlName="floatLabel35"
                     [class.is-invalid]="RequestForm.get('floatLabel35').invalid && RequestForm.get('floatLabel35').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel35').invalid && RequestForm.get('floatLabel35').touched">Please
                       Select
@@ -1448,9 +1448,9 @@
                   <label>Is the tank/area/container secured and back in normal condition?</label>
                   <mat-radio-group formControlName="floatLabel36"
                     [class.is-invalid]="RequestForm.get('floatLabel36').invalid && RequestForm.get('floatLabel36').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel36').invalid && RequestForm.get('floatLabel36').touched">Please
                       Select
@@ -1462,9 +1462,9 @@
                   <label>Is the system free from for dust, chips and water?</label>
                   <mat-radio-group formControlName="floatLabel37"
                     [class.is-invalid]="RequestForm.get('floatLabel37').invalid && RequestForm.get('floatLabel37').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel37').invalid && RequestForm.get('floatLabel37').touched">Please
                       Select
@@ -1476,9 +1476,9 @@
                   <label>Is there a LOTO plan submitted?</label>
                   <mat-radio-group formControlName="floatLabel38"
                     [class.is-invalid]="RequestForm.get('floatLabel38').invalid && RequestForm.get('floatLabel38').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel38').invalid && RequestForm.get('floatLabel38').touched">Please
                       Select
@@ -1527,9 +1527,9 @@
                   <label>Are suitable anchor points are in place for lanyard attachments?</label>
                   <mat-radio-group formControlName="floatLabel39"
                     [class.is-invalid]="RequestForm.get('floatLabel39').invalid && RequestForm.get('floatLabel39').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel39').invalid && RequestForm.get('floatLabel39').touched">Please
                       Select
@@ -1541,9 +1541,9 @@
                   <label>In case of emergency is there a rescue plan in place?</label>
                   <mat-radio-group formControlName="floatLabel40"
                     [class.is-invalid]="RequestForm.get('floatLabel40').invalid && RequestForm.get('floatLabel40').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel40').invalid && RequestForm.get('floatLabel40').touched">Please
                       Select
@@ -1556,9 +1556,9 @@
                     onto the other workers,<br />interference between the machines etc.)</label>
                   <mat-radio-group formControlName="floatLabel41"
                     [class.is-invalid]="RequestForm.get('floatLabel41').invalid && RequestForm.get('floatLabel41').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel41').invalid && RequestForm.get('floatLabel41').touched">Please
                       Select
@@ -1570,9 +1570,9 @@
                   <label>Have the team had certified working at height training? </label>
                   <mat-radio-group formControlName="floatLabel42"
                     [class.is-invalid]="RequestForm.get('floatLabel42').invalid && RequestForm.get('floatLabel42').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel42').invalid && RequestForm.get('floatLabel42').touched">Please
                       Select
@@ -1585,9 +1585,9 @@
                     Working at Height'' training?</label>
                   <mat-radio-group formControlName="floatLabel43"
                     [class.is-invalid]="RequestForm.get('floatLabel43').invalid && RequestForm.get('floatLabel43').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel43').invalid && RequestForm.get('floatLabel43').touched">Please
                       Select
@@ -1599,9 +1599,9 @@
                   <label>Full body harness with shock absorbing & twin lanyard provided?</label>
                   <mat-radio-group formControlName="floatLabel44"
                     [class.is-invalid]="RequestForm.get('floatLabel44').invalid && RequestForm.get('floatLabel44').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel44').invalid && RequestForm.get('floatLabel44').touched">Please
                       Select
@@ -1614,9 +1614,9 @@
                     carry out the task? </label>
                   <mat-radio-group formControlName="floatLabel45"
                     [class.is-invalid]="RequestForm.get('floatLabel45').invalid && RequestForm.get('floatLabel45').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel45').invalid && RequestForm.get('floatLabel45').touched">Please
                       Select
@@ -1628,9 +1628,9 @@
                   <label>Horizonal or vertical life line systems in place?</label>
                   <mat-radio-group formControlName="floatLabel46"
                     [class.is-invalid]="RequestForm.get('floatLabel46').invalid && RequestForm.get('floatLabel46').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel46').invalid && RequestForm.get('floatLabel46').touched">Please
                       Select
@@ -1641,9 +1641,9 @@
                   <label>Are all tools are secured from falling from height? </label>
                   <mat-radio-group formControlName="floatLabel47"
                     [class.is-invalid]="RequestForm.get('floatLabel47').invalid && RequestForm.get('floatLabel47').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel47').invalid && RequestForm.get('floatLabel47').touched">Please
                       Select
@@ -1655,9 +1655,9 @@
                     area, nets)?</label>
                   <mat-radio-group formControlName="floatLabel48"
                     [class.is-invalid]="RequestForm.get('floatLabel48').invalid && RequestForm.get('floatLabel48').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel48').invalid && RequestForm.get('floatLabel48').touched">Please
                       Select
@@ -1668,9 +1668,9 @@
                   <label>Have proper and safe accces and egress been provided?</label>
                   <mat-radio-group formControlName="floatLabel49"
                     [class.is-invalid]="RequestForm.get('floatLabel49').invalid && RequestForm.get('floatLabel49').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel49').invalid && RequestForm.get('floatLabel49').touched">Please
                       Select
@@ -1681,9 +1681,9 @@
                   <label>Are the weather conditions acceptable?</label>
                   <mat-radio-group formControlName="floatLabel50"
                     [class.is-invalid]="RequestForm.get('floatLabel50').invalid && RequestForm.get('floatLabel50').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel50').invalid && RequestForm.get('floatLabel50').touched">Please
                       Select
@@ -1733,9 +1733,9 @@
                     etc.?</label>
                   <mat-radio-group formControlName="floatLabel51"
                     [class.is-invalid]="RequestForm.get('floatLabel51').invalid && RequestForm.get('floatLabel51').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel51').invalid && RequestForm.get('floatLabel51').touched">Please
                       Select
@@ -1747,9 +1747,9 @@
                   <label>Are oxygen measurement and LEL measurement done before starting the work?</label>
                   <mat-radio-group formControlName="floatLabel52"
                     [class.is-invalid]="RequestForm.get('floatLabel52').invalid && RequestForm.get('floatLabel52').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel52').invalid && RequestForm.get('floatLabel52').touched">Please
                       Select
@@ -1762,9 +1762,9 @@
                     secured?</label>
                   <mat-radio-group formControlName="floatLabel53"
                     [class.is-invalid]="RequestForm.get('floatLabel53').invalid && RequestForm.get('floatLabel53').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel53').invalid && RequestForm.get('floatLabel53').touched">Please
                       Select
@@ -1776,9 +1776,9 @@
                   <label>Are there safe entry and exit conditions? (e.g. ladder)</label>
                   <mat-radio-group formControlName="floatLabel54"
                     [class.is-invalid]="RequestForm.get('floatLabel54').invalid && RequestForm.get('floatLabel54').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel54').invalid && RequestForm.get('floatLabel54').touched">Please
                       Select
@@ -1791,9 +1791,9 @@
                     for emergency rescue?)</label>
                   <mat-radio-group formControlName="floatLabel55"
                     [class.is-invalid]="RequestForm.get('floatLabel55').invalid && RequestForm.get('floatLabel55').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel55').invalid && RequestForm.get('floatLabel55').touched">Please
                       Select
@@ -1805,9 +1805,9 @@
                   <label>Are rescue equipments are in place and ready?</label>
                   <mat-radio-group formControlName="floatLabel56"
                     [class.is-invalid]="RequestForm.get('floatLabel56').invalid && RequestForm.get('floatLabel56').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel56').invalid && RequestForm.get('floatLabel56').touched">Please
                       Select
@@ -1819,9 +1819,9 @@
                   <label>Is space and ventilation adequate?</label>
                   <mat-radio-group formControlName="floatLabel57"
                     [class.is-invalid]="RequestForm.get('floatLabel57').invalid && RequestForm.get('floatLabel57').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel57').invalid && RequestForm.get('floatLabel57').touched">Please
                       Select
@@ -1833,9 +1833,9 @@
                   <label>Is an oxygen meter provided for the work?</label>
                   <mat-radio-group formControlName="floatLabel58"
                     [class.is-invalid]="RequestForm.get('floatLabel58').invalid && RequestForm.get('floatLabel58').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel58').invalid && RequestForm.get('floatLabel58').touched">Please
                       Select
@@ -1884,9 +1884,9 @@
                   <label>Is the EX-area downgraded?</label>
                   <mat-radio-group formControlName="floatLabel59"
                     [class.is-invalid]="RequestForm.get('ATEXAREA').invalid && RequestForm.get('ATEXAREA').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('ATEXAREA').invalid && RequestForm.get('ATEXAREA').touched">Please
                       Select
@@ -1898,9 +1898,9 @@
                   <label>Atmospheric tester has been calibrated and is within it's validity date?</label>
                   <mat-radio-group formControlName="floatLabel60"
                     [class.is-invalid]="RequestForm.get('floatLabel60').invalid && RequestForm.get('floatLabel60').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel60').invalid && RequestForm.get('floatLabel60').touched">Please
                       Select
@@ -1912,9 +1912,9 @@
                   <label>Does the flammable materials have been removed from the work area?</label>
                   <mat-radio-group formControlName="floatLabel61"
                     [class.is-invalid]="RequestForm.get('floatLabel61').invalid && RequestForm.get('floatLabel61').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel61').invalid && RequestForm.get('floatLabel61').touched">Please
                       Select
@@ -1927,9 +1927,9 @@
                     equipment has been identified?</label>
                   <mat-radio-group formControlName="floatLabel62"
                     [class.is-invalid]="RequestForm.get('floatLabel62').invalid && RequestForm.get('floatLabel62').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel62').invalid && RequestForm.get('floatLabel62').touched">Please
                       Select
@@ -1941,9 +1941,9 @@
                   <label>Is an oxygen meter proveded for the work?</label>
                   <mat-radio-group formControlName="floatLabel63"
                     [class.is-invalid]="RequestForm.get('floatLabel63').invalid && RequestForm.get('floatLabel63').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel63').invalid && RequestForm.get('floatLabel63').touched">Please
                       Select
@@ -1994,9 +1994,9 @@
                     craftsman's padlock.</label>
                   <mat-radio-group formControlName="floatLabel64"
                     [class.is-invalid]="RequestForm.get('floatLabel64').invalid && RequestForm.get('floatLabel64').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel64').invalid && RequestForm.get('floatLabel64').touched">Please
                       Select
@@ -2008,9 +2008,9 @@
                   <label>Is the system depressurised?</label>
                   <mat-radio-group formControlName="floatLabel65"
                     [class.is-invalid]="RequestForm.get('floatLabel65').invalid && RequestForm.get('floatLabel65').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel65').invalid && RequestForm.get('floatLabel65').touched">Please
                       Select
@@ -2018,27 +2018,27 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub">
+                <!-- <div class="hotwork-sub">
                   <label>Is the system drained?</label>
                   <mat-radio-group formControlName="floatLabel66"
                     [class.is-invalid]="RequestForm.get('floatLabel66').invalid && RequestForm.get('floatLabel66').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel66').invalid && RequestForm.get('floatLabel66').touched">Please
                       Select
                     </mat-error>
                   </mat-radio-group>
-                </div>
+                </div> -->
 
                 <div class="hotwork-sub">
                   <label>Is the system in passive, pause, stop, remote stop, local stop or other?</label>
                   <mat-radio-group formControlName="floatLabel67"
                     [class.is-invalid]="RequestForm.get('floatLabel67').invalid && RequestForm.get('floatLabel67').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel67').invalid && RequestForm.get('floatLabel67').touched">Please
                       Select
@@ -2050,9 +2050,9 @@
                   <label>Does the appliances/devices that run on electricity have isulation? </label>
                   <mat-radio-group formControlName="floatLabel68"
                     [class.is-invalid]="RequestForm.get('floatLabel68').invalid && RequestForm.get('floatLabel68').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel68').invalid && RequestForm.get('floatLabel68').touched">Please
                       Select
@@ -2064,9 +2064,9 @@
                   <label>Are flammable materials/boxes or anything else removed, covered or secured?</label>
                   <mat-radio-group formControlName="floatLabel69"
                     [class.is-invalid]="RequestForm.get('floatLabel69').invalid && RequestForm.get('floatLabel69').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel69').invalid && RequestForm.get('floatLabel69').touched">Please
                       Select
@@ -2077,9 +2077,9 @@
                   <label>Does the people who will work with energised systems, had electrician certification?</label>
                   <mat-radio-group formControlName="floatLabel70"
                     [class.is-invalid]="RequestForm.get('floatLabel70').invalid && RequestForm.get('floatLabel70').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel70').invalid && RequestForm.get('floatLabel70').touched">Please
                       Select
@@ -2130,9 +2130,9 @@
                     barriers) before the work begins?</label>
                   <mat-radio-group formControlName="floatLabel71"
                     [class.is-invalid]="RequestForm.get('floatLabel71').invalid && RequestForm.get('floatLabel71').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel71').invalid && RequestForm.get('floatLabel71').touched">Please
                       Select
@@ -2145,9 +2145,9 @@
                     standards?</label>
                   <mat-radio-group formControlName="floatLabel72"
                     [class.is-invalid]="RequestForm.get('floatLabel72').invalid && RequestForm.get('floatLabel72').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel72').invalid && RequestForm.get('floatLabel72').touched">Please
                       Select
@@ -2155,27 +2155,27 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub">
+                <!-- <div class="hotwork-sub">
                   <label>Does excavation requires shoring? </label>
                   <mat-radio-group formControlName="floatLabel73"
                     [class.is-invalid]="RequestForm.get('floatLabel73').invalid && RequestForm.get('floatLabel73').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel73').invalid && RequestForm.get('floatLabel73').touched">Please
                       Select
                     </mat-error>
                   </mat-radio-group>
-                </div>
+                </div> -->
 
                 <div class="hotwork-sub">
                   <label>Is the sloping correct in relation to the depth of the dig as per Danish regulations?</label>
                   <mat-radio-group formControlName="floatLabel74"
                     [class.is-invalid]="RequestForm.get('floatLabel74').invalid && RequestForm.get('floatLabel74').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel74').invalid && RequestForm.get('floatLabel74').touched">Please
                       Select
@@ -2187,9 +2187,9 @@
                   <label>Have proper and safe access and egress been provided? </label>
                   <mat-radio-group formControlName="floatLabel75"
                     [class.is-invalid]="RequestForm.get('floatLabel75').invalid && RequestForm.get('floatLabel75').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel75').invalid && RequestForm.get('floatLabel75').touched">Please
                       Select
@@ -2201,9 +2201,9 @@
                   <label>Are correctly positioned ladders or correctly sloped stairways accessible?</label>
                   <mat-radio-group formControlName="floatLabel76"
                     [class.is-invalid]="RequestForm.get('floatLabel76').invalid && RequestForm.get('floatLabel76').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel76').invalid && RequestForm.get('floatLabel76').touched">Please
                       Select
@@ -2214,9 +2214,9 @@
                   <label>Does all machines have valid inspection dates?</label>
                   <mat-radio-group formControlName="floatLabel77"
                     [class.is-invalid]="RequestForm.get('floatLabel77').invalid && RequestForm.get('floatLabel77').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel77').invalid && RequestForm.get('floatLabel77').touched">Please
                       Select
@@ -2228,9 +2228,9 @@
                   <label>Have clearly marked drawings been submitted?</label>
                   <mat-radio-group formControlName="floatLabel78"
                     [class.is-invalid]="RequestForm.get('floatLabel78').invalid && RequestForm.get('floatLabel78').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel78').invalid && RequestForm.get('floatLabel78').touched">Please
                       Select
@@ -2241,9 +2241,9 @@
                   <label>Are the underground areas cleared from all electrical, piping and other services?</label>
                   <mat-radio-group formControlName="floatLabel79"
                     [class.is-invalid]="RequestForm.get('floatLabel79').invalid && RequestForm.get('floatLabel79').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel79').invalid && RequestForm.get('floatLabel79').touched">Please
                       Select
@@ -2293,9 +2293,9 @@
                   <label>Is there an appointed person in charge of the lifting/crane operation?</label>
                   <mat-radio-group formControlName="floatLabel80"
                     [class.is-invalid]="RequestForm.get('floatLabel80').invalid && RequestForm.get('floatLabel80').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel80').invalid && RequestForm.get('floatLabel80').touched">Please
                       Select
@@ -2308,9 +2308,9 @@
                     vendor or supplier?</label>
                   <mat-radio-group formControlName="floatLabel81"
                     [class.is-invalid]="RequestForm.get('floatLabel81').invalid && RequestForm.get('floatLabel81').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel81').invalid && RequestForm.get('floatLabel81').touched">Please
                       Select
@@ -2322,9 +2322,9 @@
                   <label>Is lift plan submitted?</label>
                   <mat-radio-group formControlName="floatLabel82"
                     [class.is-invalid]="RequestForm.get('floatLabel82').invalid && RequestForm.get('floatLabel82').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel82').invalid && RequestForm.get('floatLabel82').touched">Please
                       Select
@@ -2337,9 +2337,9 @@
                     inspected?</label>
                   <mat-radio-group formControlName="floatLabel83"
                     [class.is-invalid]="RequestForm.get('floatLabel83').invalid && RequestForm.get('floatLabel83').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel83').invalid && RequestForm.get('floatLabel83').touched">Please
                       Select
@@ -2351,9 +2351,9 @@
                   <label>Do the crane operators have the legal required certificates?</label>
                   <mat-radio-group formControlName="floatLabel84"
                     [class.is-invalid]="RequestForm.get('floatLabel84').invalid && RequestForm.get('floatLabel84').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel84').invalid && RequestForm.get('floatLabel84').touched">Please
                       Select
@@ -2365,9 +2365,9 @@
                   <label>Is laydown area suitable and prepared for lifting?</label>
                   <mat-radio-group formControlName="floatLabel85"
                     [class.is-invalid]="RequestForm.get('floatLabel85').invalid && RequestForm.get('floatLabel85').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel85').invalid && RequestForm.get('floatLabel85').touched">Please
                       Select
@@ -2378,9 +2378,9 @@
                   <label>Is the entire area of the lifting task fenced off?</label>
                   <mat-radio-group formControlName="floatLabel86"
                     [class.is-invalid]="RequestForm.get('floatLabel86').invalid && RequestForm.get('floatLabel86').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel86').invalid && RequestForm.get('floatLabel86').touched">Please
                       Select
@@ -2393,9 +2393,9 @@
                     precautions implemented?</label>
                   <mat-radio-group formControlName="floatLabel87"
                     [class.is-invalid]="RequestForm.get('floatLabel87').invalid && RequestForm.get('floatLabel87').touched">
-                    <mat-radio-button value="1">Yes &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="0">No &nbsp;&nbsp;</mat-radio-button>
-                    <mat-radio-button value="2">N/A</mat-radio-button>
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
                       *ngIf="RequestForm.get('floatLabel87').invalid && RequestForm.get('floatLabel87').touched">Please
                       Select

@@ -182,98 +182,98 @@ export class NewRequestComponent implements OnInit {
   ];
   NEWHOTWORKs: any[] = [
     {
-      id: "1",
+      id: 1,
       NEWHOTWORKval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       NEWHOTWORKval: "No",
     },
   ];
   ELECTRICAL: any[] = [
     {
-      id: "1",
+      id: 1,
       ELECTRICALval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       ELECTRICALval: "No",
     },
   ];
 
   HAZARDOUS: any[] = [
     {
-      id: "1",
+      id: 1,
       HAZARDOUSval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       HAZARDOUSval: "No",
     },
   ];
 
   TESTINGs: any[] = [
     {
-      id: "1",
+      id: 1,
       TESTINGsval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       TESTINGsval: "No",
     },
   ];
 
   WORKHEIGHT: any[] = [
     {
-      id: "1",
+      id: 1,
       WORKHEIGHTval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       WORKHEIGHTval: "No",
     },
   ];
 
   CONFINEDSPACEs: any[] = [
     {
-      id: "1",
+      id: 1,
       CONFINEDSPACEval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       CONFINEDSPACEval: "No",
     },
   ];
 
   ATEXAREA: any[] = [
     {
-      id: "1",
+      id: 1,
       ATEXAREAval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       ATEXAREAval: "No",
     },
   ];
 
   FACILITIESLOTO: any[] = [
     {
-      id: "1",
+      id: 1,
       FACILITIESLOTOval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       FACILITIESLOTOval: "No",
     },
   ];
 
   ExcavationWorks: any[] = [
     {
-      id: "1",
+      id: 1,
       ExcavationWorksval: "Yes",
     },
     {
-      id: "0",
+      id: 0,
       ExcavationWorksval: "No",
     },
   ];
@@ -670,6 +670,12 @@ export class NewRequestComponent implements OnInit {
     other_ppe: null,
     other_conditions_input: null,
     people_electrician_certification: null,
+    electricity_have_insulation: null,
+
+    ConM_initials: null,
+    ConM_initials1: null,
+    name_of_the_fire_watcher1: null,
+    phone_number_of_fire_watcher1: null,
   };
 
   userdata: any = {};
@@ -1581,7 +1587,7 @@ export class NewRequestComponent implements OnInit {
       FACILITIESLOTO: ['', Validators.required],
       floatLabel64: ['', Validators.required],
       floatLabel65: ['', Validators.required],
-      floatLabel66: ['', Validators.required],
+      // floatLabel66: ['', Validators.required],
       floatLabel67: ['', Validators.required],
       floatLabel68: ['', Validators.required],
       floatLabel69: ['', Validators.required],
@@ -1592,7 +1598,7 @@ export class NewRequestComponent implements OnInit {
       ExcavationWorks: ['', Validators.required],
       floatLabel71: ['', Validators.required],
       floatLabel72: ['', Validators.required],
-      floatLabel73: ['', Validators.required],
+      // floatLabel73: ['', Validators.required],
       floatLabel74: ['', Validators.required],
       floatLabel75: ['', Validators.required],
       floatLabel76: ['', Validators.required],
@@ -1864,9 +1870,19 @@ export class NewRequestComponent implements OnInit {
       ];
     }
     else if (event == '14') {
-      console.log("JG")
+      // console.log("JG")
       this.floors = [
         "External Areas",
+
+      ];
+    }
+    else if (event == '15') {
+      // console.log("JG")
+      this.floors = [
+        "MR - Ground Floor",
+        "MR - 1st Floor",
+        "MR - 2nd Floor",
+        "MR - Roof Plan",
 
       ];
     }
@@ -2110,7 +2126,7 @@ export class NewRequestComponent implements OnInit {
     }
 
     else if (this.selectedbuilding == '13') {
-      console.log("JG Drawings")
+      // console.log("JG Drawings")
       switch (event) {
         case "JG":
           this.planType = "JG";
@@ -2181,18 +2197,113 @@ export class NewRequestComponent implements OnInit {
           this.planType = "External Areas";
           this.pdfSrc = "assets/images/plans/externalAreas/ExternalAreas.pdf";
           this.blocks = [
-            {name: "CM", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/CM.pdf", className: 'external-areas-cm', planType: 'External Areas'},
-            {name: "JE", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JE.pdf", className: 'external-areas-je', planType: 'External Areas'},
-            {name: "JF", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JF.pdf", className: 'external-areas-jf', planType: 'External Areas'},
-            {name: "JG", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JG.pdf", className: 'external-areas-jg', planType: 'External Areas'},
-            {name: "JH-JX-JS", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JH-JX-JS.pdf", className: 'external-areas-jh-jx-js', planType: 'External Areas'},
-            {name: "JJ", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JJ.pdf", className: 'external-areas-jj', planType: 'External Areas'},
-            {name: "MP", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/MP.pdf", className: 'external-areas-mp', planType: 'External Areas'},
-            {name: "NH3-KF-MF", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/NH3-KF-MF.pdf", className: 'external-areas-nh3-kf-mf', planType: 'External Areas'},
-            {name: "Roads", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/Roads.pdf", className: 'external-areas-roads', planType: 'External Areas'},
-            {name: "Welfare", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/Welfare.pdf", className: 'external-areas-welfare', planType: 'External Areas'}
+            { name: "CM", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/CM.pdf", className: 'external-areas-cm', planType: 'External Areas' },
+            { name: "JE", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JE.pdf", className: 'external-areas-je', planType: 'External Areas' },
+            { name: "JF", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JF.pdf", className: 'external-areas-jf', planType: 'External Areas' },
+            { name: "JG", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JG.pdf", className: 'external-areas-jg', planType: 'External Areas' },
+            { name: "JH-JX-JS", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JH-JX-JS.pdf", className: 'external-areas-jh-jx-js', planType: 'External Areas' },
+            { name: "JJ", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JJ.pdf", className: 'external-areas-jj', planType: 'External Areas' },
+            { name: "MP", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/MP.pdf", className: 'external-areas-mp', planType: 'External Areas' },
+            { name: "NH3-KF-MF", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/NH3-KF-MF.pdf", className: 'external-areas-nh3-kf-mf', planType: 'External Areas' },
+            { name: "Roads", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/Roads.pdf", className: 'external-areas-roads', planType: 'External Areas' },
+            { name: "Welfare", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/Welfare.pdf", className: 'external-areas-welfare', planType: 'External Areas' }
           ]
           break;
+        default:
+          break;
+      }
+    }
+
+    else if (this.selectedbuilding == '15') {
+      // console.log("JG Drawings")
+      switch (event) {
+        case "MR - Ground Floor":
+          this.planType = "MR - Ground Floor";
+          this.pdfSrc = "assets/images/plans/MR/MR-GroundFloor.pdf";
+          this.blocks = [
+            { name: "Zone 0.1_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.1_N.pdf", className: 'mr-ground-Zone0_1_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.1_S", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.1_S.pdf", className: 'mr-ground-Zone0_1_S', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.2_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.2_N.pdf", className: 'mr-ground-Zone0_2_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.2_S", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.2_S.pdf", className: 'mr-ground-Zone0_2_S', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.3_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.3_N.pdf", className: 'mr-ground-Zone0_3_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.3_S", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.3_S.pdf", className: 'mr-ground-Zone0_3_S', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.4_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.4_N.pdf", className: 'mr-ground-Zone0_4_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.4_S", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.4_S.pdf", className: 'mr-ground-Zone0_4_S', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.5_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.5_N.pdf", className: 'mr-ground-Zone0_5_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.5_S", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.5_S.pdf", className: 'mr-ground-Zone0_5_S', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.6_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.6_N.pdf", className: 'mr-ground-Zone0_6_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.6_S", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.6_S.pdf", className: 'mr-ground-Zone0_6_S', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.7_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.7_N.pdf", className: 'mr-ground-Zone0_7_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.P1_N", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.P1_N.pdf", className: 'mr-ground-Zone0_P1_N', planType: 'MR - Ground Floor' },
+            { name: "Zone 0.P2_S", pdfSrc: "assets/images/plans/MR/MR-GroundFloor/MR-GroundFloor-Zone0.P2_S.pdf", className: 'mr-ground-Zone0_P2_S', planType: 'MR - Ground Floor' },
+          ]
+          break;
+        case "MR - 1st Floor":
+          this.planType = "MR - 1st Floor";
+          this.pdfSrc = "assets/images/plans/MR/MR-FirstFloor.pdf";
+          this.blocks = [
+            { name: "Zone 1.1_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.1_N.pdf", className: 'mr-first-Zone1_1_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.1_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.1_S.pdf", className: 'mr-first-Zone1_1_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.2_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.2_N.pdf", className: 'mr-first-Zone1_2_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.2_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.2_S.pdf", className: 'mr-first-Zone1_2_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.3_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.3_N.pdf", className: 'mr-first-Zone1_3_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.3_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.3_S.pdf", className: 'mr-first-Zone1_3_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.4_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.4_N.pdf", className: 'mr-first-Zone1_4_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.4_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.4_S.pdf", className: 'mr-first-Zone1_4_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.5_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.5_N.pdf", className: 'mr-first-Zone1_5_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.5_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.5_S.pdf", className: 'mr-first-Zone1_5_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.6_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.6_N.pdf", className: 'mr-first-Zone1_6_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.6_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.6_S.pdf", className: 'mr-first-Zone1_6_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.7_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.7_N.pdf", className: 'mr-first-Zone1_7_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.7_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.7_S.pdf", className: 'mr-first-Zone1_7_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.8_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.8_N.pdf", className: 'mr-first-Zone1_8_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.8_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.8_S.pdf", className: 'mr-first-Zone1_8_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.9_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.9_N.pdf", className: 'mr-first-Zone1_9_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.9_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.9_S.pdf", className: 'mr-first-Zone1_9_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.10_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.10_N.pdf", className: 'mr-first-Zone1_10_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.10_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.10_S.pdf", className: 'mr-first-Zone1_10_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.11_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.11_S.pdf", className: 'mr-first-Zone1_11_S', planType: "MR - 1st Floor" },
+            { name: "Zone 1.P1_N", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.P1_N.pdf", className: 'mr-first-Zone1_P1_N', planType: "MR - 1st Floor" },
+            { name: "Zone 1.P2_S", pdfSrc: "assets/images/plans/MR/MR-FirstFloor/MR-FirstFloor-Zone1.P2_S.pdf", className: 'mr-first-Zone1_P2_S', planType: "MR - 1st Floor" },
+          ]
+          break;
+        case "MR - 2nd Floor":
+          this.planType = "MR - 2nd Floor";
+          this.pdfSrc = "assets/images/plans/MR/MR-SecondFloor.pdf";
+          this.blocks = [
+            { name: "Zone 2.1_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.1_N.pdf", className: 'jf-second-Zone2_1_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.1_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.1_S.pdf", className: 'jf-second-Zone2_1_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.2_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.2_N.pdf", className: 'jf-second-Zone2_2_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.2_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.2_S.pdf", className: 'jf-second-Zone2_2_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.3_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.3_N.pdf", className: 'jf-second-Zone2_3_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.3_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.3_S.pdf", className: 'jf-second-Zone2_3_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.4_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.4_N.pdf", className: 'jf-second-Zone2_4_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.4_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.4_S.pdf", className: 'jf-second-Zone2_4_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.5_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.5_N.pdf", className: 'jf-second-Zone2_5_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.6_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.6_N.pdf", className: 'jf-second-Zone2_6_N', planType: "MR - 2nd Floor" },
+
+          ]
+          break;
+        case "MR - Roof Plan":
+          this.planType = "MR - Roof Plan";
+          this.pdfSrc = "assets/images/plans/MR/MR-RoofPlan.pdf";
+          this.blocks = [
+            { name: "Zone R1", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR1.pdf", className: 'mr-Roof-ZoneR1', planType: "MR - Roof Plan" },
+            { name: "Zone R2", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR2.pdf", className: 'mr-Roof-ZoneR2', planType: "MR - Roof Plan" },
+            { name: "Zone R3", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR3.pdf", className: 'mr-Roof-ZoneR3', planType: "MR - Roof Plan" },
+            { name: "Zone R4", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR4.pdf", className: 'mr-Roof-ZoneR4', planType: "MR - Roof Plan" },
+            { name: "Zone R5", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR5.pdf", className: 'mr-Roof-ZoneR5', planType: "MR - Roof Plan" },
+            { name: "Zone R6", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR6.pdf", className: 'mr-Roof-ZoneR6', planType: "MR - Roof Plan" },
+            { name: "Zone R7", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR7.pdf", className: 'mr-Roof-ZoneR7', planType: "MR - Roof Plan" },
+            { name: "Zone R8", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR8.pdf", className: 'mr-Roof-ZoneR8', planType: "MR - Roof Plan" },
+            { name: "Zone R9", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR9.pdf", className: 'mr-Roof-ZoneR9', planType: "MR - Roof Plan" },
+            { name: "Zone R10", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR10.pdf", className: 'mr-Roof-ZoneR10', planType: "MR - Roof Plan" },
+            { name: "Zone R11", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR11.pdf", className: 'mr-Roof-ZoneR11', planType: "MR - Roof Plan" },
+            { name: "Zone R12", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR12.pdf", className: 'mr-Roof-ZoneR12', planType: "MR - Roof Plan" },
+            { name: "Zone R13", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR13.pdf", className: 'mr-Roof-ZoneR13', planType: "MR - Roof Plan" },
+          ]
+          break;
+
         default:
           break;
       }
@@ -2501,7 +2612,7 @@ export class NewRequestComponent implements OnInit {
     this.TeamsSubDto.subcontId = event;
     this.teamservices.GetAllTeamsBySubId(this.TeamsSubDto).subscribe((res) => {
       this.Teams = res["data"] || [];
-      if (this.editform == true && this.Teams.length > 0)  {
+      if (this.editform == true && this.Teams.length > 0) {
         this.Teams.forEach((x) => {
           if (x["id"] == this.data["payload"]["teamId"]) {
             this.RequestForm.controls["Team"].setValue(x["id"]);
@@ -2532,7 +2643,7 @@ export class NewRequestComponent implements OnInit {
     }
   }
   GetselectedHOTWORKitem(event) {
-    if (event === 1) {
+    if (event == 1) {
       this.hotWorkHeight = 500;
       this.ishotworkyes = true;
     } else {
@@ -2543,7 +2654,7 @@ export class NewRequestComponent implements OnInit {
 
   GetselectedOtherCondition(event) {
     console.log("other", event.target.value)
-    if (event === "1") {
+    if (event == 1) {
       this.otherConditionHeight = 500;
       this.isOtherConditionyes = true;
     } else {
@@ -2552,7 +2663,7 @@ export class NewRequestComponent implements OnInit {
     }
   }
   GetselectedNEWHOTWORKitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.isnewhotworkyes = true;
     } else {
       this.isnewhotworkyes = false;
@@ -2560,7 +2671,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedElectricalitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.electricalHeight = 500;
       this.iselectricalyes = true;
     } else {
@@ -2570,7 +2681,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedHazardousitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.hazardousHeight = 500;
       this.ishazardousyes = true;
     } else {
@@ -2580,7 +2691,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedTestingitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.testingHeight = 500;
       this.istestingyes = true;
     } else {
@@ -2590,7 +2701,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedHeightsitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.HeightsHeight = 500;
       this.isHeightsyes = true;
     } else {
@@ -2600,7 +2711,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedConfinedSpacesitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.ConfinedsHeight = 500;
       this.isConfinedsyes = true;
     } else {
@@ -2610,7 +2721,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedAtexAreaitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.AtexAreaHeight = 500;
       this.isAtexAreayes = true;
     } else {
@@ -2621,7 +2732,7 @@ export class NewRequestComponent implements OnInit {
 
 
   GetselectedFacilitiesitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.FacilitiesLotoHeight = 500;
       this.isFacilitiesLotoyes = true;
     } else {
@@ -2631,7 +2742,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedExcavationWorksitem(event) {
-    if (event === "1") {
+    if (event == 1) {
       this.ExcavationWorksHeight = 500;
       this.isExcavationWorksyes = true;
     } else {
@@ -2641,7 +2752,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   GetselectedCraneLiftingitem(event) {
-    if (event === 1) {
+    if (event == 1) {
       this.CraneLiftingHeight = 500;
       this.isCraneLiftingyes = true;
     } else {
@@ -2736,13 +2847,14 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.air_extraction_be_established = this.RequestForm.controls["NEWHOTWORK2"].value;
 
     // new fields added
-    this.Requestdata.new_sub_contractor = this.RequestForm.controls["NEWHOTWORK2"].value;
+    // this.Requestdata.new_sub_contractor = this.RequestForm.controls["NEWHOTWORK2"].value;
     this.Requestdata.affecting_other_contractors = this.RequestForm.controls["floatLabel11"].value;
     this.Requestdata.other_conditions = this.RequestForm.controls["floatLabel12"].value;
     this.Requestdata.lighting_begin_work = this.RequestForm.controls["floatLabel13"].value;
     this.Requestdata.specific_risks = this.RequestForm.controls["floatLabel14"].value;
     this.Requestdata.environment_ensured = this.RequestForm.controls["floatLabel15"].value;
     this.Requestdata.course_of_action = this.RequestForm.controls["floatLabel16"].value;
+
     // electrical system
     this.Requestdata.working_on_electrical_system = this.RequestForm.controls["electricalSystem"].value;
     this.Requestdata.responsible_for_the_informed = this.RequestForm.controls["floatLabel17"].value;
@@ -2779,19 +2891,19 @@ export class NewRequestComponent implements OnInit {
     // <!-- height start -->
 
     this.Requestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
-    this.Requestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
-    this.Requestdata.lanyard_attachments = this.RequestForm.controls["floatLabel40"].value;
-    this.Requestdata.rescue_plan = this.RequestForm.controls["floatLabel41"].value;
-    this.Requestdata.avoid_hazards = this.RequestForm.controls["floatLabel42"].value;
-    this.Requestdata.height_training = this.RequestForm.controls["floatLabel43"].value;
-    this.Requestdata.supervision = this.RequestForm.controls["floatLabel44"].value;
-    this.Requestdata.shock_absorbing = this.RequestForm.controls["floatLabel45"].value;
-    this.Requestdata.height_equipments = this.RequestForm.controls["floatLabel46"].value;
-    this.Requestdata.vertical_life = this.RequestForm.controls["floatLabel47"].value;
-    this.Requestdata.secured_falling = this.RequestForm.controls["floatLabel48"].value;
-    this.Requestdata.dropped_objects = this.RequestForm.controls["floatLabel49"].value;
-    this.Requestdata.safe_acces = this.RequestForm.controls["floatLabel50"].value;
-    // this.Requestdata.weather_acceptable = this.RequestForm.controls["floatLabel88"].value;
+    // this.Requestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
+    this.Requestdata.lanyard_attachments = this.RequestForm.controls["floatLabel39"].value;
+    this.Requestdata.rescue_plan = this.RequestForm.controls["floatLabel40"].value;
+    this.Requestdata.avoid_hazards = this.RequestForm.controls["floatLabel41"].value;
+    this.Requestdata.height_training = this.RequestForm.controls["floatLabel42"].value;
+    this.Requestdata.supervision = this.RequestForm.controls["floatLabel43"].value;
+    this.Requestdata.shock_absorbing = this.RequestForm.controls["floatLabel44"].value;
+    this.Requestdata.height_equipments = this.RequestForm.controls["floatLabel45"].value;
+    this.Requestdata.vertical_life = this.RequestForm.controls["floatLabel46"].value;
+    this.Requestdata.secured_falling = this.RequestForm.controls["floatLabel47"].value;
+    this.Requestdata.dropped_objects = this.RequestForm.controls["floatLabel48"].value;
+    this.Requestdata.safe_acces = this.RequestForm.controls["floatLabel49"].value;
+    this.Requestdata.weather_acceptable = this.RequestForm.controls["floatLabel50"].value;
 
     // working_confined_spaces
 
@@ -2819,23 +2931,25 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.securing_facilities = this.RequestForm.controls["FACILITIESLOTO"].value;
     this.Requestdata.loto_facilities = this.RequestForm.controls["floatLabel64"].value;
     this.Requestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
-    this.Requestdata.passive_pause_other = this.RequestForm.controls["floatLabel66"].value;
-    this.Requestdata.electricity_have_insulation = this.RequestForm.controls["floatLabel67"].value;
-    this.Requestdata.covered_or_secured = this.RequestForm.controls["floatLabel68"].value;
-    this.Requestdata.people_electrician_certification = this.RequestForm.controls["floatLabel69"].value;
-    // this.Requestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
+    // this.Requestdata.system_depressurised_reason = this.RequestForm.controls["floatLabel65"].value;
+    this.Requestdata.passive_pause_other = this.RequestForm.controls["floatLabel67"].value;
+    this.Requestdata.electricity_have_insulation = this.RequestForm.controls["floatLabel68"].value;
+    this.Requestdata.covered_or_secured = this.RequestForm.controls["floatLabel69"].value;
+    this.Requestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
+    // this.Requestdata.people_electrician_certification = this.RequestForm.controls["floatLabel71"].value;
 
     // excavation_works
 
     this.Requestdata.excavation_works = this.RequestForm.controls["ExcavationWorks"].value;
     this.Requestdata.excavation_segregated = this.RequestForm.controls["floatLabel71"].value;
     this.Requestdata.nn_standards = this.RequestForm.controls["floatLabel72"].value;
-    this.Requestdata.danish_regulation = this.RequestForm.controls["floatLabel73"].value;
-    this.Requestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel74"].value;
-    this.Requestdata.correctly_sloped = this.RequestForm.controls["floatLabel75"].value;
-    this.Requestdata.inspection_dates = this.RequestForm.controls["floatLabel76"].value;
-    this.Requestdata.marked_drawings = this.RequestForm.controls["floatLabel77"].value;
-    this.Requestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel78"].value;
+    // this.Requestdata.nn_standards = this.RequestForm.controls["floatLabel73"].value;
+    this.Requestdata.danish_regulation = this.RequestForm.controls["floatLabel74"].value;
+    this.Requestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel75"].value;
+    this.Requestdata.correctly_sloped = this.RequestForm.controls["floatLabel76"].value;
+    this.Requestdata.inspection_dates = this.RequestForm.controls["floatLabel77"].value;
+    this.Requestdata.marked_drawings = this.RequestForm.controls["floatLabel78"].value;
+    this.Requestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel79"].value;
     // this.Requestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel79"].value;
 
     // using_cranes_or_lifting
@@ -2906,6 +3020,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   UpdateRequest() {
+    console.log("res checking")
     var badarray = [];
     this.spinner = true;
 
@@ -2994,7 +3109,7 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.phone_number_of_fire_watcher = this.RequestForm.controls["fireWatcherNumber"].value;
 
     this.updaterequestdata.tasks_in_progress_in_the_area = this.RequestForm.controls["floatLabel1"].value;
-    this.updaterequestdata.account_during_the_work = this.RequestForm.controls["floatLabel2"].value;
+    // this.updaterequestdata.account_during_the_work = this.RequestForm.controls["floatLabel2"].value;
     this.updaterequestdata.lighting_sufficiently = this.RequestForm.controls["floatLabel3"].value;
     this.updaterequestdata.spesific_risks_based_on_task = this.RequestForm.controls["floatLabel4"].value;
     this.updaterequestdata.work_environment_safety_ensured = this.RequestForm.controls["floatLabel5"].value;
@@ -3010,13 +3125,15 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.air_extraction_be_established = this.RequestForm.controls["NEWHOTWORK2"].value;
 
     // new fields added
-    this.updaterequestdata.new_sub_contractor = this.RequestForm.controls["NEWHOTWORK2"].value;
+    this.updaterequestdata.new_sub_contractor = this.RequestForm.controls["newSubContractor"].value;
+
     this.updaterequestdata.affecting_other_contractors = this.RequestForm.controls["floatLabel11"].value;
     this.updaterequestdata.other_conditions = this.RequestForm.controls["floatLabel12"].value;
     this.updaterequestdata.lighting_begin_work = this.RequestForm.controls["floatLabel13"].value;
     this.updaterequestdata.specific_risks = this.RequestForm.controls["floatLabel14"].value;
     this.updaterequestdata.environment_ensured = this.RequestForm.controls["floatLabel15"].value;
     this.updaterequestdata.course_of_action = this.RequestForm.controls["floatLabel16"].value;
+
     // electrical system
     this.updaterequestdata.working_on_electrical_system = this.RequestForm.controls["electricalSystem"].value;
     this.updaterequestdata.responsible_for_the_informed = this.RequestForm.controls["floatLabel17"].value;
@@ -3053,19 +3170,19 @@ export class NewRequestComponent implements OnInit {
     // <!-- height start -->
 
     this.updaterequestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
-    this.updaterequestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
-    this.updaterequestdata.lanyard_attachments = this.RequestForm.controls["floatLabel40"].value;
-    this.updaterequestdata.rescue_plan = this.RequestForm.controls["floatLabel41"].value;
-    this.updaterequestdata.avoid_hazards = this.RequestForm.controls["floatLabel42"].value;
-    this.updaterequestdata.height_training = this.RequestForm.controls["floatLabel43"].value;
-    this.updaterequestdata.supervision = this.RequestForm.controls["floatLabel44"].value;
-    this.updaterequestdata.shock_absorbing = this.RequestForm.controls["floatLabel45"].value;
-    this.updaterequestdata.height_equipments = this.RequestForm.controls["floatLabel46"].value;
-    this.updaterequestdata.vertical_life = this.RequestForm.controls["floatLabel47"].value;
-    this.updaterequestdata.secured_falling = this.RequestForm.controls["floatLabel48"].value;
-    this.updaterequestdata.dropped_objects = this.RequestForm.controls["floatLabel49"].value;
-    this.updaterequestdata.safe_acces = this.RequestForm.controls["floatLabel50"].value;
-    this.updaterequestdata.weather_acceptable = this.RequestForm.controls["floatLabel88"].value;
+    // this.updaterequestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
+    this.updaterequestdata.lanyard_attachments = this.RequestForm.controls["floatLabel39"].value;
+    this.updaterequestdata.rescue_plan = this.RequestForm.controls["floatLabel40"].value;
+    this.updaterequestdata.avoid_hazards = this.RequestForm.controls["floatLabel41"].value;
+    this.updaterequestdata.height_training = this.RequestForm.controls["floatLabel42"].value;
+    this.updaterequestdata.supervision = this.RequestForm.controls["floatLabel43"].value;
+    this.updaterequestdata.shock_absorbing = this.RequestForm.controls["floatLabel44"].value;
+    this.updaterequestdata.height_equipments = this.RequestForm.controls["floatLabel45"].value;
+    this.updaterequestdata.vertical_life = this.RequestForm.controls["floatLabel46"].value;
+    this.updaterequestdata.secured_falling = this.RequestForm.controls["floatLabel47"].value;
+    this.updaterequestdata.dropped_objects = this.RequestForm.controls["floatLabel48"].value;
+    this.updaterequestdata.safe_acces = this.RequestForm.controls["floatLabel49"].value;
+    this.updaterequestdata.weather_acceptable = this.RequestForm.controls["floatLabel50"].value;
 
     // working_confined_spaces
 
@@ -3093,24 +3210,24 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.securing_facilities = this.RequestForm.controls["FACILITIESLOTO"].value;
     this.updaterequestdata.loto_facilities = this.RequestForm.controls["floatLabel64"].value;
     this.updaterequestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
-    this.updaterequestdata.passive_pause_other = this.RequestForm.controls["floatLabel66"].value;
-    this.updaterequestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel67"].value;
-    this.updaterequestdata.covered_or_secured = this.RequestForm.controls["floatLabel68"].value;
-    this.updaterequestdata.electrician_certification = this.RequestForm.controls["floatLabel69"].value;
-    // this.updaterequestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
+    // this.updaterequestdata.system_depressurised = this.RequestForm.controls["floatLabel66"].value;
+    this.updaterequestdata.passive_pause_other = this.RequestForm.controls["floatLabel67"].value;
+    this.updaterequestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel68"].value;
+    this.updaterequestdata.covered_or_secured = this.RequestForm.controls["floatLabel69"].value;
+    this.updaterequestdata.people_electrician_certification = this.RequestForm.controls["floatLabel70"].value;
 
     // excavation_works
 
     this.updaterequestdata.excavation_works = this.RequestForm.controls["ExcavationWorks"].value;
     this.updaterequestdata.excavation_segregated = this.RequestForm.controls["floatLabel71"].value;
     this.updaterequestdata.nn_standards = this.RequestForm.controls["floatLabel72"].value;
-    this.updaterequestdata.danish_regulation = this.RequestForm.controls["floatLabel73"].value;
-    this.updaterequestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel74"].value;
-    this.updaterequestdata.correctly_sloped = this.RequestForm.controls["floatLabel75"].value;
-    this.updaterequestdata.inspection_dates = this.RequestForm.controls["floatLabel76"].value;
-    this.updaterequestdata.marked_drawings = this.RequestForm.controls["floatLabel77"].value;
-    this.updaterequestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel78"].value;
-    // this.updaterequestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel79"].value;
+    // this.updaterequestdata.nn_standards = this.RequestForm.controls["floatLabel73"].value;
+    this.updaterequestdata.danish_regulation = this.RequestForm.controls["floatLabel74"].value;
+    this.updaterequestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel75"].value;
+    this.updaterequestdata.correctly_sloped = this.RequestForm.controls["floatLabel76"].value;
+    this.updaterequestdata.inspection_dates = this.RequestForm.controls["floatLabel77"].value;
+    this.updaterequestdata.marked_drawings = this.RequestForm.controls["floatLabel78"].value;
+    this.updaterequestdata.underground_areas_cleared = this.RequestForm.controls["floatLabel79"].value;
 
     // using_cranes_or_lifting
 
@@ -3146,11 +3263,23 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.Safety_Precautions =
       this.RequestForm.controls["Safetyprecaustion"].value.toString();
 
-    this.requestsserivies.UpdateRequest(this.updaterequestdata).subscribe(
+    this.updaterequestdata.rams_file = this.RequestForm.controls["rams_file"].value;
+
+    let formData = new FormData();
+
+    for (const [key, value] of Object.entries(this.updaterequestdata)) {
+      formData.append(key, value as string); // Ensure values are strings if needed
+    }
+
+    formData.append("rams_file", JSON.stringify(this.updaterequestdata.rams_file))
+
+
+    this.requestsserivies.UpdateRequest(formData as unknown as EditRequestDto).subscribe(
       (res) => {
         this.spinner = false;
         this.openSnackBar("Request Updated Successfully");
         this.requestsserivies.SelectedRequestData = {};
+        this.route.navigateByUrl("/user/list-request");
       },
       (error) => {
         this.openSnackBar("Something went wrong. Plz try again later...");
@@ -3250,6 +3379,7 @@ export class NewRequestComponent implements OnInit {
         this.spinner = false;
         this.openSnackBar("Request Updated Successfully");
         this.requestsserivies.SelectedRequestData = {};
+        this.route.navigateByUrl("/user/list-request");
       },
       (error) => {
         this.openSnackBar("Something went wrong. Plz try again later...");
@@ -3605,6 +3735,37 @@ export class NewRequestComponent implements OnInit {
     );
     this.RequestForm.controls["EndTime"].setValue(data["End_Time"]);
     this.RequestForm.controls["FloorName"].setValue(data["Room_Type"]);
+
+    if (data["Room_Type"]) {
+      let selectFloorBlocks = this.requestsserivies.generateBulidFloorData().find(item => item.planType == data["Room_Type"]);
+      console.log(selectFloorBlocks);
+      let zoneSubList = [];
+      let roomNos = data['Room_Nos'].split(',');
+      selectFloorBlocks.zoneList.map((item, i) => {
+        // item['floorName']= item['floorName'];
+        if (item['zoneSubList'].length > 0 && data['Room_Nos']) {
+          if (roomNos.length > 0) {
+            roomNos.forEach(element => {
+              let index = item['zoneSubList'].findIndex(ele => ele['value'] == element);
+              if (index > -1) {
+                zoneSubList.push(i)
+              }
+            });
+          }
+        }
+      })
+      // remove duplicates in zoneSubList array
+      zoneSubList = zoneSubList.filter((item, index) => zoneSubList.indexOf(item) === index);
+      console.log(this.selectFloorBlocks);
+      console.log(zoneSubList);
+      if (zoneSubList.length > 0) {
+        zoneSubList.forEach(item => {
+          this.selectFloorBlocks.push({ floorName: selectFloorBlocks['zoneList'][item]['floorName'], selectedBlock: selectFloorBlocks['zoneList'][item]['zoneSubList'] });
+        });
+      }
+      console.log(this.selectFloorBlocks);
+    }
+
     this.RequestForm.controls["Foreman"].setValue(data["Foreman"]);
     this.RequestForm.controls["ForemanPhone"].setValue(
       data["Foreman_Phone_Number"]
@@ -3677,15 +3838,180 @@ export class NewRequestComponent implements OnInit {
     this.RequestForm.controls["RAMSNumber"].setValue(data["rams_number"]);
     this.RequestForm.controls["other_ppe"].setValue(data["other_ppe"]);
     // GetselectedHOTWORKitem()
-    
-    this.RequestForm.controls["CraneLifting"].setValue(data["using_cranes_or_lifting"]);
 
+    // hotworks points
+    this.RequestForm.controls["floatLabel1"].setValue(data["tasks_in_progress_in_the_area"]);
+    this.RequestForm.controls["floatLabel3"].setValue(data["lighting_sufficiently"]);
+    this.RequestForm.controls["floatLabel4"].setValue(data["spesific_risks_based_on_task"]);
+    this.RequestForm.controls["floatLabel5"].setValue(data["work_environment_safety_ensured"]);
+    this.RequestForm.controls["floatLabel6"].setValue(data["course_of_action_in_emergencies"]);
+    this.RequestForm.controls["floatLabel7"].setValue(data["fire_watch_establish"]);
+    this.RequestForm.controls["floatLabel8"].setValue(data["combustible_material"]);
+    this.RequestForm.controls["floatLabel9"].setValue(data["safety_measures"]);
+    this.RequestForm.controls["floatLabel10"].setValue(data["extinguishers_and_fire_blanket"]);
+
+    this.RequestForm.controls["NEWHOTWORK"].setValue(data["welding_activitiy"]);
+
+    if (data["welding_activitiy"] == 1) {
+      this.isnewhotworkyes = true;
+    } else {
+      this.isnewhotworkyes = false;
+    }
+    this.RequestForm.controls["NEWHOTWORK1"].setValue(data["heat_treatment"]);
+    this.RequestForm.controls["NEWHOTWORK2"].setValue(data["air_extraction_be_established"]);
+
+    // electrical system
+    this.RequestForm.controls["electricalSystem"].setValue(data["working_on_electrical_system"]);
+    if (data["working_on_electrical_system"] == 1) {
+      this.iselectricalyes = true;
+    } else {
+      this.iselectricalyes = false;
+    }
+    this.RequestForm.controls["floatLabel17"].setValue(data["responsible_for_the_informed"]);
+    this.RequestForm.controls["floatLabel18"].setValue(data["de_energized"]);
+    this.RequestForm.controls["floatLabel19"].setValue(data["if_no_loto"]);
+    this.RequestForm.controls["floatLabel20"].setValue(data["do_risk_assessment"]);
+    this.RequestForm.controls["floatLabel21"].setValue(data["if_yes_loto"]);
+    this.RequestForm.controls["floatLabel22"].setValue(data["electricity_have_isulation"]);
+    this.RequestForm.controls["floatLabel23"].setValue(data["electrician_certification"]);
+
+    // working_hazardious
+    this.RequestForm.controls["HAZARDOUS"].setValue(data["working_hazardious_substen"]);
+    if (data["working_hazardious_substen"] == 1) {
+      this.ishazardousyes = true;
+    } else {
+      this.ishazardousyes = false;
+    }
+    this.RequestForm.controls["floatLabel24"].setValue(data["relevant_mal"]);
+    this.RequestForm.controls["floatLabel25"].setValue(data["msds"]);
+    this.RequestForm.controls["floatLabel26"].setValue(data["equipment_taken_account"]);
+    this.RequestForm.controls["floatLabel27"].setValue(data["ventilation"]);
+    this.RequestForm.controls["floatLabel28"].setValue(data["hazardaus_substances"]);
+    this.RequestForm.controls["floatLabel29"].setValue(data["storage_and_disposal"]);
+    this.RequestForm.controls["floatLabel30"].setValue(data["reachable_case"]);
+    this.RequestForm.controls["floatLabel31"].setValue(data["checical_risk_assessment"]);
+
+    //  <!-- testing start -->
+    this.RequestForm.controls["TESTINGs"].setValue(data["pressure_tesing_of_equipment"]);
+    if (data["pressure_tesing_of_equipment"] == 1) {
+      this.istestingyes = true;
+    } else {
+      this.istestingyes = false;
+    }
+    this.RequestForm.controls["floatLabel32"].setValue(data["transfer_of_palnt"]);
+    this.RequestForm.controls["floatLabel33"].setValue(data["area_drained"]);
+    this.RequestForm.controls["floatLabel34"].setValue(data["area_depressurised"]);
+    this.RequestForm.controls["floatLabel35"].setValue(data["area_flused"]);
+    this.RequestForm.controls["floatLabel36"].setValue(data["tank_area_container"]);
+    this.RequestForm.controls["floatLabel37"].setValue(data["system_free_for_dust"]);
+    this.RequestForm.controls["floatLabel38"].setValue(data["loto_plan_submitted"]);
+
+    // <!-- height start -->
+    this.RequestForm.controls["WORKHEIGHT"].setValue(data["working_at_height"]);
+    if (data["working_at_height"] == 1) {
+      this.isHeightsyes = true;
+    } else {
+      this.isHeightsyes = false;
+    }
+    // this.RequestForm.controls["NEWHOTWORK39"].setValue(data["segragated_demarkated"]);
+    this.RequestForm.controls["floatLabel39"].setValue(data["lanyard_attachments"]);
+    this.RequestForm.controls["floatLabel40"].setValue(data["rescue_plan"]);
+    this.RequestForm.controls["floatLabel41"].setValue(data["avoid_hazards"]);
+    this.RequestForm.controls["floatLabel42"].setValue(data["height_training"]);
+    this.RequestForm.controls["floatLabel43"].setValue(data["supervision"]);
+    this.RequestForm.controls["floatLabel44"].setValue(data["shock_absorbing"]);
+    this.RequestForm.controls["floatLabel45"].setValue(data["height_equipments"]);
+    this.RequestForm.controls["floatLabel46"].setValue(data["vertical_life"]);
+    this.RequestForm.controls["floatLabel47"].setValue(data["secured_falling"]);
+    this.RequestForm.controls["floatLabel48"].setValue(data["dropped_objects"]);
+    this.RequestForm.controls["floatLabel49"].setValue(data["safe_acces"]);
+    this.RequestForm.controls["floatLabel50"].setValue(data["weather_acceptable"]);
+
+    // working_confined_spaces
+    this.RequestForm.controls["CONFINEDSPACE"].setValue(data["working_confined_spaces"]);
+    if (data["working_confined_spaces"] == 1) {
+      this.isConfinedsyes = true;
+    } else {
+      this.isConfinedsyes = false;
+    }
+    this.RequestForm.controls["floatLabel51"].setValue(data["vapours_gases"]);
+    this.RequestForm.controls["floatLabel52"].setValue(data["lel_measurement"]);
+    this.RequestForm.controls["floatLabel53"].setValue(data["all_equipment"]);
+    this.RequestForm.controls["floatLabel54"].setValue(data["exit_conditions"]);
+    this.RequestForm.controls["floatLabel55"].setValue(data["communication_emergency"]);
+    this.RequestForm.controls["floatLabel56"].setValue(data["rescue_equipments"]);
+    this.RequestForm.controls["floatLabel57"].setValue(data["space_ventilation"]);
+    this.RequestForm.controls["floatLabel58"].setValue(data["oxygen_meter"]);
+
+    // work_in_atex_area
+    this.RequestForm.controls["ATEXAREA"].setValue(data["work_in_atex_area"]);
+    if (data["work_in_atex_area"] == 1) {
+      this.isAtexAreayes = true;
+    } else {
+      this.isAtexAreayes = false;
+    }
+    this.RequestForm.controls["floatLabel59"].setValue(data["ex_area_downgraded"]);
+    this.RequestForm.controls["floatLabel60"].setValue(data["atmospheric_tester"]);
+    this.RequestForm.controls["floatLabel61"].setValue(data["flammable_materials"]);
+    this.RequestForm.controls["floatLabel62"].setValue(data["potential_explosive"]);
+    this.RequestForm.controls["floatLabel63"].setValue(data["oxygen_meter_confined_spaces"]);
+
+    // <!-- FACILITIES LOTO start -->
+    this.RequestForm.controls["FACILITIESLOTO"].setValue(data["securing_facilities"]);
+    if (data["securing_facilities"] == 1) {
+      this.isFacilitiesLotoyes = true;
+    } else {
+      this.isFacilitiesLotoyes = false;
+    }
+    this.RequestForm.controls["floatLabel64"].setValue(data["loto_facilities"]);
+    this.RequestForm.controls["floatLabel65"].setValue(data["system_depressurised"]);
+    // this.RequestForm.controls["floatLabel66"].setValue(data["system_depressurised_reason"]);
+    this.RequestForm.controls["floatLabel67"].setValue(data["passive_pause_other"]);
+    this.RequestForm.controls["floatLabel68"].setValue(data["electricity_have_insulation"]);
+    this.RequestForm.controls["floatLabel69"].setValue(data["covered_or_secured"]);
+    this.RequestForm.controls["floatLabel70"].setValue(data["people_electrician_certification"]);
+
+    // excavation_works
+
+    this.RequestForm.controls["ExcavationWorks"].setValue(data["excavation_works"]);
+    if (data["excavation_works"] == 1) {
+      this.isExcavationWorksyes = true;
+    } else {
+      this.isExcavationWorksyes = false;
+    }
+    this.RequestForm.controls["floatLabel71"].setValue(data["excavation_segregated"]);
+    this.RequestForm.controls["floatLabel72"].setValue(data["nn_standards"]);
+    // this.RequestForm.controls["floatLabel72"].setValue(data["nn_standards"]);
+    this.RequestForm.controls["floatLabel74"].setValue(data["danish_regulation"]);
+    this.RequestForm.controls["floatLabel75"].setValue(data["safe_access_and_egress"]);
+    this.RequestForm.controls["floatLabel76"].setValue(data["correctly_sloped"]);
+    this.RequestForm.controls["floatLabel77"].setValue(data["inspection_dates"]);
+    this.RequestForm.controls["floatLabel78"].setValue(data["marked_drawings"]);
+    this.RequestForm.controls["floatLabel79"].setValue(data["underground_areas_cleared"]);
+
+    // using_cranes_or_lifting
+    this.RequestForm.controls["CraneLifting"].setValue(data["using_cranes_or_lifting"]);
+    if (data["using_cranes_or_lifting"] == 1) {
+      this.isCraneLiftingyes = true;
+    } else {
+      this.isCraneLiftingyes = false;
+    }
+    this.RequestForm.controls["floatLabel80"].setValue(data["appointed_person"]);
+    this.RequestForm.controls["floatLabel81"].setValue(data["vendor_supplier"]);
+    this.RequestForm.controls["floatLabel82"].setValue(data["lift_plan"]);
+    this.RequestForm.controls["floatLabel83"].setValue(data["supplied_and_inspected"]);
+    this.RequestForm.controls["floatLabel84"].setValue(data["legal_required_certificates"]);
+    this.RequestForm.controls["floatLabel85"].setValue(data["prapared_lifting"]);
+    this.RequestForm.controls["floatLabel86"].setValue(data["lifting_task_fenced"]);
+    this.RequestForm.controls["floatLabel87"].setValue(data["overhead_risks"]);
 
     this.RequestForm.controls["specific_gloves"].setValue(data["specific_gloves"]);
     this.RequestForm.controls["eye_protection"].setValue(data["eye_protection"]);
     this.RequestForm.controls["fall_protection"].setValue(data["fall_protection"]);
     this.RequestForm.controls["hearing_protection"].setValue(data["hearing_protection"]);
-    this.RequestForm.controls["respiratory_protection"].setValue(data["respiratory_protection"]);    
+    this.RequestForm.controls["respiratory_protection"].setValue(data["respiratory_protection"]);
+
+
 
     this.cdr.detectChanges(); // Force update
 
@@ -3696,19 +4022,12 @@ export class NewRequestComponent implements OnInit {
       this.iscmsyes = false;
     }
 
-    if (data["Hot_work"] === 1) {
+    if (data["Hot_work"] == 1) {
+      console.log('sdfsdfds');
       this.ishotworkyes = true;
     } else {
       this.ishotworkyes = false;
     }
-
-    if (data["using_cranes_or_lifting"] === 1) {
-      this.isCraneLiftingyes = true;
-    } else {
-      this.isCraneLiftingyes = false;
-    }
-  
-
     if (data["LOTO_Procedure"] === "1") {
       this.isLOTOPROCEDUREyes = true;
     } else {
@@ -3925,7 +4244,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel10').setValidators([Validators.required]);
       } else if (control == 'Is there be any welding activitiy?') {
 
-        // this.RequestForm.get('NEWHOTWORK').setValidators([Validators.required]);
+        // this.RequestForm.get('floatLabel').setValidators([Validators.required]);
         this.RequestForm.get('NEWHOTWORK1').setValidators([Validators.required]);
         this.RequestForm.get('NEWHOTWORK2').setValidators([Validators.required]);
       } else if (control == 'Working on Electrical Systems') {
@@ -3986,7 +4305,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Securing Facilities (LOTO)') {
         this.RequestForm.get('floatLabel64').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel65').setValidators([Validators.required]);
-        this.RequestForm.get('floatLabel66').setValidators([Validators.required]);
+        // this.RequestForm.get('floatLabel66').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel67').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel68').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel69').setValidators([Validators.required]);
@@ -3994,7 +4313,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Excavation Works') {
         this.RequestForm.get('floatLabel71').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel72').setValidators([Validators.required]);
-        this.RequestForm.get('floatLabel73').setValidators([Validators.required]);
+        // this.RequestForm.get('floatLabel73').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel74').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel75').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel76').setValidators([Validators.required]);
@@ -4010,7 +4329,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel85').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel86').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel87').setValidators([Validators.required]);
-      } else if (control == 'Are there other conditions that'){
+      } else if (control == 'Are there other conditions that') {
         // console.log("floatLabel12", control)
         this.RequestForm.get('other_conditions_input').setValidators([Validators.required]);
       }
@@ -4095,7 +4414,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Securing Facilities (LOTO)') {
         this.RequestForm.get('floatLabel64').clearValidators();
         this.RequestForm.get('floatLabel65').clearValidators();
-        this.RequestForm.get('floatLabel66').clearValidators();
+        // this.RequestForm.get('floatLabel66').clearValidators();
         this.RequestForm.get('floatLabel67').clearValidators();
         this.RequestForm.get('floatLabel68').clearValidators();
         this.RequestForm.get('floatLabel69').clearValidators();
@@ -4103,7 +4422,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Excavation Works') {
         this.RequestForm.get('floatLabel71').clearValidators();
         this.RequestForm.get('floatLabel72').clearValidators();
-        this.RequestForm.get('floatLabel73').clearValidators();
+        // this.RequestForm.get('floatLabel73').clearValidators();
         this.RequestForm.get('floatLabel74').clearValidators();
         this.RequestForm.get('floatLabel75').clearValidators();
         this.RequestForm.get('floatLabel76').clearValidators();
@@ -4119,7 +4438,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel85').clearValidators();
         this.RequestForm.get('floatLabel86').clearValidators();
         this.RequestForm.get('floatLabel87').clearValidators();
-      } else if (control == 'Are there other conditions that'){
+      } else if (control == 'Are there other conditions that') {
         // console.log("floatLabel12", control)
         this.RequestForm.get('other_conditions_input').clearValidators();;
       }
@@ -4153,13 +4472,13 @@ export class NewRequestComponent implements OnInit {
   }
 
   selectFloorBlocks: Array<any> = [];
-  images:any;
+  images: any;
   // isimguploaded: boolean = false;
   // base64Images: any[] = [];
 
   csvInputChange(e) {
     for (var i = 0; i < e.target.files.length; i++) {
-      this.images =e.target.files[i];
+      this.images = e.target.files[i];
       console.log(e.target.files[i]);
       var reader = new FileReader();
 

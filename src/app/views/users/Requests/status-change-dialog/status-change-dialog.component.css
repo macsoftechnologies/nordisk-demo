@@ -86,3 +86,15 @@
   margin-bottom: 10px;
   border-bottom: 2px solid;
 } */
+
+.model-header{
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.change_Status{
+  font-size: 22px;
+  font-weight: 800;
+  /* margin-bottom: 10px; */
+  margin-right: 260px;
+}
