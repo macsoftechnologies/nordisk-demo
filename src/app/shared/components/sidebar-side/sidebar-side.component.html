@@ -48,10 +48,12 @@
                 mat-icon-button 
                 mat-xs-button
                 matTooltip="Sign Out"
-                routerLink="/sessions/signin">
+                
+                (click)="jwtAuth.signout()">
                     <mat-icon>exit_to_app</mat-icon>
                 </button>
                 <mat-menu #appUserMenu="matMenu">
+                    <!-- routerLink="/sessions/signin" -->
                     <!-- <button mat-menu-item routerLink="/profile/overview">
                         <mat-icon>account_box</mat-icon>
                         <span>Profile</span>

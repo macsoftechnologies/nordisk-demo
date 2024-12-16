@@ -174,10 +174,14 @@ export class StatusChangeDialogComponent implements OnInit {
     ConM_initials1: null,
     name_of_the_fire_watcher1: null,
     phone_number_of_fire_watcher1: null,
+    denmark_time: null,
 
   };
   images: any[] = [];
   base64Images: any[] = [];
+
+  images1: any[] = [];
+  base64Images1: any[] = [];
 
   Close_Request: UpdateClose_Status = {
     id: null,
@@ -185,6 +189,7 @@ export class StatusChangeDialogComponent implements OnInit {
     Request_status: null,
     userId: null,
     createdTime: null,
+    denmark_time: null,
   };
   userdata: any = {};
 
@@ -192,6 +197,7 @@ export class StatusChangeDialogComponent implements OnInit {
   croppedImage: string = "";
   isclose: boolean = false;
   isimguploaded: boolean = false;
+  isimguploaded1: boolean = false;
   spinner: boolean = false;
   CurrenttimeNow: string;
   requestDatas: any;
@@ -206,23 +212,24 @@ export class StatusChangeDialogComponent implements OnInit {
     private authservice: JwtAuthService
   ) {
     this.userdata = this.authservice.getUser();
-    
+
     this.statusUpdateForm = new FormGroup({
       h_heat_source: new FormControl('',),
       h_workplace_check: new FormControl('',),
       h_fire_detectors: new FormControl('',),
       h_start_time: new FormControl('',),
       h_end_time: new FormControl('',),
-    }) 
+    })
 
     this.statusApprovedForm = new FormGroup({
       ConM_initials: new FormControl('',),
-      name_of_the_fire_watcher: new FormControl('',),
-      phone_number_of_fire_watcher: new FormControl('',),
+
     })
 
     this.statusOpenForm = new FormGroup({
       ConM_initials1: new FormControl('',),
+      name_of_the_fire_watcher1: new FormControl('',),
+      phone_number_of_fire_watcher1: new FormControl('',),
     })
 
   }
@@ -286,7 +293,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.id = this.data["payload"]["id"];
 
     // new keys added
-    
+
     this.updaterequestdata.affecting_other_contractors = this.data["payload"]["affecting_other_contractors"];
     this.updaterequestdata.other_conditions = this.data["payload"]["other_conditions"];
     this.updaterequestdata.lighting_begin_work = this.data["payload"]["lighting_begin_work"];
@@ -341,8 +348,9 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.system_free_for_dust = this.data["payload"]["system_free_for_dust"];
     this.updaterequestdata.loto_plan_submitted = this.data["payload"]["loto_plan_submitted"];
 
-     // <!-- height start -->
+    // <!-- height start -->
     this.updaterequestdata.working_at_height = this.data["payload"]["working_at_height"];
+    this.updaterequestdata.segragated_demarkated = this.data["payload"]["segragated_demarkated"];
     this.updaterequestdata.lanyard_attachments = this.data["payload"]["lanyard_attachments"];
     this.updaterequestdata.rescue_plan = this.data["payload"]["rescue_plan"];
     this.updaterequestdata.avoid_hazards = this.data["payload"]["avoid_hazards"];
@@ -367,7 +375,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.space_ventilation = this.data["payload"]["space_ventilation"];
     this.updaterequestdata.oxygen_meter = this.data["payload"]["oxygen_meter"];
 
-     // work_in_atex_area
+    // work_in_atex_area
 
     this.updaterequestdata.work_in_atex_area = this.data["payload"]["work_in_atex_area"];
     this.updaterequestdata.ex_area_downgraded = this.data["payload"]["ex_area_downgraded"];
@@ -384,7 +392,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.electricity_have_insulation = this.data["payload"]["electricity_have_insulation"];
     this.updaterequestdata.covered_or_secured = this.data["payload"]["covered_or_secured"];
     this.updaterequestdata.people_electrician_certification = this.data["payload"]["people_electrician_certification"];
- 
+
     // excavation_works
     this.updaterequestdata.excavation_works = this.data["payload"]["excavation_works"];
     this.updaterequestdata.excavation_segregated = this.data["payload"]["excavation_segregated"];
@@ -419,10 +427,14 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.other_conditions_input = this.data["payload"]["other_conditions_input"];
     this.updaterequestdata.rams_file = this.data["payload"]["rams_file"];
 
+    // new add data
+    this.updaterequestdata.ConM_initials = this.data["payload"]["ConM_initials"];
+    // this.updaterequestdata.denmark_time = this.data["payload"]["denmark_time"];
   }
 
   Changestatus(statusdata) {
-    var today = moment.tz("Europe/Copenhagen"); 
+    console.log(statusdata, 'data')
+    var today = moment.tz("Europe/Copenhagen");
     this.CurrenttimeNow = today.format('HH:mm:ss');
     console.log("Time now", this.CurrenttimeNow)
     // document.getElementById('watch1').innerHTML = today.format('DD/MM/YYYY');
@@ -435,27 +447,43 @@ export class StatusChangeDialogComponent implements OnInit {
       const [currentDenmarkDate, currentDenmarkTime] = [
         ...config.Denmarktz.split(" "),
       ];
+
+      // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime];
       console.log(currentDenmarkTime);
       console.log(currentDenmarkDate);
       this.updaterequestdata.Request_status = statusdata;
-      this.updaterequestdata.createdTime = this.CurrenttimeNow;
+      // this.updaterequestdata.createdTime = this.CurrenttimeNow;
+
+      this.updaterequestdata.createdTime = [currentDenmarkDate, currentDenmarkTime];
+
+
+      // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
+
       console.log(this.updaterequestdata, "test data");
 
-      this.updaterequestdata.ConM_initials = this.statusApprovedForm.value.ConM_initials;
-      this.updaterequestdata.name_of_the_fire_watcher1 = this.statusApprovedForm.value.name_of_the_fire_watcher1;
-      this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusApprovedForm.value.phone_number_of_fire_watcher1;
+      // console.log(this.updaterequestdata,"stats");
 
-      this.updaterequestdata.ConM_initials1 = this.statusOpenForm.value.ConM_initials1;
-
+    
+        this.updaterequestdata.ConM_initials = this.statusApprovedForm.value.ConM_initials;
+        
+        this.updaterequestdata.ConM_initials1 = this.statusOpenForm.value.ConM_initials1;
+        this.updaterequestdata.name_of_the_fire_watcher1 = this.statusOpenForm.value.name_of_the_fire_watcher1;
+        this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusOpenForm.value.phone_number_of_fire_watcher1;
+        // formData.append('file', this.fileInput.files[0]);
+      
       let formData = new FormData();
-
+      if (this.images1.length > 0) {
+        for (var i = 0; i < this.images1.length; i++) {
+          formData.append("Image1", this.images1[i]);
+        }
+      }
       for (const [key, value] of Object.entries(this.updaterequestdata)) {
         formData.append(key, value); // Ensure values are strings if needed
       }
 
       this.requestdataservice.UpdateRequest(formData as unknown as EditRequestDto).subscribe(
         (x) => {
-          if(x.status == 200){
+          if (x.status == 200) {
             this.openSnackBar("Request Status Updated Successfully");
             // console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
             // window.location.reload();
@@ -470,13 +498,13 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   startTime() {
-    
+
   }
 
 
   Changestatusbysubcontractor(status) {
 
-    var today = moment.tz("Europe/Copenhagen"); 
+    var today = moment.tz("Europe/Copenhagen");
     this.CurrenttimeNow = today.format('HH:mm:ss');
     console.log("Time now", this.CurrenttimeNow)
     // document.getElementById('watch1').innerHTML = today.format('DD/MM/YYYY');
@@ -486,15 +514,18 @@ export class StatusChangeDialogComponent implements OnInit {
     const [currentDenmarkDate, currentDenmarkTime] = [
       ...config.Denmarktz.split(" "),
     ];
+
     console.log(currentDenmarkTime);
     console.log(currentDenmarkDate);
     const formData = new FormData();
     this.spinner = true;
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
-    this.Close_Request.createdTime = this.CurrenttimeNow;
+    // this.Close_Request.createdTime = this.CurrenttimeNow;
+    this.Close_Request.createdTime = [currentDenmarkDate, currentDenmarkTime];
+    // this.Close_Request.denmark_time = [currentDenmarkDate, currentDenmarkTime];
 
-    
+    // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
 
     if (this.images.length > 0) {
       for (var i = 0; i < this.images.length; i++) {
@@ -515,7 +546,7 @@ export class StatusChangeDialogComponent implements OnInit {
     formData.append("h_start_time", this.statusUpdateForm.value.h_start_time);
     formData.append("h_end_time", this.statusUpdateForm.value.h_end_time);
 
-    console.log(this.statusUpdateForm,"form")
+    console.log(this.statusUpdateForm, "form")
 
     this.requestdataservice.CloseRequest(formData).subscribe(
       (res) => {
@@ -523,7 +554,7 @@ export class StatusChangeDialogComponent implements OnInit {
           this.openSnackBar("Request Status Updated Successfully");
           this.spinner = false;
           // window.location.reload();
-          // this.ngOnInit();
+          this.ngOnInit();
         }
       },
       (error) => {
@@ -534,10 +565,15 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   Changestatusbysubcontractor1(status) {
+
+    const [currentDenmarkDate, currentDenmarkTime] = [
+      ...config.Denmarktz.split(" "),
+    ];
     const formData = new FormData();
     this.spinner = true;
     this.Close_Request.id = this.updaterequestdata.id;
     this.Close_Request.Request_status = status;
+    this.Close_Request.denmark_time = [currentDenmarkDate, currentDenmarkTime];
 
     if (this.images.length > 0) {
       for (var i = 0; i < this.images.length; i++) {
@@ -555,8 +591,8 @@ export class StatusChangeDialogComponent implements OnInit {
           this.openSnackBar("Request Status Updated Successfully");
           this.spinner = false;
           this.images = null;
-          // window.location.reload();
-          // this.ngOnInit();
+          window.location.reload();
+          this.ngOnInit();
         }
       },
       (error) => {
@@ -585,5 +621,20 @@ export class StatusChangeDialogComponent implements OnInit {
   _handleReaderLoaded(e) {
     let reader = e.target;
     this.base64Images.push(reader.result);
+  }
+
+  csvInputChange1(e) {
+    for (var i = 0; i < e.target.files.length; i++) {
+      this.images1.push(e.target.files[i]);
+      var reader = new FileReader();
+
+      reader.onload = this._handleReaderLoadeds.bind(this);
+      reader.readAsDataURL(e.target.files[i]);
+      this.isimguploaded1 = true;
+    }
+  }
+  _handleReaderLoadeds(e) {
+    let reader = e.target;
+    this.base64Images1.push(reader.result);
   }
 }

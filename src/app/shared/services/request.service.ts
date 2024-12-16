@@ -1504,6 +1504,52 @@ export class RequestService {
             ]
           },
           {
+            floorName: 'MR',
+            zoneSubList: [
+              {
+                value: 'Area MR/1',
+                className: "external-areas-mr-1",
+                isSelected: false
+              },
+      
+              {
+                value: 'Area MR/2',
+                className: "external-areas-mr-2",
+                isSelected: false
+              },
+              {
+                value: 'Area MR/3',
+                className: "external-areas-mr-3",
+                isSelected: false
+              },
+              {
+                value: 'Area MR/4',
+                className: "external-areas-mr-4",
+                isSelected: false
+              },
+              {
+                value: 'Area MR/5',
+                className: "external-areas-mr-5",
+                isSelected: false
+              },
+              {
+                value: 'Area MR/6',
+                className: "external-areas-mr-6",
+                isSelected: false
+              },
+              {
+                value: 'Area MR/7',
+                className: "external-areas-mr-7",
+                isSelected: false
+              },
+              {
+                value: 'Area MR/8',
+                className: "external-areas-mr-8",
+                isSelected: false
+              },
+            ]
+          },
+          {
             floorName: 'JH-JX-JS',
             zoneSubList: [
               {
@@ -1853,6 +1899,7 @@ export class RequestService {
           },
         ]
       }
+      // mr ground floor plans
 
 
     ]

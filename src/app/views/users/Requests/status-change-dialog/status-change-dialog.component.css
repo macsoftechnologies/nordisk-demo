@@ -80,7 +80,7 @@
 
 .close-icons{
   margin-left: 20px;
-  border: 2px solid #10174c;
+  /* border: 2px solid #10174c; */
 }
 /* .header-title-icon{
   margin-bottom: 10px;
@@ -93,8 +93,8 @@
 }
 
 .change_Status{
-  font-size: 22px;
+  font-size: 14px;
   font-weight: 800;
   /* margin-bottom: 10px; */
-  margin-right: 260px;
+  /* margin-right: 260px; */
 }

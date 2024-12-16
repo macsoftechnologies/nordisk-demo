@@ -2,7 +2,15 @@
     position: relative;
 }
 
-mat-checkbox ::ng-deep .mat-checkbox-inner-container {width: 40px;height: 40px;}
+mat-checkbox ::ng-deep .mat-checkbox-inner-container {
+    width: 35px;
+    height: 35px;
+    appearance: none;
+    border: 4px solid red;
+    outline: none !important;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .zoneA-1{
     position: absolute;
     top: 20%;
@@ -1663,6 +1671,62 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {width: 40px;height: 40px;}
     left: 8%;
 }
 
+/* **JG - external-areas-mr** */
+
+.external-areas-mr-1{
+    position: absolute;
+    top: 2%;
+    left: 37%;
+    z-index: 9999;
+}
+.external-areas-mr-2{
+    position: absolute;
+    top: 30.5%;
+    z-index: 9999;
+    right: 3%;
+}
+
+.external-areas-mr-3{
+    position: absolute;
+    bottom: 19.5%;
+    z-index: 9999;
+    right: 2.5%;
+}
+
+.external-areas-mr-4{
+    /* position: absolute; */
+    position: absolute;
+    bottom: 3.3%;
+    z-index: 9999;
+    right: 28.5%;
+}
+.external-areas-mr-5{
+    position: absolute;
+    bottom: 5.3%;
+    z-index: 9999;
+    left: 3.5%;
+}
+.external-areas-mr-6{
+    position: absolute;
+    top: 63.3%;
+    z-index: 9999;
+    left: 3%;
+}
+
+.external-areas-mr-7{
+    position: absolute;
+    top: 38%;
+    z-index: 9999;
+    left: 3%;
+}
+.external-areas-mr-8{
+    position: absolute;
+    top: 14%;
+    z-index: 9999;
+    left: 3%;
+}
+
+
 /* **JH-JX-JS - external-areas-jh-jx-js** */
 
 
@@ -2110,3 +2174,2868 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {width: 40px;height: 40px;}
     top: 17.5%;
     right: -25.5%;
 }
+
+
+
+
+/* New MR all data start */
+
+/* MR - Ground Floor-Zone 0.1_N */
+
+.mr-zone0_1_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 8%;
+    left: 19%;
+  }
+  .mr-zone0_1_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 8%;
+    right: 33%;
+  }
+  .mr-zone0_1_N-3 {
+    z-index: 9999;
+    position: absolute;
+    top: 33%;
+    left: 30%;
+  }
+  .mr-zone0_1_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 15%;
+    left: 10%;
+  }
+  .mr-zone0_1_N-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 16%;
+    left: 21%;
+  }
+  
+  .mr-zone0_1_N-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 15%;
+    right: 54%;
+  }
+  .mr-zone0_1_N-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 14%;
+    right: 37%;
+  }
+  
+  /* MR - Ground Floor Zone 0.1_S */
+  
+  .mr-zone0_1_S-1 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 34%;
+    left: 38%;
+  }
+  
+  /* MR - Ground Floor Zone 0.2_N */
+  
+  .mr-zone0_2_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 4%;
+    right: 43%;
+  }
+  .mr-zone0_2_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 20%;
+    right: 43%;
+  }
+  .mr-zone0_2_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 35%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 35%;
+    left: 28%;
+  }
+  .mr-zone0_2_N-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 33%;
+    right: 43%;
+  }
+  
+  .mr-zone0_2_N-9 {
+    position: absolute;
+    z-index: 9999;
+    top: 44%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-10 {
+    position: absolute;
+    z-index: 9999;
+    top: 48.5%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-11 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    right: 43%;
+  }
+  .mr-zone0_2_N-12 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-13 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 22.5%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-14 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 24%;
+    left: 28%;
+  }
+  .mr-zone0_2_N-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 43%;
+  }
+  .mr-zone0_2_N-16 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 13.5%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-17 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 9%;
+    left: 11%;
+  }
+  .mr-zone0_2_N-18 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 13%;
+    right: 43%;
+  }
+  
+  /* MR - Ground Floor Zone 0.2_S */
+  
+  .mr-zone0_2_S-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 19%;
+    left: 68%;
+  }
+  .mr-zone0_2_S-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 26%;
+    right: 8%;
+  }
+  
+  /* MR - Ground Floor- Zone 0.3_N */
+  .mr-zone0_3_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 18%;
+  }
+  .mr-zone0_3_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 27%;
+    left: 38%;
+  }
+  
+  .mr-zone0_3_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 33%;
+    left: 13%;
+  }
+  .mr-zone0_3_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39.5%;
+    left: 13%;
+  }
+  
+  .mr-zone0_3_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    left: 38%;
+  }
+  .mr-zone0_3_N-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 38%;
+  }
+  
+  .mr-zone0_3_N-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 13%;
+  }
+  .mr-zone0_3_N-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 52.5%;
+    left: 13%;
+  }
+  .mr-zone0_3_N-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 15%;
+    left: 25%;
+  }
+  .mr-zone0_3_N-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 33%;
+    left: 29%;
+  }
+  .mr-zone0_3_N-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 15%;
+    right: 43%;
+  }
+  
+  /* MR - Ground Floor Zone 0.3_S */
+  
+  .mr-zone0_3_S-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 13%;
+    left: 32%;
+  }
+  .mr-zone0_3_S-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 8.5%;
+    right: 24%;
+  }
+  .mr-zone0_3_S-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 13.5%;
+    right: 24%;
+  }
+  .mr-zone0_3_S-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 21.5%;
+    right: 32%;
+  }
+  
+  .mr-zone0_3_S-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 29%;
+    left: 33%;
+  }
+  .mr-zone0_3_S-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 26%;
+    right: 24%;
+  }
+  .mr-zone0_3_S-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    right: 24%;
+  }
+  
+  .mr-zone0_3_S-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 40%;
+    left: 32%;
+  }
+  .mr-zone0_3_S-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 42.5%;
+    right: 24%;
+  }
+  .mr-zone0_3_S-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 37.5%;
+    right: 24%;
+  }
+  .mr-zone0_3_S-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 35.5%;
+    right: 34%;
+  }
+  
+  .mr-zone0_3_S-12 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 25%;
+    left: 32%;
+  }
+  .mr-zone0_3_S-13 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26.5%;
+    right: 24%;
+  }
+  .mr-zone0_3_S-14 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 21%;
+    right: 24%;
+  }
+  
+  .mr-zone0_3_S-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 8%;
+    left: 32%;
+  }
+  .mr-zone0_3_S-16 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 12.5%;
+    right: 24%;
+  }
+  .mr-zone0_3_S-17 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 7.5%;
+    right: 24%;
+  }
+  
+  /* MR - Ground Floor Zone 0.4_N */
+  
+  .mr-zone0_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 20.5%;
+    left: 32%;
+  }
+  .mr-zone0_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 20%;
+    right: 27%;
+  }
+  .mr-zone0_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 29.5%;
+    left: 28%;
+  }
+  .mr-zone0_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 31.5%;
+    left: 43%;
+  }
+  .mr-zone0_4_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 27%;
+    right: 33%;
+  }
+  
+  .mr-zone0_4_N-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 36%;
+    right: 32%;
+  }
+  .mr-zone0_4_N-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    right: 18%;
+  }
+  .mr-zone0_4_N-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.5%;
+    left: 26%;
+  }
+  .mr-zone0_4_N-9 {
+    position: absolute;
+    z-index: 9999;
+    top: 44.5%;
+    left: 43%;
+  }
+  .mr-zone0_4_N-10 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 32%;
+  }
+  .mr-zone0_4_N-11 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    right: 18%;
+  }
+  .mr-zone0_4_N-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 48%;
+    right: 32%;
+  }
+  
+  .mr-zone0_4_N-13 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 38%;
+    left: 32%;
+  }
+  .mr-zone0_4_N-14 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 38%;
+    right: 29%;
+  }
+  .mr-zone0_4_N-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27.5%;
+    left: 62%;
+  }
+  .mr-zone0_4_N-16 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 22.5%;
+    left: 29%;
+  }
+  .mr-zone0_4_N-17 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 9%;
+    left: 29%;
+  }
+  .mr-zone0_4_N-18 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 7%;
+    left: 62%;
+  }
+  .mr-zone0_4_N-19 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 9%;
+    right: 25%;
+  }
+  /* MR - Ground Floor Zone 0.4_S */
+  
+  .mr-zone0_4_S-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 7%;
+    left: 50%;
+  }
+  .mr-zone0_4_S-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 7%;
+    right: 12%;
+  }
+  .mr-zone0_4_S-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 27%;
+    right: 32%;
+  }
+  .mr-zone0_4_S-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: 42%;
+  }
+  .mr-zone0_4_S-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 46%;
+    right: 43%;
+  }
+  .mr-zone0_4_S-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 35%;
+    right: 43%;
+  }
+  
+  .mr-zone0_4_S-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 37%;
+    right: 11%;
+  }
+  .mr-zone0_4_S-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 52%;
+    right: 11%;
+  }
+  .mr-zone0_4_S-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 46%;
+    right: 11%;
+  }
+  .mr-zone0_4_S-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 41%;
+    right: 11%;
+  }
+  
+  /* MR - Ground Floor Zone 0.5_N */
+  
+  .mr-zone0_5_N-1 {
+    position: absolute;
+    z-index: 9999;
+    right: 23%;
+    bottom: 51%;
+  }
+  .mr-zone0_5_N-2 {
+    position: absolute;
+    z-index: 9999;
+    right: 18%;
+    bottom: 51%;
+  }
+  .mr-zone0_5_N-3 {
+    position: absolute;
+    z-index: 9999;
+    right: 13.5%;
+    bottom: 51%;
+  }
+  .mr-zone0_5_N-4 {
+    position: absolute;
+    z-index: 9999;
+    right: 8.5%;
+    bottom: 51%;
+  }
+  .mr-zone0_5_N-5 {
+    position: absolute;
+    z-index: 9999;
+    right: 23%;
+    bottom: 45%;
+  }
+  .mr-zone0_5_N-6 {
+    position: absolute;
+    z-index: 9999;
+    right: 18%;
+    bottom: 45%;
+  }
+  .mr-zone0_5_N-7 {
+    position: absolute;
+    z-index: 9999;
+    right: 13.5%;
+    bottom: 45%;
+  }
+  .mr-zone0_5_N-8 {
+    position: absolute;
+    z-index: 9999;
+    right: 8.5%;
+    bottom: 45%;
+  }
+  
+  .mr-zone0_5_N-9 {
+    position: absolute;
+    z-index: 9999;
+    right: 23%;
+    bottom: 38%;
+  }
+  .mr-zone0_5_N-10 {
+    position: absolute;
+    z-index: 9999;
+    right: 18%;
+    bottom: 38%;
+  }
+  .mr-zone0_5_N-11 {
+    position: absolute;
+    z-index: 9999;
+    right: 13.5%;
+    bottom: 38%;
+  }
+  .mr-zone0_5_N-12 {
+    position: absolute;
+    z-index: 9999;
+    right: 8.5%;
+    bottom: 38%;
+  }
+  .mr-zone0_5_N-13 {
+    position: absolute;
+    z-index: 9999;
+    right: 23%;
+    bottom: 32%;
+  }
+  .mr-zone0_5_N-14 {
+    position: absolute;
+    z-index: 9999;
+    right: 18%;
+    bottom: 32%;
+  }
+  .mr-zone0_5_N-15 {
+    position: absolute;
+    z-index: 9999;
+    right: 13.5%;
+    bottom: 32%;
+  }
+  .mr-zone0_5_N-16 {
+    position: absolute;
+    z-index: 9999;
+    right: 8.5%;
+    bottom: 32%;
+  }
+  
+  .mr-zone0_5_N-17 {
+    position: absolute;
+    z-index: 9999;
+    right: 23%;
+    bottom: 24%;
+  }
+  .mr-zone0_5_N-18 {
+    position: absolute;
+    z-index: 9999;
+    right: 18%;
+    bottom: 24%;
+  }
+  .mr-zone0_5_N-19 {
+    position: absolute;
+    z-index: 9999;
+    right: 13.5%;
+    bottom: 24%;
+  }
+  .mr-zone0_5_N-20 {
+    position: absolute;
+    z-index: 9999;
+    right: 8.5%;
+    bottom: 24%;
+  }
+  .mr-zone0_5_N-21 {
+    position: absolute;
+    z-index: 9999;
+    left: 41.5%;
+    bottom: 4%;
+  }
+  .mr-zone0_5_N-22 {
+    position: absolute;
+    z-index: 9999;
+    left: 46.5%;
+    bottom: 4%;
+  }
+  .mr-zone0_5_N-23 {
+    position: absolute;
+    z-index: 9999;
+    left: 52.5%;
+    bottom: 4%;
+  }
+  .mr-zone0_5_N-24 {
+    position: absolute;
+    z-index: 9999;
+    left: 57.5%;
+    bottom: 4%;
+  }
+  
+  .mr-zone0_5_N-25 {
+    position: absolute;
+    z-index: 9999;
+    left: 40.5%;
+    bottom: 26%;
+  }
+  .mr-zone0_5_N-26 {
+    position: absolute;
+    z-index: 9999;
+    left: 48.5%;
+    bottom: 26%;
+  }
+  .mr-zone0_5_N-27 {
+    position: absolute;
+    z-index: 9999;
+    left: 55.5%;
+    bottom: 26%;
+  }
+  .mr-zone0_5_N-28 {
+    position: absolute;
+    z-index: 9999;
+    left: 43.5%;
+    bottom: 40%;
+  }
+  .mr-zone0_5_N-29 {
+    position: absolute;
+    z-index: 9999;
+    left: 50.5%;
+    bottom: 40%;
+  }
+  .mr-zone0_5_N-30 {
+    position: absolute;
+    z-index: 9999;
+    left: 58.5%;
+    bottom: 40%;
+  }
+  .mr-zone0_5_N-31 {
+    position: absolute;
+    z-index: 9999;
+    left: 40.5%;
+    bottom: 54%;
+  }
+  .mr-zone0_5_N-32 {
+    position: absolute;
+    z-index: 9999;
+    left: 49%;
+    bottom: 54%;
+  }
+  .mr-zone0_5_N-33 {
+    position: absolute;
+    z-index: 9999;
+    left: 56.5%;
+    bottom: 54%;
+  }
+  .mr-zone0_5_N-34 {
+    position: absolute;
+    z-index: 9999;
+    left: 43.5%;
+    top: 25%;
+  }
+  .mr-zone0_5_N-35 {
+    position: absolute;
+    z-index: 9999;
+    left: 51.5%;
+    top: 25%;
+  }
+  .mr-zone0_5_N-36 {
+    position: absolute;
+    z-index: 9999;
+    left: 59.5%;
+    top: 25%;
+  }
+  .mr-zone0_5_N-37 {
+    position: absolute;
+    z-index: 9999;
+    left: 40.5%;
+    top: 8%;
+  }
+  .mr-zone0_5_N-38 {
+    position: absolute;
+    z-index: 9999;
+    left: 45.5%;
+    top: 8%;
+  }
+  .mr-zone0_5_N-39 {
+    position: absolute;
+    z-index: 9999;
+    left: 51.5%;
+    top: 8%;
+  }
+  .mr-zone0_5_N-40 {
+    position: absolute;
+    z-index: 9999;
+    left: 56.5%;
+    top: 8%;
+  }
+  .mr-zone0_5_N-41 {
+    position: absolute;
+    z-index: 9999;
+    left: 61.5%;
+    top: 8%;
+  }
+  .mr-zone0_5_N-42 {
+    position: absolute;
+    z-index: 9999;
+    left: 66.5%;
+    top: 8%;
+  }
+  .mr-zone0_5_N-43 {
+    position: absolute;
+    z-index: 9999;
+    right: 16.5%;
+    top: 13%;
+  }
+  .mr-zone0_5_N-44 {
+    position: absolute;
+    z-index: 9999;
+    right: 22%;
+    top: 27%;
+  }
+  .mr-zone0_5_N-45 {
+    position: absolute;
+    z-index: 9999;
+    right: 17%;
+    top: 27%;
+  }
+  .mr-zone0_5_N-46 {
+    position: absolute;
+    z-index: 9999;
+    right: 12%;
+    top: 27%;
+  }
+  .mr-zone0_5_N-47 {
+    position: absolute;
+    z-index: 9999;
+    right: 25.5%;
+    bottom: 4%;
+  }
+  .mr-zone0_5_N-48 {
+    position: absolute;
+    z-index: 9999;
+    right: 20.5%;
+    bottom: 4%;
+  }
+  .mr-zone0_5_N-49 {
+    position: absolute;
+    z-index: 9999;
+    right: 14.5%;
+    bottom: 4%;
+  }
+  .mr-zone0_5_N-50 {
+    position: absolute;
+    z-index: 9999;
+    right: 9.5%;
+    bottom: 4%;
+  }
+  /* MR - Ground Floor Zone 0.5_S */
+  
+  .mr-zone0_5_S-1 {
+    position: absolute;
+    z-index: 9999;
+    left: 11.5%;
+    top: 14%;
+  }
+  .mr-zone0_5_S-2 {
+    position: absolute;
+    z-index: 9999;
+    left: 30.5%;
+    top: 14%;
+  }
+  .mr-zone0_5_S-3 {
+    position: absolute;
+    z-index: 9999;
+    left: 56.5%;
+    top: 14%;
+  }
+  .mr-zone0_5_S-4 {
+    position: absolute;
+    z-index: 9999;
+    left: 30.5%;
+    top: 28%;
+  }
+  .mr-zone0_5_S-5 {
+    position: absolute;
+    z-index: 9999;
+    left: 37.5%;
+    top: 38%;
+  }
+  .mr-zone0_5_S-6 {
+    position: absolute;
+    z-index: 9999;
+    left: 37.5%;
+    top: 49%;
+  }
+  .mr-zone0_5_S-7 {
+    position: absolute;
+    z-index: 9999;
+    left: 37.5%;
+    top: 59%;
+  }
+  .mr-zone0_5_S-8 {
+    position: absolute;
+    z-index: 9999;
+    left: 12.5%;
+    bottom: 40%;
+  }
+  .mr-zone0_5_S-9 {
+    position: absolute;
+    z-index: 9999;
+    left: 12.5%;
+    bottom: 46%;
+  }
+  .mr-zone0_5_S-10 {
+    position: absolute;
+    z-index: 9999;
+    left: 12.5%;
+    bottom: 51.5%;
+  }
+  .mr-zone0_5_S-11 {
+    position: absolute;
+    z-index: 9999;
+    left: 12.5%;
+    bottom: 57.5%;
+  }
+  /* MR - Ground Floor zone 0.6_N */
+  .mr-zone0_6_N-1 {
+    top: 14%;
+    position: absolute;
+    z-index: 9999;
+    left: 58%;
+  }
+  .mr-zone0_6_N-2 {
+    top: 28.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 34%;
+  }
+  .mr-zone0_6_N-3 {
+    top: 28.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 63%;
+  }
+  .mr-zone0_6_N-4 {
+    top: 58%;
+    position: absolute;
+    z-index: 9999;
+    left: 58%;
+  }
+  .mr-zone0_6_N-5 {
+    bottom: 18.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 34%;
+  }
+  .mr-zone0_6_N-6 {
+    bottom: 18.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 63%;
+  }
+  /* MR - Ground Floor Zone 0.6_S */
+  .mr-zone0_6_S-1 {
+    top: 0%;
+    position: absolute;
+    z-index: 9999;
+    left: 8%;
+  }
+  .mr-zone0_6_S-2 {
+    top: 0%;
+    position: absolute;
+    z-index: 9999;
+    left: 25%;
+  }
+  .mr-zone0_6_S-3 {
+    top: 0%;
+    position: absolute;
+    z-index: 9999;
+    left: 42%;
+  }
+  .mr-zone0_6_S-4 {
+    top: 13%;
+    position: absolute;
+    z-index: 9999;
+    left: 16%;
+  }
+  .mr-zone0_6_S-5 {
+    top: 18%;
+    position: absolute;
+    z-index: 9999;
+    left: 16%;
+  }
+  .mr-zone0_6_S-6 {
+    top: 16%;
+    position: absolute;
+    z-index: 9999;
+    left: 39%;
+  }
+  .mr-zone0_6_S-7 {
+    top: 26%;
+    position: absolute;
+    z-index: 9999;
+    left: 30%;
+  }
+  .mr-zone0_6_S-8 {
+    top: 30%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-9 {
+    top: 35.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-10 {
+    top: 31.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 40%;
+  }
+  
+  .mr-zone0_6_S-11 {
+    top: 54%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-12 {
+    top: 59%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-13 {
+    top: 60.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 38%;
+  }
+  .mr-zone0_6_S-14 {
+    top: 62.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 31%;
+  }
+  .mr-zone0_6_S-15 {
+    top: 68.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-16 {
+    top: 73.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-17 {
+    top: 74.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 40%;
+  }
+  .mr-zone0_6_S-18 {
+    bottom: 12%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-19 {
+    bottom: 7.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 15%;
+  }
+  .mr-zone0_6_S-20 {
+    bottom: 7.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 50%;
+  }
+  
+  /* MR - Ground Floor Zone 0.7_N */
+  
+  .mr-zone0_7_N-1 {
+    top: 11.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 24%;
+  }
+  .mr-zone0_7_N-2 {
+    top: 8.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 60%;
+  }
+  .mr-zone0_7_N-3 {
+    top: 26.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 20%;
+  }
+  .mr-zone0_7_N-4 {
+    top: 44.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 48%;
+  }
+  .mr-zone0_7_N-5 {
+    top: 44.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 12%;
+  }
+  .mr-zone0_7_N-6 {
+    bottom: 14.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 46%;
+  }
+  /* MR - Ground Floor Zone 0.P1_N */
+  .mr-zone0_P1_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 43%;
+  }
+  /* MR - Ground Floor Zone 0.P2_S */
+  .mr-zone0_P2_S-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 39.5%;
+    left: 38%;
+  }
+  
+  /* MR - 1st Floor Zone 1.1_N */
+  
+  .mr-zone1_1_N-1 {
+    top: 30.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 8%;
+  }
+  .mr-zone1_1_N-2 {
+    top: 27.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 27%;
+  }
+  .mr-zone1_1_N-3 {
+    top: 26.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 43%;
+  }
+  .mr-zone1_1_N-4 {
+    top: 24.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 33%;
+  }
+  .mr-zone1_1_N-5 {
+    top: 43.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 29%;
+  }
+  .mr-zone1_1_N-6 {
+    top: 66.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 8%;
+  }
+  .mr-zone1_1_N-7 {
+    top: 69.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 38%;
+  }
+  .mr-zone1_1_N-8 {
+    top: 60.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 39%;
+  }
+  .mr-zone1_1_N-9 {
+    bottom: 10.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 6%;
+  }
+  .mr-zone1_1_N-10 {
+    bottom: 10.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 11.5%;
+  }
+  .mr-zone1_1_N-11 {
+    bottom: 10.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 18.5%;
+  }
+  .mr-zone1_1_N-12 {
+    top: 58.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 29%;
+  }
+  .mr-zone1_1_N-13 {
+    top: 69.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 29%;
+  }
+  .mr-zone1_1_N-14 {
+    top: 71.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 37%;
+  }
+  .mr-zone1_1_N-15 {
+    top: 83.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 41%;
+  }
+  
+  /* MR - 1st Floor Zone 1.1_S */
+  
+  .mr-zone1_1_S-1 {
+    top: 40.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 21%;
+  }
+  
+  .mr-zone1_1_S-2 {
+    top: 40.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 35%;
+  }
+  .mr-zone1_1_S-3 {
+    top: 18.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 25%;
+  }
+  
+  .mr-zone1_1_S-4 {
+    top: 60.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 25%;
+  }
+  
+  /* MR - 1st Floor Zone 1.2_N */
+  
+  .mr-zone1_2_N-1 {
+    top: 20.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 8%;
+  }
+  .mr-zone1_2_N-2 {
+    top: 20.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 33%;
+  }
+  .mr-zone1_2_N-3 {
+    top: 19.5%;
+    position: absolute;
+    z-index: 9999;
+    right: 32%;
+  }
+  .mr-zone1_2_N-4 {
+    top: 44.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 29%;
+  }
+  .mr-zone1_2_N-5 {
+    top: 71.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 46%;
+  }
+  
+  /* MR - 1st Floor Zone 1.2_S */
+  
+  .mr-zone1_2_S-1 {
+    top: 11.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 9%;
+  }
+  .mr-zone1_2_S-2 {
+    top: 11.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 33%;
+  }
+  .mr-zone1_2_S-3 {
+    top: 11.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 52%;
+  }
+  .mr-zone1_2_S-4 {
+    top: 41.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 29%;
+  }
+  .mr-zone1_2_S-5 {
+    top: 70.5%;
+    position: absolute;
+    z-index: 9999;
+    left: 46%;
+  }
+  
+  /* MR - 1st Floor Zone 1.3_N */
+  
+  .mr-zone1_3_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 26%;
+    left: 53%;
+  }
+  
+  /* MR - 1st Floor Zone 1.3_S */
+  
+  .mr-zone1_3_S-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    left: 26%;
+  }
+  .mr-zone1_3_S-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 13%;
+    left: 54%;
+  }
+  .mr-zone1_3_S-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 37%;
+    left: 34%;
+  }
+  .mr-zone1_3_S-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 45%;
+    left: 43%;
+  }
+  .mr-zone1_3_S-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: 27%;
+  }
+  .mr-zone1_3_S-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 17%;
+  }
+  .mr-zone1_3_S-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 36%;
+    right: 7%;
+  }
+  .mr-zone1_3_S-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    left: 32%;
+  }
+  .mr-zone1_3_S-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 35%;
+    left: 66%;
+  }
+  .mr-zone1_3_S-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 16%;
+    left: 6%;
+  }
+  .mr-zone1_3_S-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 17%;
+    left: 45%;
+  }
+  .mr-zone1_3_S-12 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 8%;
+    left: 33%;
+  }
+  
+  /* MR - 1st Floor-one 1.4_N */
+  
+  .mr-zone1_4_N-0 {
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    left: 30%;
+  }
+  
+  .mr-zone1_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    left: 41%;
+  }
+  .mr-zone1_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: 33.5%;
+  }
+  .mr-zone1_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 13.5%;
+  }
+  .mr-zone1_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 22.5%;
+  }
+  .mr-zone1_4_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 70%;
+    right: 54.5%;
+  }
+  .mr-zone1_4_N-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    right: 34.5%;
+  }
+  .mr-zone1_4_N-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 6%;
+    right: 52.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.4_S */
+  
+  .mr-zone1_4_S-1 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 69%;
+    right: 7.5%;
+  }
+  
+  .mr-zone1_4_S-2 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 18%;
+    right: 6.5%;
+  }
+  
+  .mr-zone1_4_S-3 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 18%;
+    right: 30.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.5_N */
+  
+  .mr-zone1_5_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 43%;
+    left: 10.5%;
+  }
+  .mr-zone1_5_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    left: 21.5%;
+  }
+  .mr-zone1_5_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 70%;
+    left: 29.5%;
+  }
+  
+  .mr-zone1_5_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 45%;
+    left: 52.5%;
+  }
+  
+  .mr-zone1_5_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 47%;
+    left: 58.5%;
+  }
+  
+  .mr-zone1_5_N-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 68%;
+    left: 58.5%;
+  }
+  .mr-zone1_5_N-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 48%;
+    left: 64.5%;
+  }
+  
+  .mr-zone1_5_N-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 82%;
+    left: 58.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.5_S */
+  
+  .mr-zone1_5_S-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 24.5%;
+  }
+  .mr-zone1_5_S-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    left: 44.5%;
+  }
+  .mr-zone1_5_S-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    right: 29.5%;
+  }
+  .mr-zone1_5_S-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 9%;
+    left: 49.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.6_N */
+  
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 25%;
+    right: 8.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 32.5%;
+  }
+  
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    right: 22.5%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    right: 4.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    right: -27.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.6_S */
+  
+  .mr-zone1_6_S-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 10%;
+    right: 41.5%;
+  }
+  
+  .mr-zone1_6_S-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 21%;
+    right: 40.5%;
+  }
+  
+  .mr-zone1_6_S-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: 37.5%;
+  }
+  .mr-zone1_6_S-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    right: 32%;
+  }
+  .mr-zone1_6_S-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 30.5%;
+  }
+  .mr-zone1_6_S-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    right: 27.5%;
+  }
+  .mr-zone1_6_S-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 24.5%;
+  }
+  .mr-zone1_6_S-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    right: 22.5%;
+  }
+  .mr-zone1_6_S-9 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 18.5%;
+  }
+  
+  .mr-zone1_6_S-10 {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    right: 20.5%;
+  }
+  .mr-zone1_6_S-11 {
+    position: absolute;
+    z-index: 9999;
+    top: 47%;
+    right: 25.5%;
+  }
+  .mr-zone1_6_S-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 27.5%;
+  }
+  .mr-zone1_6_S-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 47%;
+    right: 30.5%;
+  }
+  .mr-zone1_6_S-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: 32.5%;
+  }
+  .mr-zone1_6_S-15 {
+    position: absolute;
+    z-index: 9999;
+    top: 51%;
+    right: 38.5%;
+  }
+  
+  .mr-zone1_6_S-16 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 43%;
+    left: 43.5%;
+  }
+  .mr-zone1_6_S-17 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 40%;
+    left: 38.5%;
+  }
+  .mr-zone1_6_S-18 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 45%;
+    left: 35.5%;
+  }
+  .mr-zone1_6_S-19 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 40%;
+    left: 32.5%;
+  }
+  .mr-zone1_6_S-20 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 44%;
+    left: 30.5%;
+  }
+  .mr-zone1_6_S-21 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 40%;
+    left: 27.5%;
+  }
+  .mr-zone1_6_S-22 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 45%;
+    left: 23.5%;
+  }
+  .mr-zone1_6_S-23 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 59%;
+    left: 25.5%;
+  }
+  
+  .mr-zone1_6_S-24 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 61%;
+    left: 30.5%;
+  }
+  .mr-zone1_6_S-25 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 55%;
+    left: 32.5%;
+  }
+  .mr-zone1_6_S-26 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 61%;
+    left: 35.5%;
+  }
+  .mr-zone1_6_S-27 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 56%;
+    left: 38.5%;
+  }
+  .mr-zone1_6_S-28 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 60%;
+    left: 42.5%;
+  }
+  
+  .mr-zone1_6_S-29 {
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 42.5%;
+  }
+  
+  .mr-zone1_6_S-30 {
+    position: absolute;
+    z-index: 9999;
+    top: 20%;
+    left: 38.5%;
+  }
+  
+  .mr-zone1_6_S-31 {
+    position: absolute;
+    z-index: 9999;
+    top: 25%;
+    left: 35.5%;
+  }
+  
+  .mr-zone1_6_S-32 {
+    position: absolute;
+    z-index: 9999;
+    top: 20%;
+    left: 33.5%;
+  }
+  
+  .mr-zone1_6_S-33 {
+    position: absolute;
+    z-index: 9999;
+    top: 26%;
+    left: 30.5%;
+  }
+  
+  .mr-zone1_6_S-34 {
+    position: absolute;
+    z-index: 9999;
+    top: 21%;
+    left: 28.5%;
+  }
+  
+  .mr-zone1_6_S-35 {
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 23.5%;
+  }
+  
+  .mr-zone1_6_S-36 {
+    position: absolute;
+    z-index: 9999;
+    top: 6%;
+    left: 25.5%;
+  }
+  
+  .mr-zone1_6_S-37 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    left: 30.5%;
+  }
+  .mr-zone1_6_S-38 {
+    position: absolute;
+    z-index: 9999;
+    top: 4%;
+    left: 32.5%;
+  }
+  
+  .mr-zone1_6_S-39 {
+    position: absolute;
+    z-index: 9999;
+    top: 10%;
+    left: 35.5%;
+  }
+  .mr-zone1_6_S-40 {
+    position: absolute;
+    z-index: 9999;
+    top: 5%;
+    left: 38.5%;
+  }
+  .mr-zone1_6_S-41 {
+    position: absolute;
+    z-index: 9999;
+    top: 6%;
+    left: 42.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.7_N */
+  
+  .mr-zone1_7_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    right: 12.5%;
+  }
+  
+  .mr-zone1_7_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 33%;
+    left: 72.5%;
+  }
+  
+  .mr-zone1_7_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 71%;
+    right: 12.5%;
+  }
+  
+  .mr-zone1_7_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: 6.5%;
+  }
+  
+  
+  
+  /* MR - 1st Floor Zone 1.7_S */
+  
+  .mr-zone1_7_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 12%;
+    left: 28.5%;
+  }
+  .mr-zone1_7_S-2{
+    position: absolute;
+    z-index: 9999;
+    top: 7%;
+    right: 52.5%;
+  }
+  .mr-zone1_7_S-3{
+    position: absolute;
+    z-index: 9999;
+    top: 20%;
+    left: 28.5%;
+  }
+  .mr-zone1_7_S-4{
+    position: absolute;
+    z-index: 9999;
+    top: 29%;
+    left: 28.5%;
+  }
+  .mr-zone1_7_S-5{
+    position: absolute;
+    z-index: 9999;
+    top: 34%;
+    left: 29.5%;
+  }
+   .mr-zone1_7_S-6{
+    position: absolute;
+    z-index: 9999;
+    top: 43%;
+    left: 27.5%;
+  }
+  .mr-zone1_7_S-7{
+    position: absolute;
+    z-index: 9999;
+    top: 51%;
+    left: 27.5%;
+  }
+  .mr-zone1_7_S-8{
+    position: absolute;
+    z-index: 9999;
+    top: 60%;
+    left: 27.5%;
+  }
+  .mr-zone1_7_S-9{
+    position: absolute;
+    z-index: 9999;
+      bottom: 25%;
+      left: 23.5%;
+  } 
+  .mr-zone1_7_S-10{
+    position: absolute;
+    z-index: 9999;
+    top: 34%;
+    left: 43.5%;
+  }
+  .mr-zone1_7_S-11{
+    position: absolute;
+    z-index: 9999;
+    top: 47%;
+    left: 42.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.8_N */
+  
+  
+  .mr-zone1_8_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 4%;
+    left: 42.5%;
+  }
+  .mr-zone1_8_N-2{
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 32.5%;
+  }
+  .mr-zone1_8_N-3{
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 39.5%;
+  }
+  .mr-zone1_8_N-4{
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 22.5%;
+  }
+  .mr-zone1_8_N-5{
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 51.5%;
+  }
+  .mr-zone1_8_N-6{
+    position: absolute;
+    z-index: 9999;
+    top: 22%;
+    left: 59.5%;
+  }
+  
+  .mr-zone1_8_N-7{
+    position: absolute;
+    z-index: 9999;
+    top: 44%;
+    left: 24.5%;
+  }
+  .mr-zone1_8_N-8{
+    position: absolute;
+    z-index: 9999;
+    top: 44%;
+    left: 34.5%;
+  }
+  .mr-zone1_8_N-9{
+    position: absolute;
+    z-index: 9999;
+    top: 44%;
+    left: 43.5%;
+  }
+  .mr-zone1_8_N-10{
+    position: absolute;
+    z-index: 9999;
+    top: 44%;
+    left: 52.5%;
+  }
+  .mr-zone1_8_N-11{
+    position: absolute;
+    z-index: 9999;
+    top: 44%;
+    left: 61.5%;
+  }
+  .mr-zone1_8_N-12{
+    position: absolute;
+    z-index: 9999;
+    top: 56%;
+    right: 25.5%;
+  }
+  .mr-zone1_8_N-13{
+    position: absolute;
+    z-index: 9999;
+    bottom: 17%;
+    left: 25.5%;
+  }
+  .mr-zone1_8_N-14{
+    position: absolute;
+    z-index: 9999;
+    bottom: 17%;
+    left: 39.5%;
+  }
+  .mr-zone1_8_N-15{
+    position: absolute;
+    z-index: 9999;
+    bottom: 17%;
+    left: 57.5%;
+  }
+  .mr-zone1_8_N-16{
+    position: absolute;
+    z-index: 9999;
+    bottom: 17%;
+    left: 71.5%;
+  }
+  .mr-zone1_8_N-17{
+    position: absolute;
+    z-index: 9999;
+    bottom: 5%;
+    left: 49.5%;
+  }
+  .mr-zone1_8_N-18{
+    position: absolute;
+    z-index: 9999;
+    bottom: 5%;
+    left: 78.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.8_S */
+  
+  
+  .mr-zone1_8_S-1{
+    position: absolute;
+    z-index: 9999;
+    left: 23%;
+    top: 10%;
+  }
+  .mr-zone1_8_S-2{
+    position: absolute;
+    z-index: 9999;
+    top: 20%;
+    left: 23.5%;
+  }
+  .mr-zone1_8_S-3{
+    position: absolute;
+    z-index: 9999;
+    top: 30%;
+    left: 23.5%;
+  }
+  .mr-zone1_8_S-4{
+    position: absolute;
+    z-index: 9999;
+    top: 33%;
+    left: 33.5%;
+  }
+  .mr-zone1_8_S-5{
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    left: 23.5%;
+  }
+  .mr-zone1_8_S-6{
+    position: absolute;
+    z-index: 9999;
+    top: 45%;
+    left: 33.5%;
+  }
+  .mr-zone1_8_S-7{
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    left: 23.5%;
+  }
+  .mr-zone1_8_S-8{
+    position: absolute;
+    z-index: 9999;
+    top: 64%;
+    left: 23.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.9_N */
+  
+  .mr-zone1_9_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    right: 27.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.9_S */
+  
+  .mr-zone1_9_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 30%;
+    right: 55.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.10_N */
+  
+  .mr-zone1_10_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 10%;
+    right: 49.5%;
+  }
+  .mr-zone1_10_N-2{
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    left: 29.5%;
+  }
+  .mr-zone1_10_N-3{
+    position: absolute;
+    z-index: 9999;
+    top: 36%;
+    right: 36.5%;
+  }
+  .mr-zone1_10_N-4{
+    position: absolute;
+    z-index: 9999;
+    top: 58%;
+    right: 36.5%;
+  }
+  .mr-zone1_10_N-5{
+    position: absolute;
+    z-index: 9999;
+    bottom: 8%;
+    right: 35.5%;
+  }
+  .mr-zone1_10_N-6{
+    position: absolute;
+    z-index: 9999;
+    bottom: 9%;
+    right: 17.5%
+  }
+  
+  /* MR - 1st Floor Zone 1.10_S */
+  
+  .mr-zone1_10_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 27%;
+    left: 13.5%;
+  }
+  
+  .mr-zone1_10_S-2{
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    left: 14.5%;
+  }
+  .mr-zone1_10_S-3{
+    position: absolute;
+    z-index: 9999;
+    top: 52%;
+    left: 14.5%;
+  }
+  .mr-zone1_10_S-4{
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    left: 24.5%;
+  }
+  .mr-zone1_10_S-5{
+    position: absolute;
+    z-index: 9999;
+    bottom: 32%;
+    left: 13.5%;
+  }
+  .mr-zone1_10_S-6{
+    position: absolute;
+    z-index: 9999;
+    bottom: 21%;
+    left: 13.5%;
+  }
+  .mr-zone1_10_S-7{
+    position: absolute;
+    z-index: 9999;
+    bottom: 8.5%;
+    left: 13.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.11_S */
+  
+  .mr-zone1_11_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 4.5%;
+    left: 8.5%;
+  }
+  
+  .mr-zone1_11_S-2{
+    position: absolute;
+    z-index: 9999;
+    top: 4.5%;
+    left: 28.5%;
+  }
+  
+  .mr-zone1_11_S-3{
+    position: absolute;
+    z-index: 9999;
+    top: 27.5%;
+    left: 26.5%;
+  }
+  
+  .mr-zone1_11_S-4{
+    position: absolute;
+    z-index: 9999;
+    top: 40.5%;
+    left: 26.5%;
+  }
+  
+  .mr-zone1_11_S-5{
+    position: absolute;
+    z-index: 9999;
+    top: 50.5%;
+    left: 25.5%;
+  }
+  .mr-zone1_11_S-6{
+    position: absolute;
+    z-index: 9999;
+    top: 54.5%;
+    left: 29.5%;
+  }
+  .mr-zone1_11_S-7{
+    position: absolute;
+    z-index: 9999;
+    bottom: 31.5%;
+    left: 26.5%;
+  }
+  .mr-zone1_11_S-8{
+    position: absolute;
+    z-index: 9999;
+    bottom: 18.5%;
+    left: 26.5%;
+  }
+  .mr-zone1_11_S-9{
+    position: absolute;
+    z-index: 9999;
+    bottom: 8.5%;
+    left: 26.5%;
+  }
+  .mr-zone1_11_S-10{
+    position: absolute;
+    z-index: 9999;
+    bottom: 15.5%;
+    left: 41.5%;
+  }
+  .mr-zone1_11_S-11{
+    position: absolute;
+    z-index: 9999;
+    bottom: 5.5%;
+    left: 41.5%;
+  }
+  
+  /* MR - 1st Floor Zone 1.P1_N */
+  .mr-zone1-P1_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    left: 35%;
+  }
+  /* MR - 1st Floor Zone 1.P2_N */
+  /* .mr-zone1_P2_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    left: 35%;
+  } */
+  
+  /* MR - 2nd Floor Zone 2.1_N */
+  
+  .mr-zone2_1_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 12%;
+    left: 20%;
+  }
+  .mr-zone2_1_N-2{
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    left: 39%;
+  }
+  .mr-zone2_1_N-3{
+    position: absolute;
+    z-index: 9999;
+    top: 37%;
+    left: 50%;
+  }
+  .mr-zone2_1_N-4{
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 9%;
+  }
+  .mr-zone2_1_N-5{
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 31%;
+  }
+  .mr-zone2_1_N-6{
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 56%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.1_S */
+  
+  .mr-zone2_1_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    left: 19%;
+  }
+  .mr-zone2_1_S-2{
+    position: absolute;
+    z-index: 9999;
+    top: 19%;
+    left: 27%;
+  }
+  .mr-zone2_1_S-3{
+    position: absolute;
+    z-index: 9999;
+    top: 21%;
+    left: 54%;
+  }
+  .mr-zone2_1_S-4{
+    position: absolute;
+    z-index: 9999;
+    top: 17%;
+    left: 79%;
+  }
+  .mr-zone2_1_S-5{
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    left: 68%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.2_N */
+  
+  .mr-zone2_2_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    left: 69%;
+  }
+  
+  .mr-zone2_2_N-2{
+    position: absolute;
+    z-index: 9999;
+    top: 35%;
+    left: 23%;
+  }
+  .mr-zone2_2_N-3{
+    position: absolute;
+    z-index: 9999;
+    top: 36%;
+    left: 39%;
+  }
+  .mr-zone2_2_N-4{
+    position: absolute;
+    z-index: 9999;
+    top: 36%;
+    left: 69%;
+  }
+  .mr-zone2_2_N-5{
+    position: absolute;
+    z-index: 9999;
+    top: 45%;
+    left: 19%;
+  }
+  .mr-zone2_2_N-6{
+    position: absolute;
+    z-index: 9999;
+      bottom: 20%;
+      left: 24%;
+  }
+  
+  .mr-zone2_2_N-7{
+    position: absolute;
+    z-index: 9999;
+    bottom: 20%;
+    left: 24%;
+  }
+  .mr-zone2_2_N-8{
+    position: absolute;
+    z-index: 9999;
+    bottom: 20%;
+    left: 40%;
+  }
+  
+  .mr-zone2_2_N-9{
+    position: absolute;
+    z-index: 9999;
+    bottom: 17%;
+    left: 48%;
+  }
+  .mr-zone2_2_N-10{
+    position: absolute;
+    z-index: 9999;
+    bottom: 21%;
+    left: 70%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.2_S */
+  
+  .mr-zone2_2_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 4%;
+    left: 45%;
+  }
+  .mr-zone2_2_S-2{
+    position: absolute;
+    z-index: 9999;
+    top: 13.5%;
+    left: 53%;
+  }
+  .mr-zone2_2_S-3{
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    right: 25%;
+  }
+  .mr-zone2_2_S-4{
+    position: absolute;
+    z-index: 9999;
+    top: 23.5%;
+    left: 31.5%;
+  }
+  .mr-zone2_2_S-5{
+    position: absolute;
+    z-index: 9999;
+    top: 34.5%;
+    left: 34.5%;
+  }
+  .mr-zone2_2_S-6{
+    position: absolute;
+    z-index: 9999;
+    top: 35.5%;
+    left: 41.5%;
+  }
+  .mr-zone2_2_S-7{
+    position: absolute;
+    z-index: 9999;
+    bottom: 62.5%;
+    left: 68.5%;
+  }
+  .mr-zone2_2_S-8{
+    position: absolute;
+    z-index: 9999;
+    bottom: 47.5%;
+    left: 31.5%;
+  }
+  .mr-zone2_2_S-9{
+    position: absolute;
+    z-index: 9999;
+    bottom: 47.5%;
+    right: 14.5%;
+  }
+  .mr-zone2_2_S-10{
+    position: absolute;
+    z-index: 9999;
+    bottom: 42%;
+    left: 31.5%;
+  }
+  
+  .mr-zone2_2_S-11{
+    position: absolute;
+    z-index: 9999;
+    bottom: 17%;
+    left: 32.5%;
+  }
+  .mr-zone2_2_S-12{
+    position: absolute;
+    z-index: 9999;
+    bottom: 21%;
+    left: 76.5%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.3_N */
+  
+  .mr-zone2_3_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 37%;
+    left: 11.5%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.3_N */
+  
+  .mr-zone2_3_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 5%;
+    left: 39.5%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.4_N */
+  
+  .mr-zone2_4_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 28%;
+    left: 69.5%;
+  }
+  
+  .mr-zone2_4_N-2{
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    left: 69%;
+  }
+  
+  .mr-zone2_4_N-3{
+    position: absolute;
+    z-index: 9999;
+    top: 51%;
+    left: 23%;
+  }
+  
+  .mr-zone2_4_N-4{
+    position: absolute;
+    z-index: 9999;
+    bottom: 6%;
+    right: -9%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.4_S */
+  
+  .mr-zone2_4_S-1{
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    left: 7%;
+  }
+  .mr-zone2_4_S-2{
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    left: 34%;
+  }
+  .mr-zone2_4_S-3{
+    position: absolute;
+    z-index: 9999;
+    top: 13%;
+    left: 43%;
+  }
+  .mr-zone2_4_S-4{
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 68%;
+  }
+  .mr-zone2_4_S-5{
+    position: absolute;
+    z-index: 9999;
+    top: 34%;
+    left: 14%;
+  }
+  .mr-zone2_4_S-6{
+    position: absolute;
+    z-index: 9999;
+    top: 37.5%;
+    left: 34%;
+  }
+  .mr-zone2_4_S-7{
+    position: absolute;
+    z-index: 9999;
+    top: 31.5%;
+    left: 48%;
+  }
+  .mr-zone2_4_S-8{
+    position: absolute;
+    z-index: 9999;
+    top: 34%;
+    left: 69%;
+  }
+  .mr-zone2_4_S-9{
+    position: absolute;
+    z-index: 9999;
+    bottom: 43%;
+    left: 35%;
+  }
+  .mr-zone2_4_S-10{
+    position: absolute;
+    z-index: 9999;
+    bottom: 35.5%;
+    left: 25%;
+  }
+  .mr-zone2_4_S-11{
+    position: absolute;
+    z-index: 9999;
+    bottom: 37.5%;
+    left: 57%;
+  }
+  .mr-zone2_4_S-12{
+    position: absolute;
+    z-index: 9999;
+    bottom: 25.5%;
+    left: 20%;
+  }
+  .mr-zone2_4_S-13{
+    position: absolute;
+    z-index: 9999;
+    bottom: 16.5%;
+    left: 23%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.5_N */
+  
+  .mr-zone2_5_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 26.5%;
+    left: 32%;
+  }
+  .mr-zone2_5_N-2{
+    position: absolute;
+    z-index: 9999;
+    top: 28.5%;
+    left: 54%;
+  }
+  .mr-zone2_5_N-3{
+    position: absolute;
+    z-index: 9999;
+    top: 38.5%;
+    left: 65%;
+  }
+  .mr-zone2_5_N-4{
+    position: absolute;
+    z-index: 9999;
+    top: 54.5%;
+    left: 42%;
+  }
+  .mr-zone2_5_N-5{
+    position: absolute;
+    z-index: 9999;
+    top: 56.5%;
+    left: 69%;
+  }
+  .mr-zone2_5_N-6{
+    position: absolute;
+    z-index: 9999;
+    bottom: 16.5%;
+    left: 32%;
+  }
+  
+  /* MR - 2nd Floor Zone 2.6_N */
+  
+  .mr-zone2_6_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 10.5%;
+    left: 32%;
+  }
+  .mr-zone2_6_N-2{
+    position: absolute;
+    z-index: 9999;
+    top: 30.5%;
+    left: 46%;
+  }
+  .mr-zone2_6_N-3{
+    position: absolute;
+    z-index: 9999;
+    top: 40.5%;
+    left: 71%;
+  }
+  .mr-zone2_6_N-4{
+    position: absolute;
+    z-index: 9999;
+    bottom: 31.5%;
+    left: 32%;
+  }
+  .mr-zone2_6_N-5{
+    position: absolute;
+    z-index: 9999;
+    bottom: 27.5%;
+    left: 57%;
+  }
+  .mr-zone2_6_N-6{
+    position: absolute;
+    z-index: 9999;
+    bottom: 22.5%;
+    right: 3%;
+  }
+  .mr-zone2_6_N-7{
+    position: absolute;
+    z-index: 9999;
+    bottom: 7.5%;
+    right: 7%;
+  }
+  
+  
+  /* MR - Roof Plan Zone R1 */
+  
+  .mr-zoneR1-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 30.5%;
+    left: 19%;
+  }
+  /* MR - Roof Plan Zone R2 */
+  
+  .mr-zoneR2-1 {
+    position: absolute;
+    top: 24%;
+    left: 28%;
+    z-index: 9999;
+  }
+  /* MR - Roof Plan Zone R3 */
+  
+  .mr-zoneR3-1 {
+    position: absolute;
+    top: 52%;
+    left: 47%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R4 */
+  
+  .mr-zoneR4-1 {
+    position: absolute;
+    top: 40%;
+    left: 24%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R5 */
+  
+  .mr-zoneR5-1 {
+    position: absolute;
+    top: 32%;
+    left: 33%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R6 */
+  
+  .mr-zoneR6-1 {
+    position: absolute;
+    top: 48%;
+    left: 75%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R7 */
+  
+  .mr-zoneR7-1 {
+    position: absolute;
+    top: 54%;
+    left: 67%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R8 */
+  
+  .mr-zoneR8-1 {
+    position: absolute;
+    top: 6%;
+    left: 59%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R9 */
+  
+  .mr-zoneR9-1 {
+    position: absolute;
+    top: 21%;
+    left: 41%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R10 */
+  
+  .mr-zoneR10-1 {
+    position: absolute;
+    top: 39%;
+    left: 22%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R11 */
+  
+  .mr-zoneR11-1 {
+    position: absolute;
+    top: 34%;
+    left: 44%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R12 */
+  
+  .mr-zoneR12-1 {
+    position: absolute;
+    top: 31%;
+    left: 24%;
+    z-index: 9999;
+  }
+  
+  /* MR - Roof Plan Zone R13 */
+  
+  .mr-zoneR13-1 {
+    position: absolute;
+    top: 33%;
+    left: 19%;
+    z-index: 9999;
+  }
+  
+  
+  /* New MR all data end */

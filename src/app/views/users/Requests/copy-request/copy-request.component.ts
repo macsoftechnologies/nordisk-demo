@@ -7,6 +7,7 @@ import { RequestService } from 'app/shared/services/request.service';
 import { ActivityService } from 'app/shared/services/activity.service';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { DatePipe } from '@angular/common';
+import { config } from "config";
 
 @Component({
   selector: 'app-copy-request',
@@ -58,8 +59,8 @@ export class CopyRequestComponent implements OnInit {
     count: null,
     Safety_Precautions: null,
     Special_Instructions: null,
-    teamId:null
-
+    teamId:null,
+    createdTime: null
   }
   Requestdata: any = {};
   userdata:any={};
@@ -130,6 +131,13 @@ this.userdata=this.jwtauthservice.getUser();
     this.CopyRequest.Assign_End_Date = this.datePipe.transform( this.workingdateTo, 'yyyy-MM-dd');
 
     const diffDays = Math.round(Math.abs((this.workingdateFrom - this.workingdateTo) / oneDay))+1;
+
+    const [currentDenmarkDate, currentDenmarkTime] = [
+      ...config.Denmarktz.split(" "),
+    ];
+
+    this.CopyRequest.createdTime = [currentDenmarkDate, currentDenmarkTime].join(", ") ;
+    console.log(this.CopyRequest.createdTime, 'date')
    
     this.CopyRequest.count=diffDays;
     this.reqservice.CopyRequest(this.CopyRequest).subscribe(res=>

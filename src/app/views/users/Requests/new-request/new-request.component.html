@@ -215,10 +215,12 @@
 
             <mat-grid-tile>
               <div class="upload-div-sty">
-                <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)"
-                  accept=".pdf" />
-                <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add RAMS Files</button>
-                <span>{{images?.name}}</span>
+                <input #csvInput hidden="true" type="file" multiple onclick="this.value=null"
+                  (change)="csvInputChange($event)" accept=".pdf" />
+                <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add RAMS
+                  Files</button>
+                <span *ngIf="!editform">{{images?.name}}</span>
+                <span *ngIf="editform"><a href="{{'https://beam.safesiteworks.com/navodemoproject/beamapi/services/request/'+images?.name}}" target="_blank">{{images?.name}}</a></span>
               </div>
 
               <!-- <div class="mat-card save-btn-sty" *ngIf="isimguploaded">
@@ -444,7 +446,8 @@
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Area</mat-label>
                 <mat-select formControlName="Room" [multiple]="true">
-                  <mat-optgroup *ngFor="let group of selectFloorBlocks" [label]="group.floorName" [disabled]="group.disabled">
+                  <mat-optgroup *ngFor="let group of selectFloorBlocks" [label]="group.floorName"
+                    [disabled]="group.disabled">
                     <mat-option *ngFor="let selectedBlockItem of group.selectedBlock" [value]="selectedBlockItem.value">
                       {{selectedBlockItem.value}}
                     </mat-option>
@@ -726,7 +729,8 @@
           <div class="hotwork-sub">
             <label>Are there other conditions that must be taken into account during the work? If Yes, note in 'Other
               conditions'</label>
-            <mat-radio-group formControlName="floatLabel12"  (change)="setAndRemoveValidators($event.value,'Are there other conditions that')"
+            <mat-radio-group formControlName="floatLabel12"
+              (change)="setAndRemoveValidators($event.value,'Are there other conditions that')"
               [class.is-invalid]="RequestForm.get('floatLabel12').invalid && RequestForm.get('floatLabel12').touched">
               <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
               <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
@@ -736,16 +740,16 @@
               </mat-error>
             </mat-radio-group>
           </div>
-          
+
           <mat-grid-list cols="1" rowHeight="100px" *ngIf="RequestForm.get('floatLabel12').value== '1'">
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Note the Other Condition</mat-label>
                 <input matInput formControlName="other_conditions_input" placeholder="Note the Other Condition"
-                [class.is-invalid]="RequestForm.get('other_conditions_input').invalid && RequestForm.get('other_conditions_input').touched" />
+                  [class.is-invalid]="RequestForm.get('other_conditions_input').invalid && RequestForm.get('other_conditions_input').touched" />
                 <mat-error class="error-message"
-                *ngIf="RequestForm.get('other_conditions_input').invalid && RequestForm.get('other_conditions_input').touched">Please
-                Enter Other Condition</mat-error>
+                  *ngIf="RequestForm.get('other_conditions_input').invalid && RequestForm.get('other_conditions_input').touched">Please
+                  Enter Other Condition</mat-error>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>
@@ -883,7 +887,7 @@
                 </div> -->
 
                 <div class="hotwork-sub">
-                  <label> Is the lighting sufficiently and secured so that the work can be started? </label>
+                  <label>Have you considered any alternative methods to the hot work method? (Ex.: replacing the angle grinder with hydraulic cutters or using prefab electronic orders for measurement)</label>
                   <mat-radio-group formControlName="floatLabel3"
                     [class.is-invalid]="RequestForm.get('floatLabel3').invalid && RequestForm.get('floatLabel3').touched">
                     <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
@@ -953,7 +957,7 @@
                 </div>
 
                 <div class="hotwork-sub">
-                  <label>Does combustible materials need to be removed from the work area?</label>
+                  <label>Can you confirm that the flammable material are removed from the work area?</label>
                   <mat-radio-group formControlName="floatLabel8"
                     [class.is-invalid]="RequestForm.get('floatLabel8').invalid && RequestForm.get('floatLabel8').touched">
                     <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
@@ -1127,7 +1131,7 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub">
+                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel18').value== '0'">
                   <label>Secure the area against reconnection using LOTO (Lock-out/Tag-out) with at least a craftsman's
                     padlock.</label>
                   <mat-radio-group formControlName="floatLabel19"
@@ -1142,8 +1146,8 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub">
-                  <label> do you have risk assessment done? </label>
+                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel19').value== '1'">
+                  <label>Do you have risk assessment done? </label>
                   <mat-radio-group formControlName="floatLabel20"
                     [class.is-invalid]="RequestForm.get('floatLabel20').invalid && RequestForm.get('floatLabel20').touched">
                     <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
@@ -1156,7 +1160,7 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub">
+                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel20').value== '1'">
                   <label>Secure the area against reconnection using LOTO (Lock-out/Tag-out) with at least a craftsman's
                     padlock.</label>
                   <mat-radio-group formControlName="floatLabel21"
@@ -1523,6 +1527,21 @@
           <mat-grid-list cols="1" rowHeight="700" *ngIf="isHeightsyes">
             <mat-grid-tile>
               <section class="cmsnum full-width">
+
+                <!-- <div class="hotwork-sub">
+                  <label>Has the working area been segregated or demarkated?</label>
+                  <mat-radio-group formControlName="segragated_demarkated"
+                    [class.is-invalid]="RequestForm.get('segragated_demarkated').invalid && RequestForm.get('segragated_demarkated').touched">
+                    <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
+                    <mat-radio-button [value]="2">N/A</mat-radio-button>
+                    <mat-error class="error-message"
+                      *ngIf="RequestForm.get('segragated_demarkated').invalid && RequestForm.get('segragated_demarkated').touched">Please
+                      Select
+                    </mat-error>
+                  </mat-radio-group>
+                </div> -->
+
                 <div class="hotwork-sub">
                   <label>Are suitable anchor points are in place for lanyard attachments?</label>
                   <mat-radio-group formControlName="floatLabel39"
@@ -1580,7 +1599,7 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub">
+                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel42').value== '0'">
                   <label>Will this work be carried out by, and under the supervision of personnel who have recieved ''
                     Working at Height'' training?</label>
                   <mat-radio-group formControlName="floatLabel43"
@@ -2845,7 +2864,12 @@
             <mat-grid-tile>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Number of workers involved</mat-label>
-                <input matInput formControlName="peopleinvalidcount" placeholder="" />
+                <input matInput formControlName="peopleinvalidcount" placeholder=""
+                  [class.is-invalid]="RequestForm.get('peopleinvalidcount').invalid && RequestForm.get('peopleinvalidcount').touched" />
+                <mat-error class="error-message"
+                  *ngIf="RequestForm.get('peopleinvalidcount').invalid && RequestForm.get('peopleinvalidcount').touched">Please
+                  please Enter Number of workers involved
+                </mat-error>
               </mat-form-field>
             </mat-grid-tile>
           </mat-grid-list>

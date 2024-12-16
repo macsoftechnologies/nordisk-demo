@@ -1,7 +1,8 @@
 <div mat-dialog-content>
   <div class="model-header">
-  <h3 *ngIf="requestDatas=='Opened' " class="change_Status">Change the Status</h3>
-  <h3 *ngIf="requestDatas=='Approved' || requestDatas == 'Hold'" class="header-title-icon">This activity has been coordinated and approved by ConM/Site HSE. </h3>
+    <h3 *ngIf="requestDatas == 'Hold'" class="header-title-icon">This activity has been coordinated and approved by ConM/Site HSE. </h3>
+    <p *ngIf="requestDatas=='Approved' " class="change_Status">I confirm that the permit is met with all conditions according to RAMS/SPA requirements and take responsibility for safe work execution.</p>
+  <p *ngIf="requestDatas=='Opened' " class="change_Status">I confirm that the work activities under this permit are completed and the area has been made safe, clean and ensure that all post work conditions are fulfilled.</p>
   <span
       class="material-icons close close-icons" mat-dialog-close>
       close
@@ -20,35 +21,10 @@
       </mat-grid-tile>
     </mat-grid-list>
 
-    <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
-      <form>
-        <mat-grid-list cols="2" rowHeight="80px">
-          <mat-grid-tile>
-            <mat-form-field class="full-width">
-              <mat-label>Name of Fire Watcher</mat-label>
-              <input matInput formControlName="name_of_the_fire_watcher1"/>
-              <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
-              [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
-            <mat-error class="error-message"
-              *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
-              Name of Fire Watcher</mat-error> -->
-            </mat-form-field>
-          </mat-grid-tile>
+    <!-- <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
+           
+    </ng-container> -->
 
-          <mat-grid-tile>
-            <mat-form-field class="full-width">
-              <mat-label>Phone Number of Fire Watcher</mat-label>
-              <input matInput formControlName="phone_number_of_fire_watcher1" />
-              <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
-              [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
-            <mat-error class="error-message"
-              *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
-              Phone Number of Fire Watcher</mat-error> -->
-            </mat-form-field>
-          </mat-grid-tile>
-        </mat-grid-list>
-      </form>
-    </ng-container>
   </form>
 </div>
 
@@ -65,7 +41,7 @@
 
   <form [formGroup]="statusOpenForm">
 
-  <mat-grid-list cols="2">
+  <mat-grid-list cols="2" rowHeight="80px">
     <mat-grid-tile>
       <mat-form-field class="full-width">
         <mat-label>The person responsible for this work</mat-label>
@@ -74,21 +50,46 @@
       </mat-form-field>
     </mat-grid-tile>
   </mat-grid-list>
-  </form>
 
   <ng-container *ngIf="updaterequestdata.Hot_work == 1">
+
+    <mat-grid-list cols="2" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>Name of Fire Watcher</mat-label>
+          <input matInput formControlName="name_of_the_fire_watcher1"/>
+          <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
+          [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
+        <mat-error class="error-message"
+          *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
+          Name of Fire Watcher</mat-error> -->
+        </mat-form-field>
+      </mat-grid-tile>
+  
+      <mat-grid-tile>
+        <mat-form-field class="full-width">
+          <mat-label>Phone Number of Fire Watcher</mat-label>
+          <input matInput formControlName="phone_number_of_fire_watcher1" />
+          <!-- <input matInput formControlName="RAMSNumber" placeholder="RAMSNumber"
+          [class.is-invalid]="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched" />
+        <mat-error class="error-message"
+          *ngIf="RequestForm.get('RAMSNumber').invalid && RequestForm.get('RAMSNumber').touched">Please Enter
+          Phone Number of Fire Watcher</mat-error> -->
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
     <div mat-dialog-content>
       <!-- <img [src]="croppedImage" class="uploadimgsty" /> -->
       <div class="upload-div-sty">
-        <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange($event)"
+        <input #csvInput hidden="true" type="file" multiple onclick="this.value=null" (change)="csvInputChange1($event)"
           accept=".jpg" />
         <button mat-flat-button class="logo-btn-sty" color="primary" (click)="csvInput.click()">Add Image</button>
       </div>
 
-      <div class="mat-card save-btn-sty" *ngIf="isimguploaded">
+      <div class="mat-card save-btn-sty" *ngIf="isimguploaded1">
         <div class="card-body">
           <mat-grid-list cols="3" rowHeight="110px">
-            <mat-grid-tile *ngFor="let img of base64Images" class="img-div-dty">
+            <mat-grid-tile *ngFor="let img of base64Images1" class="img-div-dty">
               <img [src]="img">
             </mat-grid-tile>
           </mat-grid-list>
@@ -107,6 +108,8 @@
       (click)="Changestatus('Rejected')">Reject</button>
 
   </div>
+  
+</form>
 </div>
 
 <div class="" *ngIf="type=='Closed'">

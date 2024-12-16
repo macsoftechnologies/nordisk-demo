@@ -42,6 +42,8 @@ import { TeamsBySubId } from "app/views/Models/TeamsDto";
 import { number } from "ngx-custom-validators/src/app/number/validator";
 import { config } from "config";
 import { RequestBuildingModelComponent } from "app/views/Models/request-building-model/request-building-model.component";
+import * as moment from 'moment';
+import { environment } from "environments/environment";
 
 @Component({
   selector: "app-new-request",
@@ -54,6 +56,7 @@ export class NewRequestComponent implements OnInit {
   // pdfSrc = "https://vadimdez.github.io/ng2-pdf-viewer/assets/pdf-test.pdf";
   //pdfSrc ="https://macsof.com/safesite/1complete_plan.pdf";
   hasError: any = false;
+  BaseUrl: string = environment.API_URL;
   spinner = false;
   Assigneditform: boolean = false;
   pdfSrc: string = "";
@@ -516,7 +519,9 @@ export class NewRequestComponent implements OnInit {
     other_conditions_input: null,
     rams_number: null,
     people_electrician_certification: null,
-
+    denmark_time: null,
+  // denmark_date: null,
+  //  segragated_demarkated : null,
   };
 
   updaterequestdata: EditRequestDto = {
@@ -676,12 +681,16 @@ export class NewRequestComponent implements OnInit {
     ConM_initials1: null,
     name_of_the_fire_watcher1: null,
     phone_number_of_fire_watcher1: null,
+    denmark_time: null,
+  // denmark_date: null,
+  // segragated_demarkated : null,
   };
 
   userdata: any = {};
   planType: string = "";
   FloorMain: any;
   FloorOrdinates: any = [];
+  CurrenttimeNow: string;
   constructor(
     private fb: FormBuilder,
     private route: Router,
@@ -1463,7 +1472,7 @@ export class NewRequestComponent implements OnInit {
       RoomType: [""],
       Status: [""],
       Tools: ["", Validators.required],
-      peopleinvalidcount: [""],
+      peopleinvalidcount: ["", Validators.required],
       Note: [""],
       CmtValue: [""],
       Machinery: ["", Validators.required],
@@ -1552,6 +1561,7 @@ export class NewRequestComponent implements OnInit {
 
       // <!-- height start -->
       WORKHEIGHT: ['', Validators.required],
+      // segragated_demarkated: ['', Validators.required],
       floatLabel39: ['', Validators.required],
       floatLabel40: ['', Validators.required],
       floatLabel41: ['', Validators.required],
@@ -2194,6 +2204,7 @@ export class NewRequestComponent implements OnInit {
       console.log("JG Drawings")
       switch (event) {
         case "External Areas":
+          this.spinner = true;
           this.planType = "External Areas";
           this.pdfSrc = "assets/images/plans/externalAreas/ExternalAreas.pdf";
           this.blocks = [
@@ -2201,6 +2212,7 @@ export class NewRequestComponent implements OnInit {
             { name: "JE", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JE.pdf", className: 'external-areas-je', planType: 'External Areas' },
             { name: "JF", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JF.pdf", className: 'external-areas-jf', planType: 'External Areas' },
             { name: "JG", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JG.pdf", className: 'external-areas-jg', planType: 'External Areas' },
+            { name: "MR", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/MR.pdf", className: 'external-areas-mr', planType: 'External Areas' },
             { name: "JH-JX-JS", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JH-JX-JS.pdf", className: 'external-areas-jh-jx-js', planType: 'External Areas' },
             { name: "JJ", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/JJ.pdf", className: 'external-areas-jj', planType: 'External Areas' },
             { name: "MP", pdfSrc: "assets/images/plans/externalAreas/externalAreas_blocks/MP.pdf", className: 'external-areas-mp', planType: 'External Areas' },
@@ -2271,16 +2283,18 @@ export class NewRequestComponent implements OnInit {
           this.planType = "MR - 2nd Floor";
           this.pdfSrc = "assets/images/plans/MR/MR-SecondFloor.pdf";
           this.blocks = [
-            { name: "Zone 2.1_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.1_N.pdf", className: 'jf-second-Zone2_1_N', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.1_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.1_S.pdf", className: 'jf-second-Zone2_1_S', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.2_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.2_N.pdf", className: 'jf-second-Zone2_2_N', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.2_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.2_S.pdf", className: 'jf-second-Zone2_2_S', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.3_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.3_N.pdf", className: 'jf-second-Zone2_3_N', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.3_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.3_S.pdf", className: 'jf-second-Zone2_3_S', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.4_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.4_N.pdf", className: 'jf-second-Zone2_4_N', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.4_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.4_S.pdf", className: 'jf-second-Zone2_4_S', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.5_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.5_N.pdf", className: 'jf-second-Zone2_5_N', planType: "MR - 2nd Floor" },
-            { name: "Zone 2.6_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.6_N.pdf", className: 'jf-second-Zone2_6_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.1_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.1_N.pdf", className: 'mr-second-Zone2_1_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.1_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.1_S.pdf", className: 'mr-second-Zone2_1_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.2_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.2_N.pdf", className: 'mr-second-Zone2_2_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.2_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.2_S.pdf", className: 'mr-second-Zone2_2_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.3_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.3_N.pdf", className: 'mr-second-Zone2_3_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.3_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.3_S.pdf", className: 'mr-second-Zone2_3_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.4_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.4_N.pdf", className: 'mr-second-Zone2_4_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.4_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.4_S.pdf", className: 'mr-second-Zone2_4_S', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.5_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.5_N.pdf", className: 'mr-second-Zone2_5_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.6_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.6_N.pdf", className: 'mr-second-Zone2_6_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.P1_N", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.P1_N.pdf", className: 'mr-second-Zone2_P1_N', planType: "MR - 2nd Floor" },
+            { name: "Zone 2.P2_S", pdfSrc: "assets/images/plans/MR/MR-SecondFloor/MR-SecondFloor-Zone2.P2_S.pdf", className: 'mr-second-Zone2_P2_S', planType: "MR - 2nd Floor" },
 
           ]
           break;
@@ -2288,19 +2302,19 @@ export class NewRequestComponent implements OnInit {
           this.planType = "MR - Roof Plan";
           this.pdfSrc = "assets/images/plans/MR/MR-RoofPlan.pdf";
           this.blocks = [
-            { name: "Zone R1", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR1.pdf", className: 'mr-Roof-ZoneR1', planType: "MR - Roof Plan" },
-            { name: "Zone R2", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR2.pdf", className: 'mr-Roof-ZoneR2', planType: "MR - Roof Plan" },
-            { name: "Zone R3", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR3.pdf", className: 'mr-Roof-ZoneR3', planType: "MR - Roof Plan" },
-            { name: "Zone R4", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR4.pdf", className: 'mr-Roof-ZoneR4', planType: "MR - Roof Plan" },
-            { name: "Zone R5", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR5.pdf", className: 'mr-Roof-ZoneR5', planType: "MR - Roof Plan" },
-            { name: "Zone R6", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR6.pdf", className: 'mr-Roof-ZoneR6', planType: "MR - Roof Plan" },
-            { name: "Zone R7", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR7.pdf", className: 'mr-Roof-ZoneR7', planType: "MR - Roof Plan" },
-            { name: "Zone R8", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR8.pdf", className: 'mr-Roof-ZoneR8', planType: "MR - Roof Plan" },
-            { name: "Zone R9", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR9.pdf", className: 'mr-Roof-ZoneR9', planType: "MR - Roof Plan" },
-            { name: "Zone R10", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR10.pdf", className: 'mr-Roof-ZoneR10', planType: "MR - Roof Plan" },
-            { name: "Zone R11", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR11.pdf", className: 'mr-Roof-ZoneR11', planType: "MR - Roof Plan" },
-            { name: "Zone R12", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR12.pdf", className: 'mr-Roof-ZoneR12', planType: "MR - Roof Plan" },
-            { name: "Zone R13", pdfSrc: "assets/images/plans/JF/MR/MR-RoofPlan/MR-RoofPlan-ZoneR13.pdf", className: 'mr-Roof-ZoneR13', planType: "MR - Roof Plan" },
+            { name: "Zone R1", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR1.pdf", className: 'mr-Roof-ZoneR1', planType: "MR - Roof Plan" },
+            { name: "Zone R2", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR2.pdf", className: 'mr-Roof-ZoneR2', planType: "MR - Roof Plan" },
+            { name: "Zone R3", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR3.pdf", className: 'mr-Roof-ZoneR3', planType: "MR - Roof Plan" },
+            { name: "Zone R4", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR4.pdf", className: 'mr-Roof-ZoneR4', planType: "MR - Roof Plan" },
+            { name: "Zone R5", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR5.pdf", className: 'mr-Roof-ZoneR5', planType: "MR - Roof Plan" },
+            { name: "Zone R6", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR6.pdf", className: 'mr-Roof-ZoneR6', planType: "MR - Roof Plan" },
+            { name: "Zone R7", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR7.pdf", className: 'mr-Roof-ZoneR7', planType: "MR - Roof Plan" },
+            { name: "Zone R8", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR8.pdf", className: 'mr-Roof-ZoneR8', planType: "MR - Roof Plan" },
+            { name: "Zone R9", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR9.pdf", className: 'mr-Roof-ZoneR9', planType: "MR - Roof Plan" },
+            { name: "Zone R10", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR10.pdf", className: 'mr-Roof-ZoneR10', planType: "MR - Roof Plan" },
+            { name: "Zone R11", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR11.pdf", className: 'mr-Roof-ZoneR11', planType: "MR - Roof Plan" },
+            { name: "Zone R12", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR12.pdf", className: 'mr-Roof-ZoneR12', planType: "MR - Roof Plan" },
+            { name: "Zone R13", pdfSrc: "assets/images/plans/MR/MR-RoofPlan/MR-RoofPlan-ZoneR13.pdf", className: 'mr-Roof-ZoneR13', planType: "MR - Roof Plan" },
           ]
           break;
 
@@ -2626,7 +2640,6 @@ export class NewRequestComponent implements OnInit {
       .GetAllEmployeesBySubContrId(this.TeamsSubDto.subcontId)
       .subscribe((res) => {
         let emps = [];
-
         res["data"].forEach((x) => {
           emps.push(x);
           console.log(emps)
@@ -2786,6 +2799,21 @@ export class NewRequestComponent implements OnInit {
       roomoarr.push(x["room_id"]);
     });
 
+    var today = moment.tz("Europe/Copenhagen");
+    this.CurrenttimeNow = today.format('HH:mm:ss');
+    console.log("Time now", this.CurrenttimeNow)
+
+    const [currentDenmarkDate, currentDenmarkTime] = [
+      ...config.Denmarktz.split(" "),
+    ];
+
+    console.log(currentDenmarkDate)
+    console.log(currentDenmarkTime)
+
+    this.Requestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime];
+    // this.Requestdata.denmark_date = currentDenmarkDate;
+  
+
     this.Requestdata.Activity = this.RequestForm.controls["Activity"].value;
 
     // this.Requestdata.Badge_Numbers = this.RequestForm.controls["BADGENUMBER"].value;
@@ -2891,7 +2919,7 @@ export class NewRequestComponent implements OnInit {
     // <!-- height start -->
 
     this.Requestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
-    // this.Requestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
+    // this.Requestdata.segragated_demarkated = this.RequestForm.controls["segragated_demarkated"].value;
     this.Requestdata.lanyard_attachments = this.RequestForm.controls["floatLabel39"].value;
     this.Requestdata.rescue_plan = this.RequestForm.controls["floatLabel40"].value;
     this.Requestdata.avoid_hazards = this.RequestForm.controls["floatLabel41"].value;
@@ -3002,10 +3030,14 @@ export class NewRequestComponent implements OnInit {
     let formData = new FormData();
 
     for (const [key, value] of Object.entries(this.Requestdata)) {
-      formData.append(key, value as string); // Ensure values are strings if needed
+      if (key != 'rams_file'){
+        formData.append(key, value as string); // Ensure values are strings if needed
+      }
     }
 
-    formData.append("rams_file", JSON.stringify(this.Requestdata.rams_file))
+    console.log(this.RequestForm.controls["rams_file"].value)
+    console.log(this.Requestdata.rams_file)
+    formData.append("rams_file", this.Requestdata.rams_file)
 
     this.requestsserivies.CreateNewRequest(formData).subscribe(
       (res) => {
@@ -3027,6 +3059,20 @@ export class NewRequestComponent implements OnInit {
     this.safetyprecdata.forEach((x) => {
       badarray.push(x["id"]);
     });
+
+    var today = moment.tz("Europe/Copenhagen");
+    this.CurrenttimeNow = today.format('HH:mm:ss');
+    console.log("Time now", this.CurrenttimeNow)
+
+    const [currentDenmarkDate, currentDenmarkTime] = [
+      ...config.Denmarktz.split(" "),
+    ];
+
+    console.log(currentDenmarkDate)
+    console.log(currentDenmarkTime)
+
+    this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime];
+    // this.updaterequestdata.denmark_date = currentDenmarkDate;
 
     this.updaterequestdata.Assign_Start_Time =
       this.RequestForm.controls["AssignStartTime"].value;
@@ -3170,7 +3216,7 @@ export class NewRequestComponent implements OnInit {
     // <!-- height start -->
 
     this.updaterequestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
-    // this.updaterequestdata.segragated_demarkated = this.RequestForm.controls["floatLabel39"].value;
+    // this.updaterequestdata.segragated_demarkated = this.RequestForm.controls["segragated_demarkated"].value;
     this.updaterequestdata.lanyard_attachments = this.RequestForm.controls["floatLabel39"].value;
     this.updaterequestdata.rescue_plan = this.RequestForm.controls["floatLabel40"].value;
     this.updaterequestdata.avoid_hazards = this.RequestForm.controls["floatLabel41"].value;
@@ -3836,6 +3882,8 @@ export class NewRequestComponent implements OnInit {
     // this.RequestForm.patchValue({ floatLabel11: 1 });
     this.RequestForm.controls["descriptActivity"].setValue(data["description_of_activity"]);
     this.RequestForm.controls["RAMSNumber"].setValue(data["rams_number"]);
+    this.images ={name: data["rams_file"]};
+    console.log(this.images['name'], 'img')
     this.RequestForm.controls["other_ppe"].setValue(data["other_ppe"]);
     // GetselectedHOTWORKitem()
 
@@ -3913,7 +3961,7 @@ export class NewRequestComponent implements OnInit {
     } else {
       this.isHeightsyes = false;
     }
-    // this.RequestForm.controls["NEWHOTWORK39"].setValue(data["segragated_demarkated"]);
+    // this.RequestForm.controls["segragated_demarkated"].setValue(data["segragated_demarkated"]);
     this.RequestForm.controls["floatLabel39"].setValue(data["lanyard_attachments"]);
     this.RequestForm.controls["floatLabel40"].setValue(data["rescue_plan"]);
     this.RequestForm.controls["floatLabel41"].setValue(data["avoid_hazards"]);
@@ -4274,6 +4322,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel37').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel38').setValidators([Validators.required]);
       } else if (control == 'Working at Height') {
+        // this.RequestForm.get('segragated_demarkated').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel39').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel40').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel41').setValidators([Validators.required]);
@@ -4384,6 +4433,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel37').clearValidators();
         this.RequestForm.get('floatLabel38').clearValidators();
       } else if (control == 'Working at Height') {
+        // this.RequestForm.get('segragated_demarkated').clearValidators();
         this.RequestForm.get('floatLabel39').clearValidators();
         this.RequestForm.get('floatLabel40').clearValidators();
         this.RequestForm.get('floatLabel41').clearValidators();
@@ -4485,9 +4535,9 @@ export class NewRequestComponent implements OnInit {
       reader.onload = this._handleReaderLoaded.bind(this);
       reader.readAsDataURL(e.target.files[i]);
       // this.isimguploaded = true;
-      const formData = new FormData();
-      formData.append('file', e.target.files[i]); // Append file
-      this.RequestForm.controls["rams_file"].setValue(formData);
+      // const formData = new FormData();
+      // formData.append('file', e.target.files[i]); // Append file
+      this.RequestForm.controls["rams_file"].setValue(e.target.files[i]);
       // console.log(reader, "reader")
     }
   }

@@ -43,6 +43,7 @@ import * as xlsx from 'xlsx';
 import { EditRequestComponent } from '../edit-request/edit-request.component';
 import { config } from 'config';
 import { number } from 'ngx-custom-validators/src/app/number/validator';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-list-request',
@@ -354,7 +355,7 @@ export class ListRequestComponent implements OnInit {
     private requestservice: RequestService,
     private activityservice: ActivityService,
     private datePipe: DatePipe,
-    private jwtauth: JwtAuthService
+    private jwtauth: JwtAuthService, private breakpointObserver: BreakpointObserver
   ) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
@@ -363,7 +364,24 @@ export class ListRequestComponent implements OnInit {
   }
 
   ngOnInit() {    
-    
+   
+    this.breakpointObserver.observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+    ]).subscribe(result => {
+      if (result.breakpoints[Breakpoints.XSmall]) {
+        this.gridCols = 1; // Single column for extra small screens
+      } else if (result.breakpoints[Breakpoints.Small]) {
+        this.gridCols = 2; // Two columns for small screens
+      } else if (result.breakpoints[Breakpoints.Medium]) {
+        this.gridCols = 2; // Three columns for medium screens
+      } else if (result.breakpoints[Breakpoints.Large]) {
+        this.gridCols = 2; // Four columns for large screens
+      }
+    });
+
     let testing = [1,2,3]
 
     this.dummyArray = testing.filter((item) =>  {
