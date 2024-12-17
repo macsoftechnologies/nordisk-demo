@@ -136,7 +136,7 @@ this.userdata=this.jwtauthservice.getUser();
       ...config.Denmarktz.split(" "),
     ];
 
-    this.CopyRequest.createdTime = [currentDenmarkDate, currentDenmarkTime].join(", ") ;
+    this.CopyRequest.createdTime = [currentDenmarkDate, currentDenmarkTime].join(" ") ;
     console.log(this.CopyRequest.createdTime, 'date')
    
     this.CopyRequest.count=diffDays;

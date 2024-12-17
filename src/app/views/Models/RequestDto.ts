@@ -150,7 +150,8 @@ export class RequestDto {
     denmark_time: any;
     // denmark_date: any;
     // segragated_demarkated: any;
-
+    system_drained: any;
+    excavation_shoring: any;
 }
 
 
@@ -312,6 +313,8 @@ export class EditRequestDto {
     phone_number_of_fire_watcher1: any;
     denmark_time: any;
     // denmark_date: any;
+    system_drained: any;
+    excavation_shoring: any;
 }
 
 export class DeleteRequestDto {

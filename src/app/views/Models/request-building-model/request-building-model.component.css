@@ -4920,6 +4920,24 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     bottom: 7.5%;
     right: 7%;
   }
+
+  /* / MR - 2nd Floor Zone 2.P1_N / */
+   
+  .mr-zone2_P1_N-1{
+    position: absolute;
+    z-index: 9999;
+    top: 12.5%;
+    right: 31%;
+  }
+ 
+    /* / MR - 2nd Floor Zone 2.P2_S / */
+   
+    .mr-zone2_P2_S-1{
+      position: absolute;
+      z-index: 9999;
+      top: 22.5%;
+      right: 45%;
+    }
   
   
   /* MR - Roof Plan Zone R1 */

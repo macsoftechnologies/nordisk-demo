@@ -4810,6 +4810,38 @@ export class RequestBuildingModelComponent implements OnInit {
           }
         }
       }
+      else if (this.data.floor.name == 'Zone 2.P1_N' && this.data.floor.planType == 'MR - 2nd Floor') {
+        this.floorBlock = [
+          {
+            value: '2.019',
+            className: "mr-zone2_P1_N-1",
+            isSelected: false
+          }
+          
+        ]
+        if (selectedBlockData) {
+          if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+            console.log(selectedBlockData, "1")
+            this.floorBlock = selectedBlockData.selectedBlock;
+          }
+        }
+      }
+      else if (this.data.floor.name == 'Zone 2.P2_S' && this.data.floor.planType == 'MR - 2nd Floor') {
+        this.floorBlock = [
+          {
+            value: '2.019',
+            className: "mr-zone2_P2_S-1",
+            isSelected: false
+          }
+
+        ]
+        if (selectedBlockData) {
+          if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+            console.log(selectedBlockData, "1")
+            this.floorBlock = selectedBlockData.selectedBlock;
+          }
+        }
+      }
   
       // mr roof floor
   

@@ -887,7 +887,7 @@
                 </div> -->
 
                 <div class="hotwork-sub">
-                  <label>Have you considered any alternative methods to the hot work method? (Ex.: replacing the angle grinder with hydraulic cutters or using prefab electronic orders for measurement)</label>
+                  <label>Have you considered any alternative methods to the hot work method? (Ex.: replacing the angle grinder with <br />hydraulic cutters or using prefab electronic orders for measurement)</label>
                   <mat-radio-group formControlName="floatLabel3"
                     [class.is-invalid]="RequestForm.get('floatLabel3').invalid && RequestForm.get('floatLabel3').touched">
                     <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
@@ -1131,7 +1131,7 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel18').value== '0'">
+                <div class="hotwork-sub">
                   <label>Secure the area against reconnection using LOTO (Lock-out/Tag-out) with at least a craftsman's
                     padlock.</label>
                   <mat-radio-group formControlName="floatLabel19"
@@ -1146,7 +1146,7 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel19').value== '1'">
+                <div class="hotwork-sub">
                   <label>Do you have risk assessment done? </label>
                   <mat-radio-group formControlName="floatLabel20"
                     [class.is-invalid]="RequestForm.get('floatLabel20').invalid && RequestForm.get('floatLabel20').touched">
@@ -1160,7 +1160,7 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel20').value== '1'">
+                <div class="hotwork-sub">
                   <label>Secure the area against reconnection using LOTO (Lock-out/Tag-out) with at least a craftsman's
                     padlock.</label>
                   <mat-radio-group formControlName="floatLabel21"
@@ -1528,7 +1528,7 @@
             <mat-grid-tile>
               <section class="cmsnum full-width">
 
-                <!-- <div class="hotwork-sub">
+                <div class="hotwork-sub">
                   <label>Has the working area been segregated or demarkated?</label>
                   <mat-radio-group formControlName="segragated_demarkated"
                     [class.is-invalid]="RequestForm.get('segragated_demarkated').invalid && RequestForm.get('segragated_demarkated').touched">
@@ -1540,7 +1540,7 @@
                       Select
                     </mat-error>
                   </mat-radio-group>
-                </div> -->
+                </div>
 
                 <div class="hotwork-sub">
                   <label>Are suitable anchor points are in place for lanyard attachments?</label>
@@ -1599,7 +1599,7 @@
                   </mat-radio-group>
                 </div>
 
-                <div class="hotwork-sub" *ngIf="RequestForm.get('floatLabel42').value== '0'">
+                <div class="hotwork-sub">
                   <label>Will this work be carried out by, and under the supervision of personnel who have recieved ''
                     Working at Height'' training?</label>
                   <mat-radio-group formControlName="floatLabel43"
@@ -2037,19 +2037,19 @@
                   </mat-radio-group>
                 </div>
 
-                <!-- <div class="hotwork-sub">
+                <div class="hotwork-sub">
                   <label>Is the system drained?</label>
-                  <mat-radio-group formControlName="floatLabel66"
-                    [class.is-invalid]="RequestForm.get('floatLabel66').invalid && RequestForm.get('floatLabel66').touched">
+                  <mat-radio-group formControlName="system_drained"
+                    [class.is-invalid]="RequestForm.get('system_drained').invalid && RequestForm.get('system_drained').touched">
                     <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
                     <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
                     <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
-                      *ngIf="RequestForm.get('floatLabel66').invalid && RequestForm.get('floatLabel66').touched">Please
+                      *ngIf="RequestForm.get('system_drained').invalid && RequestForm.get('system_drained').touched">Please
                       Select
                     </mat-error>
                   </mat-radio-group>
-                </div> -->
+                </div>
 
                 <div class="hotwork-sub">
                   <label>Is the system in passive, pause, stop, remote stop, local stop or other?</label>
@@ -2174,19 +2174,19 @@
                   </mat-radio-group>
                 </div>
 
-                <!-- <div class="hotwork-sub">
+                <div class="hotwork-sub">
                   <label>Does excavation requires shoring? </label>
-                  <mat-radio-group formControlName="floatLabel73"
-                    [class.is-invalid]="RequestForm.get('floatLabel73').invalid && RequestForm.get('floatLabel73').touched">
+                  <mat-radio-group formControlName="excavation_shoring"
+                    [class.is-invalid]="RequestForm.get('excavation_shoring').invalid && RequestForm.get('excavation_shoring').touched">
                     <mat-radio-button [value]="1">Yes &nbsp;&nbsp;</mat-radio-button>
                     <mat-radio-button [value]="0">No &nbsp;&nbsp;</mat-radio-button>
                     <mat-radio-button [value]="2">N/A</mat-radio-button>
                     <mat-error class="error-message"
-                      *ngIf="RequestForm.get('floatLabel73').invalid && RequestForm.get('floatLabel73').touched">Please
+                      *ngIf="RequestForm.get('excavation_shoring').invalid && RequestForm.get('excavation_shoring').touched">Please
                       Select
                     </mat-error>
                   </mat-radio-group>
-                </div> -->
+                </div>
 
                 <div class="hotwork-sub">
                   <label>Is the sloping correct in relation to the depth of the dig as per Danish regulations?</label>

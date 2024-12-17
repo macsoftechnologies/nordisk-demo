@@ -176,6 +176,9 @@ export class StatusChangeDialogComponent implements OnInit {
     phone_number_of_fire_watcher1: null,
     denmark_time: null,
 
+    system_drained: null,
+    excavation_shoring: null,
+
   };
   images: any[] = [];
   base64Images: any[] = [];
@@ -214,22 +217,22 @@ export class StatusChangeDialogComponent implements OnInit {
     this.userdata = this.authservice.getUser();
 
     this.statusUpdateForm = new FormGroup({
-      h_heat_source: new FormControl('',),
-      h_workplace_check: new FormControl('',),
-      h_fire_detectors: new FormControl('',),
-      h_start_time: new FormControl('',),
-      h_end_time: new FormControl('',),
+      h_heat_source: new FormControl('', Validators.required),
+      h_workplace_check: new FormControl('', Validators.required),
+      h_fire_detectors: new FormControl('', Validators.required),
+      h_start_time: new FormControl('', Validators.required),
+      h_end_time: new FormControl('', Validators.required),
     })
 
     this.statusApprovedForm = new FormGroup({
-      ConM_initials: new FormControl('',),
+      ConM_initials: new FormControl('', Validators.required),
 
     })
 
     this.statusOpenForm = new FormGroup({
-      ConM_initials1: new FormControl('',),
-      name_of_the_fire_watcher1: new FormControl('',),
-      phone_number_of_fire_watcher1: new FormControl('',),
+      ConM_initials1: new FormControl('', Validators.required),
+      name_of_the_fire_watcher1: new FormControl('', Validators.required),
+      phone_number_of_fire_watcher1: new FormControl('', Validators.required),
     })
 
   }
@@ -388,6 +391,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.securing_facilities = this.data["payload"]["securing_facilities"];
     this.updaterequestdata.loto_facilities = this.data["payload"]["loto_facilities"];
     this.updaterequestdata.system_depressurised = this.data["payload"]["system_depressurised"];
+    this.updaterequestdata.system_drained = this.data["payload"]["system_drained"];
     this.updaterequestdata.passive_pause_other = this.data["payload"]["passive_pause_other"];
     this.updaterequestdata.electricity_have_insulation = this.data["payload"]["electricity_have_insulation"];
     this.updaterequestdata.covered_or_secured = this.data["payload"]["covered_or_secured"];
@@ -397,6 +401,7 @@ export class StatusChangeDialogComponent implements OnInit {
     this.updaterequestdata.excavation_works = this.data["payload"]["excavation_works"];
     this.updaterequestdata.excavation_segregated = this.data["payload"]["excavation_segregated"];
     this.updaterequestdata.nn_standards = this.data["payload"]["nn_standards"];
+    this.updaterequestdata.excavation_shoring = this.data["payload"]["excavation_shoring"];
     this.updaterequestdata.danish_regulation = this.data["payload"]["danish_regulation"];
     this.updaterequestdata.safe_access_and_egress = this.data["payload"]["safe_access_and_egress"];
     this.updaterequestdata.correctly_sloped = this.data["payload"]["correctly_sloped"];
@@ -433,6 +438,12 @@ export class StatusChangeDialogComponent implements OnInit {
   }
 
   Changestatus(statusdata) {
+    (Object as any).keys(this.statusApprovedForm.controls).forEach((control) => {
+      this.statusApprovedForm.get(`${control}`).markAsTouched();
+    });
+    (Object as any).keys(this.statusOpenForm.controls).forEach((control) => {
+      this.statusOpenForm.get(`${control}`).markAsTouched();
+    });
     console.log(statusdata, 'data')
     var today = moment.tz("Europe/Copenhagen");
     this.CurrenttimeNow = today.format('HH:mm:ss');
@@ -463,37 +474,40 @@ export class StatusChangeDialogComponent implements OnInit {
 
       // console.log(this.updaterequestdata,"stats");
 
-    
+      if (this.statusApprovedForm.valid) {
         this.updaterequestdata.ConM_initials = this.statusApprovedForm.value.ConM_initials;
-        
+      }
+      if (this.statusOpenForm.valid) {
         this.updaterequestdata.ConM_initials1 = this.statusOpenForm.value.ConM_initials1;
         this.updaterequestdata.name_of_the_fire_watcher1 = this.statusOpenForm.value.name_of_the_fire_watcher1;
         this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusOpenForm.value.phone_number_of_fire_watcher1;
         // formData.append('file', this.fileInput.files[0]);
-      
-      let formData = new FormData();
-      if (this.images1.length > 0) {
-        for (var i = 0; i < this.images1.length; i++) {
-          formData.append("Image1", this.images1[i]);
-        }
       }
-      for (const [key, value] of Object.entries(this.updaterequestdata)) {
-        formData.append(key, value); // Ensure values are strings if needed
-      }
-
-      this.requestdataservice.UpdateRequest(formData as unknown as EditRequestDto).subscribe(
-        (x) => {
-          if (x.status == 200) {
-            this.openSnackBar("Request Status Updated Successfully");
-            // console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
-            // window.location.reload();
-            // this.ngOnInit();
+        let formData = new FormData();
+        if (this.images1.length > 0) {
+          for (var i = 0; i < this.images1.length; i++) {
+            formData.append("Image1", this.images1[i]);
           }
-        },
-        (error) => {
-          this.openSnackBar("Something went wrong. Plz try again later...");
         }
-      );
+        for (const [key, value] of Object.entries(this.updaterequestdata)) {
+          formData.append(key, value); // Ensure values are strings if needed
+        }
+
+        this.requestdataservice.UpdateRequest(formData as unknown as EditRequestDto).subscribe(
+          (x) => {
+            if (x.status == 200) {
+              this.openSnackBar("Request Status Updated Successfully");
+              // console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
+              // window.location.reload();
+              // this.ngOnInit();
+            }
+          },
+          (error) => {
+            this.openSnackBar("Something went wrong. Plz try again later...");
+          }
+
+        );
+      
     }
   }
 
@@ -540,11 +554,13 @@ export class StatusChangeDialogComponent implements OnInit {
     formData.append("userId", this.userdata["id"]);
     formData.append("createdTime", this.Close_Request.createdTime);
 
+    if (this.statusUpdateForm.valid) {
     formData.append("h_heat_source", this.statusUpdateForm.value.h_heat_source);
     formData.append("h_workplace_check", this.statusUpdateForm.value.h_workplace_check);
     formData.append("h_fire_detectors", this.statusUpdateForm.value.h_fire_detectors);
     formData.append("h_start_time", this.statusUpdateForm.value.h_start_time);
     formData.append("h_end_time", this.statusUpdateForm.value.h_end_time);
+    }
 
     console.log(this.statusUpdateForm, "form")
 

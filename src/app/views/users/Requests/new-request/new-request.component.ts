@@ -520,8 +520,10 @@ export class NewRequestComponent implements OnInit {
     rams_number: null,
     people_electrician_certification: null,
     denmark_time: null,
-  // denmark_date: null,
-  //  segragated_demarkated : null,
+    // denmark_date: null,
+    //  segragated_demarkated : null,
+    system_drained: null,
+    excavation_shoring: null,
   };
 
   updaterequestdata: EditRequestDto = {
@@ -682,8 +684,10 @@ export class NewRequestComponent implements OnInit {
     name_of_the_fire_watcher1: null,
     phone_number_of_fire_watcher1: null,
     denmark_time: null,
-  // denmark_date: null,
-  // segragated_demarkated : null,
+    // denmark_date: null,
+    // segragated_demarkated : null,
+    system_drained: null,
+    excavation_shoring: null,
   };
 
   userdata: any = {};
@@ -1561,7 +1565,7 @@ export class NewRequestComponent implements OnInit {
 
       // <!-- height start -->
       WORKHEIGHT: ['', Validators.required],
-      // segragated_demarkated: ['', Validators.required],
+      segragated_demarkated: ['', Validators.required],
       floatLabel39: ['', Validators.required],
       floatLabel40: ['', Validators.required],
       floatLabel41: ['', Validators.required],
@@ -1597,7 +1601,7 @@ export class NewRequestComponent implements OnInit {
       FACILITIESLOTO: ['', Validators.required],
       floatLabel64: ['', Validators.required],
       floatLabel65: ['', Validators.required],
-      // floatLabel66: ['', Validators.required],
+      system_drained: ['', Validators.required],
       floatLabel67: ['', Validators.required],
       floatLabel68: ['', Validators.required],
       floatLabel69: ['', Validators.required],
@@ -1608,7 +1612,7 @@ export class NewRequestComponent implements OnInit {
       ExcavationWorks: ['', Validators.required],
       floatLabel71: ['', Validators.required],
       floatLabel72: ['', Validators.required],
-      // floatLabel73: ['', Validators.required],
+      excavation_shoring: ['', Validators.required],
       floatLabel74: ['', Validators.required],
       floatLabel75: ['', Validators.required],
       floatLabel76: ['', Validators.required],
@@ -2812,7 +2816,7 @@ export class NewRequestComponent implements OnInit {
 
     this.Requestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime];
     // this.Requestdata.denmark_date = currentDenmarkDate;
-  
+
 
     this.Requestdata.Activity = this.RequestForm.controls["Activity"].value;
 
@@ -2919,7 +2923,7 @@ export class NewRequestComponent implements OnInit {
     // <!-- height start -->
 
     this.Requestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
-    // this.Requestdata.segragated_demarkated = this.RequestForm.controls["segragated_demarkated"].value;
+    this.Requestdata.segragated_demarkated = this.RequestForm.controls["segragated_demarkated"].value;
     this.Requestdata.lanyard_attachments = this.RequestForm.controls["floatLabel39"].value;
     this.Requestdata.rescue_plan = this.RequestForm.controls["floatLabel40"].value;
     this.Requestdata.avoid_hazards = this.RequestForm.controls["floatLabel41"].value;
@@ -2959,7 +2963,7 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.securing_facilities = this.RequestForm.controls["FACILITIESLOTO"].value;
     this.Requestdata.loto_facilities = this.RequestForm.controls["floatLabel64"].value;
     this.Requestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
-    // this.Requestdata.system_depressurised_reason = this.RequestForm.controls["floatLabel65"].value;
+    this.Requestdata.system_drained = this.RequestForm.controls["system_drained"].value;
     this.Requestdata.passive_pause_other = this.RequestForm.controls["floatLabel67"].value;
     this.Requestdata.electricity_have_insulation = this.RequestForm.controls["floatLabel68"].value;
     this.Requestdata.covered_or_secured = this.RequestForm.controls["floatLabel69"].value;
@@ -2971,7 +2975,7 @@ export class NewRequestComponent implements OnInit {
     this.Requestdata.excavation_works = this.RequestForm.controls["ExcavationWorks"].value;
     this.Requestdata.excavation_segregated = this.RequestForm.controls["floatLabel71"].value;
     this.Requestdata.nn_standards = this.RequestForm.controls["floatLabel72"].value;
-    // this.Requestdata.nn_standards = this.RequestForm.controls["floatLabel73"].value;
+    this.Requestdata.excavation_shoring = this.RequestForm.controls["excavation_shoring"].value;
     this.Requestdata.danish_regulation = this.RequestForm.controls["floatLabel74"].value;
     this.Requestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel75"].value;
     this.Requestdata.correctly_sloped = this.RequestForm.controls["floatLabel76"].value;
@@ -3030,7 +3034,7 @@ export class NewRequestComponent implements OnInit {
     let formData = new FormData();
 
     for (const [key, value] of Object.entries(this.Requestdata)) {
-      if (key != 'rams_file'){
+      if (key != 'rams_file') {
         formData.append(key, value as string); // Ensure values are strings if needed
       }
     }
@@ -3216,7 +3220,7 @@ export class NewRequestComponent implements OnInit {
     // <!-- height start -->
 
     this.updaterequestdata.working_at_height = this.RequestForm.controls["WORKHEIGHT"].value;
-    // this.updaterequestdata.segragated_demarkated = this.RequestForm.controls["segragated_demarkated"].value;
+    this.updaterequestdata.segragated_demarkated = this.RequestForm.controls["segragated_demarkated"].value;
     this.updaterequestdata.lanyard_attachments = this.RequestForm.controls["floatLabel39"].value;
     this.updaterequestdata.rescue_plan = this.RequestForm.controls["floatLabel40"].value;
     this.updaterequestdata.avoid_hazards = this.RequestForm.controls["floatLabel41"].value;
@@ -3256,7 +3260,7 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.securing_facilities = this.RequestForm.controls["FACILITIESLOTO"].value;
     this.updaterequestdata.loto_facilities = this.RequestForm.controls["floatLabel64"].value;
     this.updaterequestdata.system_depressurised = this.RequestForm.controls["floatLabel65"].value;
-    // this.updaterequestdata.system_depressurised = this.RequestForm.controls["floatLabel66"].value;
+    this.updaterequestdata.system_drained = this.RequestForm.controls["system_drained"].value;
     this.updaterequestdata.passive_pause_other = this.RequestForm.controls["floatLabel67"].value;
     this.updaterequestdata.electricity_have_isulation = this.RequestForm.controls["floatLabel68"].value;
     this.updaterequestdata.covered_or_secured = this.RequestForm.controls["floatLabel69"].value;
@@ -3267,7 +3271,7 @@ export class NewRequestComponent implements OnInit {
     this.updaterequestdata.excavation_works = this.RequestForm.controls["ExcavationWorks"].value;
     this.updaterequestdata.excavation_segregated = this.RequestForm.controls["floatLabel71"].value;
     this.updaterequestdata.nn_standards = this.RequestForm.controls["floatLabel72"].value;
-    // this.updaterequestdata.nn_standards = this.RequestForm.controls["floatLabel73"].value;
+    this.updaterequestdata.excavation_shoring = this.RequestForm.controls["excavation_shoring"].value;
     this.updaterequestdata.danish_regulation = this.RequestForm.controls["floatLabel74"].value;
     this.updaterequestdata.safe_access_and_egress = this.RequestForm.controls["floatLabel75"].value;
     this.updaterequestdata.correctly_sloped = this.RequestForm.controls["floatLabel76"].value;
@@ -3882,7 +3886,7 @@ export class NewRequestComponent implements OnInit {
     // this.RequestForm.patchValue({ floatLabel11: 1 });
     this.RequestForm.controls["descriptActivity"].setValue(data["description_of_activity"]);
     this.RequestForm.controls["RAMSNumber"].setValue(data["rams_number"]);
-    this.images ={name: data["rams_file"]};
+    this.images = { name: data["rams_file"] };
     console.log(this.images['name'], 'img')
     this.RequestForm.controls["other_ppe"].setValue(data["other_ppe"]);
     // GetselectedHOTWORKitem()
@@ -3961,7 +3965,7 @@ export class NewRequestComponent implements OnInit {
     } else {
       this.isHeightsyes = false;
     }
-    // this.RequestForm.controls["segragated_demarkated"].setValue(data["segragated_demarkated"]);
+    this.RequestForm.controls["segragated_demarkated"].setValue(data["segragated_demarkated"]);
     this.RequestForm.controls["floatLabel39"].setValue(data["lanyard_attachments"]);
     this.RequestForm.controls["floatLabel40"].setValue(data["rescue_plan"]);
     this.RequestForm.controls["floatLabel41"].setValue(data["avoid_hazards"]);
@@ -4013,7 +4017,7 @@ export class NewRequestComponent implements OnInit {
     }
     this.RequestForm.controls["floatLabel64"].setValue(data["loto_facilities"]);
     this.RequestForm.controls["floatLabel65"].setValue(data["system_depressurised"]);
-    // this.RequestForm.controls["floatLabel66"].setValue(data["system_depressurised_reason"]);
+    this.RequestForm.controls["system_drained"].setValue(data["system_drained"]);
     this.RequestForm.controls["floatLabel67"].setValue(data["passive_pause_other"]);
     this.RequestForm.controls["floatLabel68"].setValue(data["electricity_have_insulation"]);
     this.RequestForm.controls["floatLabel69"].setValue(data["covered_or_secured"]);
@@ -4029,7 +4033,7 @@ export class NewRequestComponent implements OnInit {
     }
     this.RequestForm.controls["floatLabel71"].setValue(data["excavation_segregated"]);
     this.RequestForm.controls["floatLabel72"].setValue(data["nn_standards"]);
-    // this.RequestForm.controls["floatLabel72"].setValue(data["nn_standards"]);
+    this.RequestForm.controls["excavation_shoring"].setValue(data["excavation_shoring"]);
     this.RequestForm.controls["floatLabel74"].setValue(data["danish_regulation"]);
     this.RequestForm.controls["floatLabel75"].setValue(data["safe_access_and_egress"]);
     this.RequestForm.controls["floatLabel76"].setValue(data["correctly_sloped"]);
@@ -4322,7 +4326,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel37').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel38').setValidators([Validators.required]);
       } else if (control == 'Working at Height') {
-        // this.RequestForm.get('segragated_demarkated').setValidators([Validators.required]);
+        this.RequestForm.get('segragated_demarkated').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel39').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel40').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel41').setValidators([Validators.required]);
@@ -4354,7 +4358,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Securing Facilities (LOTO)') {
         this.RequestForm.get('floatLabel64').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel65').setValidators([Validators.required]);
-        // this.RequestForm.get('floatLabel66').setValidators([Validators.required]);
+        this.RequestForm.get('system_drained').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel67').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel68').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel69').setValidators([Validators.required]);
@@ -4362,7 +4366,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Excavation Works') {
         this.RequestForm.get('floatLabel71').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel72').setValidators([Validators.required]);
-        // this.RequestForm.get('floatLabel73').setValidators([Validators.required]);
+        this.RequestForm.get('excavation_shoring').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel74').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel75').setValidators([Validators.required]);
         this.RequestForm.get('floatLabel76').setValidators([Validators.required]);
@@ -4433,7 +4437,7 @@ export class NewRequestComponent implements OnInit {
         this.RequestForm.get('floatLabel37').clearValidators();
         this.RequestForm.get('floatLabel38').clearValidators();
       } else if (control == 'Working at Height') {
-        // this.RequestForm.get('segragated_demarkated').clearValidators();
+        this.RequestForm.get('segragated_demarkated').clearValidators();
         this.RequestForm.get('floatLabel39').clearValidators();
         this.RequestForm.get('floatLabel40').clearValidators();
         this.RequestForm.get('floatLabel41').clearValidators();
@@ -4464,7 +4468,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Securing Facilities (LOTO)') {
         this.RequestForm.get('floatLabel64').clearValidators();
         this.RequestForm.get('floatLabel65').clearValidators();
-        // this.RequestForm.get('floatLabel66').clearValidators();
+        this.RequestForm.get('system_drained').clearValidators();
         this.RequestForm.get('floatLabel67').clearValidators();
         this.RequestForm.get('floatLabel68').clearValidators();
         this.RequestForm.get('floatLabel69').clearValidators();
@@ -4472,7 +4476,7 @@ export class NewRequestComponent implements OnInit {
       } else if (control == 'Excavation Works') {
         this.RequestForm.get('floatLabel71').clearValidators();
         this.RequestForm.get('floatLabel72').clearValidators();
-        // this.RequestForm.get('floatLabel73').clearValidators();
+        this.RequestForm.get('excavation_shoring').clearValidators();
         this.RequestForm.get('floatLabel74').clearValidators();
         this.RequestForm.get('floatLabel75').clearValidators();
         this.RequestForm.get('floatLabel76').clearValidators();

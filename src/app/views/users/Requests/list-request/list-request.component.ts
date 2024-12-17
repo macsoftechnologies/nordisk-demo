@@ -438,6 +438,7 @@ export class ListRequestComponent implements OnInit {
     this.pagedatainfo = {
       LoginType: this.isUserLoggedIn.role,
       Type: this.isUserLoggedIn.typeId,
+      user_id: this.isUserLoggedIn.id,
       Start: value,
       End: 30,
       Page: page,
@@ -489,7 +490,24 @@ export class ListRequestComponent implements OnInit {
 
           this.paginationCount = res[1].count;
           console.log(this.paginationCount);
-        } else if (this.userdata['role'] == 'Department') {
+        } 
+        else if (this.userdata['role'] == 'Department') {
+          this.IsNotSubCntr = false;
+          this.items = res[0]['data'];
+          this.isoperator = true;
+          var filteritems = [];
+          this.items.forEach((x) => {
+            if (x['Request_status'] != 'Draft') {
+              filteritems.push(x);
+            }
+          });
+          this.paginationCount = res[1].count;
+          console.log(this.paginationCount);
+          this.items = [];
+          this.items.length = 0;
+          this.items = filteritems;
+        }
+        else if (this.userdata['role'] == 'Observer') {
           this.IsNotSubCntr = false;
           this.items = res[0]['data'];
           this.isoperator = true;
