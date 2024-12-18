@@ -435,6 +435,21 @@ export class StatusChangeDialogComponent implements OnInit {
     // new add data
     this.updaterequestdata.ConM_initials = this.data["payload"]["ConM_initials"];
     // this.updaterequestdata.denmark_time = this.data["payload"]["denmark_time"];
+    if (this.updaterequestdata.Hot_work == 1) {
+      this.statusOpenForm.get('name_of_the_fire_watcher1').setValidators([Validators.required]);
+      this.statusOpenForm.get('phone_number_of_fire_watcher1').setValidators([Validators.required]);
+    }else{
+      this.statusOpenForm.get('name_of_the_fire_watcher1').clearValidators();
+      this.statusOpenForm.get('phone_number_of_fire_watcher1').clearValidators();
+    }
+    
+    // if(this.type=='Closed' && this.updaterequestdata.Hot_work !== 1){
+    //   this.statusUpdateForm.get('h_heat_source').clearValidators();
+    //   this.statusUpdateForm.get('h_workplace_check').clearValidators();
+    //   this.statusUpdateForm.get('h_fire_detectors').clearValidators();
+    //   this.statusUpdateForm.get('h_start_time').clearValidators();
+    //   this.statusUpdateForm.get('h_end_time').clearValidators();
+    // }
   }
 
   Changestatus(statusdata) {
@@ -517,18 +532,15 @@ export class StatusChangeDialogComponent implements OnInit {
 
 
   Changestatusbysubcontractor(status) {
-
     var today = moment.tz("Europe/Copenhagen");
     this.CurrenttimeNow = today.format('HH:mm:ss');
     console.log("Time now", this.CurrenttimeNow)
     // document.getElementById('watch1').innerHTML = today.format('DD/MM/YYYY');
     var t = setTimeout(this.startTime, 500);
-
     console.log(config.Denmarktz.split(" "));
     const [currentDenmarkDate, currentDenmarkTime] = [
       ...config.Denmarktz.split(" "),
     ];
-
     console.log(currentDenmarkTime);
     console.log(currentDenmarkDate);
     const formData = new FormData();
@@ -554,7 +566,7 @@ export class StatusChangeDialogComponent implements OnInit {
     formData.append("userId", this.userdata["id"]);
     formData.append("createdTime", this.Close_Request.createdTime);
 
-    if (this.statusUpdateForm.valid) {
+    if (this.statusUpdateForm.valid && this.updaterequestdata.Hot_work == 1) {
     formData.append("h_heat_source", this.statusUpdateForm.value.h_heat_source);
     formData.append("h_workplace_check", this.statusUpdateForm.value.h_workplace_check);
     formData.append("h_fire_detectors", this.statusUpdateForm.value.h_fire_detectors);

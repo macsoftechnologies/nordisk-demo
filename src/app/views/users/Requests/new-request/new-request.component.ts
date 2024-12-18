@@ -1637,7 +1637,7 @@ export class NewRequestComponent implements OnInit {
       // mandatoryCheck: ["", Validators.required],
       descriptActivity: [""],
       other_conditions_input: ["", Validators.required],
-      specific_gloves: ["", Validators.required],
+      specific_gloves: ["",],
       eye_protection: ["", Validators.required],
       fall_protection: ["", Validators.required],
       hearing_protection: ["", Validators.required],
