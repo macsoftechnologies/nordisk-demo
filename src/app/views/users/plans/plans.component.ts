@@ -174,8 +174,12 @@ export class PlansComponent implements OnInit {
     "External Areas",
     "JF - Ground Floor",
     "JF - 1st Floor",
-    "JF- 2nd Floor",
+    "JF - 2nd Floor",
     "JF - Roof Plan",
+    "MR - Ground Floor",
+    "MR - 1st Floor",
+    "MR - 2nd Floor",
+    "MR - Roof Plan"
   ];
 
 

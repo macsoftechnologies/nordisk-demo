@@ -325,6 +325,7 @@ export class UpdateRequestStatusListDto {
     Request_status: string;
     id: string;
     userId: string;
+  ConM_initials: any;
 }
 
 export class CopyRequestDto {
@@ -377,6 +378,11 @@ export class UpdateClose_Status {
     // createdTime: string;
     createdTime: any;
     denmark_time : any;
+  h_heat_source: any;
+  h_workplace_check: any;
+  h_fire_detectors: any;
+  h_start_time: any;
+  h_end_time: any;
     //files:string  []  =  [];
 }
 

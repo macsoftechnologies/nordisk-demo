@@ -12,6 +12,7 @@ import { ErrorComponent } from "./error/error.component";
 import { Signin3Component } from './signin3/signin3.component';
 import { Signin4Component } from './signin4/signin4.component';
 import { Signin2Component } from './signin2/signin2.component';
+import { VerifyByOtpAuthenticationComponent } from './verify-by-otp-authentication/verify-by-otp-authentication.component';
 
 export const SessionsRoutes: Routes = [
   {
@@ -76,6 +77,11 @@ export const SessionsRoutes: Routes = [
         path: "error",
         component: ErrorComponent,
         data: { title: "Error" }
+      },
+      {
+        path: "verifybyotp",
+        component: VerifyByOtpAuthenticationComponent,
+        data: { title: "Verify By OTP" }
       }
     ]
   }

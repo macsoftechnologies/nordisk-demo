@@ -1,24 +1,91 @@
-<div mat-dialog-content>
-    <h3> {{title}}  </h3>
-</div>
-<!-- <div>
-    <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Select activity</mat-label>
-        <mat-select [(ngModel)]="selectedValue" name="food">
-            <mat-option *ngFor="let food of activityvalues" [value]="food">
-              {{food}}
-            </mat-option>
-          </mat-select>
-      </mat-form-field>
-</div> -->
-<div mat-dialog-actions *ngIf="!Listitemsstatus">
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="SaveHold('Hold')">Yes</button>
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="SaveHold('Draft')">No</button>
+<div *ngIf="this.title == 'Can you confirm the RAMS for this work is approved by ConM/HSE?'">
+    <div mat-dialog-content>
+        <h3> {{title}} </h3>
+    </div>
 
-    <!-- <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('RA Hold')">RA</button> -->
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+        <!-- <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('RA Hold')">RA</button> -->
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="ChangeListStaus('Yes')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>No</button>
+    </div>
 </div>
 
-<div mat-dialog-actions *ngIf="Listitemsstatus">
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close (click)="ChangeListStaus('Yes')">Yes</button>
-    <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close >No</button>
+<div *ngIf="this.status == 'Rejected'">
+
+    <div mat-dialog-content>
+        <h3> {{title}} </h3>
+    </div>
+
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+        <!-- <button class="butns-grp" mat-raised-button color="primary" (click)="SaveasDraft('RA Hold')">RA</button> -->
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="ChangeListStaus('Yes')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>No</button>
+    </div>
+</div>
+
+<div *ngIf="this.status == 'Approved'">
+
+    <div mat-dialog-content>
+        <h3>This activity has been coordinated and approved by ConM/Site HSE.</h3>
+    </div>
+
+    
+    <form [formGroup]="statusApprovedForm">
+        <!-- <mat-grid-list cols="2" rowHeight="80px" *ngIf="type=='operartor' && requestDatas == 'Hold' "> -->
+
+        <mat-grid-list cols="2" rowHeight="80px">
+            <mat-grid-tile>
+                <mat-form-field class="full-width">
+                    <mat-label>ConM initials</mat-label>
+                    <input matInput formControlName="ConM_initials"
+                        [class.is-invalid]="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched" />
+                    <mat-error class="error-message"
+                        *ngIf="statusApprovedForm.get('ConM_initials').invalid && statusApprovedForm.get('ConM_initials').touched">Please
+                        Select
+                    </mat-error>
+
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+        <!-- <ng-container *ngIf="updaterequestdata.Hot_work == 1 && requestDatas == 'Hold'">
+               
+        </ng-container> -->
+
+    </form>
+
+
+    <div mat-dialog-actions *ngIf="!Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Hold')">Yes</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close
+            (click)="SaveHold('Draft')">No</button>
+
+    </div>
+
+    <div mat-dialog-actions *ngIf="Listitemsstatus">
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close [disabled]="!statusApprovedForm.valid"
+            (click)="ChangeListStaus('Yes')">Approve</button>
+        <button class="butns-grp" mat-raised-button color="primary" mat-dialog-close>Reject</button>
+    </div>
 </div>

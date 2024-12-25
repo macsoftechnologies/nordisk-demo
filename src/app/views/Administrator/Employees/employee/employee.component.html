@@ -32,7 +32,14 @@
                     <mat-grid-tile>
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Phone Number</mat-label>
-                            <input matInput formControlName="PhonenNumber" placeholder="Phone Number">
+                            <input matInput formControlName="PhonenNumber" placeholder="Phone Number"
+                            [class.is-invalid]="EmployeeForm.get('PhonenNumber').invalid && EmployeeForm.get('PhonenNumber').touched"
+                              />
+                            <mat-error class="error-message"
+                                *ngIf="EmployeeForm.get('PhonenNumber').invalid && EmployeeForm.get('PhonenNumber').touched">Please
+                                Enter Phone Number
+                             
+                            </mat-error>
                         </mat-form-field>
                     </mat-grid-tile>
                 </mat-grid-list>
@@ -75,14 +82,15 @@
 
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label> Select Employee Type</mat-label>
-                            <mat-select formControlName="options" name="options" (selectionChange)="radioChange($event)">
-                                <mat-option  value="Department">
+                            <mat-select formControlName="options" name="options"
+                                (selectionChange)="radioChange($event)">
+                                <mat-option value="Department">
                                     Department
                                 </mat-option>
-                                <mat-option  value="Subcontractor">
+                                <mat-option value="Subcontractor">
                                     Contractor
                                 </mat-option>
-                                <mat-option  value="Observer">
+                                <mat-option value="Observer">
                                     Observer
                                 </mat-option>
                             </mat-select>
@@ -99,7 +107,8 @@
                     <mat-grid-tile *ngIf="Depart">
                         <mat-form-field class="full-width" appearance="outline" *ngIf="SubContact">
                             <mat-label>Company Name</mat-label>
-                            <input matInput formControlName="companyName" placeholder="Company Name" [(ngModel)]="Company">
+                            <input matInput formControlName="companyName" placeholder="Company Name"
+                                [(ngModel)]="Company">
                         </mat-form-field>
                     </mat-grid-tile>
 
@@ -155,7 +164,7 @@
 
                 </mat-grid-list>
 
-                
+
 
                 <div *ngIf="IsNameunique=='Username Exists'">
                     <p style="color: red;">*<i>{{IsNameunique}}</i></p>

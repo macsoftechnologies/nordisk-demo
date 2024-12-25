@@ -42,7 +42,7 @@ export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.route.queryParams
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe(params => this.return = params['return'] || '/');
+      .subscribe(params => this.return = params[''] || '/');
   }
 
   ngAfterViewInit() {
@@ -67,8 +67,10 @@ export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
         this.submitButton.disabled = false;
       this.progressBar.mode = 'determinate';
       this.errorMsg =response["message"];
+      }else{
+        this.router.navigateByUrl("/sessions/verifybyotp");
       }
-      this.router.navigateByUrl(this.return);
+      // this.router.navigateByUrl(this.return);
     }, err => {
       this.submitButton.disabled = false;
       this.progressBar.mode = 'determinate';

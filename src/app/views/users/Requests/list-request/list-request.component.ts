@@ -176,8 +176,12 @@ export class ListRequestComponent implements OnInit {
     "External Areas",
     "JF - Ground Floor",
     "JF - 1st Floor",
-    "JF- 2nd Floor",
+    "JF - 2nd Floor",
     "JF - Roof Plan",
+    "MR - Ground Floor",
+    "MR - 1st Floor",
+    "MR - 2nd Floor",
+    "MR - Roof Plan"
   ];
 
   getHras = [
@@ -245,12 +249,12 @@ export class ListRequestComponent implements OnInit {
   ];
 
   getTaskSpecific = [
-    {
-      "label": "SpecificGloves",
-      "value": 1,
-      "key": "specific_gloves",
-      "image": "assets/images/safetyIcons/SpecificGloves.png"
-    },
+    // {
+    //   "label": "SpecificGloves",
+    //   "value": 1,
+    //   "key": "specific_gloves",
+    //   "image": "assets/images/safetyIcons/SpecificGloves.png"
+    // },
     {
       "label": "Eye Protection",
       "value": 1,
@@ -393,7 +397,7 @@ export class ListRequestComponent implements OnInit {
     this.api = 'listpagination';
 
     this.isUserLoggedIn = JSON.parse(localStorage.getItem('EGRET_USER'));
-    console.log(this.isUserLoggedIn);
+    console.log(this.isUserLoggedIn,"admin");
 
     this.currentPage = 1;
 
@@ -1048,8 +1052,8 @@ export class ListRequestComponent implements OnInit {
     let dialogRef: MatDialogRef<any> = this.dialog.open(
       RequestSaveOptionsDialogComponent,
       {
-        width: '300px',
-        height: '150px',
+        width: '500px',
+        height: '200px',
         disableClose: false,
         data: {
           title: title,

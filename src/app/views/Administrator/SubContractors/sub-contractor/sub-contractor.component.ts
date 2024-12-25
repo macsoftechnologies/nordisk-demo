@@ -114,6 +114,7 @@ export class SubContractorComponent implements OnInit {
       this.spinner = false;
       this.openSnackBar("Subcontractor Created Successfully");
       this.SubcontractorForm.reset();
+      this.croppedImage = "";
     },
       error => {
         this.openSnackBar("Something went wrong. Plz try again later...");
@@ -134,6 +135,7 @@ export class SubContractorComponent implements OnInit {
       debugger
       if (res["status"] == "200") {
         this.openSnackBar("Subcontractor Updated Successfully");
+        window.location.reload();
       }
     },
       error => {

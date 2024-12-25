@@ -1912,6 +1912,8 @@ export class NewRequestComponent implements OnInit {
     this.name = "Floor";
   }
   Getselectedflooritem(event) {
+    this.selectFloorBlocks = [];
+    console.log(this.selectFloorBlocks, 'clear floors')
     console.log(event);
     if (this.selectedbuilding == '9') {
       console.log("B1 Drawing")
@@ -2158,6 +2160,7 @@ export class NewRequestComponent implements OnInit {
             { name: "ZONE F1", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneF1.pdf", className: 'jf-ground-zoneF1', planType: 'JF - Ground Floor' },
             { name: "ZONE F2", pdfSrc: "assets/images/plans/JF/JF-GroundFloor/JF-GroundFloor-ZoneF2.pdf", className: 'jf-ground-zoneF2', planType: 'JF - Ground Floor' }
           ]
+          
           break;
         case "JF - 1st Floor":
           this.planType = "JF - 1st Floor";
@@ -3056,6 +3059,7 @@ export class NewRequestComponent implements OnInit {
   }
 
   UpdateRequest() {
+    console.log(this.NewRequestData, 'editttt')
     console.log("res checking")
     var badarray = [];
     this.spinner = true;
@@ -3086,8 +3090,13 @@ export class NewRequestComponent implements OnInit {
       this.RequestForm.controls["SpecialInstruction"].value;
     // this.updaterequestdata.Safety_Precautions = this.safetyprecdata.map(obj => obj.id).join(",");//this.RequestForm.controls["Safetyprecaustion"].value;
     // this.updaterequestdata.Safety_Precautions =  badarray.toString();
-    this.updaterequestdata.Request_status =
-      this.RequestForm.controls["Status"].value;
+    if(this.NewRequestData.Request_status == "Draft"){
+      this.updaterequestdata.Request_status = "Hold";
+    }else{
+      this.updaterequestdata.Request_status =
+        this.RequestForm.controls["Status"].value;
+    }
+
     var badarray = [];
     var roomoarr = [];
     this.Badges.forEach((x) => {

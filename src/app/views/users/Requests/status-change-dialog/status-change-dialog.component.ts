@@ -193,6 +193,12 @@ export class StatusChangeDialogComponent implements OnInit {
     userId: null,
     createdTime: null,
     denmark_time: null,
+    h_heat_source: null,
+    h_workplace_check: null,
+    h_fire_detectors: null,
+    h_start_time: null,
+    h_end_time: null,
+
   };
   userdata: any = {};
 
@@ -231,8 +237,8 @@ export class StatusChangeDialogComponent implements OnInit {
 
     this.statusOpenForm = new FormGroup({
       ConM_initials1: new FormControl('', Validators.required),
-      name_of_the_fire_watcher1: new FormControl('', Validators.required),
-      phone_number_of_fire_watcher1: new FormControl('', Validators.required),
+      // name_of_the_fire_watcher1: new FormControl('', Validators.required),
+      // phone_number_of_fire_watcher1: new FormControl('', Validators.required),
     })
 
   }
@@ -434,15 +440,23 @@ export class StatusChangeDialogComponent implements OnInit {
 
     // new add data
     this.updaterequestdata.ConM_initials = this.data["payload"]["ConM_initials"];
+
+    this.Close_Request.h_heat_source = this.data["payload"]["h_heat_source"];
+    this.Close_Request.h_workplace_check = this.data["payload"]["ConM_initials"];
+    this.Close_Request.h_fire_detectors = this.data["payload"]["ConM_initials"];
+    this.Close_Request.h_start_time = this.data["payload"]["ConM_initials"];
+    this.Close_Request.h_end_time = this.data["payload"]["ConM_initials"];
+
+
     // this.updaterequestdata.denmark_time = this.data["payload"]["denmark_time"];
     if (this.updaterequestdata.Hot_work == 1) {
       this.statusOpenForm.get('name_of_the_fire_watcher1').setValidators([Validators.required]);
       this.statusOpenForm.get('phone_number_of_fire_watcher1').setValidators([Validators.required]);
-    }else{
+    } else {
       this.statusOpenForm.get('name_of_the_fire_watcher1').clearValidators();
       this.statusOpenForm.get('phone_number_of_fire_watcher1').clearValidators();
     }
-    
+
     // if(this.type=='Closed' && this.updaterequestdata.Hot_work !== 1){
     //   this.statusUpdateForm.get('h_heat_source').clearValidators();
     //   this.statusUpdateForm.get('h_workplace_check').clearValidators();
@@ -494,35 +508,35 @@ export class StatusChangeDialogComponent implements OnInit {
       }
       if (this.statusOpenForm.valid) {
         this.updaterequestdata.ConM_initials1 = this.statusOpenForm.value.ConM_initials1;
-        this.updaterequestdata.name_of_the_fire_watcher1 = this.statusOpenForm.value.name_of_the_fire_watcher1;
-        this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusOpenForm.value.phone_number_of_fire_watcher1;
+        // this.updaterequestdata.name_of_the_fire_watcher1 = this.statusOpenForm.value.name_of_the_fire_watcher1;
+        // this.updaterequestdata.phone_number_of_fire_watcher1 = this.statusOpenForm.value.phone_number_of_fire_watcher1;
         // formData.append('file', this.fileInput.files[0]);
       }
-        let formData = new FormData();
-        if (this.images1.length > 0) {
-          for (var i = 0; i < this.images1.length; i++) {
-            formData.append("Image1", this.images1[i]);
-          }
+      let formData = new FormData();
+      if (this.images1.length > 0) {
+        for (var i = 0; i < this.images1.length; i++) {
+          formData.append("Image1", this.images1[i]);
         }
-        for (const [key, value] of Object.entries(this.updaterequestdata)) {
-          formData.append(key, value); // Ensure values are strings if needed
+      }
+      for (const [key, value] of Object.entries(this.updaterequestdata)) {
+        formData.append(key, value); // Ensure values are strings if needed
+      }
+
+      this.requestdataservice.UpdateRequest(formData as unknown as EditRequestDto).subscribe(
+        (x) => {
+          if (x.status == 200) {
+            this.openSnackBar("Request Status Updated Successfully");
+            // console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
+            window.location.reload();
+            this.ngOnInit();
+          }
+        },
+        (error) => {
+          this.openSnackBar("Something went wrong. Plz try again later...");
         }
 
-        this.requestdataservice.UpdateRequest(formData as unknown as EditRequestDto).subscribe(
-          (x) => {
-            if (x.status == 200) {
-              this.openSnackBar("Request Status Updated Successfully");
-              // console.log("TEST", this.data.pagedatainfo.Start, this.data.pagedatainfo.Page)
-              // window.location.reload();
-              // this.ngOnInit();
-            }
-          },
-          (error) => {
-            this.openSnackBar("Something went wrong. Plz try again later...");
-          }
+      );
 
-        );
-      
     }
   }
 
@@ -552,26 +566,26 @@ export class StatusChangeDialogComponent implements OnInit {
     // this.Close_Request.denmark_time = [currentDenmarkDate, currentDenmarkTime];
 
     // this.updaterequestdata.denmark_time = [currentDenmarkDate, currentDenmarkTime] ;
-
+    
     if (this.images.length > 0) {
       for (var i = 0; i < this.images.length; i++) {
         formData.append("Image[]", this.images[i]);
       }
     }
-
+    
     // this.Close_Request.Image =  formData;
     //  const formData = new FormData();
     formData.append("id", this.Close_Request.id);
     formData.append("Request_status", this.Close_Request.Request_status);
     formData.append("userId", this.userdata["id"]);
     formData.append("createdTime", this.Close_Request.createdTime);
-
+    
     if (this.statusUpdateForm.valid && this.updaterequestdata.Hot_work == 1) {
-    formData.append("h_heat_source", this.statusUpdateForm.value.h_heat_source);
-    formData.append("h_workplace_check", this.statusUpdateForm.value.h_workplace_check);
-    formData.append("h_fire_detectors", this.statusUpdateForm.value.h_fire_detectors);
-    formData.append("h_start_time", this.statusUpdateForm.value.h_start_time);
-    formData.append("h_end_time", this.statusUpdateForm.value.h_end_time);
+      formData.append("h_heat_source", this.statusUpdateForm.value.h_heat_source);
+      formData.append("h_workplace_check", this.statusUpdateForm.value.h_workplace_check);
+      formData.append("h_fire_detectors", this.statusUpdateForm.value.h_fire_detectors);
+      formData.append("h_start_time", this.statusUpdateForm.value.h_start_time);
+      formData.append("h_end_time", this.statusUpdateForm.value.h_end_time);
     }
 
     console.log(this.statusUpdateForm, "form")
@@ -581,7 +595,7 @@ export class StatusChangeDialogComponent implements OnInit {
         if (res.status == 200) {
           this.openSnackBar("Request Status Updated Successfully");
           this.spinner = false;
-          // window.location.reload();
+          window.location.reload();
           this.ngOnInit();
         }
       },

@@ -5,6 +5,7 @@ import { RequestService } from 'app/shared/services/request.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
 import { Router } from "@angular/router";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 // import { getItems } from 'app/views/users/Requests/list-request'
 
 @Component({
@@ -25,9 +26,11 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
     {
       Request_status: null,
       id: null,
-      userId: null
+      userId: null,
+      ConM_initials: null
     }
   userData: any = {};
+  statusApprovedForm: any;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<RequestSaveOptionsDialogComponent>,
@@ -36,6 +39,11 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
     private route: Router) {
 
     this.userData = this.authservice.getUser();
+    
+    this.statusApprovedForm = new FormGroup({
+      ConM_initials: new FormControl('', Validators.required),
+
+    })
   }
 
 
@@ -55,6 +63,11 @@ export class RequestSaveOptionsDialogComponent implements OnInit {
     this.UpdateRequestStatusList.Request_status = this.status;
     this.UpdateRequestStatusList.id = this.req_ids;
     this.UpdateRequestStatusList.userId = this.userData["id"];
+
+    if (this.statusApprovedForm.valid) {
+      this.UpdateRequestStatusList.ConM_initials = this.statusApprovedForm.value.ConM_initials;
+    }
+
     this.reqservice.UpdateListStatusRequest(this.UpdateRequestStatusList).subscribe(res => {
       this.openSnackBar("Requests Status Updated Successfully");
       // this.getItems();
