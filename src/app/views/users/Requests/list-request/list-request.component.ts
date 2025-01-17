@@ -58,6 +58,7 @@ export class ListRequestComponent implements OnInit {
   ModalOptions: PrintDownloadOptions;
   spinner = false;
   IsNotSubCntr: boolean = false;
+  IsNotASubCntr: boolean = false;
   selected = [];
   selectedRequestIds = [];
   Filtertab: boolean = false;
@@ -465,6 +466,7 @@ export class ListRequestComponent implements OnInit {
         if (this.userdata['role'] == 'Subcontractor') {
           this.isoperator = false;
           this.IsNotSubCntr = false;
+          this.IsNotASubCntr = false;
           this.RequestlistForm.controls['Contractor'].setValue(
             this.userdata['typeId']
           );
@@ -479,6 +481,7 @@ export class ListRequestComponent implements OnInit {
           console.log(this.paginationCount);
         } else if (this.userdata['role'] == 'Admin') {
           this.IsNotSubCntr = true;
+          this.IsNotASubCntr = true;
           this.items = res[0]['data'];
           this.isoperator = true;
           this.isoperator = true;
@@ -497,6 +500,7 @@ export class ListRequestComponent implements OnInit {
         } 
         else if (this.userdata['role'] == 'Department') {
           this.IsNotSubCntr = false;
+          this.IsNotASubCntr = true;
           this.items = res[0]['data'];
           this.isoperator = true;
           var filteritems = [];
@@ -513,6 +517,7 @@ export class ListRequestComponent implements OnInit {
         }
         else if (this.userdata['role'] == 'Observer') {
           this.IsNotSubCntr = false;
+          this.IsNotASubCntr = true;
           this.items = res[0]['data'];
           this.isoperator = true;
           var filteritems = [];
