@@ -1554,6 +1554,11 @@ export class RequestBuildingModelComponent implements OnInit {
           className: "external-areas-je-15",
           isSelected: false
         },
+        {
+          value: 'JE-Zone 5',
+          className: "external-areas-je-16",
+          isSelected: false
+        },
 
       ]
       if (selectedBlockData) {
@@ -1772,8 +1777,33 @@ export class RequestBuildingModelComponent implements OnInit {
           value: 'Area JX/3',
           className: "external-areas-jh-jx-js-10",
           isSelected: false
-        }
-
+        },
+        {
+          value: 'N2',
+          className: "external-areas-jh-jx-js-11",
+          isSelected: false
+        },
+        {
+          value: 'JH-Zone1',
+          className: "external-areas-jh-jx-js-12",
+          isSelected: false
+        },
+        {
+          value: 'JH-Zone2',
+          className: "external-areas-jh-jx-js-13",
+          isSelected: false
+        },
+        {
+          value: 'JX',
+          className: "external-areas-jh-jx-js-14",
+          isSelected: false
+        },
+        {
+          value: 'JS',
+          className: "external-areas-jh-jx-js-15",
+          isSelected: false
+        },
+    
       ]
       if (selectedBlockData) {
         if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
@@ -1850,7 +1880,23 @@ export class RequestBuildingModelComponent implements OnInit {
           value: 'Area MP/5',
           className: "external-areas-mp-5",
           isSelected: false
-        }
+        },
+
+        {
+          value: 'MP-Tank Farm',
+          className: "external-areas-mp-6",
+          isSelected: false
+        },
+        {
+          value: 'MP',
+          className: "external-areas-mp-7",
+          isSelected: false
+        },
+        {
+          value: 'Pump Station',
+          className: "external-areas-mp-8",
+          isSelected: false
+        },
 
       ]
       if (selectedBlockData) {
@@ -1860,6 +1906,30 @@ export class RequestBuildingModelComponent implements OnInit {
         }
       }
     }
+
+    else if (this.data.floor.name == 'JK-JM' && this.data.floor.planType == 'External Areas') {
+
+      this.floorBlock = [
+        {
+          value: 'Area JK-JM',
+          className: "external-areas-jk-jm-1",
+          isSelected: false
+        },
+        {
+          value: 'Area JM/1',
+          className: "external-areas-jk-jm-2",
+          isSelected: false
+        },
+       
+      ]
+      if (selectedBlockData) {
+        if ((selectedBlockData.floorName == this.data.floor.name) && (selectedBlockData.planType == this.data.floor.planType)) {
+          console.log(selectedBlockData, "1")
+          this.floorBlock = selectedBlockData.selectedBlock;
+        }
+      }
+    }
+
 
     else if (this.data.floor.name == 'NH3-KF-MF' && this.data.floor.planType == 'External Areas') {
 

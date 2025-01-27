@@ -519,7 +519,7 @@ export class ListRequestComponent implements OnInit {
           this.IsNotSubCntr = false;
           this.IsNotASubCntr = true;
           this.items = res[0]['data'];
-          this.isoperator = true;
+          this.isoperator = false;
           var filteritems = [];
           this.items.forEach((x) => {
             if (x['Request_status'] != 'Draft') {
@@ -1242,8 +1242,11 @@ export class ListRequestComponent implements OnInit {
           this.userdata = this.jwtauth.getUser();
 
           if (this.userdata['role'] == 'Subcontractor') {
+            // this.isoperator = false;
+            // this.IsNotSubCntr = false;
             this.isoperator = false;
             this.IsNotSubCntr = false;
+            this.IsNotASubCntr = false;
             this.RequestlistForm.controls['Contractor'].setValue(
               this.userdata['typeId']
             );
@@ -1256,7 +1259,9 @@ export class ListRequestComponent implements OnInit {
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
           } else if (this.userdata['role'] == 'Admin') {
+            // this.IsNotSubCntr = true;
             this.IsNotSubCntr = true;
+            this.IsNotASubCntr = true;
             this.items = res[0]['data'];
             this.isoperator = true;
             this.isoperator = true;
@@ -1270,7 +1275,9 @@ export class ListRequestComponent implements OnInit {
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
           } else if (this.userdata['role'] == 'Department') {
-            this.IsNotSubCntr = true;
+            // this.IsNotSubCntr = true;
+            this.IsNotSubCntr = false;
+            this.IsNotASubCntr = true;
             this.items = res[0]['data'];
             this.isoperator = true;
             var filteritems = [];
@@ -1282,6 +1289,21 @@ export class ListRequestComponent implements OnInit {
             this.items = [];
             this.items.length = 0;
             this.items = filteritems;
+          }else if (this.userdata['role'] == 'Observer') {
+            // this.IsNotSubCntr = true;
+            this.IsNotSubCntr = false;
+            this.IsNotASubCntr = true;
+            this.items = res[0]?.['data'] || [];
+            var filteritems = [];
+            this.items.forEach((x) => {
+              if (x['Request_status'] != 'Draft') {
+                filteritems.push(x);
+              }
+            });
+          
+            this.items = filteritems;
+            this.paginationCount = res[1]?.count || 0;
+            console.log('Observer Pagination Count:', this.paginationCount);
           }
         }
 
@@ -1333,8 +1355,11 @@ export class ListRequestComponent implements OnInit {
           this.userdata = this.jwtauth.getUser();
 
           if (this.userdata['role'] == 'Subcontractor') {
+            // this.isoperator = false;
+            // this.IsNotSubCntr = false;
             this.isoperator = false;
             this.IsNotSubCntr = false;
+            this.IsNotASubCntr = false;
             this.RequestlistForm.controls['Contractor'].setValue(
               this.userdata['typeId']
             );
@@ -1347,7 +1372,9 @@ export class ListRequestComponent implements OnInit {
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
           } else if (this.userdata['role'] == 'Admin') {
+            // this.IsNotSubCntr = true;
             this.IsNotSubCntr = true;
+            this.IsNotASubCntr = true;
             this.items = res[0]['data'];
             this.isoperator = true;
             this.isoperator = true;
@@ -1361,7 +1388,9 @@ export class ListRequestComponent implements OnInit {
             this.paginationCount = res[1].count;
             console.log(this.paginationCount);
           } else if (this.userdata['role'] == 'Department') {
-            this.IsNotSubCntr = true;
+            // this.IsNotSubCntr = true;
+            this.IsNotSubCntr = false;
+            this.IsNotASubCntr = true;
             this.items = res[0]['data'];
             this.isoperator = true;
             var filteritems = [];
@@ -1373,7 +1402,22 @@ export class ListRequestComponent implements OnInit {
             this.items = [];
             this.items.length = 0;
             this.items = filteritems;
+          }else if (this.userdata['role'] == 'Observer') {
+            this.IsNotSubCntr = false;
+            this.IsNotASubCntr = true;
+            this.items = res[0]?.['data'] || [];
+            var filteritems = [];
+            this.items.forEach((x) => {
+              if (x['Request_status'] != 'Draft') {
+                filteritems.push(x);
+              }
+            });
+          
+            this.items = filteritems;
+            this.paginationCount = res[1]?.count || 0;
+            console.log('Observer Pagination Count:', this.paginationCount);
           }
+          
         }
 
         this.Contractors = res[2]['subcontractors'];

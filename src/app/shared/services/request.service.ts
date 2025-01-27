@@ -1414,6 +1414,12 @@ export class RequestService {
                 className: "external-areas-je-15",
                 isSelected: false
               },
+              {
+                value: 'JE-Zone 5',
+                className: "external-areas-je-16",
+                isSelected: false
+              },
+      
             ]
           },
           {
@@ -1557,13 +1563,13 @@ export class RequestService {
                 className: "external-areas-jh-jx-js-1",
                 isSelected: false
               },
-
+      
               {
                 value: 'Area N2/2',
                 className: "external-areas-jh-jx-js-2",
                 isSelected: false
               },
-
+      
               {
                 value: 'Area JH/1',
                 className: "external-areas-jh-jx-js-3",
@@ -1603,7 +1609,33 @@ export class RequestService {
                 value: 'Area JX/3',
                 className: "external-areas-jh-jx-js-10",
                 isSelected: false
-              }
+              },
+              {
+                value: 'N2',
+                className: "external-areas-jh-jx-js-11",
+                isSelected: false
+              },
+              {
+                value: 'JH-Zone1',
+                className: "external-areas-jh-jx-js-12",
+                isSelected: false
+              },
+              {
+                value: 'JH-Zone2',
+                className: "external-areas-jh-jx-js-13",
+                isSelected: false
+              },
+              {
+                value: 'JX',
+                className: "external-areas-jh-jx-js-14",
+                isSelected: false
+              },
+              {
+                value: 'JS',
+                className: "external-areas-jh-jx-js-15",
+                isSelected: false
+              },
+          
             ]
           },
           {
@@ -1667,10 +1699,44 @@ export class RequestService {
                 value: 'Area MP/5',
                 className: "external-areas-mp-5",
                 isSelected: false
-              }
+              },
+      
+              {
+                value: 'MP-Tank Farm',
+                className: "external-areas-mp-6",
+                isSelected: false
+              },
+              {
+                value: 'MP',
+                className: "external-areas-mp-7",
+                isSelected: false
+              },
+              {
+                value: 'Pump Station',
+                className: "external-areas-mp-8",
+                isSelected: false
+              },
+      
 
             ]
           },
+
+          {
+            floorName: 'JK-JM',
+            zoneSubList: [
+              {
+                value: 'Area JK-JM',
+                className: "external-areas-jk-jm-1",
+                isSelected: false
+              },
+              {
+                value: 'Area JM/1',
+                className: "external-areas-jk-jm-2",
+                isSelected: false
+              },
+            ]
+          },
+
           {
             floorName: 'NH3-KF-MF',
             zoneSubList: [
