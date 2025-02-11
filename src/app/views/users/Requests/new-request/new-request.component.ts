@@ -1740,14 +1740,14 @@ export class NewRequestComponent implements OnInit {
       } else if (this.userdata["role"] == "Admin") {
         this.editform = true;
         this.Assigneditform = true;
-        this.subeditform = false;
+        this.subeditform = true;
         this.seditform = true;
       } else if (this.userdata["role"] == "Department") {
         this.editform = true;
         this.Assigneditform = true;
         this.Status = this.OperatorStatus;
         this.seditform = true;
-        this.subeditform = false;
+        this.subeditform = true;
       }
 
       this.isnewrequestcreated = true;
@@ -2606,7 +2606,7 @@ export class NewRequestComponent implements OnInit {
     // console.log("block", this.planSelectedBlocks)
     // this.RequestForm.controls["Room"].setValue(this.planSelectedBlocks);
     this.RequestForm.controls["Room"].setValue(blocks);
-    this.isnewrequestcreated = this.selectedbuilding && this.selectedfloor && this.selectFloorBlocks?.length > 0 ? true : false;
+    this.isnewrequestcreated = this.selectedbuilding && this.selectedfloor && blocks?.length > 0 ? true : false;
     // console.log("form data", this.RequestForm.value);
   }
   Getselectedroomitem(event) {
@@ -2841,11 +2841,16 @@ export class NewRequestComponent implements OnInit {
     // this.Requestdata.Type_Of_Activity_Id=this.RequestForm.controls["TypeActivity"].value;
     this.Requestdata.Type_Of_Activity_Id =
       this.RequestForm.controls["TypeActivity"].value;
-    let workdate = this.datePipe.transform(
-      this.RequestForm.controls["Startdate"].value,
-      "yyyy-MM-dd"
-    );
+    // let workdate = this.datePipe.transform(
+    //   this.RequestForm.controls["Startdate"].value,
+    //   "yyyy-MM-dd"
+    // );
 
+    // this.Requestdata.Working_Date = workdate;
+    let startDateValue = this.RequestForm.controls["Startdate"].value;
+    // Check if the start date exists and is valid
+    let workdate = startDateValue != '0000-00-00' ? this.datePipe.transform(startDateValue, "yyyy-MM-dd")
+      : null;
     this.Requestdata.Working_Date = workdate;
     this.Requestdata.Start_Time = this.RequestForm.controls["StartTime"].value;
     this.Requestdata.End_Time = this.RequestForm.controls["EndTime"].value;

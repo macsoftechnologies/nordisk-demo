@@ -4441,7 +4441,12 @@ export class RequestService {
               value: 'TR01',
               className: "mr-zoneR1-1",
               isSelected: false
-            }
+            },
+            {
+              value: 'zoneR1',
+              className: "mr-zoneR1-2",
+              isSelected: false
+             }
     
           ]
         },
@@ -4515,7 +4520,12 @@ export class RequestService {
               value: 'TR03',
               className: "mr-zoneR8-1",
               isSelected: false
-            }
+            },
+            {
+              value: 'zoneR8',
+              className: "mr-zoneR8-2",
+              isSelected: false
+             }
     
           ]
         },

@@ -5551,6 +5551,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   top: 30.5%;
   left: 19%;
 }
+.mr-zoneR1-2 {
+  position: absolute;
+  z-index: 9999;
+  top: 13.5%;
+  left: 19%;
+}
 
 /* MR - Roof Plan Zone R2 */
 
@@ -5614,6 +5620,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   left: 59%;
   z-index: 9999;
 }
+.mr-zoneR8-2 {
+  position: absolute;
+  top: 16%;
+  left: 32%;
+  z-index: 9999;
+}
 
 /* MR - Roof Plan Zone R9 */
 
@@ -5664,7 +5676,682 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 /* New MR all data end */
 
 
-/* Jf -Ground Floor Start */
+
+
+
+
+/* MR-1st-Floor start*/
+
+@media (min-width: 1500px) and (max-width: 1600px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 13.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 29.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 27.5%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 7.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: -21.5%;
+  }
+}
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 16.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 27.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 31.5%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 11.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: -14.5%;
+  }
+}
+
+@media (min-width: 1700px) and (max-width: 1800px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 21.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 27.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 36.5%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 17.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: -8.5%;
+  }
+}
+
+@media (min-width: 1800px) and (max-width: 1900px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 26.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 24.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 39.5%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 22.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: -1.5%;
+  }
+}
+
+@media (min-width: 1900px) and (max-width: 2000px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 30.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 24.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 42.5%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 26.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: 3.5%;
+  }
+}
+
+@media (min-width: 2000px) and (max-width: 2100px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 34.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 22.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 45.5%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 30.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: 8%;
+  }
+}
+
+@media (min-width: 2100px) and (max-width: 2200px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 34.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 22.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 48%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 33.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: 13%;
+  }
+}
+
+@media (min-width: 2200px) and (max-width: 2300px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 40.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 20.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 50%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 36.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: 17%;
+  }
+}
+
+@media (min-width: 2300px) and (max-width: 2400px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 40.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 20.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 50%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 36.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: 17%;
+  }
+}
+
+@media (min-width: 2400px) and (max-width: 3000px) {
+
+  .mr-zone1_6_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 24%;
+    right: 40.5%;
+  }
+  .mr-zone1_6_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 62%;
+    left: 20.5%;
+  }
+  .mr-zone1_6_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 50%;
+  }
+  .mr-zone1_6_N-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 49%;
+    right: 36.5%;
+  }
+  .mr-zone1_6_N-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 53%;
+    right: 17%;
+  }
+}
+
+
+/* MR-1st-Floor end*/
+
+
+/* MR-2nd-Floor start*/
+
+@media (min-width: 1550px) and (max-width: 1600px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 65.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 65%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 21%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: -4%;
+  }
+  
+}
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 62.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 65%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 20%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 0%;
+  }
+  
+}
+
+@media (min-width: 1700px) and (max-width: 1800px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 59.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 59%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 19%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 6%;
+  }
+  
+}
+
+@media (min-width: 1800px) and (max-width: 1900px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 56.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 56%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 18%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 12%;
+  }
+  
+}
+
+@media (min-width: 1900px) and (max-width: 2000px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 53.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 53%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 17%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 16%;
+  }
+  
+}
+
+@media (min-width: 2000px) and (max-width: 2100px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 53.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 50%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 17%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 21%;
+  }
+  
+}
+
+@media (min-width: 2100px) and (max-width: 2200px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 48.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 48%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 16%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 24%;
+  }
+  
+}
+
+@media (min-width: 2200px) and (max-width: 2300px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 48.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 48%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 16%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 24%;
+  }
+  
+}
+
+@media (min-width: 2300px) and (max-width: 2400px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 48.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 48%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 16%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 24%;
+  }
+  
+}
+
+@media (min-width: 2400px) and (max-width: 2500px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 48.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 48%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 16%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 24%;
+  }
+  
+}
+
+@media (min-width: 2500px) and (max-width: 3000px) {
+
+  .mr-zone2_4_N-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 48.5%;
+  }
+  .mr-zone2_4_N-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 46%;
+    left: 48%;
+  }
+  .mr-zone2_4_N-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 57%;
+    left: 16%;
+  }
+  .mr-zone2_4_N-4 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 2%;
+    right: 24%;
+  }
+  
+}
+
+/* MR-2nd-Floor start*/
+
+
+
+/* Jf -Ground Floor */
 
 /* Jf -Ground Floor Zone-B */
 
@@ -6247,6 +6934,106 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     right: 1%;
   }
 }
+
+@media (min-width: 2000px) and (max-width: 3000px) {
+  .zoneB-2 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 5%;
+  }
+  .zoneB-3 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 16%;
+  }
+  .zoneB-4 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 26%;
+  }
+  .zoneB-5 {
+    position: absolute;
+    top: 43%;
+    z-index: 9999;
+    left: 37%;
+  }
+  .zoneB-6 {
+    position: absolute;
+    top: 38%;
+    z-index: 9999;
+    left: 46%;
+  }
+  .zoneB-7 {
+    position: absolute;
+    top: 54%;
+    z-index: 9999;
+    left: 46%;
+  }
+  .zoneB-8 {
+    position: absolute;
+    top: 43%;
+    z-index: 9999;
+    right: 40%;
+  }
+  .zoneB-9 {
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    right: 30%;
+  }
+  .zoneB-10 {
+    position: absolute;
+    top: 50%;
+    z-index: 9999;
+    right: 30%;
+  }
+  .zoneB-11 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 18%;
+  }
+  .zoneB-12 {
+    position: absolute;
+    bottom: 8%;
+    z-index: 9999;
+    right: 20%;
+  }
+  .zoneB-13 {
+    position: absolute;
+    bottom: 26%;
+    z-index: 9999;
+    right: 13%;
+  }
+  .zoneB-14 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 11%;
+  }
+  .zoneB-15 {
+    position: absolute;
+    bottom: 8%;
+    z-index: 9999;
+    right: 7%;
+  }
+  .zoneB-16 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 6%;
+  }
+  .zoneB-17 {
+    position: absolute;
+    bottom: 27%;
+    z-index: 9999;
+    right: 3%;
+  }
+}
+
 /* Jf -Ground Floor Zone-B */
 
 /* Jf -Ground Floor Zone-C */
@@ -6669,6 +7456,130 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 
 @media (min-width: 1900px) and (max-width: 2000px) {
+  .zoneC-2 {
+    position: absolute;
+    top: 11%;
+    z-index: 9999;
+    left: 7%;
+  }
+  .zoneC-3 {
+    position: absolute;
+    top: 14%;
+    z-index: 9999;
+    left: 13%;
+  }
+  .zoneC-4 {
+    position: absolute;
+    top: 10%;
+    z-index: 9999;
+    left: 19%;
+  }
+  .zoneC-5 {
+    position: absolute;
+    top: 14%;
+    z-index: 9999;
+    left: 25%;
+  }
+  .zoneC-6 {
+    position: absolute;
+    top: 33%;
+    z-index: 9999;
+    left: 42%;
+  }
+  .zoneC-7 {
+    position: absolute;
+    top: 15%;
+    z-index: 9999;
+    left: 52%;
+  }
+  .zoneC-8 {
+    position: absolute;
+    top: 20%;
+    z-index: 9999;
+    right: 39%;
+  }
+  .zoneC-9 {
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    right: 39%;
+  }
+  .zoneC-10 {
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    right: 33%;
+  }
+  .zoneC-11 {
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    right: 23%;
+  }
+  .zoneC-12 {
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    right: 12%;
+  }
+  .zoneC-13 {
+    position: absolute;
+    top: 34%;
+    z-index: 9999;
+    right: 3%;
+  }
+  .zoneC-14 {
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 16%;
+  }
+  .zoneC-15 {
+    position: absolute;
+    bottom: 35%;
+    z-index: 9999;
+    left: 8%;
+  }
+  .zoneC-16 {
+    position: absolute;
+    bottom: 32%;
+    z-index: 9999;
+    left: 17%;
+  }
+
+  .zoneC-17 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 32%;
+  }
+  .zoneC-18 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    right: 45%;
+  }
+  .zoneC-19 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    right: 30%;
+  }
+  .zoneC-20 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: 25%;
+  }
+  .zoneC-21 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    right: 13%;
+  }
+}
+
+@media (min-width: 2000px) and (max-width: 3000px) {
   .zoneC-2 {
     position: absolute;
     top: 11%;
@@ -7594,9 +8505,142 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
-/* Jf -Ground Floor Zone-D */
+@media (min-width: 2000px) and (max-width: 3000px) {
+  .zoneD-1 {
+    position: absolute;
+    top: 56%;
+    z-index: 9999;
+    left: 46px;
+  }
+  .zoneD-2 {
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    left: 10%;
+  }
+  .zoneD-3 {
+    position: absolute;
+    top: 52%;
+    z-index: 9999;
+    left: 16%;
+  }
+  .zoneD-4 {
+    position: absolute;
+    bottom: 5%;
+    z-index: 9999;
+    left: 15%;
+  }
+  .zoneD-5 {
+    position: absolute;
+    top: 50%;
+    z-index: 9999;
+    left: 24%;
+  }
+
+  .zoneD-6 {
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    left: 36%;
+  }
+  .zoneD-7 {
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 49%;
+  }
+  .zoneD-8 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    left: 50%;
+  }
+  .zoneD-9 {
+    position: absolute;
+    bottom: 35%;
+    z-index: 9999;
+    right: 36%;
+  }
+  .zoneD-10 {
+    position: absolute;
+    top: 50%;
+    z-index: 9999;
+    right: 27%;
+  }
+  .zoneD-11 {
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    right: 27%;
+  }
+
+  .zoneD-12 {
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: 19%;
+  }
+  .zoneD-13 {
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    right: 19%;
+  }
+  .zoneD-14 {
+    position: absolute;
+    top: 67%;
+    z-index: 9999;
+    right: 18%;
+  }
+  .zoneD-15 {
+    position: absolute;
+    top: 57%;
+    z-index: 9999;
+    right: 9.5%;
+  }
+  .zoneD-16 {
+    position: absolute;
+    bottom: 2%;
+    z-index: 9999;
+    right: 9%;
+  }
+  .zoneD-17 {
+    position: absolute;
+    top: 59%;
+    z-index: 9999;
+    right: 4%;
+  }
+
+  .zoneD-18 {
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: 0.5%;
+  }
+  .zoneD-19 {
+    position: absolute;
+    top: 53%;
+    z-index: 9999;
+    right: 0.5%;
+  }
+
+  .zoneD-20 {
+    position: absolute;
+    top: 60%;
+    z-index: 9999;
+    right: 0.5%;
+  }
+  .zoneD-21 {
+    position: absolute;
+    top: 70%;
+    z-index: 9999;
+    right: 0.5%;
+  }
+}
 
 /* Jf -Ground Floor Zone-D */
+
+/* Jf -Ground Floor Zone-E */
 
 @media (min-width: 1550px) and (max-width: 1650px) {
   .zoneE-1 {
@@ -8533,6 +9577,194 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+  .zoneE-1 {
+    position: absolute;
+    top: 17%;
+    z-index: 9999;
+    left: 60px;
+  }
+  .zoneE-2 {
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    left: 6%;
+  }
+
+  .zoneE-3 {
+    position: absolute;
+    top: 21%;
+    z-index: 9999;
+    left: 17%;
+  }
+  .zoneE-4 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 19%;
+  }
+  .zoneE-5 {
+    position: absolute;
+    top: 7%;
+    z-index: 9999;
+    left: 26%;
+  }
+  .zoneE-6 {
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    left: 26%;
+  }
+  .zoneE-7 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 26%;
+  }
+  .zoneE-8 {
+    position: absolute;
+    top: 13%;
+    z-index: 9999;
+    left: 32%;
+  }
+  .zoneE-9 {
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    left: 32%;
+  }
+  .zoneE-10 {
+    position: absolute;
+    top: 8%;
+    z-index: 9999;
+    left: 41%;
+  }
+  .zoneE-11 {
+    position: absolute;
+    top: 26%;
+    z-index: 9999;
+    left: 41%;
+  }
+  .zoneE-12 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    left: 41%;
+  }
+  .zoneE-13 {
+    position: absolute;
+    top: 7%;
+    z-index: 9999;
+    right: 43%;
+  }
+  .zoneE-14 {
+    position: absolute;
+    top: 22%;
+    z-index: 9999;
+    right: 48%;
+  }
+
+  .zoneE-15 {
+    position: absolute;
+    top: 22%;
+    z-index: 9999;
+    right: 36%;
+  }
+
+  .zoneE-16 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 48%;
+  }
+  .zoneE-17 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 44%;
+  }
+  .zoneE-18 {
+    position: absolute;
+    top: 44%;
+    z-index: 9999;
+    right: 39%;
+  }
+  .zoneE-19 {
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    right: 31%;
+  }
+  .zoneE-20 {
+    position: absolute;
+    top: 48%;
+    z-index: 9999;
+    right: 31%;
+  }
+
+  .zoneE-21 {
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    right: 24%;
+  }
+  .zoneE-22 {
+    position: absolute;
+    top: 27%;
+    z-index: 9999;
+    right: 12%;
+  }
+  .zoneE-23 {
+    position: absolute;
+    top: 75%;
+    z-index: 9999;
+    left: 4%;
+  }
+  .zoneE-24 {
+    position: absolute;
+    top: 74%;
+    z-index: 9999;
+    left: 16%;
+  }
+  .zoneE-25 {
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    left: 35%;
+  }
+  .zoneE-26 {
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    right: 52%;
+  }
+  .zoneE-27 {
+    position: absolute;
+    top: 75%;
+    z-index: 9999;
+    right: 35%;
+  }
+  .zoneE-28 {
+    position: absolute;
+    top: 76%;
+    z-index: 9999;
+    right: 28%;
+  }
+  .zoneE-29 {
+    position: absolute;
+    top: 76%;
+    z-index: 9999;
+    right: 21%;
+  }
+  .zoneE-30 {
+    position: absolute;
+    top: 76%;
+    z-index: 9999;
+    right: 9%;
+  }
+}
+
+
 /* Jf -Ground Floor end */
 
 
@@ -9220,6 +10452,142 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+  .first-zoneB-1 {
+    position: absolute;
+    top: 41%;
+    z-index: 9999;
+    left: 2%;
+  }
+
+  .first-zoneB-2 {
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    left: 6%;
+  }
+  .first-zoneB-3 {
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 5%;
+  }
+  .first-zoneB-4 {
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 18%;
+  }
+  .first-zoneB-5 {
+    position: absolute;
+    top: 43%;
+    z-index: 9999;
+    left: 30%;
+  }
+  .first-zoneB-6 {
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    left: 35%;
+  }
+  .first-zoneB-7 {
+    position: absolute;
+    top: 32%;
+    z-index: 9999;
+    left: 42%;
+  }
+  .first-zoneB-8 {
+    position: absolute;
+    top: 46%;
+    z-index: 9999;
+    left: 45%;
+  }
+
+  .first-zoneB-9 {
+    position: absolute;
+    top: 29%;
+    z-index: 9999;
+    left: 48%;
+  }
+  .first-zoneB-10 {
+    position: absolute;
+    top: 37%;
+    z-index: 9999;
+    left: 48%;
+  }
+  .first-zoneB-11 {
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 48%;
+  }
+  .first-zoneB-12 {
+    position: absolute;
+    top: 55%;
+    z-index: 9999;
+    left: 48%;
+  }
+  .first-zoneB-13 {
+    position: absolute;
+    top: 46.5%;
+    z-index: 9999;
+    right: 42%;
+  }
+  .first-zoneB-14 {
+    position: absolute;
+    top: 46%;
+    z-index: 9999;
+    right: 34%;
+  }
+  .first-zoneB-15 {
+    position: absolute;
+    bottom: 6.5%;
+    z-index: 9999;
+    right: 36%;
+  }
+
+  .first-zoneB-16 {
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 22%;
+  }
+  .first-zoneB-17 {
+    position: absolute;
+    bottom: 7%;
+    z-index: 9999;
+    right: 17%;
+  }
+
+  .first-zoneB-18 {
+    position: absolute;
+    top: 42%;
+    z-index: 9999;
+    right: 12%;
+  }
+
+  .first-zoneB-19 {
+    position: absolute;
+    top: 67%;
+    z-index: 9999;
+    right: 12%;
+  }
+
+  .first-zoneB-20 {
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    right: 7%;
+  }
+
+  .first-zoneB-21 {
+    position: absolute;
+    top: 66%;
+    z-index: 9999;
+    right: 6%;
+  }
+}
+
 /* **JF - 1st Floor ZONE C* **/
 
 @media (min-width: 1620px) and (max-width: 1700px) {
@@ -9285,6 +10653,23 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     left: 41%;
   }
 }
+
+@media (min-width: 2000px) and (max-width: 3000px) {
+  .first-zoneC-1 {
+    position: absolute;
+    top: 6%;
+    z-index: 9999;
+    left: 36.6%;
+  }
+
+  .first-zoneC-2 {
+    position: absolute;
+    top: 22%;
+    z-index: 9999;
+    left: 39%;
+  }
+}
+
 
 /* **JF - 1st Floor ZONE D** */
 
@@ -9933,6 +11318,136 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+  .first-zoneD-1 {
+    position: absolute;
+    top: 57%;
+    z-index: 9999;
+    left: 5%;
+  }
+
+  .first-zoneD-2 {
+    position: absolute;
+    top: 48%;
+    z-index: 9999;
+    left: 12%;
+  }
+
+  .first-zoneD-3 {
+    position: absolute;
+    top: 48%;
+    z-index: 9999;
+    left: 16%;
+  }
+
+  .first-zoneD-4 {
+    position: absolute;
+    top: 83%;
+    z-index: 9999;
+    left: 19%;
+  }
+
+  .first-zoneD-5 {
+    position: absolute;
+    top: 52%;
+    z-index: 9999;
+    left: 25%;
+  }
+  .first-zoneD-6 {
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    left: 24%;
+  }
+  .first-zoneD-7 {
+    position: absolute;
+    top: 57%;
+    z-index: 9999;
+    left: 35%;
+  }
+  .first-zoneD-8 {
+    position: absolute;
+    top: 58%;
+    z-index: 9999;
+    left: 48%;
+  }
+
+  .first-zoneD-9 {
+    position: absolute;
+    top: 63%;
+    z-index: 9999;
+    right: 39%;
+  }
+  .first-zoneD-10 {
+    position: absolute;
+    top: 58%;
+    z-index: 9999;
+    right: 36%;
+  }
+  .first-zoneD-11 {
+    position: absolute;
+    top: 58%;
+    z-index: 9999;
+    right: 31%;
+  }
+  .first-zoneD-12 {
+    position: absolute;
+    top: 42%;
+    z-index: 9999;
+    right: 25%;
+  }
+  .first-zoneD-13 {
+    position: absolute;
+    top: 70%;
+    z-index: 9999;
+    right: 23%;
+  }
+  .first-zoneD-14 {
+    position: absolute;
+    top: 63%;
+    z-index: 9999;
+    right: 18%;
+  }
+  .first-zoneD-15 {
+    position: absolute;
+    top: 66%;
+    z-index: 9999;
+    right: 10%;
+  }
+  .first-zoneD-16 {
+    position: absolute;
+    bottom: 7%;
+    z-index: 9999;
+    right: 13%;
+  }
+  .first-zoneD-17 {
+    position: absolute;
+    top: 65%;
+    z-index: 9999;
+    right: 4%;
+  }
+
+  .first-zoneD-18 {
+    position: absolute;
+    top: 50%;
+    z-index: 9999;
+    right: 3%;
+  }
+  .first-zoneD-19 {
+    position: absolute;
+    top: 61%;
+    z-index: 9999;
+    right: 0%;
+  }
+  .first-zoneD-20 {
+    position: absolute;
+    top: 72%;
+    z-index: 9999;
+    right: 0%;
+  }
+}
+
+
 /* **JF - 1st Floor ZONE E** */
 
 @media (min-width: 1550px) and (max-width: 1700px) {
@@ -9981,6 +11496,29 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+  .first-zoneE-1 {
+    position: absolute;
+    top: 2%;
+    z-index: 9999;
+    right: 42%;
+  }
+
+  .first-zoneE-2 {
+    position: absolute;
+    top: 13%;
+    z-index: 9999;
+    right: 48%;
+  }
+
+  .first-zoneE-3 {
+    position: absolute;
+    top: 21%;
+    z-index: 9999;
+    right: 37%;
+  }
+}
+
 /* Jf -1St Floor end */
 
 
@@ -9989,8 +11527,6 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 /* **JF- 2nd Floor ZONE B** */
 
 @media (min-width: 1550px) and (max-width: 1600px) {
-
-  /* **JF- 2nd Floor ZONE B** */
 
   .second-zoneB-1 {
     position: absolute;
@@ -10250,13 +11786,62 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .second-zoneB-1 {
+    position: absolute;
+    top: 67%;
+    z-index: 9999;
+    left: 2%;
+  }
+  .second-zoneB-2 {
+    position: absolute;
+    top: 62%;
+    z-index: 9999;
+    left: 6%;
+  }
+  .second-zoneB-3 {
+    position: absolute;
+    top: 52%;
+    z-index: 9999;
+    left: 22%;
+  }
+  .second-zoneB-4 {
+    position: absolute;
+    top: 66%;
+    z-index: 9999;
+    left: 41%;
+  }
+  .second-zoneB-5 {
+    position: absolute;
+    top: 52%;
+    right: 49%;
+  }
+  .second-zoneB-6 {
+    position: absolute;
+    top: 52%;
+    z-index: 9999;
+    right: 29%;
+  }
+  .second-zoneB-7 {
+    position: absolute;
+    top: 43%;
+    z-index: 9999;
+    right: 12%;
+  }
+  .second-zoneB-8 {
+    position: absolute;
+    top: 59%;
+    z-index: 9999;
+    right: 6%;
+    }
+
+}
 
 /* **JF- 2nd Floor ZONE B** */
 
-
+/* 
 @media (min-width: 1550px) and (max-width: 1600px) {
-
-  /* **JF- 2nd Floor ZONE B** */
 
   .second-zoneB-1 {
     position: absolute;
@@ -10310,8 +11895,6 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 
 @media (min-width: 1600px) and (max-width: 1700px) {
-
-  /* **JF- 2nd Floor ZONE B** */
 
   .second-zoneB-1 {
     position: absolute;
@@ -10516,7 +12099,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     z-index: 9999;
     right: 8%;
   }
-} 
+}  */
 
 
 /* **JF- 2nd Floor ZONE C** */
@@ -10594,6 +12177,24 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 }
 
 @media (min-width: 1900px) and (max-width: 2000px) {
+
+  .second-zoneC-1 {
+    position: absolute;
+    top: 40%;
+    z-index: 9999;
+    left: 12%;
+  }
+  
+  .second-zoneC-2 {
+    position: absolute;
+    top: 4%;
+    z-index: 9999;
+    right: 22%;
+  }
+  
+}
+
+@media (min-width: 2000px) and (max-width: 3000px) {
 
   .second-zoneC-1 {
     position: absolute;
@@ -10777,6 +12378,47 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .second-zoneD-1 {
+    position: absolute;
+    top: 45%;
+    z-index: 9999;
+    left: 4%;
+  }
+  .second-zoneD-2 {
+    position: absolute;
+    top: 52%;
+    z-index: 9999;
+    left: 20%;
+  }
+  .second-zoneD-3 {
+    position: absolute;
+    top: 53%;
+    z-index: 9999;
+    left: 47%;
+  }
+  .second-zoneD-4 {
+    position: absolute;
+    top: 54%;
+    z-index: 9999;
+    right: 17%;
+  }
+  .second-zoneD-5 {
+    position: absolute;
+    top: 67%;
+    z-index: 9999;
+    left: 45%;
+  }
+  .second-zoneD-6 {
+    position: absolute;
+    top: 63%;
+    z-index: 9999;
+    right: 3%;
+  }
+  
+}
+
 /* **JF- 2nd Floor ZONE E** */
 
 
@@ -10820,7 +12462,20 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .second-zoneE-1 {
+    position: absolute;
+    top: 42%;
+    z-index: 9999;
+    right: 28%;
+  }
+}
+
+
 /* JF- 2nd Floor end */
+
+
 
 /* JF- Roof Floor start */
 
@@ -10913,7 +12568,25 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .roof-zoneB {
+    position: absolute;
+    bottom: 24%;
+    z-index: 9999;
+    right: 26%;
+  }
+  .roof-zoneB-1 {
+    position: absolute;
+    bottom: 40%;
+    z-index: 9999;
+    right: 17%;
+  }
+
+}
+
   /* JF- Roof Floor start */
+
 /* roof-zoneC */
 
 @media (min-width: 1550px) and (max-width: 1600px) {
@@ -10946,6 +12619,16 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .roof-zoneC {
+    position: absolute;
+    bottom: 43%;
+    z-index: 9999;
+    right: 56%;
+  }
+}
+
 /* roof-zoneD */
 
 @media (min-width: 1550px) and (max-width: 1700px) {
@@ -10968,7 +12651,17 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 }
 
-/* roof-zoneD */
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .roof-zoneD {
+    position: absolute;
+    bottom: 11%;
+    z-index: 9999;
+    right: 45%;
+  }
+}
+
+/* roof-zoneE */
 
 @media (min-width: 1550px) and (max-width: 1700px) {
 
@@ -10990,8 +12683,1059 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   }
 } 
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .roof-zoneE {
+    position: absolute;
+    bottom: 62%;
+    z-index: 9999;
+    right: 61%;
+  }
+}
+
 /* JE - external-areas start */
 
+/* / *JE - external-areas-CM * / */
+
+@media (min-width: 1550px) and (max-width: 1600px) {
+  
+.external-areas-cm-1 {
+  position: absolute;
+  top: 5%;
+  z-index: 9999;
+  left: 11%;
+}
+
+.external-areas-cm-2 {
+  position: absolute;
+  top: 23%;
+  z-index: 9999;
+  left: 10%;
+}
+
+.external-areas-cm-3 {
+  position: absolute;
+  top: 26.3%;
+  z-index: 9999;
+  left: 12%;
+}
+
+.external-areas-cm-4 {
+  position: absolute;
+  top: 38.8%;
+  z-index: 9999;
+  left: 12%;
+}
+
+.external-areas-cm-5 {
+  position: absolute;
+  bottom: 30%;
+  z-index: 9999;
+  left: 14%;
+}
+
+.external-areas-cm-6 {
+  position: absolute;
+  bottom: 9%;
+  z-index: 9999;
+  left: 9%;
+}
+
+.external-areas-cm-7 {
+  position: absolute;
+  bottom: 3%;
+  z-index: 9999;
+  left: 35%;
+}
+
+.external-areas-cm-8 {
+  position: absolute;
+  bottom: 9%;
+  z-index: 9999;
+  right: -5%;
+}
+
+.external-areas-cm-9 {
+  position: absolute;
+  bottom: 23%;
+  z-index: 9999;
+  right: -80%;
+}
+
+.external-areas-cm-10 {
+  position: absolute;
+  bottom: 37%;
+  z-index: 9999;
+  right: -127%;
+}
+
+}
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 11%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 12%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 12%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 13%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 3%;
+    z-index: 9999;
+    left: 35%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 4%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -72%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -116%;
+  }
+  
+}
+
+@media (min-width: 1700px) and (max-width: 1800px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 11%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 12%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 3%;
+    z-index: 9999;
+    left: 31%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 10%;
+
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -62%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -103%;
+
+  }
+  
+}
+
+@media (min-width: 1800px) and (max-width: 1900px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 11%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 12%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 30%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 15%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -53%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -92%;
+
+  }
+  
+}
+
+@media (min-width: 1900px) and (max-width: 2000px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 11%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 30%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 19%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -45%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -82%;
+  }
+  
+}
+
+@media (min-width: 2000px) and (max-width: 2100px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 11%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 30%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 19%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -38%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -73%;
+  }
+  
+}
+
+@media (min-width: 2100px) and (max-width: 2200px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 10%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 30%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 27%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -32%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -65%;
+  }
+  
+}
+
+@media (min-width: 2200px) and (max-width: 2300px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 26%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 30%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -27%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -57%;
+
+  }
+  
+}
+
+@media (min-width: 2300px) and (max-width: 2400px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 9%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 26%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 33%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -21%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -50%;
+  }
+  
+}
+
+@media (min-width: 2400px) and (max-width: 2500px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 24%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 35%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -15%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -43%;
+  }
+  
+}
+
+@media (min-width: 2500px) and (max-width: 2600px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 24%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 38%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -10%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -37%;
+  }
+  
+}
+
+@media (min-width: 2600px) and (max-width: 2700px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 8%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 24%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 40%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -6%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -32%;
+  }
+  
+}
+
+@media (min-width: 2700px) and (max-width: 2800px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 21%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 43%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: -2%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -28%;
+  }
+  
+}
+
+@media (min-width: 2800px) and (max-width: 3000px) {
+  
+  .external-areas-cm-1 {
+    position: absolute;
+    top: 5%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-2 {
+    position: absolute;
+    top: 23%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-3 {
+    position: absolute;
+    top: 26.3%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-4 {
+    position: absolute;
+    top: 38.8%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-5 {
+    position: absolute;
+    bottom: 34%;
+    z-index: 9999;
+    left: 7%;
+  }
+  
+  .external-areas-cm-6 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    left: 6%;
+  }
+  
+  .external-areas-cm-7 {
+    position: absolute;
+    bottom: 4%;
+    z-index: 9999;
+    left: 21%;
+  }
+  
+  .external-areas-cm-8 {
+    position: absolute;
+    bottom: 9%;
+    z-index: 9999;
+    right: 43%;
+  }
+  
+  .external-areas-cm-9 {
+    position: absolute;
+    bottom: 23%;
+    z-index: 9999;
+    right: 2%;
+  }
+  
+  .external-areas-cm-10 {
+    position: absolute;
+    bottom: 37%;
+    z-index: 9999;
+    right: -21%;
+  }
+  
+}
 
 /* / *JE - external-areas-je* / */
 
@@ -11007,33 +13751,33 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 .external-areas-je-2 {
   position: absolute;
   z-index: 9999;
-  top: 12%;
-  left: 4.6%;
+  top: 15%;
+  left: 6%;
 }
 
 .external-areas-je-3 {
   position: absolute;
   z-index: 9999;
-  top: 5.5%;
-  left: 15%;
+  top: 9%;
+  left: 16.5%;
 }
 .external-areas-je-4 {
   position: absolute;
   z-index: 9999;
-  top: 5.5%;
+  top: 9%;
   left: 46%;
 }
 .external-areas-je-5 {
   position: absolute;
   z-index: 9999;
-  top: 5.5%;
-  right: 18%;
+  top: 9%;
+  right: 21%;
 }
 .external-areas-je-6 {
   position: absolute;
   z-index: 9999;
-  top: 5.5%;
-  right: -15%;
+  top: 9%;
+  right: -12%;
 }
 .external-areas-je-7 {
   position: absolute;
@@ -11044,13 +13788,13 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 .external-areas-je-8 {
   position: absolute;
   z-index: 9999;
-  top: 31.5%;
-  right: -18.5%;  
+  top: 32%;
+  right: -16.5%; 
 }
 .external-areas-je-9 {
   position: absolute;
   z-index: 9999;
-  top: 31%;
+  top: 33%;
   left: 51%;
 }
 
@@ -11092,10 +13836,16 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 .external-areas-je-15 {
   position: absolute;
   z-index: 9999;
+  top: 16%;
+  right: 12.5%;
+}
+
+.external-areas-je-16 {
+  position: absolute;
+  z-index: 9999;
   top: 17.5%;
   right: -20.5%;
 }
-
 
 }
 
@@ -11111,65 +13861,65 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-2 {
     position: absolute;
     z-index: 9999;
-    top: 12%;
-    left: 4.6%;
+    top: 15%;
+    left: 6%;
   }
   
   .external-areas-je-3 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 15%;
+    top: 9%;
+    left: 16.5%;
   }
   .external-areas-je-4 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 46%;
+    top: 9%;
+    left: 44%;
   }
   .external-areas-je-5 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: 18%;
+    top: 9%;
+    right: 24%;
   }
   .external-areas-je-6 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: -15%;
+    top: 9%;
+    right: -7%;
   }
   .external-areas-je-7 {
     position: absolute;
     z-index: 9999;
     top: 22.5%;
-    right: -24.5%;
+    right: -26.5%;
   }
   .external-areas-je-8 {
     position: absolute;
     z-index: 9999;
-    top: 31.5%;
-    right: -18.5%;  
+    top: 32%;
+    right: -16.5%; 
   }
   .external-areas-je-9 {
     position: absolute;
     z-index: 9999;
-    top: 31%;
+    top: 33%;
     left: 51%;
   }
   
   .external-areas-je-10 {
     position: absolute;
     z-index: 9999;
-    top: 43%;
-    right: -25.5%;
+    top: 41%;
+    right: -27.5%;
   }
   
   .external-areas-je-11 {
     position: absolute;
     z-index: 9999;
-    bottom: 18.5%;
-    right: -25.5%;
+    bottom: 15.5%;
+    right: -28%;
   }
   
   .external-areas-je-12 {
@@ -11196,11 +13946,17 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-15 {
     position: absolute;
     z-index: 9999;
-    top: 17.5%;
-    right: -15.5%;
+    top: 16%;
+    right: 12.5%;
   }
   
-  
+  .external-areas-je-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: -16.5%;
+  }
+    
 }
 
 @media (min-width: 1700px) and (max-width: 1800px) {
@@ -11215,65 +13971,65 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-2 {
     position: absolute;
     z-index: 9999;
-    top: 12%;
-    left: 4.6%;
+    top: 15%;
+    left: 6%;
   }
   
   .external-areas-je-3 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 15%;
+    top: 9%;
+    left: 16.5%;
   }
   .external-areas-je-4 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 46%;
+    top: 9%;
+    left: 44%;
   }
   .external-areas-je-5 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: 30%;
+    top: 9%;
+    right: 24%;
   }
   .external-areas-je-6 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: 1%;
+    top: 9%;
+    right: -4%;
   }
   .external-areas-je-7 {
     position: absolute;
     z-index: 9999;
     top: 22.5%;
-    right: -14.5%;
+    right: -20.5%;
   }
   .external-areas-je-8 {
     position: absolute;
     z-index: 9999;
-    top: 31.5%;
-    right: -4.5%;
+    top: 32%;
+    right: -8.5%; 
   }
   .external-areas-je-9 {
     position: absolute;
     z-index: 9999;
-    top: 31%;
-    left: 51%;
+    top: 32%;
+    left: 50%;
   }
   
   .external-areas-je-10 {
     position: absolute;
     z-index: 9999;
-    top: 43%;
-    right: -14.5%;
+    top: 41%;
+    right: -21.5%;
   }
   
   .external-areas-je-11 {
     position: absolute;
     z-index: 9999;
-    bottom: 18.5%;
-    right: -14.5%;
+    bottom: 15.5%;
+    right: -21%;
   }
   
   .external-areas-je-12 {
@@ -11300,11 +14056,16 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-15 {
     position: absolute;
     z-index: 9999;
-    top: 17.5%;
-    right: -5.5%;
+    top: 16%;
+    right: 17.5%;
   }
   
-  
+  .external-areas-je-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: -9.5%;
+  }  
 }
 
 @media (min-width: 1800px) and (max-width: 1900px) {
@@ -11319,66 +14080,66 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-2 {
     position: absolute;
     z-index: 9999;
-    top: 12%;
-    left: 4.6%;
+    top: 15%;
+    left: 6%;
   }
   
   .external-areas-je-3 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 15%;
+    top: 9%;
+    left: 16.5%;
   }
   .external-areas-je-4 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 46%;
+    top: 9%;
+    left: 44%;
   }
   .external-areas-je-5 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: 30%;
+    top: 9%;
+    right: 27%; 
   }
   .external-areas-je-6 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: 1%;
+    top: 9%;
+    right: 0%;
   }
   .external-areas-je-7 {
     position: absolute;
     z-index: 9999;
     top: 22.5%;
-    right: -11.5%;
+    right: -12.5%;
   }
   .external-areas-je-8 {
     position: absolute;
     z-index: 9999;
-    top: 31.5%;
-    right: -4.5%;
+    top: 32%;
+    right: -4.5%; 
   }
   .external-areas-je-9 {
     position: absolute;
     z-index: 9999;
-    top: 31%;
-    left: 51%;
+    top: 32%;
+    left: 48%;
   }
   
   .external-areas-je-10 {
     position: absolute;
     z-index: 9999;
-    top: 43%;
-    right: -10.5%;
+    top: 41%;
+    right: -14.5%;
   }
   
   .external-areas-je-11 {
     position: absolute;
     z-index: 9999;
-    bottom: 18.5%;
-    right: -10.5%;
-    }
+    bottom: 15.5%;
+    right: -15%;
+  }
   
   .external-areas-je-12 {
     position: absolute;
@@ -11404,10 +14165,17 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-15 {
     position: absolute;
     z-index: 9999;
-    top: 17.5%;
-    right: -1.5%;
+    top: 16%;
+    right: 17.5%;
   }
   
+  .external-areas-je-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: -4.5%;
+  }  
+
   
 }
 
@@ -11423,66 +14191,66 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-2 {
     position: absolute;
     z-index: 9999;
-    top: 12%;
-    left: 4.6%;
+    top: 15%;
+    left: 6%;
   }
   
   .external-areas-je-3 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 15%;
+    top: 9%;
+    left: 16.5%;
   }
   .external-areas-je-4 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    left: 46%;
+    top: 9%;
+    left: 44%;
   }
   .external-areas-je-5 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: 30%;
+    top: 9%;
+    right: 27%; 
   }
   .external-areas-je-6 {
     position: absolute;
     z-index: 9999;
-    top: 5.5%;
-    right: 1%;
+    top: 9%;
+    right: 0%;
   }
   .external-areas-je-7 {
     position: absolute;
     z-index: 9999;
     top: 22.5%;
-    right: -3.5%;
+    right: -5.5%;
   }
   .external-areas-je-8 {
     position: absolute;
     z-index: 9999;
-    top: 31.5%;
-    right: 4.5%;
+    top: 32%;
+    right: 0.5%;
   }
   .external-areas-je-9 {
     position: absolute;
     z-index: 9999;
-    top: 31%;
-    left: 51%;
+    top: 32%;
+    left: 48%;
   }
   
   .external-areas-je-10 {
     position: absolute;
     z-index: 9999;
-    top: 43%;
-    right: -4.5%;
+    top: 41%;
+    right: -8.5%;
   }
   
   .external-areas-je-11 {
     position: absolute;
     z-index: 9999;
-    bottom: 18.5%;
-    right: -4.5%;
-    }
+    bottom: 15.5%;
+    right: -9%;
+  }
   
   .external-areas-je-12 {
     position: absolute;
@@ -11508,22 +14276,2317 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-je-15 {
     position: absolute;
     z-index: 9999;
-    top: 17.5%;
-    right: 3.5%;
+    top: 16%;
+    right: 23.5%;
   }
+  
+  .external-areas-je-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: 2.5%;
+  }  
   
   
 }
 
-/* / *JE - external-areas-je* / */
+@media (min-width: 2000px) and (max-width: 2100px) {
 
+  .external-areas-je-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    left: 12%;
+  }
+  
+  .external-areas-je-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    left: 6%;
+  }
+  
+  .external-areas-je-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    left: 16.5%;
+  }
+  .external-areas-je-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    left: 44%;
+  }
+  .external-areas-je-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    right: 30%;
+  }
+  .external-areas-je-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    right: 7%;
+  }
+  .external-areas-je-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 22.5%;
+    right: -1.5%;
+  }
+  .external-areas-je-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    right: 5.5%;
+  }
+  .external-areas-je-9 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 44%;
+  }
+  
+  .external-areas-je-10 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -2.5%;
+  }
+  
+  .external-areas-je-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 15.5%;
+    right: -3%;
+  }
+  
+  .external-areas-je-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    left: 13%;
+  }
+  
+  .external-areas-je-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 16.5%;
+    left: 26%;
+  }
+  
+  .external-areas-je-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    left: 43%;
+  }
+  
+  .external-areas-je-15 {
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    right: 29.5%;
+  }
+  
+  .external-areas-je-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: 6.5%;
+  }  
+  
+  
+}
+
+@media (min-width: 2100px) and (max-width: 2200px) {
+
+  .external-areas-je-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    left: 12%;
+  }
+  
+  .external-areas-je-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    left: 6%;
+  }
+  
+  .external-areas-je-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    left: 16.5%;
+  }
+  .external-areas-je-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    left: 44%;
+  }
+  .external-areas-je-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    right: 34%;
+  }
+  .external-areas-je-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    right: 11%;
+  }
+  .external-areas-je-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 22.5%;
+    right: 4.5%;
+  }
+  .external-areas-je-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    right: 10.5%;
+  }
+  .external-areas-je-9 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 41%;
+  }
+  
+  .external-areas-je-10 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: 2.5%;
+  }
+  
+  .external-areas-je-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 15.5%;
+    right: 2%;
+  }
+  
+  .external-areas-je-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    left: 13%;
+  }
+  
+  .external-areas-je-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 16.5%;
+    left: 26%;
+  }
+  
+  .external-areas-je-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    left: 43%;
+  }
+  
+  .external-areas-je-15 {
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    right: 29.5%;
+  }
+  
+  .external-areas-je-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: 11.5%;
+  }  
+  
+  
+}
+
+@media (min-width: 2200px) and (max-width: 3000px) {
+
+  .external-areas-je-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 31%;
+    left: 12%;
+  }
+  
+  .external-areas-je-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 15%;
+    left: 5%;
+  }
+  
+  .external-areas-je-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    left: 11.5%;
+  }
+  .external-areas-je-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    left: 33%;
+  }
+  .external-areas-je-5 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    right: 42%;
+  }
+  .external-areas-je-6 {
+    position: absolute;
+    z-index: 9999;
+    top: 9%;
+    right: 19%;
+  }
+  .external-areas-je-7 {
+    position: absolute;
+    z-index: 9999;
+    top: 22.5%;
+    right: 5.5%;
+  }
+  .external-areas-je-8 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    right: 13.5%;
+  }
+  .external-areas-je-9 {
+    position: absolute;
+    z-index: 9999;
+    top: 32%;
+    left: 41%;
+  }
+  
+  .external-areas-je-10 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: 3.5%;
+  }
+  
+  .external-areas-je-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 15.5%;
+    right: 3%;
+  }
+  
+  .external-areas-je-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    left: 11%;
+
+  }
+  
+  .external-areas-je-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 16.5%;
+    left: 23%;
+  }
+  
+  .external-areas-je-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 14%;
+    left: 42%;
+  }
+  
+  .external-areas-je-15 {
+    position: absolute;
+    z-index: 9999;
+    top: 16%;
+    right: 31.5%;
+  }
+  
+  .external-areas-je-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 17.5%;
+    right: 11.5%;
+  }  
+  
+  
+}
+
+
+
+/* / *Roads - external-areas-roads* / */
+
+@media (min-width: 1550px) and (max-width: 1600px) {
+  
+.external-areas-roads-1 {
+  position: absolute;
+  z-index: 9999;
+  top: 18%;
+  left: 26%;
+}
+
+.external-areas-roads-2 {
+  position: absolute;
+  z-index: 9999;
+  top: 18%;
+  left: 68%;
+}
+
+.external-areas-roads-3 {
+  position: absolute;
+  z-index: 9999;
+  top: 40%;
+  right: 79%;
+}
+
+.external-areas-roads-4 {
+  position: absolute;
+  z-index: 9999;
+  top: 39%;
+  right: 20%;
+}
+
+.external-areas-roads-5 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 28%;
+  left: 17%;
+}
+
+.external-areas-roads-6 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 28%;
+  right: 57%;
+}
+
+.external-areas-roads-7 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 29%;
+  right: 23%;
+}
+
+.external-areas-roads-8 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 28.3%;
+  right: 3%;
+}
+
+.external-areas-roads-9 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 19%;
+  left: 18%;
+}
+
+.external-areas-roads-10 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 10%;
+  left: 75%;
+}
+
+.external-areas-roads-11 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 26%;
+  right: -50%;
+}
+
+.external-areas-roads-12 {
+  position: absolute;
+  z-index: 9999;
+  top: 38%;
+  right: -48%;
+}
+
+.external-areas-roads-13 {
+  position: absolute;
+  z-index: 9999;
+  top: 37%;
+  right: -78%;
+}
+
+.external-areas-roads-14 {
+  position: absolute;
+  z-index: 9999;
+  top: 55%;
+  right: -75%;
+}
+
+.external-areas-roads-15 {
+  position: absolute;
+  z-index: 9999;
+  bottom: 27%;
+  right: -83%;
+}
+
+.external-areas-roads-16 {
+  position: absolute;
+  z-index: 9999;
+  top: 54%;
+  right: -126%;
+}
+
+.external-areas-roads-17 {
+  position: absolute;
+  z-index: 9999;
+  top: 43.6%;
+  right: -149%;
+}
+
+.external-areas-roads-18 {
+  position: absolute;
+  z-index: 9999;
+  top: 23.4%;
+  right: -130%;
+}
+
+}
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+  
+  .external-areas-roads-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 26%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 65%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 79%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 24%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 17%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 57%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 25%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 7%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 73%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -43%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: -41%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: -70%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -68%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -75%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -118%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -136%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -121%;
+  }
+  
+}
+
+@media (min-width: 1700px) and (max-width: 1800px) {
+  
+  .external-areas-roads-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 26%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 61%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 80%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 29%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 17%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 57%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 30%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 12%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 17%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 70%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -35%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 38%;
+    right: -32%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -57%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -58%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -65%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -103%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -122%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -107%;
+  }
+  
+}
+
+@media (min-width: 1800px) and (max-width: 1900px) {
+  
+  .external-areas-roads-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 26%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 58%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 82%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 32%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 15%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 62%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 34%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 17%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 16%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 66%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -27%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: -23%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -49%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -51%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -55%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -92%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -109%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -107%;
+  }
+  
+}
+
+@media (min-width: 1900px) and (max-width: 2000px) {
+  
+  .external-areas-roads-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 26%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 58%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 83%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 32%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 15%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 62%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 37%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 17%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 15%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 66%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -21%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: -17%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -41%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -43%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -47%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -81%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -100%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -85%;
+  }
+  
+}
+
+@media (min-width: 2000px) and (max-width: 2100px) {
+  
+  .external-areas-roads-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 21%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 52%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 84%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 39%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 13%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 66%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 40%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 24%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 14%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 59%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -15%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: -12%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -35%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -36%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -41%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -74%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -90%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -77%;
+  }
+  
+}
+
+@media (min-width: 2100px) and (max-width: 2200px) {
+  
+  .external-areas-roads-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    right: 43%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 52%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 84%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 43%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 13%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 66%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 40%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 28%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 14%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 59%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -9%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: -5%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -28%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -29%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -33%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -65%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -80%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -68%;
+  }
+  
+}
+
+@media (min-width: 2200px) and (max-width: 2300px) {
+  
+  .external-areas-roads-1 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 48%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 85%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 45%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 13%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 66%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 46%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 28%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 13%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 53%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: -4%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: -1%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -22%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -23%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -27%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -58%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -71%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -60%;
+  }
+  
+}
+
+@media (min-width: 2300px) and (max-width: 2400px) {
+  
+  .external-areas-roads-1 {
+    position: absolute; 
+    z-index: 9999;
+    top: 18%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 48%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 85%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 47%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 13%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 66%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 46%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 35%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 12%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 53%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 0%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 4%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -17%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -18%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -21%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -50%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -64%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -53%;
+  }
+  
+}
+  
+@media (min-width: 2400px) and (max-width: 2500px) {
+  
+  .external-areas-roads-1 {
+    position: absolute; 
+    z-index: 9999;
+    top: 18%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 48%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 86%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 50%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 11%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 72%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 51%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 35%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 12%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 48%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 5%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 8%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -12%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -13%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -21%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -44%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -57%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -47%;
+  }
+  
+}
+
+@media (min-width: 2500px) and (max-width: 2600px) {
+  
+  .external-areas-roads-1 {
+    position: absolute; 
+    z-index: 9999;
+    top: 18%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 44%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 86%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 51%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 11%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 72%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 51%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 35%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 12%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 48%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 8%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 10%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -8%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -9%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -12%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -39%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -51%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -41%;
+  }
+  
+}
+
+@media (min-width: 2600px) and (max-width: 2700px) {
+  
+  .external-areas-roads-1 {
+    position: absolute; 
+    z-index: 9999;
+    top: 18%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 44%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 87%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 53%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 11%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 72%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 54%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 35%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 11%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 48%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 12%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 15%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: -3%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -4%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -8%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -34%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -45%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -35%;
+  }
+  
+}
+
+@media (min-width: 2700px) and (max-width: 2800px) {
+  
+  .external-areas-roads-1 {
+    position: absolute; 
+    z-index: 9999;
+    top: 18%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 40%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 87%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 55%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 11%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 72%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 56%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 44%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 11%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 44%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 16%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 18%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: 1%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: -1%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: -4%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -29%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -40%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -30%;
+  }
+  
+}
+
+@media (min-width: 2800px) and (max-width: 2900px) {
+  
+  .external-areas-roads-1 {
+    position: absolute; 
+    z-index: 9999;
+    top: 18%;
+    left: 18%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 40%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 86%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 57%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 10%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 72%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 56%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 44%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 10%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 44%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 19%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 21%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: 4%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 4%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: 0%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -24%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -35%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -26%;
+  }
+  
+}
+
+@media (min-width: 2900px) and (max-width: 3000px) {
+  
+  .external-areas-roads-1 {
+    position: absolute; 
+    z-index: 9999;
+    top: 18%;
+    left: 15%;
+  }
+  
+  .external-areas-roads-2 {
+    position: absolute;
+    z-index: 9999;
+    top: 18%;
+    left: 36%;
+  }
+  
+  .external-areas-roads-3 {
+    position: absolute;
+    z-index: 9999;
+    top: 40%;
+    right: 90%;
+  }
+  
+  .external-areas-roads-4 {
+    position: absolute;
+    z-index: 9999;
+    top: 39%;
+    right: 58%;
+  }
+  
+  .external-areas-roads-5 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    left: 10%;
+  }
+  
+  .external-areas-roads-6 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28%;
+    right: 72%;
+  }
+  
+  .external-areas-roads-7 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 29%;
+    right: 59%;
+  }
+  
+  .external-areas-roads-8 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 28.3%;
+    right: 44%;
+  }
+  
+  .external-areas-roads-9 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 19%;
+    left: 10%;
+  }
+  
+  .external-areas-roads-10 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 11%;
+    left: 44%;
+  }
+  
+  .external-areas-roads-11 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 26%;
+    right: 21%;
+  }
+  
+  .external-areas-roads-12 {
+    position: absolute;
+    z-index: 9999;
+    top: 42%;
+    right: 23%;
+  }
+  
+  .external-areas-roads-13 {
+    position: absolute;
+    z-index: 9999;
+    top: 41%;
+    right: 7%;
+  }
+  
+  .external-areas-roads-14 {
+    position: absolute;
+    z-index: 9999;
+    top: 55%;
+    right: 4%;
+  }
+  
+  .external-areas-roads-15 {
+    position: absolute;
+    z-index: 9999;
+    bottom: 27%;
+    right: 4%;
+  }
+  
+  .external-areas-roads-16 {
+    position: absolute;
+    z-index: 9999;
+    top: 54%;
+    right: -20%;
+  }
+  
+  .external-areas-roads-17 {
+    position: absolute;
+    z-index: 9999;
+    top: 41.6%;
+    right: -30%;
+  }
+  
+  .external-areas-roads-18 {
+    position: absolute;
+    z-index: 9999;
+    top: 23.4%;
+    right: -21%;
+  }
+  
+}
+
+
+/* / *JE - external-areas-je* / */
 
 @media (min-width: 1550px) and (max-width: 1600px) {
 
   .external-areas-jh-jx-js-1 {
     position: absolute;
     top: 9.5%;
-    left: 17%;
+    left: 12%;
     z-index: 9999;
   }
   
@@ -11536,15 +16599,15 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   
   .external-areas-jh-jx-js-3 {
     position: absolute;
-    top: 12.5%;
-    left: 41%;
+    top: 11%;
+    left: 39%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-4 {
     position: absolute;
-    top: 11.5%;
-    left: 70%;
+    top: 10%;
+    left: 67%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-5 {
@@ -11570,19 +16633,49 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-jh-jx-js-8 {
     position: absolute;
     top: 12%;
-    right: 4%;
+    right: 8%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-9 {
     position: absolute;
     top: 25%;
-    right: -15%;
+    right: -11%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-10 {
     position: absolute;
     top: 46%;
     right: 3%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-11{
+    position: absolute;
+    top: 28.5%;
+    left: 19%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-12{
+    position: absolute;
+    top: 24.5%;
+    left: 35%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-13{
+    position: absolute;
+    top: 24.5%;
+    left: 63%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-14{
+    position: absolute;
+    top: 27%;
+    right: 1%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-15{
+    position: absolute;
+    top: 62%;
+    left: 15%;
     z-index: 9999;
   }
 
@@ -11593,7 +16686,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-jh-jx-js-1 {
     position: absolute;
     top: 9.5%;
-    left: 17%;
+    left: 12%;
     z-index: 9999;
   }
   
@@ -11606,15 +16699,15 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   
   .external-areas-jh-jx-js-3 {
     position: absolute;
-    top: 12.5%;
-    left: 41%;
+    top: 11%;
+    left: 39%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-4 {
     position: absolute;
-    top: 11.5%;
-    left: 70%;
+    top: 10%;
+    left: 67%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-5 {
@@ -11640,22 +16733,51 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-jh-jx-js-8 {
     position: absolute;
     top: 12%;
-    right: 4%;
+    right: 8%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-9 {
     position: absolute;
     top: 25%;
-    right: -15%;
+    right: -6%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-10 {
     position: absolute;
     top: 46%;
-    right: 3%;
+    right: 9%;
     z-index: 9999;
   }
-
+  .external-areas-jh-jx-js-11{
+    position: absolute;
+    top: 28.5%;
+    left: 18%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-12{
+    position: absolute;
+    top: 24.5%;
+    left: 35%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-13{
+    position: absolute;
+    top: 24.5%;
+    left: 60%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-14{
+    position: absolute;
+    top: 27%;
+    right: 8%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-15{
+    position: absolute;
+    top: 62%;
+    left: 15%;
+    z-index: 9999;
+  }
 }
 
 @media (min-width: 1700px) and (max-width: 1800px) {
@@ -11663,7 +16785,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-jh-jx-js-1 {
     position: absolute;
     top: 9.5%;
-    left: 17%;
+    left: 12%;
     z-index: 9999;
   }
   
@@ -11676,15 +16798,15 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   
   .external-areas-jh-jx-js-3 {
     position: absolute;
-    top: 12.5%;
-    left: 41%;
+    top: 11%;
+    left: 39%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-4 {
     position: absolute;
-    top: 11.5%;
-    left: 70%;
+    top: 10%;
+    left: 63%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-5 {
@@ -11697,12 +16819,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-jh-jx-js-6 {
     position: absolute;
     top: 68%;
-    left: 46%;
+    left: 43%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-7 {
     position: absolute;
-    top: 59%;
+    top: 58%;
     left: 65%;
     z-index: 9999;
   }
@@ -11710,7 +16832,7 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-jh-jx-js-8 {
     position: absolute;
     top: 12%;
-    right: 13%;
+    right: 15%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-9 {
@@ -11725,15 +16847,45 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
     right: 13%;
     z-index: 9999;
   }
+  .external-areas-jh-jx-js-11{
+    position: absolute;
+    top: 28.5%;
+    right: 12%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-12{
+    position: absolute;
+    top: 24.5%;
+    left: 35%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-13{
+    position: absolute;
+    top: 24.5%;
+    left: 60%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-14{
+    position: absolute;
+    top: 27%;
+    right: 8%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-15{
+    position: absolute;
+    top: 62%;
+    left: 15%;
+    z-index: 9999;
+  }
+
 
 }
 
 @media (min-width: 1800px) and (max-width: 1900px) {
-
   .external-areas-jh-jx-js-1 {
     position: absolute;
     top: 9.5%;
-    left: 17%;
+    left: 12%;
     z-index: 9999;
   }
   
@@ -11746,15 +16898,15 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   
   .external-areas-jh-jx-js-3 {
     position: absolute;
-    top: 12.5%;
-    left: 41%;
+    top: 11%;
+    left: 39%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-4 {
     position: absolute;
-    top: 8.5%;
-    left: 64%;
+    top: 10%;
+    left: 60%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-5 {
@@ -11767,43 +16919,72 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   .external-areas-jh-jx-js-6 {
     position: absolute;
     top: 68%;
-    left: 46%;
+    left: 43%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-7 {
     position: absolute;
-    top: 59%;
-    left: 65%;
+    top: 58%;
+    left: 61%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-8 {
     position: absolute;
     top: 12%;
-    right: 13%;
+    right: 18%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-9 {
     position: absolute;
-    top: 25%;
-    right: -2%;
+    top: 27%;
+    right: 7%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-10 {
     position: absolute;
     top: 46%;
-    right: 13%;
+    right: 18%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-11{
+    position: absolute;
+    top: 28.5%;
+    left: 232px;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-12{
+    position: absolute;
+    top: 24.5%;
+    left: 35%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-13{
+    position: absolute;
+    top: 24.5%;
+    left: 60%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-14{
+    position: absolute;
+    top: 27%;
+    right: 16%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-15{
+    position: absolute;
+    top: 62%;
+    left: 15%;
     z-index: 9999;
   }
 
 }
 
 @media (min-width: 1900px) and (max-width: 2000px) {
-
   .external-areas-jh-jx-js-1 {
     position: absolute;
     top: 9.5%;
-    left: 17%;
+    left: 12%;
     z-index: 9999;
   }
   
@@ -11816,56 +16997,184 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   
   .external-areas-jh-jx-js-3 {
     position: absolute;
-    top: 12.5%;
-    left: 41%;
+    top: 11%;
+    left: 39%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-4 {
     position: absolute;
-    top: 8.5%;
-    left: 59%;
+    top: 10%;
+    left: 60%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-5 {
     position: absolute;
     top: 49%;
-    left: 41%;
+    left: 36%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-6 {
     position: absolute;
     top: 68%;
-    left: 40%;
+    left: 39%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-7 {
     position: absolute;
-    top: 59%;
-    left: 59%;
+    top: 58%;
+    left: 58%;
     z-index: 9999;
   }
   
   .external-areas-jh-jx-js-8 {
     position: absolute;
-    top: 12%;
+    top: 8%;
     right: 22%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-9 {
     position: absolute;
-    top: 25%;
-    right: 8%;
+    top: 22%;
+    right: 9%;
     z-index: 9999;
   }
   .external-areas-jh-jx-js-10 {
     position: absolute;
     top: 46%;
+    right: 23%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-11{
+    position: absolute;
+    top: 28.5%;
+    left: 232px;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-12{
+    position: absolute;
+    top: 24.5%;
+    left: 29%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-13{
+    position: absolute;
+    top: 24.5%;
+    left: 53%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-14{
+    position: absolute;
+    top: 27%;
     right: 21%;
     z-index: 9999;
   }
+  .external-areas-jh-jx-js-15{
+    position: absolute;
+    top: 62%;
+    left: 15%;
+    z-index: 9999;
+  }
+}
 
+@media (min-width: 2000px) and (max-width: 3000px) {
+
+  .external-areas-jh-jx-js-1 {
+    position: absolute;
+    top: 9.5%;
+    left: 12%;
+    z-index: 9999;
+  }
+  
+  .external-areas-jh-jx-js-2 {
+    position: absolute;
+    top: 77%;
+    left: 11%;
+    z-index: 9999;
+  }
+  
+  .external-areas-jh-jx-js-3 {
+    position: absolute;
+    top: 11%;
+    left: 39%;
+    z-index: 9999;
+  }
+  
+  .external-areas-jh-jx-js-4 {
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-5 {
+    position: absolute;
+    top: 49%;
+    left: 36%;
+    z-index: 9999;
+  }
+  
+  .external-areas-jh-jx-js-6 {
+    position: absolute;
+    top: 68%;
+    left: 39%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-7 {
+    position: absolute;
+    top: 58%;
+    left: 58%;
+    z-index: 9999;
+  }
+  
+  .external-areas-jh-jx-js-8 {
+    position: absolute;
+    top: 8%;
+    right: 22%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-9 {
+    position: absolute;
+    top: 22%;
+    right: 9%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-10 {
+    position: absolute;
+    top: 46%;
+    right: 23%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-11{
+    position: absolute;
+    top: 28.5%;
+    left: 232px;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-12{
+    position: absolute;
+    top: 24.5%;
+    left: 29%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-13{
+    position: absolute;
+    top: 24.5%;
+    left: 53%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-14{
+    position: absolute;
+    top: 27%;
+    right: 21%;
+    z-index: 9999;
+  }
+  .external-areas-jh-jx-js-15{
+    position: absolute;
+    top: 62%;
+    left: 15%;
+    z-index: 9999;
+  }
 }
 
 /* JE - external-areas start */
