@@ -22,7 +22,7 @@ export class CopyRequestComponent implements OnInit {
   minDate: Date;
   maxDate: Date;
   CopyRequest: CopyRequestDto = {
-    userId:null,
+    userId: null,
     Request_Date: null,
     Company_Name: null,
     Sub_Contractor_Id: null,
@@ -59,38 +59,39 @@ export class CopyRequestComponent implements OnInit {
     count: null,
     Safety_Precautions: null,
     Special_Instructions: null,
-    teamId:null,
+    teamId: null,
     createdTime: null
   }
   Requestdata: any = {};
-  userdata:any={};
+  userdata: any = {};
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<CopyRequestComponent>, 
-    private _snackBar: MatSnackBar, 
+    public dialogRef: MatDialogRef<CopyRequestComponent>,
+    private _snackBar: MatSnackBar,
     private userservices: UserService,
-  private jwtauthservice:JwtAuthService,
-  private datePipe: DatePipe,
-    private reqservice:RequestService) {
+    private jwtauthservice: JwtAuthService,
+    private datePipe: DatePipe,
+    private reqservice: RequestService) {
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 20, 0, 1);
     this.maxDate = new Date(currentYear + 1, 11, 31);
-this.userdata=this.jwtauthservice.getUser();
+    this.userdata = this.jwtauthservice.getUser();
   }
 
   ngOnInit(): void {
-    this.CopyRequest.userId=this.userdata["id"];
-    this.CopyRequest.Request_Date=this.data["payload"]["Request_Date"];
-    this.CopyRequest.Request_status ="Hold";
+    this.CopyRequest.userId = this.userdata["id"];
+    // this.CopyRequest.Request_Date=this.data["payload"]["Request_Date"];
+    this.CopyRequest.Request_Date = new Date().toISOString().split('T')[0];
+    this.CopyRequest.Request_status = "Hold";
     this.CopyRequest.Room_Nos = this.data["payload"]["Room_Nos"];
 
     this.CopyRequest.Room_Type = this.data["payload"]["Room_Type"];
 
-    this.CopyRequest.Safety_Precautions = this.data["payload"]["Safety_Precautions"];
+    // this.CopyRequest.Safety_Precautions = this.data["payload"]["Safety_Precautions"];
 
     this.CopyRequest.Site_Id = this.data["payload"]["Site_Id"];
     this.CopyRequest.Special_Instructions = this.data["payload"]["Special_Instructions"];
-    this.CopyRequest.Start_Time = this.data["payload"]["Start_Time"];
+    // this.CopyRequest.Start_Time = this.data["payload"]["Start_Time"];
     this.CopyRequest.Sub_Contractor_Id = this.data["payload"]["Sub_Contractor_Id"];
     this.CopyRequest.teamId = this.data["payload"]["teamId"];
     this.CopyRequest.Tools = this.data["payload"]["Tools"];
@@ -107,7 +108,7 @@ this.userdata=this.jwtauthservice.getUser();
     this.CopyRequest.Company_Name = this.data["payload"]["Company_Name"];
     this.CopyRequest.Crane_Number = this.data["payload"]["Crane_Number"];
     this.CopyRequest.Crane_Requested = this.data["payload"]["Crane_Requested"];
-    this.CopyRequest.End_Time = this.data["payload"]["End_Time"];
+    // this.CopyRequest.End_Time = this.data["payload"]["End_Time"];
     this.CopyRequest.Floor_Id = this.data["payload"]["Floor_Id"];
     this.CopyRequest.Foreman = this.data["payload"]["Foreman"];
     this.CopyRequest.Foreman_Phone_Number = this.data["payload"]["Foreman_Phone_Number"];
@@ -115,7 +116,7 @@ this.userdata=this.jwtauthservice.getUser();
     this.CopyRequest.LOTO_Number = this.data["payload"]["LOTO_Number"];
     this.CopyRequest.LOTO_Procedure = this.data["payload"]["LOTO_Procedure"];
     this.CopyRequest.Machinery = this.data["payload"]["Machinery"];
-    this.CopyRequest.Notes = this.data["payload"]["Notes"];
+    // this.CopyRequest.Notes = this.data["payload"]["Notes"];
     this.CopyRequest.Number_Of_Workers = this.data["payload"]["Number_Of_Workers"];
     this.CopyRequest.PermitNo = this.data["payload"]["PermitNo"];
     this.CopyRequest.Power_Off_Required = this.data["payload"]["Power_Off_Required"];
@@ -127,24 +128,23 @@ this.userdata=this.jwtauthservice.getUser();
     this.Requestdata["WorkingdateFrom"] = this.workingdateFrom;
     this.Requestdata["WorkingdateTo"] = this.workingdateTo;
     // this.Requestdata["Requestdate"] = this.Requestdata;
-    this.CopyRequest.Assign_Start_Date =this.datePipe.transform(this.workingdateFrom, 'yyyy-MM-dd'); 
-    this.CopyRequest.Assign_End_Date = this.datePipe.transform( this.workingdateTo, 'yyyy-MM-dd');
+    this.CopyRequest.Assign_Start_Date = this.datePipe.transform(this.workingdateFrom, 'yyyy-MM-dd');
+    this.CopyRequest.Assign_End_Date = this.datePipe.transform(this.workingdateTo, 'yyyy-MM-dd');
 
-    const diffDays = Math.round(Math.abs((this.workingdateFrom - this.workingdateTo) / oneDay))+1;
+    const diffDays = Math.round(Math.abs((this.workingdateFrom - this.workingdateTo) / oneDay)) + 1;
 
     const [currentDenmarkDate, currentDenmarkTime] = [
       ...config.Denmarktz.split(" "),
     ];
 
-    this.CopyRequest.createdTime = [currentDenmarkDate, currentDenmarkTime].join(" ") ;
+    this.CopyRequest.createdTime = [currentDenmarkDate, currentDenmarkTime].join(" ");
     console.log(this.CopyRequest.createdTime, 'date')
-   
-    this.CopyRequest.count=diffDays;
-    this.reqservice.CopyRequest(this.CopyRequest).subscribe(res=>
-      {
-        this.openSnackBar();
-        // window.location.reload();
-      }); 
+
+    this.CopyRequest.count = diffDays;
+    this.reqservice.CopyRequest(this.CopyRequest).subscribe(res => {
+      this.openSnackBar();
+      // window.location.reload();
+    });
   }
 
   openSnackBar() {

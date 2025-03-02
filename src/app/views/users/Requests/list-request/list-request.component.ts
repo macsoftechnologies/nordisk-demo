@@ -182,7 +182,13 @@ export class ListRequestComponent implements OnInit {
     "MR - Ground Floor",
     "MR - 1st Floor",
     "MR - 2nd Floor",
-    "MR - Roof Plan"
+    "MR - Roof Plan",
+    "JG - Ground Floor",
+    "JG - 1st Floor",
+    "JG - 2nd Floor",
+    "JG - 3rd Floor",
+    "JG - 4th Floor",
+    "JG - Roof Plan",
   ];
 
   getHras = [
