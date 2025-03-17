@@ -3423,28 +3423,103 @@ export class RequestBuildingModelComponent implements OnInit {
     else if (this.data.floor.name == 'Zone 1.2_S' && this.data.floor.planType == 'MR - 1st Floor') {
       this.floorBlock = [
         {
-          value: 'MR000712FC001',
+          value: '1.053.1',
           className: "mr-zone1_2_S-1",
           isSelected: false
         },
         {
-          value: 'MR000711FC001',
+          value: 'TR03',
           className: "mr-zone1_2_S-2",
           isSelected: false
         },
         {
-          value: 'MR000712FC002',
+          value: 'EL01',
           className: "mr-zone1_2_S-3",
           isSelected: false
         },
         {
-          value: '1.038',
+          value: '1.053',
           className: "mr-zone1_2_S-4",
           isSelected: false
         },
         {
-          value: 'SK05',
+          value: '1.053.2',
           className: "mr-zone1_2_S-5",
+          isSelected: false
+        },
+        {
+          value: '1.053.3',
+          className: "mr-zone1_2_S-6",
+          isSelected: false
+        },
+        {
+          value: '1.053.4',
+          className: "mr-zone1_2_S-7",
+          isSelected: false
+        },
+        {
+          value: 'SK08',
+          className: "mr-zone1_2_S-8",
+          isSelected: false
+        },
+        {
+          value: '1.057.1',
+          className: "mr-zone1_2_S-9",
+          isSelected: false
+        },
+        {
+          value: '1.057.2',
+          className: "mr-zone1_2_S-10",
+          isSelected: false
+        },
+        {
+          value: '1.057.3',
+          className: "mr-zone1_2_S-11",
+          isSelected: false
+        },
+        {
+          value: '1.057',
+          className: "mr-zone1_2_S-12",
+          isSelected: false
+        },
+        {
+          value: '1.059',
+          className: "mr-zone1_2_S-13",
+          isSelected: false
+        },
+        {
+          value: '1.055',
+          className: "mr-zone1_2_S-14",
+          isSelected: false
+        },
+        {
+          value: '1.059',
+          className: "mr-zone1_2_S-15",
+          isSelected: false
+        },
+        {
+          value: '1.065.1',
+          className: "mr-zone1_2_S-16",
+          isSelected: false
+        },
+        {
+          value: '1.065.3',
+          className: "mr-zone1_2_S-17",
+          isSelected: false
+        },
+        {
+          value: '1.065.4',
+          className: "mr-zone1_2_S-18",
+          isSelected: false
+        },
+        {
+          value: '1.065',
+          className: "mr-zone1_2_S-19",
+          isSelected: false
+        },
+        {
+          value: '1.067',
+          className: "mr-zone1_2_S-20",
           isSelected: false
         }
       ]

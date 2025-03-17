@@ -3918,39 +3918,126 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 /* MR - 1st Floor Zone 1.2_S */
 
 .mr-zone1_2_S-1 {
-  top: 11.5%;
+  top: 3.5%;
   position: absolute;
   z-index: 9999;
-  left: 9%;
+  left: 21%;
 }
-
 .mr-zone1_2_S-2 {
   top: 11.5%;
   position: absolute;
   z-index: 9999;
-  left: 33%;
+  left: 32%;
 }
-
 .mr-zone1_2_S-3 {
-  top: 11.5%;
+  top: 4.5%;
   position: absolute;
   z-index: 9999;
-  left: 52%;
+  left: 55%;
 }
-
 .mr-zone1_2_S-4 {
+  top: 18.5%;
+  position: absolute;
+  z-index: 9999;
+  left: 25%;
+}
+.mr-zone1_2_S-5 {
+  top: 28.5%;
+  position: absolute;
+  z-index: 9999;
+  left: 20%;
+}
+.mr-zone1_2_S-6 {
+  top: 29.5%;
+  position: absolute;
+  z-index: 9999;
+  left: 26%;
+}
+.mr-zone1_2_S-7 {
+  top: 27.5%;
+  position: absolute;
+  z-index: 9999;
+  left: 35%;
+}
+.mr-zone1_2_S-8 {
   top: 41.5%;
   position: absolute;
   z-index: 9999;
-  left: 29%;
+  left: 28%;
 }
-
-.mr-zone1_2_S-5 {
-  top: 70.5%;
+.mr-zone1_2_S-9 {
+  top: 16%;
   position: absolute;
   z-index: 9999;
-  left: 46%;
+  right: 31%;
 }
+.mr-zone1_2_S-10 {
+  top: 29%;
+  position: absolute;
+  z-index: 9999;
+  right: 32%;
+}
+.mr-zone1_2_S-11 {
+  top: 37%;
+  position: absolute;
+  z-index: 9999;
+  right: 31.5%;
+}
+.mr-zone1_2_S-12 {
+  top: 36%;
+  position: absolute;
+  z-index: 9999;
+  right: 16.5%;
+}
+.mr-zone1_2_S-13 {
+  top: 37%;
+  position: absolute;
+  z-index: 9999;
+  right: 6.5%;
+}
+.mr-zone1_2_S-14 {
+  top: 43%;
+  position: absolute;
+  z-index: 9999;
+  right: 39%;
+}
+.mr-zone1_2_S-15{
+  bottom: 27%;
+  position: absolute;
+  z-index: 9999;
+  right: 27%;
+}
+.mr-zone1_2_S-16 {
+  bottom: 15%;
+  position: absolute;
+  z-index: 9999;
+  right: 33.5%;
+}
+.mr-zone1_2_S-17 {
+  bottom: 9%;
+  position: absolute;
+  z-index: 9999;
+  right: 26.5%;
+}
+.mr-zone1_2_S-18 {
+  bottom: 2%;
+  position: absolute;
+  z-index: 9999;
+  right: 26.5%;
+}
+.mr-zone1_2_S-19 {
+  bottom: 12%;
+  position: absolute;
+  z-index: 9999;
+  right: 13.5%;
+}
+.mr-zone1_2_S-20 {
+  bottom: 12%;
+  position: absolute;
+  z-index: 9999;
+  right: 3.5%;
+}
+
 
 /* MR - 1st Floor Zone 1.3_N */
 
@@ -4110,21 +4197,19 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
 .mr-zone1_4_S-1 {
   position: absolute;
   z-index: 9999;
-  bottom: 69%;
+  top: 10%;
   right: 7.5%;
 }
-
 .mr-zone1_4_S-2 {
   position: absolute;
   z-index: 9999;
-  bottom: 18%;
+  bottom: 30%;
   right: 6.5%;
 }
-
 .mr-zone1_4_S-3 {
   position: absolute;
   z-index: 9999;
-  bottom: 18%;
+  bottom: 9%;
   right: 30.5%;
 }
 
@@ -4136,14 +4221,12 @@ mat-checkbox ::ng-deep .mat-checkbox-inner-container {
   top: 43%;
   left: 10.5%;
 }
-
 .mr-zone1_5_N-2 {
   position: absolute;
   z-index: 9999;
   top: 42%;
   left: 21.5%;
 }
-
 .mr-zone1_5_N-3 {
   position: absolute;
   z-index: 9999;
