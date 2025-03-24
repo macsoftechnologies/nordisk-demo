@@ -314,6 +314,10 @@ export class ListRequestComponent implements OnInit {
       Statusid: 'Closed',
       Statusname: 'Closed',
     },
+    {
+      Statusid: 'Cancelled',
+      Statusname: 'Cancelled',
+    },
   ];
   TypeS: any[] = [
     {
