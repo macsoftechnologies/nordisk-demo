@@ -7542,6 +7542,13 @@ export class RequestService {
   }
 
 
+  public deleteRamsFile(data): Observable<any> {
+    return this.http.post(environment.API_URL + "request/ramsfiledelete.php", data);
+  }
+
+  public addRamsFiles(data): Observable<any> {
+    return this.http.post(environment.API_URL + "request/multiramsfile.php", data);
+  }
 
   // public SetselectedRequest(row)
   // {

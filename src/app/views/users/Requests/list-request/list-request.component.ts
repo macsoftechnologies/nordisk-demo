@@ -1240,7 +1240,7 @@ export class ListRequestComponent implements OnInit {
         EditRequestComponent,
         {
           width: '800px',
-          height: '200px',
+          height: 'fit-content',
           disableClose: false,
           data: { title: title, payload: this.selectedRequestIds.toString() },
         }
@@ -1266,7 +1266,7 @@ export class ListRequestComponent implements OnInit {
           this.getPermits(this.currentPage, this.startValue);
           console.log("NUMMBER", this.currentPage)
           console.log("Start Value", this.startValue);
-          // window.location.reload();
+          window.location.reload();
           this.selected.length = 0;
         }
       });
