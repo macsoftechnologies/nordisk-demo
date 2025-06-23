@@ -2933,11 +2933,13 @@ export class NewRequestComponent implements OnInit {
   }
 
   SaveasDraft(statusdata) {
+               (Object as any).keys(this.RequestForm.controls).forEach((control) => {
+      this.RequestForm.get(`${control}`).updateValueAndValidity();
+      this.RequestForm.get(`${control}`).markAsTouched();
+    });
     if(this.RequestForm.get('SubContractor').valid) {
       this.Requestdata.Request_status = "Draft";
     this.CreateRequest();
-    } else {
-      this.openSnackBar("please select contractor ");
     }
     //this.requestsserivies.CreateNewRequest()
   }
@@ -5046,7 +5048,7 @@ this.RequestForm.controls["Safetyprecaustion"].setValue(precautionIds);
   // }
 
    images: { name: string }[] = [];
-  imagesAdd: { name: string }[] = [];;
+  imagesAdd: { name: string }[] = [];
 
 csvInputChange(e: any): void {
   const files = e.target.files;
